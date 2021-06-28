@@ -1,4 +1,5 @@
 import React from 'react';
+import BestSellingProduct from '../../util/HomePageSection/BestSellingProduct';
 import FeaturedProduct from '../../util/HomePageSection/FeaturedProduct';
 import HeroSection from '../../util/HomePageSection/HeroSection';
 import Policy from '../../util/HomePageSection/SitePolicy';
@@ -8,6 +9,7 @@ const Index = () => {
             <HeroSection/>
             <Policy/>
             <FeaturedProduct/>
+            <BestSellingProduct/>
         </div>
     );
 };

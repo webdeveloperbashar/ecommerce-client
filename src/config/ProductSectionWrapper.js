@@ -1,8 +1,9 @@
 import { Link, navigate } from "@reach/router";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "react-multi-carousel/lib/styles.css";
-import ProductSlider from "../config/ProductSlider";
 import HorizontalLine from "./HorizontalLine";
+import Slider from "./Slider";
+import SliderFunctionalities from "./SliderFunctionalities";
 
 const HomeProductSection = ({
   bannerTitle,
@@ -10,7 +11,7 @@ const HomeProductSection = ({
   bannerOfferTitle,
   bannerOfferRate,
   whichProduct,
-  btnText
+  btnText,
 }) => {
   return (
     <main className="m-top__4">
@@ -46,7 +47,7 @@ const HomeProductSection = ({
                   <p>{whichProduct}</p>
                   <HorizontalLine
                     width="42px"
-                    height='3px'
+                    height="3px"
                     margin="25px auto"
                     background="#A8B324"
                   />
@@ -57,7 +58,23 @@ const HomeProductSection = ({
               </div>
             </div>
             <div className="col-md-9">
-              <ProductSlider />
+              <SliderFunctionalities>
+                <Slider
+                  productImg="https://i.ibb.co/gzD9DdP/09.png"
+                  productName="Kashmiri Dragon Fruits"
+                  productPrice="$78.98"
+                />
+                <Slider
+                  productImg="https://i.ibb.co/F4rkCxW/12.png"
+                  productName="BD Dragon Fruits"
+                  productPrice="$45.69"
+                />
+                <Slider
+                  productImg="https://i.ibb.co/ZVVYXyh/fruits.png"
+                  productName="Turkey Chandal Fruits"
+                  productPrice="$159.68"
+                />
+              </SliderFunctionalities>
             </div>
           </div>
         </div>
