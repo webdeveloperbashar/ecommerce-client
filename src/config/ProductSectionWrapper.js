@@ -5,14 +5,16 @@ import HorizontalLine from "./HorizontalLine";
 import Slider from "./Slider";
 import SliderFunctionalities from "./SliderFunctionalities";
 
-const HomeProductSection = ({
+const ProductSectionWrapper = ({
   bannerTitle,
   bannerImg,
   bannerOfferTitle,
   bannerOfferRate,
   whichProduct,
   btnText,
+  data,
 }) => {
+  console.log(data)
   return (
     <main className="m-top__4">
       <div className="container">
@@ -59,7 +61,14 @@ const HomeProductSection = ({
             </div>
             <div className="col-md-9">
               <SliderFunctionalities>
-                <Slider
+                {data.map((item) => (
+                  <Slider
+                    productImg={`${item.img}`}
+                    productName={`${item.name}`}
+                    productPrice={`${item.price}`}
+                  />
+                ))}
+                {/* <Slider
                   productImg="https://i.ibb.co/gzD9DdP/09.png"
                   productName="Kashmiri Dragon Fruits"
                   productPrice="$78.98"
@@ -73,7 +82,7 @@ const HomeProductSection = ({
                   productImg="https://i.ibb.co/ZVVYXyh/fruits.png"
                   productName="Turkey Chandal Fruits"
                   productPrice="$159.68"
-                />
+                /> */}
               </SliderFunctionalities>
             </div>
           </div>
@@ -83,4 +92,4 @@ const HomeProductSection = ({
   );
 };
 
-export default HomeProductSection;
+export default ProductSectionWrapper;
