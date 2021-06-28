@@ -4,6 +4,7 @@ import { CgChevronDoubleRight } from "react-icons/cg";
 import { FaStar } from "react-icons/fa";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
+import HorizontalLine from "./HorizontalLine";
 
 const responsive = {
   superLargeDesktop: {
@@ -61,7 +62,12 @@ const ProductSlider = () => {
             </p>
             <h4 className="my-2">Beaf Meat Kabab</h4>
             <h3 className="mb-3">$456.99</h3>
-            <hr style={{ width: "42px", margin: "8px auto" }} />
+            <HorizontalLine
+              width="60px"
+              height="1px"
+              margin="8px auto"
+              background="#A8B324"
+            />
             <Link to="/" className="product__link">
               Add to cart <CgChevronDoubleRight className="arrow__icon" />
             </Link>
@@ -87,7 +93,12 @@ const ProductSlider = () => {
             </p>
             <h4 className="my-2">Litchu Cake Juice</h4>
             <h3 className="mb-3">$45.98</h3>
-            <hr style={{ width: "42px", margin: "8px auto" }} />
+            <HorizontalLine
+              width="60px"
+              height="1px"
+              margin="8px auto"
+              background="#A8B324"
+            />
             <Link to="/" className="product__link">
               Add to cart <CgChevronDoubleRight className="arrow__icon" />
             </Link>
@@ -112,7 +123,12 @@ const ProductSlider = () => {
             </p>
             <h4 className="my-2">Kashmiri Chandal Fruits</h4>
             <h3 className="mb-3">$259.68</h3>
-            <hr style={{ width: "42px", margin: "8px auto" }} />
+            <HorizontalLine
+              width="60px"
+              height="1px"
+              margin="8px auto"
+              background="#A8B324"
+            />
             <Link to="/" className="product__link">
               Add to cart <CgChevronDoubleRight className="arrow__icon" />
             </Link>
@@ -138,7 +154,12 @@ const ProductSlider = () => {
             </p>
             <h4 className="my-2">Litchu Cake Juice</h4>
             <h3 className="mb-3">$45.98</h3>
-            <hr style={{ width: "42px", margin: "8px auto" }} />
+            <HorizontalLine
+              width="60px"
+              height="1px"
+              margin="8px auto"
+              background="#A8B324"
+            />
             <Link to="/" className="product__link">
               Add to cart <CgChevronDoubleRight className="arrow__icon" />
             </Link>

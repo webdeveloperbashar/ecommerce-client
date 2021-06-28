@@ -414,6 +414,7 @@ a:hover {
   overflow: hidden;
   margin: 10px 0;
   cursor: pointer;
+  border-radius: 5px;
 }
 .banner {
   height: 327px;
