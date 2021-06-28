@@ -6,9 +6,9 @@ const BestSellingProduct = () => {
     <ProductSectionWrapper
       bannerTitle="Best Selling Products"
       bannerImg={banner2}
-      bannerOfferTitle="Hot Offer!"
-      bannerOfferRate="60% Of"
-      whichProduct="All Dairy Products"
+      bannerOfferTitle="Weekly Sale Offer!"
+      bannerOfferRate="30% Of"
+      whichProduct="All Category Products"
       btnText="Shop Now"
       data={FakeData}
     />

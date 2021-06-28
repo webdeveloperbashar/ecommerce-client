@@ -14,7 +14,6 @@ const ProductSectionWrapper = ({
   btnText,
   data,
 }) => {
-  console.log(data)
   return (
     <main className="m-top__4">
       <div className="container">
@@ -49,7 +48,7 @@ const ProductSectionWrapper = ({
                   <p>{whichProduct}</p>
                   <HorizontalLine
                     width="42px"
-                    height="3px"
+                    height="1px"
                     margin="25px auto"
                     background="#A8B324"
                   />
@@ -61,28 +60,14 @@ const ProductSectionWrapper = ({
             </div>
             <div className="col-md-9">
               <SliderFunctionalities>
-                {data.map((item) => (
+                {data.map((item, index) => (
                   <Slider
+                    key={index + 1}
                     productImg={`${item.img}`}
                     productName={`${item.name}`}
                     productPrice={`${item.price}`}
                   />
                 ))}
-                {/* <Slider
-                  productImg="https://i.ibb.co/gzD9DdP/09.png"
-                  productName="Kashmiri Dragon Fruits"
-                  productPrice="$78.98"
-                />
-                <Slider
-                  productImg="https://i.ibb.co/F4rkCxW/12.png"
-                  productName="BD Dragon Fruits"
-                  productPrice="$45.69"
-                />
-                <Slider
-                  productImg="https://i.ibb.co/ZVVYXyh/fruits.png"
-                  productName="Turkey Chandal Fruits"
-                  productPrice="$159.68"
-                /> */}
               </SliderFunctionalities>
             </div>
           </div>

@@ -451,11 +451,8 @@ a:hover {
 .banner__content p {
   margin-bottom: 15px;
 }
-.banner__content:hover h3 {
+.product__banner:hover .banner__content h3 {
   margin-top: -35px;
-}
-.banner__content:hover .banner__shop__link {
-  display: block;
 }
 .banner__shop__link {
   background: #a8b324;
@@ -466,10 +463,21 @@ a:hover {
   color: white;
   font-size: 15px;
   transition: all 0.3s ease-out;
-  display: none;
+  opacity: 0;
+}
+.product__banner:hover .banner__shop__link {
+  opacity: 1;
 }
 .banner__shop__link:hover {
   background: var(--bg-light);
+}
+.banner__content span {
+  transition: all 0.3s ease-out;
+  opacity: 0;
+}
+.product__banner:hover .banner__content span {
+  width: 80px !important;
+  opacity: 1;
 }
 .slider__box {
   height: 327px;
@@ -550,4 +558,97 @@ a:hover {
   z-index: 1;
   font-size: 13px;
   border-radius: 3px;
+}
+.grid-left,
+.grid-right {
+  height: 424px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 5px;
+}
+.grid-left .cate__content,
+.grid-right .cate__content {
+  height: 424px;
+  position: relative;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+  transition: all 0.3s ease-out;
+}
+
+.grid-left:hover .cate__content,
+.grid-right:hover .cate__content {
+  transform: scale(1.2);
+}
+
+.grid-middle-1,
+.grid-middle-2,
+.grid-middle-3 {
+  height: 200px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 5px;
+}
+
+.grid-middle-1 .cate__content,
+.grid-middle-2 .cate__content,
+.grid-middle-3 .cate__content {
+  height: 200px;
+  position: relative;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+  overflow: hidden;
+  transition: all 0.3s ease-out;
+}
+.grid-middle-1:hover .cate__content,
+.grid-middle-2:hover .cate__content,
+.grid-middle-3:hover .cate__content {
+  transform: scale(1.2);
+}
+.category__content {
+  width: 100%;
+  height: 100%;
+  background: #00000057;
+  color: white;
+  text-align: center;
+  padding: 80px 30px;
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+}
+.category__content h2 {
+  font-size: 20px;
+  font-weight: 700;
+}
+.category__content p {
+  margin-top: 50px;
+  opacity: 0;
+  font-weight: 600;
+  font-size: 13px;
+  transition: all 0.3s ease-in-out;
+}
+.category__content span {
+  transition: all 0.3s ease-in-out;
+}
+.grid-middle-1:hover .category__content p,
+.grid-middle-2:hover .category__content p,
+.grid-middle-3:hover .category__content p {
+  margin-top: 0;
+  opacity: 1;
+}
+.grid-left:hover .category__content p,
+.grid-right:hover .category__content p {
+  margin-top: 0;
+  opacity: 1;
+}
+.grid-left:hover .category__content span,
+.grid-right:hover .category__content span {
+  width: 100px !important;
+}
+.grid-middle-1:hover .category__content span,
+.grid-middle-2:hover .category__content span,
+.grid-middle-3:hover .category__content span {
+  width: 80px !important;
 }

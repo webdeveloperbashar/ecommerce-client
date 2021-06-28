@@ -1,7 +1,7 @@
 import banner1 from "../../assets/product-banner/banner-1.jpg";
 import FakeData2 from "../../config/FakeData2";
 import ProductSectionWrapper from "../../config/ProductSectionWrapper";
-const FeaturedProduct = () => {
+const HotProduct = () => {
   return (
     <ProductSectionWrapper
       bannerTitle="Hot Products"
@@ -15,4 +15,4 @@ const FeaturedProduct = () => {
   );
 };
 
-export default FeaturedProduct;
+export default HotProduct;
