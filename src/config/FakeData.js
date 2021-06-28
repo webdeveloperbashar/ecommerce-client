@@ -11,7 +11,7 @@ const FakeData = [
         price: '$58.69',
     },
     {
-        img: 'https://i.ibb.co/ZVVYXyh/fruits.png',
+        img: 'https://i.ibb.co/WyGPRLZ/orange.jpg',
         name: 'Kashmiri Fruits',
         price: '$87.36',
     }
