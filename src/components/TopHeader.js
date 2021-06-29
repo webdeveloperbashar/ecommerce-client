@@ -1,7 +1,8 @@
 import { Link, navigate } from "@reach/router";
 import { FaHeadphones, FaRegUser, FaSearch, FaShoppingCart } from "react-icons/fa";
 import { GrFavorite } from "react-icons/gr";
-import logo from "../assets/images/brand-logo/logo.svg";
+// import logo from "../assets/images/brand-logo/logo.svg";
+import logo from "../assets/images/brand-logo/valley.svg";
 const TopHeader = () => {
   return (
     <div className="topHeader bg-light">

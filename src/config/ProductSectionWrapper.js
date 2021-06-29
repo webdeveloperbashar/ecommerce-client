@@ -13,6 +13,9 @@ const ProductSectionWrapper = ({
   whichProduct,
   btnText,
   data,
+  sliderArrows,
+  sliderSpeed,
+  sliderTransition
 }) => {
   return (
     <main className="m-top__4">
@@ -59,7 +62,11 @@ const ProductSectionWrapper = ({
               </div>
             </div>
             <div className="col-md-9">
-              <SliderFunctionalities>
+              <SliderFunctionalities
+                sliderArrows={sliderArrows}
+                sliderSpeed={sliderSpeed}
+                sliderTransition={sliderTransition}
+              >
                 {data.map((item, index) => (
                   <Slider
                     key={index + 1}

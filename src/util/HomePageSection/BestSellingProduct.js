@@ -11,6 +11,9 @@ const BestSellingProduct = () => {
       whichProduct="All Category Products"
       btnText="Shop Now"
       data={FakeData}
+      sliderArrows={true}
+      sliderSpeed={1500}
+      sliderTransition="all .5s"
     />
   );
 };

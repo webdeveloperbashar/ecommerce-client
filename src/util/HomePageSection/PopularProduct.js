@@ -3,7 +3,7 @@ import FakeData from "../../config/FakeData";
 import ProductSectionWrapper from "../../config/ProductSectionWrapper";
 const PopularProduct = () => {
   return (
-    <div>
+    <>
       <ProductSectionWrapper
         bannerTitle="Popular Products"
         bannerImg={banner3}
@@ -12,8 +12,11 @@ const PopularProduct = () => {
         whichProduct="All Vegetable & Fruits"
         btnText="Shop Now"
         data={FakeData}
+        sliderArrows={true}
+        sliderSpeed={1500}
+        sliderTransition="all 1s"
       />
-    </div>
+    </>
   );
 };
 

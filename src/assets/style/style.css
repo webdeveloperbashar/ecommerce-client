@@ -30,6 +30,9 @@ a:hover {
   max-width: 1140px;
   margin: auto;
 }
+.line__height {
+  line-height: 25px;
+}
 .font-size__2 {
   font-size: 16px;
   font-weight: 600;
@@ -47,6 +50,7 @@ a:hover {
 }
 .font-blue-gray {
   color: var(--font-blue-gray);
+  font-weight: 700;
 }
 .font-light {
   color: var(--font-light);
@@ -310,7 +314,7 @@ a:hover {
   padding: 20px 0;
 }
 .logo {
-  width: 120px !important;
+  width: 95px !important;
   cursor: pointer;
 }
 .navbar-nav {
@@ -507,6 +511,7 @@ a:hover {
 }
 .slider__content p {
   color: orange;
+  font-size: 13px;
 }
 .slider__content h4 {
   font-size: 15px;
@@ -651,4 +656,55 @@ a:hover {
 .grid-middle-2:hover .category__content span,
 .grid-middle-3:hover .category__content span {
   width: 80px !important;
+}
+
+.subscrib__banner {
+  height: 200px;
+  background-position: center center !important;
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+}
+.subscribe__content h2 {
+  font-size: 30px;
+  font-weight: 700;
+  margin-top: 15px;
+}
+.subscribe__content p {
+  font-size: 15px;
+  color: var(--font-blue-gray);
+}
+.subscribe__content > form {
+  width: 50%;
+  margin: auto;
+  margin-top: 25px;
+}
+
+.partner__logo img {
+  height: 150px;
+  filter: grayscale(1);
+  transition: all 0.2s ease-in-out;
+}
+.partner__logo img:hover {
+  filter: none;
+}
+.footer__logo img {
+  width: 130px;
+}
+.footer__location h2,
+.footer__category h2,
+.footer__menu h2 {
+  font-size: 25px;
+  margin-bottom: 20px;
+}
+.footer__location ul li,
+.footer__category ul li {
+  margin: 10px 0;
+}
+.footer__category ul li .footer__cate:hover {
+  color: var(--font-light);
+  margin-left: 10px;
+}
+.footer__menu ul li .footer__link:hover {
+  color: var(--font-light);
+  margin-left: 10px;
 }

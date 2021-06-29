@@ -11,6 +11,9 @@ const HotProduct = () => {
       whichProduct='All Dairy Products'
       btnText='Shop Now'
       data={FakeData2}
+      sliderArrows={true}
+      sliderSpeed={1500}
+      sliderTransition="all 2s"
     />
   );
 };

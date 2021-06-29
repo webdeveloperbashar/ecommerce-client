@@ -5,7 +5,7 @@ const Nav = () => {
   return (
     <>
       <TopHeader />
-      <div className="navbar bg-dark__green">
+      <div className="navbar bg-dark">
         <div className="container d-flex nav-grid justify-content-between align-items-center">
           <div className="category font-light d-flex align-items-center">
             {/* <span className="d-flex align-items-center"> */}

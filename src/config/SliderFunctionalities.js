@@ -20,7 +20,12 @@ const responsive = {
   },
 };
 
-const SliderFunctionalities = ({ children }) => {
+const SliderFunctionalities = ({
+  children,
+  sliderArrows,
+  sliderSpeed,
+  sliderTransition,
+}) => {
   return (
     <>
       <Carousel
@@ -30,10 +35,11 @@ const SliderFunctionalities = ({ children }) => {
         ssr={true}
         infinite={true}
         autoPlay={true}
-        autoPlaySpeed={2000}
+        autoPlaySpeed={sliderSpeed}
+        arrows={sliderArrows}
         keyBoardControl={true}
-        customTransition="all .5s"
-        transitionDuration={1500}
+        customTransition={sliderTransition}
+        transitionDuration={1800}
         containerClass="carousel-container"
         dotListClass="custom-dot-list-style"
         itemClass="carousel-item-padding-40-px"

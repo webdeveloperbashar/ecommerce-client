@@ -4,7 +4,7 @@ import FakeData from "../../config/FakeData2";
 import ProductSectionWrapper from "../../config/ProductSectionWrapper";
 const TopRatedProduct = () => {
   return (
-    <div>
+    <>
       <ProductSectionWrapper
         bannerTitle="Top Rated Products"
         bannerImg={banner4}
@@ -13,8 +13,11 @@ const TopRatedProduct = () => {
         whichProduct="All Health & Beverage"
         btnText="Shop Now"
         data={FakeData}
+        sliderArrows={true}
+        sliderSpeed={1500}
+        sliderTransition="all .1s"
       />
-    </div>
+    </>
   );
 };
 
