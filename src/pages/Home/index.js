@@ -11,7 +11,7 @@ import SubscribeSection from '../../util/HomePageSection/SubscribeSection';
 import TopRatedProduct from '../../util/HomePageSection/TopRatedProduct';
 const Index = () => {
     return (
-        <>
+        <div className="homeWrapper">
             <HeroSection/>
             <Policy/>
             <HotProduct/>
@@ -22,7 +22,7 @@ const Index = () => {
             <SubscribeSection/>
             <PartnerSection/>
             <Footer/>
-        </>
+        </div>
     );
 };
 

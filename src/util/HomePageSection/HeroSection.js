@@ -16,7 +16,7 @@ const HeroSection = () => {
           <div className="col-md-3 p-right__0">
             <SubMenuCategory />
           </div>
-          <div className="col-md-9 p-left__0">
+          <div className="col-md-9 hero__slider">
             <div className="courosel__slider">
               <AutoplaySlider
                 play={true}

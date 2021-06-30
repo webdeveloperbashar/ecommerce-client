@@ -1,12 +1,12 @@
 import { Link, navigate } from "@reach/router";
+import "bootstrap/dist/css/bootstrap.min.css";
 import { FaHeadphones, FaRegUser, FaSearch, FaShoppingCart } from "react-icons/fa";
 import { GrFavorite } from "react-icons/gr";
-// import logo from "../assets/images/brand-logo/logo.svg";
 import logo from "../assets/images/brand-logo/valley.svg";
 const TopHeader = () => {
   return (
     <div className="topHeader bg-light">
-      <div className="container d-grid d-flex justify-content-between align-items-center">
+      <div className="container d-grid display-grid d-flex justify-content-between align-items-center">
         <div className="brand__logo">
           <img
             className="img-fluid logo"
@@ -15,7 +15,7 @@ const TopHeader = () => {
             alt="brand logo"
           />
         </div>
-        <form>
+        <form className="search__form">
           <div className="d-flex">
             <input
               type="text"
@@ -29,7 +29,7 @@ const TopHeader = () => {
           <ul className="navbar-nav m-right__auto m-right__2">
             <li className="nav-item">
               <Link
-                className="m-right__5 p__2 d-flex align-items-center"
+                className="support p__2 d-flex align-items-center"
                 to="#"
               >
                 <div className="m-right__2 support__icon">
