@@ -275,7 +275,7 @@ a:hover {
   padding-right: 0px;
 }
 .all__border {
-  border: 2px solid #d2d2d2 !important;
+  border: 1px solid #d2d2d2 !important;
 }
 .btn {
   background: #a8b324;
@@ -293,24 +293,24 @@ a:hover {
   display: block;
 }
 .mobile__navbar {
-  display: block;
+  display: none;
 }
-.mobile__navbar__sticky {
-  position: fixed;
-  width: 100%;
-  z-index: 99;
-  transform: translateY(-100px);
-  opacity: 0;
-  transition: all 0.5s ease-in-out;
-}
-.mobile__navbar__sticky.active {
+.sticky__header {
   position: fixed;
   width: 100%;
   z-index: 999;
-  transform: translateY(0px);
-  opacity: 1;
+  transform: translateY(-100px);
+  opacity: 0;
   box-sizing: border-box;
   box-shadow: 0px 3px 5px grey;
+  transition: all 0.5s ease-in-out;
+}
+.sticky__header.show {
+  position: fixed;
+  width: 100%;
+  z-index: 99;
+  transform: translateY(0px);
+  opacity: 1;
   transition: all 0.5s ease-in-out;
 }
 .navbar {
@@ -430,6 +430,33 @@ a:hover {
 .awssld__content > video {
   object-fit: inherit;
 }
+
+/********* site policy ***********/
+.policy__box {
+  height: 100px;
+}
+.policy__box .support__icon {
+  font-size: 25px;
+}
+.policy-col-1 {
+  padding-right: 0;
+}
+
+.policy-col-2 {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+.policy-col-3 {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.policy-col-4 {
+  padding-left: 0;
+}
+/********* site policy end ************/
+
 .box__shadow {
   box-sizing: border-box;
   box-shadow: 0px 0px 3px #d6d6d6;

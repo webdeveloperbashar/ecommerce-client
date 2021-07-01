@@ -44,10 +44,76 @@
   .sub__category ul li a {
     font-size: 13px;
   }
+  /********* site policy ***********/
+  .policy__box {
+    padding: 5px;
+  }
+  .policy__box h1 {
+    font-size: 15px;
+  }
+
+  .policy__box p {
+    font-size: 13px;
+  }
+  /********* site policy end ************/
+  /*********** homepage product section start *************/
+  .section__title {
+    font-size: 20px !important;
+  }
+  .sorting {
+    width: 90px;
+    font-size: 15px;
+  }
+  .banner__content h3 {
+    font-size: 20px !important;
+  }
+  .banner__content h2 {
+    font-size: 30px !important;
+  }
+  .banner__shop__link {
+    padding: 8px 13px !important;
+    width: 90px !important;
+    font-size: 11px !important;
+  }
+  /*********** homepage product section end *************/
+  /******** category banner **************/
+  .category__content {
+    padding: 80px 3px !important;
+  }
+  .category__content h2 {
+    font-size: 15px !important;
+  }
 }
 @media (max-width: 767px) {
   .desktop__navbar {
     display: none !important;
+  }
+  .mobile__navbar {
+    display: block !important;
+  }
+  .navbar__collapse__sticky {
+    display: none !important;
+  }
+  .common__property {
+    display: none !important;
+  }
+  .mobile__icon {
+    display: block !important;
+  }
+  .mobile__logo {
+    text-align: center !important;
+  }
+  .mobile__logo .logo {
+    width: 60px !important;
+  }
+  .mobile__search__icon {
+    display: block !important;
+  }
+  .mobile__search__icon span {
+    font-size: 13px;
+    color: black;
+    margin-right: 10px;
+    font-weight: 700;
   }
   .sub__category {
     display: none;
@@ -57,13 +123,6 @@
   }
   .awssld {
     height: 200px !important;
-  }
-  .mobile__navbar {
-    display: block !important;
-    position: fixed;
-    width: 100%;
-    z-index: 9;
-    top: 0;
   }
   .search__form {
     margin-left: 10px;
@@ -78,10 +137,226 @@
     display: grid;
     grid-template-columns: auto 220px auto;
   }
+  /******** site policy ***********/
+  .policy__box {
+    padding: 12px !important;
+  }
+  .policy__row {
+    display: grid;
+    grid-template-columns: 50% 50%;
+  }
+  .policy-col-2 {
+    padding-left: 0px !important;
+    padding-right: 12px !important;
+  }
+  .policy-col-3 {
+    padding-left: 12px !important;
+  }
+  /********* site policy end ************/
+
+  /*********** homepage product section start *************/
+  .section__title {
+    font-size: 20px !important;
+  }
+  p.sort {
+    font-size: 17px !important;
+  }
+  .sorting {
+    width: 90px;
+    font-size: 15px;
+  }
+  .banner {
+    height: 180px !important;
+  }
+  .banner__content {
+    padding: 55px 30px !important;
+  }
+  .banner__content h3 {
+    font-size: 20px !important;
+    margin-bottom: 4px !important;
+  }
+  .banner__content h2 {
+    font-size: 30px !important;
+    margin-bottom: 4px !important;
+  }
+  .banner__content p {
+    margin-bottom: 0px !important;
+  }
+  .banner__content span {
+    margin: 18px auto !important;
+  }
+  .banner__shop__link {
+    padding: 8px 13px !important;
+    width: 90px !important;
+    font-size: 11px !important;
+  }
+  /*********** homepage product section end *************/
+  /******** category banner ***********/
+  .grid-left,
+  .grid-right {
+    height: 125px !important;
+  }
+  .grid-left {
+    margin-bottom: 10px !important;
+  }
+  .grid-right {
+    margin-top: 10px !important;
+  }
+  .grid-left .cate__content,
+  .grid-right .cate__content {
+    height: 125px !important;
+  }
+
+  .grid-middle-1,
+  .grid-middle-2,
+  .grid-middle-3 {
+    height: 125px !important;
+  }
+  .grid-middle-1 .cate__content,
+  .grid-middle-2 .cate__content,
+  .grid-middle-3 .cate__content {
+    height: 125px !important;
+  }
+  .grid-middle-2 {
+    margin-top: -13px;
+    margin-bottom: 10px;
+  }
+  .category__content {
+    padding: 40px 30px !important;
+  }
+  .category__content h2 {
+    font-size: 17px !important;
+  }
+  /******** category banner end ***********/
 }
 @media screen and (max-width: 575px) {
+  /******** site policy ***********/
+  .policy__box {
+    padding: 12px !important;
+  }
+  .policy__box h1 {
+    font-size: 13px !important;
+  }
+  .policy__box p {
+    font-size: 12px !important;
+  }
+  .policy__row {
+    display: grid;
+    grid-template-columns: 50% 50%;
+  }
+  .policy-col-2 {
+    padding-left: 0px !important;
+    padding-right: 12px !important;
+  }
+  .policy-col-3 {
+    padding-left: 12px !important;
+  }
+  /********* site policy end ************/
+
+  /*********** homepage product section start *************/
+  .section__title {
+    font-size: 20px !important;
+  }
+  p.sort {
+    font-size: 17px !important;
+  }
+  .sorting {
+    width: 90px;
+    font-size: 15px;
+  }
+  .banner__content h3 {
+    font-size: 20px !important;
+  }
+  .banner__content h2 {
+    font-size: 30px !important;
+  }
+  .banner__shop__link {
+    padding: 8px 13px !important;
+    width: 90px !important;
+    font-size: 11px !important;
+  }
+  .slider__content p {
+    font-size: 10px !important;
+  }
+  .slider__content h4 {
+    font-size: 12px !important;
+  }
+  .slider__content h3 {
+    font-size: 15px !important;
+  }
+  .slider__content > .product__link {
+    font-size: 14px !important;
+  }
+
+  /*********** homepage product section end *************/
 }
 @media screen and (max-width: 425px) {
+  /******** site policy ***********/
+  .policy__box {
+    padding: 12px !important;
+  }
+  .policy__row {
+    display: grid;
+    grid-template-columns: 50% 50%;
+  }
+  .policy-col-2 {
+    padding-left: 0px !important;
+    padding-right: 12px !important;
+  }
+  .policy-col-3 {
+    padding-left: 12px !important;
+  }
+  /********* site policy end ************/
+
+  /*********** homepage product section start *************/
+  .section__title {
+    font-size: 17px !important;
+  }
+  p.sort {
+    font-size: 13px !important;
+  }
+  .sorting {
+    width: 90px;
+    font-size: 15px;
+  }
+  .banner__content h3 {
+    font-size: 15px !important;
+  }
+  .banner__content h2 {
+    font-size: 25px !important;
+  }
+  .banner__shop__link {
+    padding: 8px 13px !important;
+    width: 90px !important;
+    font-size: 11px !important;
+  }
+  /*********** homepage product section end *************/
+  /******** category banner ***********/
+  .category__content h2 {
+    font-size: 17px !important;
+  }
 }
 @media screen and (max-width: 320px) {
+  /******* site policy ***********/
+  .policy__box h1 {
+    font-size: 12px;
+  }
+
+  .policy__box p {
+    font-size: 10px;
+  }
+  /********* site policy end ************/
+
+  /*********** homepage product section start *************/
+  .section__title {
+    font-size: 15px !important;
+  }
+  p.sort {
+    font-size: 12px !important;
+  }
+  .sorting {
+    width: 74px;
+    font-size: 12px;
+    margin-left: 5px !important;
+  }
 }

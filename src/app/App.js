@@ -1,6 +1,7 @@
 import { Helmet } from "react-helmet";
 import MobileNavbar from "../components/MobileNavbar";
 import Nav from "../components/Nav";
+import StickyHeader from "../components/StickyHeader";
 import Routes from "./Routes";
 
 // const navbar = document.querySelector(".desktop__navbar");
@@ -25,7 +26,8 @@ const App = () => {
           rel="stylesheet"
         ></link>
       </Helmet>
-      <MobileNavbar />
+      <StickyHeader />
+      <MobileNavbar/>
       <Nav />
       <Routes />
     </>

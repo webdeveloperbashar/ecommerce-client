@@ -22,9 +22,9 @@ const ProductSectionWrapper = ({
       <div className="container">
         <div className="featured__product p__4 box__shadow bg-light">
           <div className="d-flex align-items-center justify-content-between py__2">
-            <h1 className="font-size__3 font-dark__green">{bannerTitle}</h1>
+            <h1 className="section__title font-size__3 font-dark__green">{bannerTitle}</h1>
             <div className="d-flex align-items-center justify-content-between">
-              <p>Sort By</p>
+              <p className="sort">Sort By</p>
               <select name="sorting" className="sorting m-left__3">
                 <option>Default</option>
                 <option>Newest</option>

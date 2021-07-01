@@ -1,25 +1,11 @@
-import { Link } from "@reach/router";
-import { useState } from "react";
-import { FaRegUser, FaSearch, FaShoppingCart } from "react-icons/fa";
-import { GrFavorite } from "react-icons/gr";
+import { navigate } from '@reach/router';
+import { FaSearch } from "react-icons/fa";
 import { IoMdMenu } from "react-icons/io";
 import logo from "../assets/images/brand-logo/valley.svg";
-import NavLink from "../util/NavLink";
 const MobileNavbar = () => {
-  const [stickyNav, setStickyNav] = useState(false);
-  const stickyNavbar = () => {
-    if (window.scrollY >= 350) {
-      setStickyNav(true);
-    } else {
-      setStickyNav(false);
-    }
-  };
-  window.addEventListener("scroll", stickyNavbar);
   return (
     <header
-      className={`${
-        stickyNav ? "mobile__navbar__sticky active" : "mobile__navbar__sticky"
-      } py-1 bg-light`}
+      className="mobile__navbar py-1 bg-light"
     >
       <div className="container">
         <div className="mobile__content">
@@ -29,75 +15,11 @@ const MobileNavbar = () => {
           </div>
           {/* mobile logo */}
           <div className="mobile__logo">
-            <img src={logo} className="logo" alt="logo" />
-          </div>
-          {/* destop menu */}
-          <div className="navbar__collapse__sticky">
-            <ul className="navbar-nav m-right__auto m-right__2">
-              <li className="nav-item">
-                <NavLink className="p__2 font-light link" to="/">
-                  Home
-                </NavLink>
-              </li>
-              <li className="nav-item">
-                <NavLink className="p__2 font-light link" to="/shop">
-                  Shop
-                </NavLink>
-              </li>
-              <li className="nav-item">
-                <NavLink className="p__2 font-light link" to="/blog">
-                  Blog
-                </NavLink>
-              </li>
-              <li className="nav-item">
-                <NavLink className="p__2 font-light link" to="/contact">
-                  Contact
-                </NavLink>
-              </li>
-              <li className="nav-item">
-                <NavLink className="p__2 font-light link" to="/login">
-                  Login
-                </NavLink>
-              </li>
-            </ul>
+            <img src={logo} className="logo" onClick={()=> navigate("/")} alt="logo" />
           </div>
           {/* mobile search icon */}
           <div className="mobile__search__icon">
-            <FaSearch /> <span>$99.99</span>
-          </div>
-          {/* desktop property */}
-          <div className="common__property">
-            <ul className="navbar-nav m-right__auto m-right__2">
-              <li className="nav-item">
-                <Link
-                  className="m-left__2 p__2 bg-light__gray topHeader__icon"
-                  to="/login"
-                >
-                  <FaRegUser />
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link
-                  className="m-left__2 p__2 bg-light__gray topHeader__icon"
-                  to="#"
-                >
-                  <GrFavorite /> <span className="cart__badge">4</span>
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link
-                  className="m-left__2 p__2 bg-light__gray topHeader__icon"
-                  to="#"
-                >
-                  <FaShoppingCart /> <span className="cart__badge">4</span>
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link className="m-left__4" to="#">
-                  $99.99
-                </Link>
-              </li>
-            </ul>
+            <span>$99.99</span> <FaSearch /> 
           </div>
         </div>
       </div>
