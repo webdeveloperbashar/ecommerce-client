@@ -10,7 +10,7 @@ const Footer = () => {
     <main className="bg-dark m-top__4">
       <div className="container">
         <div className="footer__content py-5">
-          <div className="row">
+          <div className="row footer__row">
             <div className="col-md-3">
               <div className="footer__logo">
                 <img src={logo} className="img-fluid" alt="logo" />
@@ -25,12 +25,12 @@ const Footer = () => {
                     <span className="m-left__2">Banasree, Rampura,Dhaka,</span>
                   </li>
                   <li>
-                    <SiGmail className="font-blue-gray" />{" "}
-                    <span className="m-left__2">greenvalleyshop@gmail.com</span>
-                  </li>
-                  <li>
                     <FaPhone className="font-blue-gray" />{" "}
                     <span className="m-left__2">(+880)123456789</span>
+                  </li>
+                  <li>
+                    <SiGmail className="font-blue-gray" />{" "}
+                    <span className="m-left__2">greenvalleyshop@gmail.com</span>
                   </li>
                 </ul>
               </div>
@@ -113,7 +113,7 @@ const Footer = () => {
         </div>
         <HorizontalLine width="100%" height="1px" background="gray" />
         <footer className="p__4 text-center">
-          <p className="font-blue-gray">
+          <p className="font-blue-gray copyright__text">
             &copy; Copyright {new Date().getFullYear()} - All Right Reserved
             GreenValley Shop
           </p>

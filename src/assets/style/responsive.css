@@ -228,6 +228,41 @@
     font-size: 17px !important;
   }
   /******** category banner end ***********/
+  /*********** homepage subscribe section start *************/
+  .subscribe__content > form {
+    width: 100% !important;
+  }
+  /*********** homepage subscribe section end *************/
+  /********* Partner section start *************/
+  .parnter__image__row {
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto;
+  }
+  .partner__logo img {
+    height: 80px;
+  }
+  /********* Partner section end *************/
+
+  /********* Footer section start *************/
+  .footer__row {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-gap: 25px 0;
+  }
+  .footer__logo img {
+    width: 90px !important;
+  }
+  .footer__location h2,
+  .footer__category h2,
+  .footer__menu h2 {
+    font-size: 20px !important;
+  }
+  .footer__location ul li span,
+  .footer__category ul li a,
+  .footer__menu ul li a {
+    font-size: 16px !important;
+  }
+  /********* Footer section end *************/
 }
 @media screen and (max-width: 575px) {
   /******** site policy ***********/
@@ -287,8 +322,33 @@
   .slider__content > .product__link {
     font-size: 14px !important;
   }
-
   /*********** homepage product section end *************/
+  /*********** homepage subscribe section start *************/
+
+  .subscribe__content h2 {
+    font-size: 25px !important;
+  }
+  .subscribe__content p {
+    font-size: 12px !important;
+  }
+  .subscribe__content > form {
+    width: 100% !important;
+  }
+  /*********** homepage subscribe section end *************/
+  /********* Footer section start *************/
+  .footer__location h2,
+  .footer__category h2,
+  .footer__menu h2 {
+    font-size: 18px !important;
+  }
+  .footer__location ul li span,
+  .footer__category ul li a,
+  .footer__menu ul li a {
+    font-size: 13px !important;
+  }
+  .copyright__text {
+    font-size: 15px !important;
+  }
 }
 @media screen and (max-width: 425px) {
   /******** site policy ***********/
@@ -331,9 +391,55 @@
     font-size: 11px !important;
   }
   /*********** homepage product section end *************/
-  /******** category banner ***********/
+  /******** category banner start ***********/
   .category__content h2 {
     font-size: 17px !important;
+  }
+  /******** category banner end ***********/
+  /*********** homepage subscribe section start *************/
+  .subscrib__banner {
+    height: 170px !important;
+  }
+  .subscribe__content h2 {
+    font-size: 20px !important;
+  }
+  .subscribe__content p {
+    font-size: 12px !important;
+  }
+  .subscribe__content > form .form-control {
+    padding: 5px 10px !important;
+    font-size: 13px !important;
+  }
+  .subscribe__content > form .btn {
+    font-size: 13px !important;
+  }
+  /*********** homepage subscribe section end *************/
+
+  /********* Footer section start *************/
+  .footer__row {
+    display: grid;
+    grid-template-columns: 40% 60% !important;
+  }
+  .footer__location h2,
+  .footer__category h2,
+  .footer__menu h2 {
+    font-size: 16px !important;
+  }
+  .footer__location ul li span,
+  .footer__category ul li a,
+  .footer__menu ul li a {
+    font-size: 11px !important;
+  }
+
+  .footer__category ul li svg,
+  .footer__menu ul li svg {
+    font-size: 16px !important;
+  }
+  .footer__location ul li svg {
+    font-size: 13px !important;
+  }
+  .copyright__text {
+    font-size: 13px !important;
   }
 }
 @media screen and (max-width: 320px) {
@@ -358,5 +464,24 @@
     width: 74px;
     font-size: 12px;
     margin-left: 5px !important;
+  }
+  /*********** homepage product section end *************/
+  /*********** homepage subscribe section start *************/
+  .subscribe__content h2 {
+    font-size: 15px !important;
+  }
+  .subscribe__content > form .form-control {
+    padding: 5px 10px !important;
+    font-size: 13px !important;
+  }
+  .subscribe__content > form .btn {
+    font-size: 13px !important;
+  }
+  /*********** homepage subscribe section end *************/
+  /********* Footer section start *************/
+  .footer__location ul li span,
+  .footer__category ul li a,
+  .footer__menu ul li a {
+    font-size: 10px !important;
   }
 }

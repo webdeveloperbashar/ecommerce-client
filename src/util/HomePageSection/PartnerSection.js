@@ -4,7 +4,7 @@ const PartnerSection = () => {
     <main className="m-top__4">
       <div className="container">
         <div className="partner__image">
-          <div className="row">
+          <div className="row parnter__image__row">
             <div className="col-md-2">
               <div className="partner__logo">
                 <img
