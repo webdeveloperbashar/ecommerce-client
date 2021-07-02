@@ -1,13 +1,13 @@
 import { FaBlog, FaHome, FaShopify } from "react-icons/fa";
 import { GrContact } from "react-icons/gr";
-import { ImCross } from "react-icons/im";
 import { VscArrowBoth } from "react-icons/vsc";
 import NavLink from "../util/NavLink";
 const CartDrawer = ({ openCartDrawer, handleCloseDrawer }) => {
   return (
     <div
-      className={`cart__drawer__wrapper ${openCartDrawer ? "w-100" : "w-0"}`} onClick={()=>handleCloseDrawer()}
+      className={`cart__drawer__wrapper ${openCartDrawer ? "w-100" : "w-0"}`} 
     >
+      <div className={`${openCartDrawer && "backdrop__effect"}`} onClick={()=>handleCloseDrawer()}></div>
       <div
         className={
           openCartDrawer ? "cart__drawer__inner active" : "cart__drawer__inner"
@@ -16,11 +16,6 @@ const CartDrawer = ({ openCartDrawer, handleCloseDrawer }) => {
         <div className="card">
           <div className="card-body">
             <div className="profile">
-              <ImCross
-                className="close__icon"
-                onClick={() => handleCloseDrawer()}
-                style={{ cursor: "pointer" }}
-              />
               <div className="image">
                 <img
                   src="https://cdn.pixabay.com/photo/2015/01/08/18/30/entrepreneur-593371__340.jpg"
