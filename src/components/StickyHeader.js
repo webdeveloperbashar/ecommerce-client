@@ -5,12 +5,7 @@ import { GrFavorite } from "react-icons/gr";
 import { IoMdMenu } from "react-icons/io";
 import logo from "../assets/images/brand-logo/valley.svg";
 import NavLink from "../util/NavLink";
-import CartDrawer from "./CartDrawer";
-const StickyHeader = ({
-  openCartDrawer,
-  handleOpenDrawer,
-  handleCloseDrawer,
-}) => {
+const StickyHeader = ({handleOpenDrawer}) => {
   const [stickyNav, setStickyNav] = useState(false);
   const stickyNavbar = () => {
     if (window.pageYOffset >= 300) {
@@ -24,10 +19,6 @@ const StickyHeader = ({
   window.addEventListener("scroll", stickyNavbar);
   return (
     <>
-      <CartDrawer
-        openCartDrawer={openCartDrawer}
-        handleCloseDrawer={handleCloseDrawer}
-      />
       <header
         className={`${
           stickyNav ? "sticky__header show" : "sticky__header"
@@ -37,7 +28,7 @@ const StickyHeader = ({
           <div className="mobile__content">
             {/* mobile icon */}
             <div className="mobile__icon">
-              <IoMdMenu />
+              <IoMdMenu onClick={() => handleOpenDrawer()} />
             </div>
             {/* mobile logo */}
             <div className="mobile__logo">
@@ -99,8 +90,7 @@ const StickyHeader = ({
                 <li className="nav-item">
                   <Link
                     className="m-left__2 p__2 bg-light__gray topHeader__icon"
-                    to="#"
-                    onClick={() => handleOpenDrawer()}
+                    to="/cart"
                   >
                     <FaShoppingCart /> <span className="cart__badge">4</span>
                   </Link>

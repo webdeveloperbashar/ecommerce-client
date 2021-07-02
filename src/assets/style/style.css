@@ -2,14 +2,15 @@
   --font-dark: #101c2c;
   --font-light: #ffffff;
   --font-blue-gray: #5a6577;
-  --font-olive-green: #a8b324;
+  --font-olive-green: #7f881b;
   --font-dark-green: #0a472e;
   --font-family: "Nunito", sans-serif;
   --bg-light-gray: #e9ebec;
   --bg-dark-green: #0a472e;
-  --bg-olive-green: #a8b324;
+  --bg-olive-green: #7f881b;
   --bg-dark: #101c2c;
   --bg-light: #ffffff;
+  --bg-blue-gray: #5a6577;
 }
 body,
 html {
@@ -771,34 +772,106 @@ a:hover {
 }
 
 /********** Cart Drawer css start *************/
+.cart__drawer__wrapper {
+  position: absolute;
+  background: #00000070 !important;
+  z-index: 9999999;
+  height: 100%;
+}
 .cart__drawer__inner {
   position: fixed;
-  width: 250px;
-  right: 0;
-  z-index: 99;
+  width: 230px;
+  left: 0;
+  background-color: var(--bg-light);
+  z-index: 99999;
   height: 100%;
   transition: all 0.3s ease-in-out;
-  transform: translateX(260px);
+  transform: translateX(-260px);
+  overflow-y: scroll;
 }
 .cart__drawer__inner.active {
   position: fixed;
   width: 250px;
-  right: 0;
+  left: 0;
+  background-color: var(--bg-light);
   z-index: 999;
   height: 100%;
   transition: all 0.3s ease-in-out;
   transform: translateX(0px);
 }
-.card {
-  height: 100% !important;
+.image img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50px;
+  border: 5px solid white;
 }
-.card-header,
-.card-footer {
-  background: none !important;
-  border: none !important;
+.card {
+  border: none;
+}
+.close__icon {
+  font-size: 13px;
+  position: absolute;
+  right: 11px;
+}
+.card-body {
+  padding: 0 0 !important;
+}
+.profile {
+  position: relative;
+  text-align: center;
+  background-color: var(--bg-olive-green);
+  color: var(--font-light);
+  padding: 10px 0;
+}
+.loggedIn__username h2 {
   font-size: 18px;
+  margin: 5px 0;
+  color: var(--font-light);
   font-weight: 700;
 }
+.drawer__menu__icon {
+  margin-right: 13px;
+}
+.menu,
+.authentication {
+  font-size: 13px;
+  margin-top: 10px;
+}
+.drawer__menu p,
+.drawer__category p {
+  padding: 8px 10px;
+  font-size: 15px;
+  font-weight: 700;
+  background: #9898983b;
+}
+.menu ul li,
+.authentication ul li {
+  display: inline-block;
+}
+.menu ul li a,
+.authentication ul li a {
+  font-weight: 400;
+  color: var(--font-light);
+}
+.drawer__menu ul li,
+.drawer__category ul li {
+  border-bottom: 1px solid #8080802e;
+}
+.drawer__menu ul li:last-child,
+.drawer__category ul li:last-child {
+  border-bottom: none;
+}
+.drawer__menu ul li a,
+.drawer__category ul li a {
+  display: flex;
+  align-items: center;
+  padding: 10px 10px;
+  font-size: 13px;
+}
+.drawer__menu ul li a:hover {
+  background-color: #e0e0e0a6;
+}
+
 /********** Cart Drawer css end *************/
 
 /********** Favorite Drawer css start *************/

@@ -1,3 +1,4 @@
+// import { useState } from "react";
 import { useState } from "react";
 import { useBreakpoints } from "react-device-breakpoints";
 import { Helmet } from "react-helmet";
@@ -31,18 +32,16 @@ const App = () => {
         handleOpenDrawer={handleOpenDrawer}
         handleCloseDrawer={handleCloseDrawer}
       />
-      {device.isMobile && <MobileNavbar />}
-      {device.isDesktop && (
-        <Nav
+      {device.isMobile && (
+        <MobileNavbar
           openCartDrawer={openCartDrawer}
           handleOpenDrawer={handleOpenDrawer}
           handleCloseDrawer={handleCloseDrawer}
         />
       )}
+      {device.isDesktop && <Nav />}
       <Routes />
-      {device.isMobile && (
-        <MobileStickyFooterMenu handleOpenDrawer={handleOpenDrawer} />
-      )}
+      {device.isMobile && <MobileStickyFooterMenu />}
     </>
   );
 };

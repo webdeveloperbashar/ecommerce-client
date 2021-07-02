@@ -8,21 +8,9 @@ import {
 } from "react-icons/fa";
 import { GrFavorite } from "react-icons/gr";
 import logo from "../assets/images/brand-logo/valley.svg";
-import CartDrawer from "./CartDrawer";
-const TopHeader = ({openCartDrawer, handleOpenDrawer, handleCloseDrawer }) => {
-  // const [openCartDrawer, setOpenCartDrawer] = useState(false);
-  // const handleOpenDrawer = () => {
-  //   setOpenCartDrawer(true);
-  // };
-  // const handleCloseDrawer = () => {
-  //   setOpenCartDrawer(false);
-  // };
+const TopHeader = () => {
   return (
     <>
-      <CartDrawer
-        openCartDrawer={openCartDrawer}
-        handleCloseDrawer={handleCloseDrawer}
-      />
       <div className="topHeader bg-light">
         <div className="container d-grid display-grid d-flex justify-content-between align-items-center">
           <div className="brand__logo">
@@ -71,7 +59,7 @@ const TopHeader = ({openCartDrawer, handleOpenDrawer, handleCloseDrawer }) => {
               <li className="nav-item">
                 <Link
                   className="m-left__2 p__2 bg-light__gray topHeader__icon"
-                  to="#"
+                  to="/favorite"
                 >
                   <GrFavorite /> <span className="cart__badge">4</span>
                 </Link>
@@ -79,8 +67,7 @@ const TopHeader = ({openCartDrawer, handleOpenDrawer, handleCloseDrawer }) => {
               <li className="nav-item">
                 <Link
                   className="m-left__2 p__2 bg-light__gray topHeader__icon"
-                  to="#"
-                  onClick={() => handleOpenDrawer()}
+                  to="/cart"
                 >
                   <FaShoppingCart /> <span className="cart__badge">4</span>
                 </Link>
