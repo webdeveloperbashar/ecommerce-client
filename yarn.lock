@@ -9042,6 +9042,11 @@ react-dev-utils@^11.0.3:
     strip-ansi "6.0.0"
     text-table "0.2.0"
 
+react-device-breakpoints@^2.0.3:
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/react-device-breakpoints/-/react-device-breakpoints-2.0.3.tgz#56bfc2e23947043f2267e8abbcf10c48308d505c"
+  integrity sha512-X/i+Vt5Yyi5xU76xp4/rgMRHxFz3zznbf9z7mOqCMiE6Drk9WV7vJFvllWKB7Ne2ZFpBA8tfAxx7n27O0MCOLA==
+
 react-dom@^17.0.2:
   version "17.0.2"
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-17.0.2.tgz#ecffb6845e3ad8dbfcdc498f0d0a939736502c23"

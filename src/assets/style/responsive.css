@@ -239,7 +239,7 @@
     grid-template-columns: auto auto auto auto auto auto;
   }
   .partner__logo img {
-    height: 80px;
+    height: 80px !important;
   }
   /********* Partner section end *************/
 
@@ -335,6 +335,7 @@
     width: 100% !important;
   }
   /*********** homepage subscribe section end *************/
+
   /********* Footer section start *************/
   .footer__location h2,
   .footer__category h2,
@@ -349,6 +350,7 @@
   .copyright__text {
     font-size: 15px !important;
   }
+  /********* Footer section end *************/
 }
 @media screen and (max-width: 425px) {
   /******** site policy ***********/
@@ -378,6 +380,10 @@
   .sorting {
     width: 90px;
     font-size: 15px;
+    margin-left: 0px !important;
+  }
+  .sorting__flex {
+    display: initial !important;
   }
   .banner__content h3 {
     font-size: 15px !important;
@@ -441,6 +447,7 @@
   .copyright__text {
     font-size: 13px !important;
   }
+  /********* Footer section end *************/
 }
 @media screen and (max-width: 320px) {
   /******* site policy ***********/
@@ -463,9 +470,9 @@
   .sorting {
     width: 74px;
     font-size: 12px;
-    margin-left: 5px !important;
   }
   /*********** homepage product section end *************/
+
   /*********** homepage subscribe section start *************/
   .subscribe__content h2 {
     font-size: 15px !important;
@@ -478,10 +485,12 @@
     font-size: 13px !important;
   }
   /*********** homepage subscribe section end *************/
+
   /********* Footer section start *************/
   .footer__location ul li span,
   .footer__category ul li a,
   .footer__menu ul li a {
     font-size: 10px !important;
   }
+  /********* Footer section end *************/
 }

@@ -1,23 +1,12 @@
+import { useBreakpoints } from "react-device-breakpoints";
 import { Helmet } from "react-helmet";
 import MobileNavbar from "../components/MobileNavbar";
 import Nav from "../components/Nav";
 import StickyHeader from "../components/StickyHeader";
 import Routes from "./Routes";
 
-// const navbar = document.querySelector(".desktop__navbar");
-// let lastScroll = 0;
-
-// window.addEventListener("scroll", () => {
-//   const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-//   if (scrollTop > lastScroll) {
-//     navbar.classList.add("top");
-//   } else {
-//     navbar.classList.remove("down");
-//   }
-//   lastScroll = scrollTop;
-// });
-
 const App = () => {
+  const device = useBreakpoints();
   return (
     <>
       <Helmet>
@@ -27,8 +16,8 @@ const App = () => {
         ></link>
       </Helmet>
       <StickyHeader />
-      <MobileNavbar/>
-      <Nav />
+      {device.isMobile && <MobileNavbar />}
+      {device.isDesktop && <Nav />}
       <Routes />
     </>
   );
