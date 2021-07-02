@@ -1,10 +1,14 @@
 import { FaOutdent } from "react-icons/fa";
 import NavLink from "../util/NavLink";
 import TopHeader from "./TopHeader";
-const Nav = () => {
+const Nav = ({ openCartDrawer, handleOpenDrawer, handleCloseDrawer }) => {
   return (
     <header className="desktop__navbar">
-      <TopHeader />
+      <TopHeader
+        openCartDrawer={openCartDrawer}
+        handleOpenDrawer={handleOpenDrawer}
+        handleCloseDrawer={handleCloseDrawer}
+      />
       <div className="navbar bg-dark">
         <div className="container d-flex nav-grid justify-content-between align-items-center">
           <div className="category font-light d-flex align-items-center">

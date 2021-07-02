@@ -244,6 +244,9 @@
   /********* Partner section end *************/
 
   /********* Footer section start *************/
+  .footer__wrapper {
+    margin-bottom: 55px;
+  }
   .footer__row {
     display: grid;
     grid-template-columns: 50% 50%;
@@ -263,6 +266,42 @@
     font-size: 16px !important;
   }
   /********* Footer section end *************/
+
+  /*********** Mobile sticky footer start ***********/
+  .mobile__sticky__footer__menu {
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    z-index: 99999;
+    background: white;
+    padding: 10px 0;
+  }
+  .mobile__sticky__footer__content {
+    font-weight: 700;
+    position: relative;
+  }
+  .mobile__sticky__footer__row {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    align-items: center;
+    text-align: center;
+  }
+  .middle__col {
+    border-right: 1px solid #b3b3b3;
+    border-left: 1px solid #b3b3b3;
+  }
+  .count {
+    background: red;
+    position: absolute;
+    top: -6px;
+    font-size: 10px;
+    width: 20px;
+    height: 20px;
+    line-height: 21px;
+    color: white;
+    font-weight: 700;
+    border-radius: 50px;
+  }
 }
 @media screen and (max-width: 575px) {
   /******** site policy ***********/
@@ -337,6 +376,9 @@
   /*********** homepage subscribe section end *************/
 
   /********* Footer section start *************/
+  .footer__wrapper {
+    margin-bottom: 44px;
+  }
   .footer__location h2,
   .footer__category h2,
   .footer__menu h2 {
@@ -351,6 +393,11 @@
     font-size: 15px !important;
   }
   /********* Footer section end *************/
+
+  /********* Mobile Footer start **********/
+  .mobile__sticky__footer__content {
+    font-size: 12px;
+  }
 }
 @media screen and (max-width: 425px) {
   /******** site policy ***********/

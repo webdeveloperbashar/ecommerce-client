@@ -7,7 +7,7 @@ import logo from "../assets/images/brand-logo/valley.svg";
 import HorizontalLine from "../config/HorizontalLine";
 const Footer = () => {
   return (
-    <main className="bg-dark m-top__4">
+    <main className="bg-dark m-top__4 footer__wrapper">
       <div className="container">
         <div className="footer__content py-5">
           <div className="row footer__row">
