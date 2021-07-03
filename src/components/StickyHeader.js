@@ -1,11 +1,21 @@
 import { Link } from "@reach/router";
 import { useState } from "react";
+import { useBreakpoints } from "react-device-breakpoints";
 import { FaRegUser, FaSearch, FaShoppingCart } from "react-icons/fa";
 import { GrFavorite } from "react-icons/gr";
 import { IoMdMenu } from "react-icons/io";
 import logo from "../assets/images/brand-logo/valley.svg";
 import NavLink from "../util/NavLink";
-const StickyHeader = ({handleOpenDrawer}) => {
+import StickySearchForm from "./StickySearchForm";
+const StickyHeader = ({ handleOpenDrawer }) => {
+  // device breakpoints
+  const device = useBreakpoints();
+  // sticky search form show and hide
+  const [searchFromShow, setSearchFromShow] = useState(false);
+  const handleIconClick = () => {
+    setSearchFromShow(!searchFromShow);
+  };
+
   const [stickyNav, setStickyNav] = useState(false);
   const stickyNavbar = () => {
     if (window.pageYOffset >= 300) {
@@ -26,9 +36,9 @@ const StickyHeader = ({handleOpenDrawer}) => {
       >
         <div className="container">
           <div className="mobile__content">
-            {/* mobile icon */}
+            {/* mobile humberger icon */}
             <div className="mobile__icon">
-              <IoMdMenu onClick={() => handleOpenDrawer()} />
+              <IoMdMenu className="icon" onClick={() => handleOpenDrawer(!searchFromShow)} />
             </div>
             {/* mobile logo */}
             <div className="mobile__logo">
@@ -64,10 +74,24 @@ const StickyHeader = ({handleOpenDrawer}) => {
                 </li>
               </ul>
             </div>
-            {/* mobile search icon */}
+            {/* mobile balance and search icon */}
             <div className="mobile__search__icon">
-              <span>$99.99</span> <FaSearch />
+              <ul>
+                <li>
+                  <span>$99.99</span>
+                </li>
+                <li>
+                  <FaSearch
+                    className="icon"
+                    onClick={() => handleIconClick(false)}
+                  />
+                </li>
+              </ul>
             </div>
+            {/* sticky search form */}
+            {device.isMobile && (
+              <StickySearchForm searchFromShow={searchFromShow} />
+            )}
             {/* desktop property */}
             <div className="common__property">
               <ul className="navbar-nav m-right__auto m-right__2">

@@ -12,6 +12,7 @@
   --bg-light: #ffffff;
   --bg-blue-gray: #5a6577;
 }
+/********* Global css start ***********/
 body,
 html {
   font-family: var(--font-family);
@@ -275,9 +276,7 @@ a:hover {
   padding-left: 0px;
   padding-right: 0px;
 }
-.sorting__flex {
-  display: flex;
-}
+
 .all__border {
   border: 1px solid #d2d2d2 !important;
 }
@@ -293,12 +292,36 @@ a:hover {
 .btn:focus {
   box-shadow: inherit;
 }
+/********* Global css end ***********/
+
 .desktop__navbar {
   display: block;
 }
 .mobile__navbar {
   display: none;
 }
+
+/******* Header css start ***********/
+.navbar {
+  padding: 0px;
+  top: 0;
+}
+.topHeader {
+  padding: 20px 0;
+}
+.logo {
+  width: 95px;
+  cursor: pointer;
+}
+.navbar-nav {
+  flex-direction: row;
+  padding-left: 0;
+  margin-bottom: 0;
+  list-style: none;
+}
+/******* Header css end ***********/
+
+/******** stikcy header menu css start ***********/
 .sticky__header {
   position: fixed;
   width: 100%;
@@ -317,22 +340,29 @@ a:hover {
   opacity: 1;
   transition: all 0.5s ease-in-out;
 }
-.navbar {
-  padding: 0px;
-  top: 0;
+.sticky__search__form {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  padding: 0 13px;
+  top: 69px;
+  opacity: 0;
+  z-index: 9;
+  transform: skew(0deg, 90deg);
+  transform-origin: right;
+  transition: all 0.3s ease-in-out;
 }
-.topHeader {
-  padding: 20px 0;
-}
-.logo {
-  width: 95px;
-  cursor: pointer;
-}
-.navbar-nav {
-  flex-direction: row;
-  padding-left: 0;
-  margin-bottom: 0;
-  list-style: none;
+.sticky__search__form.active {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  padding: 0 13px;
+  top: 69px;
+  opacity: 1;
+  z-index: 9;
+  transform: skew(0deg, 0deg);
+  transform-origin: right;
+  transition: all 0.3s ease-in-out;
 }
 .navbar__collapse__sticky {
   display: block;
@@ -346,6 +376,9 @@ a:hover {
 .common__property ul {
   float: right;
 }
+/****** sticky header menu css end ********/
+
+/********* topheader css start **********/
 .nav-item {
   display: inline-block;
   display: flex;
@@ -405,6 +438,9 @@ a:hover {
 .amount {
   margin-left: 24px;
 }
+/********* topheader css end **********/
+
+/********* navbar category css end ***********/
 .category {
   position: relative;
   width: 100%;
@@ -420,6 +456,32 @@ a:hover {
 .sub__category ul li a:hover {
   color: var(--font-olive-green);
 }
+
+.category:hover .sub__category {
+  position: absolute;
+  width: 100%;
+  height: 391px !important;
+  left: 0;
+  opacity: 1;
+  top: 57px;
+  visibility: visible;
+  z-index: 99999;
+}
+
+.category ul li .sub__category {
+  position: absolute;
+  width: 100%;
+  height: 0;
+  left: 0;
+  opacity: 0;
+  top: 57px;
+  visibility: hidden;
+  z-index: 99999;
+  transition: all 0.3s ease-in-out;
+}
+/********* navbar category css start ***********/
+
+/******** hero section slider custom css end ************/
 .hero__slider {
   padding-left: 0px;
 }
@@ -434,6 +496,7 @@ a:hover {
 .awssld__content > video {
   object-fit: inherit;
 }
+/******** hero section slider custom css start ************/
 
 /********* site policy ***********/
 .policy__box {
@@ -461,6 +524,7 @@ a:hover {
 }
 /********* site policy end ************/
 
+/******** product all slider css end ***********/
 .box__shadow {
   box-sizing: border-box;
   box-shadow: 0px 0px 3px #d6d6d6;
@@ -472,6 +536,12 @@ a:hover {
   font-feature-settings: "liga" on;
   font-variant: ordinal;
   font-optical-sizing: none;
+}
+.sorting__flex {
+  display: flex;
+}
+select:focus {
+  outline: none;
 }
 .product__banner {
   position: relative;
@@ -566,6 +636,18 @@ a:hover {
 .slider__box:hover .slider__img img {
   transform: scale(1.1);
 }
+.discount__percent {
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-color: #0a472e;
+  color: #fff;
+  padding: 4px 10px;
+  line-height: 1rem;
+  z-index: 1;
+  font-size: 13px;
+  border-radius: 3px;
+}
 .slider__content {
   padding: 10px;
   text-align: center;
@@ -602,6 +684,9 @@ a:hover {
 .product__link:hover .arrow__icon {
   margin-left: 5px;
 }
+/******** product all slider css end ***********/
+
+/****** product carousel slider custom css start ***********/
 .react-multiple-carousel__arrow {
   min-width: 23px !important;
   min-height: 23px !important;
@@ -614,18 +699,9 @@ a:hover {
 .react-multiple-carousel__arrow::before {
   font-size: 12px;
 }
-.discount__percent {
-  position: absolute;
-  left: 0;
-  top: 0;
-  background-color: #0a472e;
-  color: #fff;
-  padding: 4px 10px;
-  line-height: 1rem;
-  z-index: 1;
-  font-size: 13px;
-  border-radius: 3px;
-}
+/****** product carousel slider custom css end ***********/
+
+/********** category section css start **************/
 .grid-left,
 .grid-right {
   height: 424px;
@@ -719,7 +795,9 @@ a:hover {
 .grid-middle-3:hover .category__content span {
   width: 80px !important;
 }
+/*********** Category section css end *************/
 
+/*********** subscribe section css start ************/
 .subscrib__banner {
   height: 200px;
   background-position: center center !important;
@@ -740,7 +818,9 @@ a:hover {
   margin: auto;
   margin-top: 25px;
 }
+/************ subscribe section css end *************/
 
+/******** partner section css start ************/
 .partner__logo img {
   height: 150px;
   filter: grayscale(1);
@@ -749,6 +829,9 @@ a:hover {
 .partner__logo img:hover {
   filter: none;
 }
+/************* partner section css end **************/
+
+/*********** Footer section css start **************/
 .footer__logo img {
   width: 130px;
 }
@@ -770,8 +853,9 @@ a:hover {
   color: var(--font-light);
   margin-left: 10px;
 }
+/**************** Footer section css end *****************/
 
-/********** Cart Drawer css start *************/
+/********** Mobile profile Drawer css start *************/
 .backdrop__effect {
   background: #00000085;
   width: 100%;
@@ -876,13 +960,13 @@ a:hover {
   background-color: #e0e0e0a6;
 }
 
-/********** Cart Drawer css end *************/
+/********** Mobile profile css end *************/
 
 /********** Favorite Drawer css start *************/
 
 /********** Favorite Drawer css end *************/
 
-/********** Mobile device css ***************/
+/********** Mobile device css start ***************/
 .mobile__content {
   display: grid;
   grid-template-columns: 33.33% 33.33% 33.33%;
@@ -901,8 +985,17 @@ a:hover {
   width: 90px;
 }
 .mobile__search__icon {
-  text-align: end;
+  position: relative;
   font-size: 20px;
   color: var(--font-blue-gray);
   display: none;
 }
+.mobile__search__icon ul {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.icon {
+  cursor: pointer;
+}
+/********** Mobile device css end ***************/

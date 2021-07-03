@@ -1,9 +1,20 @@
 import { navigate } from "@reach/router";
+import { useState } from "react";
 import { FaSearch } from "react-icons/fa";
 import { IoMdMenu } from "react-icons/io";
 import logo from "../assets/images/brand-logo/valley.svg";
-import CartDrawer from '../components/CartDrawer';
-const MobileNavbar = ({ openCartDrawer, handleCloseDrawer,handleOpenDrawer }) => {
+import CartDrawer from "../components/CartDrawer";
+import StickySearchForm from "./StickySearchForm";
+const MobileNavbar = ({
+  openCartDrawer,
+  handleCloseDrawer,
+  handleOpenDrawer,
+}) => {
+  // sticky search form show and hide
+  const [searchFromShow, setSearchFromShow] = useState(false);
+  const handleIconClick = () => {
+    setSearchFromShow(!searchFromShow);
+  };
   return (
     <>
       <CartDrawer
@@ -15,7 +26,7 @@ const MobileNavbar = ({ openCartDrawer, handleCloseDrawer,handleOpenDrawer }) =>
           <div className="mobile__content">
             {/* mobile icon */}
             <div className="mobile__icon">
-              <IoMdMenu onClick={()=>handleOpenDrawer()} />
+              <IoMdMenu className="icon" onClick={() => handleOpenDrawer()} />
             </div>
             {/* mobile logo */}
             <div className="mobile__logo">
@@ -28,8 +39,16 @@ const MobileNavbar = ({ openCartDrawer, handleCloseDrawer,handleOpenDrawer }) =>
             </div>
             {/* mobile search icon */}
             <div className="mobile__search__icon">
-              <span>$99.99</span> <FaSearch />
+              <ul>
+                <li>
+                  <span>$99.99</span>
+                </li>
+                <li>
+                  <FaSearch className="icon" onClick={()=>handleIconClick(!searchFromShow)} />
+                </li>
+              </ul>
             </div>
+            <StickySearchForm searchFromShow={searchFromShow} />
           </div>
         </div>
       </header>
