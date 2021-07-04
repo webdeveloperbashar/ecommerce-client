@@ -87,11 +87,6 @@ const Footer = () => {
                     </NavLink>
                   </li>
                   <li>
-                    <NavLink to="/blog" className="footer__link font-blue-gray">
-                      <IoMdArrowDropright className="font-blue-gray font-size__3" />{" "} Blog
-                    </NavLink>
-                  </li>
-                  <li>
                     <NavLink to="/contact" className="footer__link font-blue-gray">
                       <IoMdArrowDropright className="font-blue-gray font-size__3" />{" "} Contact
                     </NavLink>

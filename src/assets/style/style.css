@@ -1035,3 +1035,89 @@ select:focus {
   font-size: 15px;
   text-align: center;
 }
+/**********************************************
+            SHOP PAGE CSS END
+**********************************************/
+
+/**********************************************
+            CONTACT PAGE CSS START
+**********************************************/
+.contact__wrapper {
+  background: linear-gradient(#00000000, #0000008f),
+    url(https://i.ibb.co/M82WvWb/contact-page-overlay.jpg);
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin-bottom: -24px;
+}
+
+.heading h2 {
+  font-size: 35px;
+  font-weight: 700;
+  color: var(--font-light);
+  margin-bottom: 15px;
+}
+.heading p {
+  width: 70%;
+  margin: auto;
+  color: var(--font-blue-gray);
+  font-size: 15px;
+  font-weight: 700;
+}
+ul.addressList li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.addressList li h3 {
+  font-size: 20px;
+  color: #dfb178;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.addressList li p {
+  color: var(--font-light);
+  font-weight: 700;
+  font-size: 15px;
+}
+
+span.address__icon {
+  margin-right: 20px;
+  font-size: 17px;
+  background: white;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  text-align: center;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease-in-out;
+}
+span.address__icon:hover {
+  background-color: var(--bg-olive-green);
+  color: var(--font-light);
+}
+.contact__form {
+  padding: 30px;
+  background: black;
+}
+.message__input {
+  background: black;
+  color: rgb(177, 177, 177);
+  font-size: 18px;
+  margin-top: 18px;
+  clear: both;
+  resize: none;
+}
+.message__input::placeholder {
+  color: rgb(139, 139, 139);
+}
+.message__input:focus {
+  background: black;
+  color: rgb(139, 139, 139);
+}
+/**********************************************
+            CONTACT PAGE CSS END
+**********************************************/

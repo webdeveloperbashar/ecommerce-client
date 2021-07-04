@@ -336,6 +336,43 @@
   /************************************************
             SHOP PAGE CSS END
   *************************************************/
+
+  /************************************************
+            CONTACT PAGE CSS START
+  *************************************************/
+  .contact__form__row {
+    display: grid;
+    grid-template-columns: auto auto;
+  }
+  .heading h2 {
+    font-size: 25px !important;
+  }
+  .heading p {
+    font-size: 15px !important;
+  }
+  span.address__icon {
+    margin-right: 10px !important;
+    font-size: 13px !important;
+    width: 35px !important;
+    height: 35px !important;
+  }
+  .addressList li h3 {
+    font-size: 20px !important;
+    margin-bottom: 5px !important;
+  }
+  .addressList li p {
+    font-size: 14px !important;
+  }
+  .contact__form h2 {
+    font-size: 25px;
+  }
+  .message__input {
+    font-size: 15px !important;
+    margin-top: 15px;
+  }
+  /************************************************
+            CONTACT PAGE CSS END
+  *************************************************/
 }
 @media screen and (max-width: 575px) {
   /******** site policy ***********/
@@ -446,6 +483,50 @@
   }
   /************************************************
             SHOP PAGE CSS END
+  *************************************************/
+
+  /************************************************
+            CONTACT PAGE CSS START
+  *************************************************/
+  .contact__form__row {
+    display: inherit;
+    grid-template-columns: inherit;
+  }
+  /************************************************
+            CONTACT PAGE CSS END
+  *************************************************/
+
+  /************************************************
+            CONTACT PAGE CSS START
+  *************************************************/
+  .heading h2 {
+    font-size: 20px !important;
+  }
+  .heading p {
+    font-size: 12px !important;
+  }
+  span.address__icon {
+    margin-right: 10px !important;
+    font-size: 10px !important;
+    width: 30px !important;
+    height: 30px !important;
+  }
+  .addressList li h3 {
+    font-size: 15px !important;
+    margin-bottom: 5px !important;
+  }
+  .addressList li p {
+    font-size: 11px !important;
+  }
+  .contact__form h2 {
+    font-size: 20px;
+  }
+  .message__input {
+    font-size: 13px !important;
+    margin-top: 15px;
+  }
+  /************************************************
+            CONTACT PAGE CSS END
   *************************************************/
 }
 @media screen and (max-width: 425px) {
@@ -562,6 +643,38 @@
   }
   /************************************************
             SHOP PAGE CSS END
+  *************************************************/
+  /************************************************
+            CONTACT PAGE CSS START
+  *************************************************/
+  .heading h2 {
+    font-size: 20px !important;
+  }
+  .heading p {
+    font-size: 12px !important;
+  }
+  span.address__icon {
+    margin-right: 10px !important;
+    font-size: 10px !important;
+    width: 30px !important;
+    height: 30px !important;
+  }
+  .addressList li h3 {
+    font-size: 15px !important;
+    margin-bottom: 5px !important;
+  }
+  .addressList li p {
+    font-size: 11px !important;
+  }
+  .contact__form h2 {
+    font-size: 20px;
+  }
+  .message__input {
+    font-size: 13px !important;
+    margin-top: 15px;
+  }
+  /************************************************
+            CONTACT PAGE CSS END
   *************************************************/
 }
 @media screen and (max-width: 320px) {

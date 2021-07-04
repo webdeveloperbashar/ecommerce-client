@@ -23,7 +23,7 @@ const Index = () => {
         <div className="container">
           <div className="row">
             <div className="col-md-3">
-              <div className="shop__sidebar all__border p-4 bg-light mt-5">
+              <div className="shop__sidebar box__shadow p-4 bg-light mt-5">
                 <div className="category__sidebar">
                   <h2 className="font-size__2 py__2">Category</h2>
                   <hr />
@@ -85,7 +85,7 @@ const Index = () => {
               </div>
             </div>
             <div className="col-md-9">
-              <div className="shop__content all__border p-4 bg-light mt-5">
+              <div className="shop__content box__shadow p-4 bg-light mt-5">
                 <div className="d-flex align-items-center justify-content-between py__2">
                   <h1 className="section__title font-size__2 font-dark__green">
                     Fruits & Beverages
