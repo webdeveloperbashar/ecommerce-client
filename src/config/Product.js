@@ -1,15 +1,15 @@
-import { Link } from "@reach/router";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { CgChevronDoubleRight } from "react-icons/cg";
 import { FaStar } from "react-icons/fa";
 import "react-multi-carousel/lib/styles.css";
+import NavLink from "../util/NavLink";
 import HorizontalLine from "./HorizontalLine";
 
 const Product = ({ productImg, productName, productPrice }) => {
   return (
     <>
       <div className="slider__box">
-        <Link to="/shop">
+        <NavLink to="/shop">
           <div className="discount__percent">-52%</div>
           <div className="slider__img">
             <img src={productImg} className="img-fluid" alt="slider one" />
@@ -30,11 +30,11 @@ const Product = ({ productImg, productName, productPrice }) => {
               margin="8px auto"
               background="#A8B324"
             />
-            <Link to="/ddd" className="product__link">
+            <NavLink to="/ddd" className="product__link">
               Add to cart <CgChevronDoubleRight className="arrow__icon" />
-            </Link>
+            </NavLink>
           </div>
-        </Link>
+        </NavLink>
       </div>
     </>
   );

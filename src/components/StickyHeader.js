@@ -1,4 +1,4 @@
-import { Link } from "@reach/router";
+import { navigate } from "@reach/router";
 import { useState } from "react";
 import { useBreakpoints } from "react-device-breakpoints";
 import { FaRegUser, FaSearch, FaShoppingCart } from "react-icons/fa";
@@ -42,7 +42,7 @@ const StickyHeader = ({ handleOpenDrawer }) => {
             </div>
             {/* mobile logo */}
             <div className="mobile__logo">
-              <img src={logo} className="logo" alt="logo" />
+              <img src={logo} className="logo" onClick={()=> navigate('/')} alt="logo" />
             </div>
             {/* desktop menu */}
             <div className="navbar__collapse__sticky">
@@ -55,11 +55,6 @@ const StickyHeader = ({ handleOpenDrawer }) => {
                 <li className="nav-item">
                   <NavLink className="p__2 font-light link" to="/shop">
                     Shop
-                  </NavLink>
-                </li>
-                <li className="nav-item">
-                  <NavLink className="p__2 font-light link" to="/blog">
-                    Blog
                   </NavLink>
                 </li>
                 <li className="nav-item">
@@ -96,33 +91,31 @@ const StickyHeader = ({ handleOpenDrawer }) => {
             <div className="common__property">
               <ul className="navbar-nav m-right__auto m-right__2">
                 <li className="nav-item">
-                  <Link
+                  <NavLink
                     className="m-left__2 p__2 bg-light__gray topHeader__icon"
                     to="/login"
                   >
                     <FaRegUser />
-                  </Link>
+                  </NavLink>
                 </li>
                 <li className="nav-item">
-                  <Link
+                  <NavLink
                     className="m-left__2 p__2 bg-light__gray topHeader__icon"
                     to="#"
                   >
                     <GrFavorite /> <span className="cart__badge">4</span>
-                  </Link>
+                  </NavLink>
                 </li>
                 <li className="nav-item">
-                  <Link
+                  <NavLink
                     className="m-left__2 p__2 bg-light__gray topHeader__icon"
                     to="/cart"
                   >
                     <FaShoppingCart /> <span className="cart__badge">4</span>
-                  </Link>
+                  </NavLink>
                 </li>
                 <li className="nav-item">
-                  <Link className="m-left__4" to="#">
-                    $99.99
-                  </Link>
+                    <span className="text-dark ms-4">$99.99</span>
                 </li>
               </ul>
             </div>

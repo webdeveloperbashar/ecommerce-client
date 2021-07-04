@@ -1,14 +1,21 @@
-import { Link } from "@reach/router";
-import React from "react";
+import { Slider } from "@material-ui/core";
+import React, { useState } from "react";
 import { useBreakpoints } from "react-device-breakpoints";
 import { IoMdArrowDropright } from "react-icons/io";
-import Footer from '../../components/Footer';
+import Footer from "../../components/Footer";
 import Nav from "../../components/Nav";
 import FakeData from "../../config/FakeData";
 import Product from "../../config/Product";
+import NavLink from "../../util/NavLink";
 const Index = () => {
   // device breakpoint
   const device = useBreakpoints();
+  const [rangeVal, setRangeVal] = useState([0, 100])
+  const handleChange = (e, data) =>{
+    setRangeVal(data)
+  }
+  const minVal = rangeVal[0] * 10;
+  const maxVal = rangeVal[1] * 10;
   return (
     <>
       {device.isDesktop && <Nav isShow />}
@@ -22,33 +29,33 @@ const Index = () => {
                   <hr />
                   <ul>
                     <li>
-                      <Link to="/shop" className="shop__sidebar__cate">
+                      <NavLink to="#" className="shop__sidebar__cate">
                         <IoMdArrowDropright className="font-size__3" />{" "}
                         Vegetable & Fruits
-                      </Link>
+                      </NavLink>
                     </li>
                     <li>
-                      <Link to="/shop" className="shop__sidebar__cate">
+                      <NavLink to="#" className="shop__sidebar__cate">
                         <IoMdArrowDropright className="font-size__3" /> Beverage
-                      </Link>
+                      </NavLink>
                     </li>
                     <li>
-                      <Link to="/shop" className="shop__sidebar__cate">
+                      <NavLink to="#" className="shop__sidebar__cate">
                         <IoMdArrowDropright className="font-size__3" /> Health &
                         Wealth
-                      </Link>
+                      </NavLink>
                     </li>
                     <li>
-                      <Link to="/shop" className="shop__sidebar__cate">
+                      <NavLink to="#" className="shop__sidebar__cate">
                         <IoMdArrowDropright className="font-size__3" /> Grocery
                         & Staples
-                      </Link>
+                      </NavLink>
                     </li>
                     <li>
-                      <Link to="/shop" className="shop__sidebar__cate">
+                      <NavLink to="#" className="shop__sidebar__cate">
                         <IoMdArrowDropright className="font-size__3" /> Dairy
                         Products
-                      </Link>
+                      </NavLink>
                     </li>
                   </ul>
                 </div>
@@ -57,16 +64,22 @@ const Index = () => {
                     <h2 className="font-size__2">Price Filter</h2>
                   </label>
                   <hr />
-                  <input type="range" className="form-range" id="customRange1" />
+                  <Slider
+                    value={rangeVal}
+                    onChange={handleChange}
+                    valueLabelDisplay="off"
+                    aria-labelledby="range-slider"
+                  />
+                  <p><span style={{fontWeight: '700'}}>Price:</span> {`$${minVal} - $${maxVal}`} </p>
                 </div>
                 <div className="products__tag">
                   <h2 className="font-size__2 py-2 mt-3">Product Tags</h2>
                   <hr />
                   <div className="tags">
-                    <span>fruits</span>
-                    <span>kashmiri</span>
-                    <span>grapes</span>
-                    <span>mango</span>
+                    <NavLink to="/">fruits</NavLink>
+                    <NavLink to="/">kashmiri</NavLink>
+                    <NavLink to="/">grapes</NavLink>
+                    <NavLink to="/">mango</NavLink>
                   </div>
                 </div>
               </div>
@@ -89,7 +102,7 @@ const Index = () => {
                   </div>
                 </div>
                 <hr />
-                <div className="row">
+                <div className="row shop__product">
                   {FakeData.map((item, index) => (
                     <div className="col-md-4" key={index + 1}>
                       <Product
@@ -105,7 +118,7 @@ const Index = () => {
           </div>
         </div>
       </div>
-      <Footer/>
+      <Footer />
     </>
   );
 };

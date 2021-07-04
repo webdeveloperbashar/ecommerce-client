@@ -84,6 +84,19 @@
     font-size: 15px !important;
   }
 }
+
+@media (max-width: 891px) {
+  /************************************************
+            SHOP PAGE CSS START
+  *************************************************/
+  .shop__product .col-md-4 {
+    padding: 0px !important;
+  }
+  /************************************************
+            SHOP PAGE CSS END
+  *************************************************/
+}
+
 @media (max-width: 767px) {
   .desktop__navbar {
     display: none !important;
@@ -302,6 +315,27 @@
     font-weight: 700;
     border-radius: 50px;
   }
+  /************************************************
+            SHOP PAGE CSS START
+  *************************************************/
+  .category__sidebar h2,
+  .price__sidebar h2,
+  .products__tag h2 {
+    font-size: 15px;
+  }
+  .price__sidebar p {
+    font-size: 13px;
+  }
+  .shop__sidebar__cate {
+    font-size: 13px;
+  }
+  .shop__product {
+    display: grid;
+    grid-template-columns: 50% 50%;
+  }
+  /************************************************
+            SHOP PAGE CSS END
+  *************************************************/
 }
 @media screen and (max-width: 575px) {
   /******** site policy ***********/
@@ -398,6 +432,21 @@
   .mobile__sticky__footer__content {
     font-size: 12px;
   }
+  /************************************************
+            SHOP PAGE CSS START
+  *************************************************/
+  .shop__product .slider__box {
+    height: 275px;
+  }
+  .shop__product .col-md-4 {
+    padding: 0px !important;
+  }
+  .shop__product .slider__img img {
+    height: 140px;
+  }
+  /************************************************
+            SHOP PAGE CSS END
+  *************************************************/
 }
 @media screen and (max-width: 425px) {
   /******** site policy ***********/
@@ -495,6 +544,25 @@
     font-size: 13px !important;
   }
   /********* Footer section end *************/
+  /************************************************
+            SHOP PAGE CSS START
+  *************************************************/
+  .shop__product {
+    display: grid;
+    grid-template-columns: 50% 50%;
+  }
+  .shop__product .col-md-4 {
+    padding: 0px !important;
+  }
+  .shop__product .slider__box {
+    height: 275px;
+  }
+  .shop__product .slider__img img {
+    height: 140px;
+  }
+  /************************************************
+            SHOP PAGE CSS END
+  *************************************************/
 }
 @media screen and (max-width: 320px) {
   /******* site policy ***********/
@@ -540,4 +608,25 @@
     font-size: 10px !important;
   }
   /********* Footer section end *************/
+
+  /************************************************
+            SHOP PAGE CSS START
+  *************************************************/
+  .shop__product {
+    display: grid;
+    grid-template-columns: 50% 50%;
+  }
+  .shop__product .col-md-4 {
+    padding: 0px !important;
+  }
+  .shop__product .slider__box {
+    height: 275px;
+    width: 126px;
+  }
+  .shop__product .slider__img img {
+    height: 140px;
+  }
+  /************************************************
+            SHOP PAGE CSS END
+  *************************************************/
 }

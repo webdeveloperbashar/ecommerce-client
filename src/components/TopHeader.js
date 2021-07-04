@@ -1,4 +1,4 @@
-import { Link, navigate } from "@reach/router";
+import { navigate } from "@reach/router";
 import "bootstrap/dist/css/bootstrap.min.css";
 import {
   FaHeadphones,
@@ -8,6 +8,7 @@ import {
 } from "react-icons/fa";
 import { GrFavorite } from "react-icons/gr";
 import logo from "../assets/images/brand-logo/valley.svg";
+import NavLink from "../util/NavLink";
 const TopHeader = () => {
   return (
     <>
@@ -36,7 +37,7 @@ const TopHeader = () => {
           <div className="navbar__collapse">
             <ul className="navbar-nav m-right__auto m-right__2">
               <li className="nav-item">
-                <Link className="support p__2 d-flex align-items-center" to="#">
+                <NavLink className="support p__2 d-flex align-items-center" to="#">
                   <div className="m-right__2 support__icon">
                     <FaHeadphones className="font-olive-green" />
                   </div>
@@ -46,36 +47,34 @@ const TopHeader = () => {
                       (+880)123-45-67-89
                     </h3>
                   </div>
-                </Link>
+                </NavLink>
               </li>
               <li className="nav-item">
-                <Link
+                <NavLink
                   className="m-left__2 p__2 bg-light__gray topHeader__icon"
                   to="/login"
                 >
                   <FaRegUser />
-                </Link>
+                </NavLink>
               </li>
               <li className="nav-item">
-                <Link
+                <NavLink
                   className="m-left__2 p__2 bg-light__gray topHeader__icon"
                   to="/favorite"
                 >
                   <GrFavorite /> <span className="cart__badge">4</span>
-                </Link>
+                </NavLink>
               </li>
               <li className="nav-item">
-                <Link
+                <NavLink
                   className="m-left__2 p__2 bg-light__gray topHeader__icon"
                   to="/cart"
                 >
                   <FaShoppingCart /> <span className="cart__badge">4</span>
-                </Link>
+                </NavLink>
               </li>
               <li className="nav-item">
-                <Link className="m-left__4" to="#">
-                  $99.99
-                </Link>
+                <span className="ms-4 text-dark">$99.99</span>
               </li>
             </ul>
           </div>

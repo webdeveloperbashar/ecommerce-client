@@ -1024,12 +1024,14 @@ select:focus {
 }
 .tags {
   display: grid;
-  grid-template-columns: auto auto;
+  grid-template-columns: 50% 50%;
+  grid-gap: 5px;
 }
-.tags span {
+.tags a {
   border: 1px solid #80808069;
-  margin: 5px;
-  padding: 5px 13px;
+  padding: 8px 0px;
   border-radius: 50px;
-  background: #efefefb8;
+  background: #cecdcd40;
+  font-size: 15px;
+  text-align: center;
 }
