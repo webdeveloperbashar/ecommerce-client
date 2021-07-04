@@ -30,7 +30,7 @@ const Footer = () => {
                   </li>
                   <li>
                     <SiGmail className="font-blue-gray" />{" "}
-                    <span className="m-left__2">greenvalleyshop@gmail.com</span>
+                    <span className="m-left__2">support@greenvalley.com</span>
                   </li>
                 </ul>
               </div>
@@ -106,7 +106,7 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        <HorizontalLine width="100%" height="1px" background="gray" />
+        <HorizontalLine width="100%" height="1px" background="#80808063" />
         <footer className="p__4 text-center">
           <p className="font-blue-gray copyright__text">
             &copy; Copyright {new Date().getFullYear()} - All Right Reserved

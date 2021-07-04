@@ -9,6 +9,7 @@ import {
 import { GrFavorite } from "react-icons/gr";
 import logo from "../assets/images/brand-logo/valley.svg";
 import NavLink from "../config/NavLink";
+import Login from './Login';
 const TopHeader = () => {
   return (
     <>
@@ -49,13 +50,14 @@ const TopHeader = () => {
                   </div>
                 </NavLink>
               </li>
-              <li className="nav-item">
+              <li className="nav-item user__login">
                 <NavLink
                   className="m-left__2 p__2 bg-light__gray topHeader__icon"
                   to="/login"
                 >
                   <FaRegUser />
                 </NavLink>
+                <Login width='349px' />
               </li>
               <li className="nav-item">
                 <NavLink

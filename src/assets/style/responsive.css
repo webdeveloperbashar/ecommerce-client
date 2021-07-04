@@ -373,6 +373,44 @@
   /************************************************
             CONTACT PAGE CSS END
   *************************************************/
+
+  /************************************************
+            LOGIN PAGE CSS START
+  *************************************************/
+  .login__form {
+    width: 70% !important;
+  }
+  .login__form h2 {
+    font-size: 25px;
+  }
+  span.remember,
+  span.forgot {
+    font-size: 15px;
+  }
+  .account__text,
+  .account__suggest {
+    font-size: 15px !important;
+  }
+  .email__input,
+  .password__input,
+  .login__control,
+  .login__button {
+    margin-bottom: 15px !important;
+  }
+  .email__input,
+  .password__input {
+    padding: 8px 5px !important;
+    font-size: 15px !important;
+  }
+
+  .login__button {
+    padding: 12px 5px !important;
+    font-size: 15px !important;
+  }
+
+  /************************************************
+            LOGIN PAGE CSS END
+  *************************************************/
 }
 @media screen and (max-width: 575px) {
   /******** site policy ***********/
@@ -528,6 +566,47 @@
   /************************************************
             CONTACT PAGE CSS END
   *************************************************/
+
+  /************************************************
+            LOGIN PAGE CSS START
+  *************************************************/
+  .login__form {
+    width: 90% !important;
+  }
+  .login__form h2 {
+    font-size: 20px;
+  }
+  span.remember {
+    font-size: 13px;
+  }
+
+  span.forgot {
+    font-size: 13px;
+  }
+  .account__text,
+  .account__suggest {
+    font-size: 13px !important;
+  }
+  .email__input,
+  .password__input,
+  .login__control,
+  .login__button {
+    margin-bottom: 10px !important;
+  }
+  .email__input,
+  .password__input {
+    padding: 4px 5px !important;
+    font-size: 13px !important;
+  }
+
+  .login__button {
+    padding: 10px 5px !important;
+    font-size: 13px !important;
+  }
+
+  /************************************************
+            LOGIN PAGE CSS END
+  *************************************************/
 }
 @media screen and (max-width: 425px) {
   /******** site policy ***********/
@@ -676,6 +755,16 @@
   /************************************************
             CONTACT PAGE CSS END
   *************************************************/
+
+  /************************************************
+            LOGIN PAGE CSS START
+  *************************************************/
+  .login__form {
+    width: 100% !important;
+  }
+  /************************************************
+            LOGIN PAGE CSS END
+  *************************************************/
 }
 @media screen and (max-width: 320px) {
   /******* site policy ***********/
@@ -741,5 +830,43 @@
   }
   /************************************************
             SHOP PAGE CSS END
+  *************************************************/
+
+  /************************************************
+            LOGIN PAGE CSS START
+  *************************************************/
+  .login__form h2 {
+    font-size: 20px;
+  }
+  span.remember {
+    font-size: 13px;
+  }
+
+  span.forgot {
+    font-size: 13px;
+  }
+  .account__text,
+  .account__suggest {
+    font-size: 13px !important;
+  }
+  .email__input,
+  .password__input,
+  .login__control,
+  .login__button {
+    margin-bottom: 10px !important;
+  }
+  .email__input,
+  .password__input {
+    padding: 4px 5px !important;
+    font-size: 13px !important;
+  }
+
+  .login__button {
+    padding: 10px 5px !important;
+    font-size: 13px !important;
+  }
+
+  /************************************************
+            LOGIN PAGE CSS END
   *************************************************/
 }
