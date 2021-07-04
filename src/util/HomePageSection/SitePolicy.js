@@ -14,7 +14,7 @@ const SitePolicy = () => {
                 <FaHandHoldingUsd className="m-right__3 support__icon font-blue-gray" />
               </span>
               <span>
-                <h1 className="font-size__2 font-blue-gray">Free Shipping</h1>
+                <h1 className="font-size__1 font-blue-gray">Free Shipping</h1>
                 <p className="m-top__2 font-blue-gray">Up To $699.99</p>
               </span>
             </div>
@@ -25,7 +25,7 @@ const SitePolicy = () => {
                 <FaTruck className="m-right__3 support__icon font-blue-gray" />
               </span>
               <span>
-                <h1 className="font-size__2 font-blue-gray">Fast Delivery</h1>
+                <h1 className="font-size__1 font-blue-gray">Fast Delivery</h1>
                 <p className="m-top__2 font-blue-gray">Anywhere in your country</p>
               </span>
             </div>
@@ -36,7 +36,7 @@ const SitePolicy = () => {
                 <FaMoneyCheckAlt className="m-right__3 support__icon font-blue-gray" />
               </span>
               <span>
-                <h1 className="font-size__2 font-blue-gray">Money Back</h1>
+                <h1 className="font-size__1 font-blue-gray">Money Back</h1>
                 <p className="m-top__2 font-blue-gray">100% Guarantee</p>
               </span>
             </div>
@@ -47,7 +47,7 @@ const SitePolicy = () => {
                 <GiReturnArrow className="m-right__3 support__icon font-blue-gray" />
               </span>
               <span>
-                <h1 className="font-size__2 font-blue-gray">Product Return</h1>
+                <h1 className="font-size__1 font-blue-gray">Product Return</h1>
                 <p className="m-top__2 font-blue-gray">If you face any problem</p>
               </span>
             </div>

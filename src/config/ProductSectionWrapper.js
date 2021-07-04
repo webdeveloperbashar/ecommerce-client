@@ -2,7 +2,7 @@ import { Link, navigate } from "@reach/router";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "react-multi-carousel/lib/styles.css";
 import HorizontalLine from "./HorizontalLine";
-import Slider from "./Slider";
+import Product from "./Product";
 import SliderFunctionalities from "./SliderFunctionalities";
 
 const ProductSectionWrapper = ({
@@ -68,7 +68,7 @@ const ProductSectionWrapper = ({
                 sliderTransition={sliderTransition}
               >
                 {data.map((item, index) => (
-                  <Slider
+                  <Product
                     key={index + 1}
                     productImg={`${item.img}`}
                     productName={`${item.name}`}

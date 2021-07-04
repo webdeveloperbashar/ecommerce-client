@@ -44,7 +44,7 @@ const StickyHeader = ({ handleOpenDrawer }) => {
             <div className="mobile__logo">
               <img src={logo} className="logo" alt="logo" />
             </div>
-            {/* destop menu */}
+            {/* desktop menu */}
             <div className="navbar__collapse__sticky">
               <ul className="navbar-nav m-right__auto m-right__2">
                 <li className="nav-item">

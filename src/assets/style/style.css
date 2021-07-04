@@ -35,8 +35,12 @@ a:hover {
 .line__height {
   line-height: 25px;
 }
-.font-size__2 {
+.font-size__1 {
   font-size: 16px;
+  font-weight: 600;
+}
+.font-size__2 {
+  font-size: 20px;
   font-weight: 600;
 }
 .font-size__3 {
@@ -999,3 +1003,33 @@ select:focus {
   cursor: pointer;
 }
 /********** Mobile device css end ***************/
+
+/**********************************************
+            SHOP PAGE CSS START
+**********************************************/
+/********** sidebar catetory css start *************/
+.shop__sidebar ul li {
+  margin: 5px 0;
+}
+.shop__sidebar__cate svg {
+  font-size: 20px;
+}
+
+.shop__sidebar__cate {
+  font-size: 15px;
+  font-weight: 500;
+}
+.shop__sidebar__cate:hover {
+  color: var(--font-olive-green);
+}
+.tags {
+  display: grid;
+  grid-template-columns: auto auto;
+}
+.tags span {
+  border: 1px solid #80808069;
+  margin: 5px;
+  padding: 5px 13px;
+  border-radius: 50px;
+  background: #efefefb8;
+}
