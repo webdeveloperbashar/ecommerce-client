@@ -4,7 +4,7 @@ import { IoMdArrowDropright } from "react-icons/io";
 import { SiGmail } from "react-icons/si";
 import logo from "../assets/images/brand-logo/valley.svg";
 import HorizontalLine from "../config/HorizontalLine";
-import NavLink from '../util/NavLink';
+import NavLink from '../config/NavLink';
 const Footer = () => {
   return (
     <main className="bg-dark m-top__4 footer__wrapper">

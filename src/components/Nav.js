@@ -1,6 +1,6 @@
 import { FaOutdent } from "react-icons/fa";
-import NavLink from "../util/NavLink";
-import SubMenuCategory from "../util/Sub-Menu-Category";
+import SubMenuCategory from "../components/Sub-Menu-Category";
+import NavLink from "../config/NavLink";
 import TopHeader from "./TopHeader";
 const Nav = ({ isShow }) => {
   return (

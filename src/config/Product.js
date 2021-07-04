@@ -2,8 +2,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { CgChevronDoubleRight } from "react-icons/cg";
 import { FaStar } from "react-icons/fa";
 import "react-multi-carousel/lib/styles.css";
-import NavLink from "../util/NavLink";
 import HorizontalLine from "./HorizontalLine";
+import NavLink from "./NavLink";
 
 const Product = ({ productImg, productName, productPrice }) => {
   return (

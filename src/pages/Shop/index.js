@@ -5,8 +5,8 @@ import { IoMdArrowDropright } from "react-icons/io";
 import Footer from "../../components/Footer";
 import Nav from "../../components/Nav";
 import FakeData from "../../config/FakeData";
+import NavLink from "../../config/NavLink";
 import Product from "../../config/Product";
-import NavLink from "../../util/NavLink";
 const Index = () => {
   // device breakpoint
   const device = useBreakpoints();

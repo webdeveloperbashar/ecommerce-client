@@ -8,7 +8,7 @@ import {
 } from "react-icons/fa";
 import { GrFavorite } from "react-icons/gr";
 import logo from "../assets/images/brand-logo/valley.svg";
-import NavLink from "../util/NavLink";
+import NavLink from "../config/NavLink";
 const TopHeader = () => {
   return (
     <>
