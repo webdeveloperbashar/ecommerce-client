@@ -326,7 +326,7 @@ a:hover {
 .user__login {
   position: relative;
 }
-.user__login .login__form {
+.user__login .auth__form {
   position: absolute;
   z-index: 999;
   top: 40px;
@@ -335,7 +335,11 @@ a:hover {
   visibility: hidden;
   transition: all 0.3s ease-in-out;
 }
-.user__login:hover .login__form {
+.user__login .auth__form h2 {
+  font-size: 20px;
+  margin-bottom: 13px !important;
+}
+.user__login:hover .auth__form {
   position: absolute;
   z-index: 999;
   top: 40px;
@@ -344,30 +348,30 @@ a:hover {
   visibility: visible;
   transition: all 0.3s ease-in-out;
 }
-.user__login .login__form .remember,
-.user__login .login__form .forgot {
+.user__login .auth__form .remember,
+.user__login .auth__form .forgot {
   font-size: 15px;
 }
-.user__login .login__form .remember {
+.user__login .auth__form .remember {
   color: var(--font-dark);
 }
-.user__login .login__form .account__text,
-.user__login .login__form .account__suggest {
+.user__login .auth__form .account__text,
+.user__login .auth__form .account__suggest {
   font-size: 15px !important;
 }
-.user__login .login__form .email__input,
-.user__login .login__form .password__input,
-.user__login .login__form .login__control,
-.user__login .login__form .login__button {
+.user__login .auth__form .input__field,
+.user__login .auth__form .password__input,
+.user__login .auth__form .login__control,
+.user__login .auth__form .auth__button {
   margin-bottom: 15px !important;
 }
-.user__login .login__form .email__input,
-.user__login .login__form .password__input {
+.user__login .auth__form .input__field,
+.user__login .auth__form .password__input {
   padding: 8px 5px !important;
   font-size: 15px !important;
 }
 
-.user__login .login__form .login__button {
+.user__login .auth__form .auth__button {
   padding: 12px 5px !important;
   font-size: 15px !important;
 }
@@ -681,7 +685,7 @@ select:focus {
   box-shadow: 0px 0px 8px grey;
 }
 .slider__img img {
-  height: 190px;
+  height: 180px;
   display: block;
   transition: all 0.3s ease-in-out;
 }
@@ -1173,17 +1177,26 @@ span.address__icon:hover {
 /**********************************************
             LOGIN PAGE CSS START
 **********************************************/
-.login__form {
+.auth__form {
   background: white;
   padding: 20px;
   margin: auto;
 }
-.email__input,
-.password__input,
+.input__field,
 .login__control,
-.login__button {
+.auth__button {
   margin-bottom: 20px;
   font-size: 18px;
+  padding: 5px 10px;
+  position: relative;
+}
+span.visible__icon {
+  font-size: 22px;
+  position: absolute;
+  z-index: 9;
+  right: 7px;
+  top: 8px;
+  color: #777474;
 }
 /**********************************************
             LOGIN PAGE CSS END

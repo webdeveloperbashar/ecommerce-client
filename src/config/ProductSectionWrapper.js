@@ -73,6 +73,7 @@ const ProductSectionWrapper = ({
                     productImg={`${item.img}`}
                     productName={`${item.name}`}
                     productPrice={`${item.price}`}
+                    productSize={`${item.size}`}
                   />
                 ))}
               </SliderFunctionalities>

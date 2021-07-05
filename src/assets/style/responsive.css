@@ -377,10 +377,10 @@
   /************************************************
             LOGIN PAGE CSS START
   *************************************************/
-  .login__form {
+  .auth__form {
     width: 70% !important;
   }
-  .login__form h2 {
+  .auth__form h2 {
     font-size: 25px;
   }
   span.remember,
@@ -391,19 +391,19 @@
   .account__suggest {
     font-size: 15px !important;
   }
-  .email__input,
+  .input__field,
   .password__input,
   .login__control,
-  .login__button {
+  .auth__button {
     margin-bottom: 15px !important;
   }
-  .email__input,
+  .input__field,
   .password__input {
     padding: 8px 5px !important;
     font-size: 15px !important;
   }
 
-  .login__button {
+  .auth__button {
     padding: 12px 5px !important;
     font-size: 15px !important;
   }
@@ -570,10 +570,10 @@
   /************************************************
             LOGIN PAGE CSS START
   *************************************************/
-  .login__form {
+  .auth__form {
     width: 90% !important;
   }
-  .login__form h2 {
+  .auth__form h2 {
     font-size: 20px;
   }
   span.remember {
@@ -587,19 +587,19 @@
   .account__suggest {
     font-size: 13px !important;
   }
-  .email__input,
+  .input__field,
   .password__input,
   .login__control,
-  .login__button {
+  .auth__button {
     margin-bottom: 10px !important;
   }
-  .email__input,
+  .input__field,
   .password__input {
     padding: 4px 5px !important;
     font-size: 13px !important;
   }
 
-  .login__button {
+  .auth__button {
     padding: 10px 5px !important;
     font-size: 13px !important;
   }
@@ -759,7 +759,7 @@
   /************************************************
             LOGIN PAGE CSS START
   *************************************************/
-  .login__form {
+  .auth__form {
     width: 100% !important;
   }
   /************************************************
@@ -835,7 +835,7 @@
   /************************************************
             LOGIN PAGE CSS START
   *************************************************/
-  .login__form h2 {
+  .auth__form h2 {
     font-size: 20px;
   }
   span.remember {
@@ -849,19 +849,19 @@
   .account__suggest {
     font-size: 13px !important;
   }
-  .email__input,
+  .input__field,
   .password__input,
   .login__control,
-  .login__button {
+  .auth__button {
     margin-bottom: 10px !important;
   }
-  .email__input,
+  .input__field,
   .password__input {
     padding: 4px 5px !important;
     font-size: 13px !important;
   }
 
-  .login__button {
+  .auth__button {
     padding: 10px 5px !important;
     font-size: 13px !important;
   }

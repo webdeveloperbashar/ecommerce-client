@@ -8,7 +8,6 @@ import "./assets/style/style.css";
 import reportWebVitals from "./reportWebVitals";
 const breakpoints = {
   isDesktop: "(min-width: 768px)",
-//   isTablet: "(max-width: 1023px) and (min-width: 768px)",
   isMobile: "(max-width: 767px)",
 };
 ReactDOM.render(
