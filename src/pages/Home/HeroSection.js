@@ -5,9 +5,8 @@ import "react-awesome-slider/dist/styles.css";
 import sliderImg1 from "../../assets/slider-img/slider-img.jpg";
 import sliderImg2 from "../../assets/slider-img/sliderImg2.png";
 import sliderImg3 from "../../assets/slider-img/sliderImg3.jpg";
-import SubMenuCategory from "../../components/Sub-Menu-Category";
+import SubMenuCategory from "../../components/Header/Sub-Menu-Category";
 const AutoplaySlider = withAutoplay(AwesomeSlider);
-
 const HeroSection = () => {
   return (
     <main>

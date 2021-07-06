@@ -382,7 +382,7 @@ a:hover {
   position: fixed;
   width: 100%;
   z-index: 999;
-  transform: translateY(-100px);
+  transform: translateY(-150px);
   opacity: 0;
   box-sizing: border-box;
   box-shadow: 0px 3px 5px grey;
@@ -1060,6 +1060,18 @@ select:focus {
             SHOP PAGE CSS START
 **********************************************/
 /********** sidebar catetory css start *************/
+.shop__section__image {
+  background: url("https://i.ibb.co/82Nmmz1/shop-page.jpg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 100px 0;
+}
+.shop__section__image h2 {
+  font-size: 50px;
+  font-weight: 700;
+  color: var(--font-blue-gray);
+}
 .shop__sidebar ul li {
   margin: 5px 0;
 }
@@ -1200,4 +1212,70 @@ span.visible__icon {
 }
 /**********************************************
             LOGIN PAGE CSS END
+**********************************************/
+
+/**********************************************
+            FORGOT PASSWORD PAGE CSS START
+**********************************************/
+.forgot__password {
+  width: 48%;
+}
+/**********************************************
+            FORGOT PASSWORD PAGE CSS END
+**********************************************/
+
+/**********************************************
+            CART PAGE CSS START
+**********************************************/
+.cart__section__image {
+  background: url("https://i.ibb.co/LzDWNGr/subscibe-banner.jpg");
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 100px 0;
+}
+.cart__section__image h2 {
+  font-size: 50px;
+  font-weight: 700;
+  color: var(--font-blue-gray);
+}
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td,
+th {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #0000000a;
+}
+.table__product__img {
+  width: 50px;
+  height: 50px;
+}
+.table__head tr th {
+  font-size: 15px;
+  font-weight: 900;
+  padding: 15px 5px;
+}
+.table__body tr td {
+  border-top: 1px solid #d2d2d277;
+  padding: 15px 5px;
+  vertical-align: middle;
+}
+.table__body tr:hover {
+  background-color: #0000000a;
+}
+button.action__button {
+  font-size: 22px;
+  border: none;
+  color: red;
+}
+/**********************************************
+            CART PAGE CSS END
 **********************************************/

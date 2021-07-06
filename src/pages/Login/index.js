@@ -1,7 +1,7 @@
 import { useBreakpoints } from "react-device-breakpoints";
 import Footer from "../../components/Footer";
+import Nav from "../../components/Header/Nav";
 import Login from "../../components/Login";
-import Nav from "../../components/Nav";
 const Index = () => {
   // device breakpoints
   const device = useBreakpoints();

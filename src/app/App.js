@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { useBreakpoints } from "react-device-breakpoints";
 import { Helmet } from "react-helmet";
-import MobileNavbar from "../components/MobileNavbar";
-import MobileStickyFooterMenu from "../components/MobileStickyFooterMenu";
-import StickyHeader from "../components/StickyHeader";
+import MobileNavbar from "../components/Header/MobileNavbar";
+import MobileStickyFooterMenu from "../components/Header/MobileStickyFooterMenu";
+import StickyHeader from "../components/Header/StickyHeader";
 import Routes from "./Routes";
 const App = () => {
   // drawer open and close functionalites

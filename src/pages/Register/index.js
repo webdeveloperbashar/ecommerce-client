@@ -1,6 +1,6 @@
 import { useBreakpoints } from "react-device-breakpoints";
 import Footer from "../../components/Footer";
-import Nav from "../../components/Nav";
+import Nav from "../../components/Header/Nav";
 import Register from '../../components/Register';
 
 const Index = () => {

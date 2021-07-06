@@ -7,8 +7,8 @@ import {
   FaShoppingCart
 } from "react-icons/fa";
 import { GrFavorite } from "react-icons/gr";
-import logo from "../assets/images/brand-logo/valley.svg";
-import Login from "./Login";
+import logo from "../../assets/images/brand-logo/valley.svg";
+import Login from "../Login";
 const TopHeader = () => {
   const match = useMatch("/login")
   return (

@@ -318,6 +318,12 @@
   /************************************************
             SHOP PAGE CSS START
   *************************************************/
+  .shop__section__image {
+    padding: 60px 0 !important;
+  }
+  .shop__section__image h2 {
+    font-size: 30px !important;
+  }
   .category__sidebar h2,
   .price__sidebar h2,
   .products__tag h2 {
@@ -410,6 +416,19 @@
 
   /************************************************
             LOGIN PAGE CSS END
+  *************************************************/
+
+  /************************************************
+            CART PAGE CSS START
+  *************************************************/
+  .cart__section__image {
+    padding: 60px 0 !important;
+  }
+  .cart__section__image h2 {
+    font-size: 30px !important;
+  }
+  /************************************************
+            CART PAGE CSS END
   *************************************************/
 }
 @media screen and (max-width: 575px) {
@@ -510,6 +529,9 @@
   /************************************************
             SHOP PAGE CSS START
   *************************************************/
+  .shop__sidebar {
+    margin-top: 20px !important;
+  }
   .shop__product .slider__box {
     height: 275px;
   }
@@ -606,6 +628,23 @@
 
   /************************************************
             LOGIN PAGE CSS END
+  *************************************************/
+
+  /************************************************
+            CART PAGE CSS START
+  *************************************************/
+  .cart__list,
+  .cart__totals {
+    margin-top: 20px !important;
+  }
+  .cart__totals h2 {
+    font-size: 20px;
+  }
+  .table__head tr th {
+    font-size: 13px !important;
+  }
+  /************************************************
+            CART PAGE CSS END
   *************************************************/
 }
 @media screen and (max-width: 425px) {
@@ -707,6 +746,9 @@
   /************************************************
             SHOP PAGE CSS START
   *************************************************/
+  .shop__section__image h2 {
+    font-size: 20px !important;
+  }
   .shop__product {
     display: grid;
     grid-template-columns: 50% 50%;
@@ -764,6 +806,22 @@
   }
   /************************************************
             LOGIN PAGE CSS END
+  *************************************************/
+
+  /************************************************
+            CART PAGE CSS START
+  *************************************************/
+  .cart__section__image h2 {
+    font-size: 20px !important;
+  }
+  .table__body tr td {
+    font-size: 13px !important;
+  }
+  .order__summery__table span {
+    font-size: 15px;
+  }
+  /************************************************
+            CART PAGE CSS END
   *************************************************/
 }
 @media screen and (max-width: 320px) {
@@ -868,5 +926,23 @@
 
   /************************************************
             LOGIN PAGE CSS END
+  *************************************************/
+  /************************************************
+            CART PAGE CSS START
+  *************************************************/
+  .cart__totals {
+    margin-top: 0px !important;
+  }
+  .table__head tr th {
+    font-size: 11px !important;
+  }
+  .table__body tr td {
+    font-size: 13px !important;
+  }
+  .order__summery__table span {
+    font-size: 13px;
+  }
+  /************************************************
+            CART PAGE CSS END
   *************************************************/
 }

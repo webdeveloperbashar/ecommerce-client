@@ -1,10 +1,10 @@
+import { Link } from "@reach/router";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { FaLocationArrow, FaPhone } from "react-icons/fa";
 import { IoMdArrowDropright } from "react-icons/io";
 import { SiGmail } from "react-icons/si";
 import logo from "../assets/images/brand-logo/valley.svg";
 import HorizontalLine from "../config/HorizontalLine";
-import NavLink from '../config/NavLink';
 const Footer = () => {
   return (
     <main className="bg-dark m-top__4 footer__wrapper">
@@ -40,34 +40,34 @@ const Footer = () => {
                 <h2 className="font-blue-gray">Categories</h2>
                 <ul>
                   <li>
-                    <NavLink to="/vegetablefruits" className="footer__cate font-blue-gray">
+                    <Link to="/vegetablefruits" className="footer__cate font-blue-gray">
                       <IoMdArrowDropright className="font-blue-gray font-size__3" />{" "} Vegetable & Fruits
-                    </NavLink>
+                    </Link>
                   </li>
                   <li>
-                    <NavLink to="/beverage" className="footer__cate font-blue-gray">
+                    <Link to="/beverage" className="footer__cate font-blue-gray">
                       <IoMdArrowDropright className="font-blue-gray font-size__3" />{" "} Beverage
-                    </NavLink>
+                    </Link>
                   </li>
                   <li>
-                    <NavLink to="/healthwealth" className="footer__cate font-blue-gray">
+                    <Link to="/healthwealth" className="footer__cate font-blue-gray">
                       <IoMdArrowDropright className="font-blue-gray font-size__3" />{" "} Health & Wealth
-                    </NavLink>
+                    </Link>
                   </li>
                   <li>
-                    <NavLink to="/packagefood" className="footer__cate font-blue-gray">
+                    <Link to="/packagefood" className="footer__cate font-blue-gray">
                       <IoMdArrowDropright className="font-blue-gray font-size__3" />{" "} Package Food
-                    </NavLink>
+                    </Link>
                   </li>
                   <li>
-                    <NavLink to="/dairyproduct" className="footer__cate font-blue-gray">
+                    <Link to="/dairyproduct" className="footer__cate font-blue-gray">
                       <IoMdArrowDropright className="font-blue-gray font-size__3" />{" "} Dairy Products
-                    </NavLink>
+                    </Link>
                   </li>
                   <li>
-                    <NavLink to="/groceryproduct" className="footer__cate font-blue-gray">
+                    <Link to="/groceryproduct" className="footer__cate font-blue-gray">
                       <IoMdArrowDropright className="font-blue-gray font-size__3" />{" "} Grocery Products
-                    </NavLink>
+                    </Link>
                   </li>
                 </ul>
               </div>
@@ -77,29 +77,29 @@ const Footer = () => {
                 <h2 className="font-blue-gray">Quick Links</h2>
                 <ul>
                   <li>
-                    <NavLink to="/" className="footer__link font-blue-gray">
+                    <Link to="/" className="footer__link font-blue-gray">
                       <IoMdArrowDropright className="font-blue-gray font-size__3" />{" "} Home
-                    </NavLink>
+                    </Link>
                   </li>
                   <li>
-                    <NavLink to="/shop" className="footer__link font-blue-gray">
+                    <Link to="/shop" className="footer__link font-blue-gray">
                       <IoMdArrowDropright className="font-blue-gray font-size__3" />{" "} Shop
-                    </NavLink>
+                    </Link>
                   </li>
                   <li>
-                    <NavLink to="/contact" className="footer__link font-blue-gray">
+                    <Link to="/contact" className="footer__link font-blue-gray">
                       <IoMdArrowDropright className="font-blue-gray font-size__3" />{" "} Contact
-                    </NavLink>
+                    </Link>
                   </li>
                   <li>
-                    <NavLink to="/login" className="footer__link font-blue-gray">
+                    <Link to="/login" className="footer__link font-blue-gray">
                       <IoMdArrowDropright className="font-blue-gray font-size__3" />{" "} Login
-                    </NavLink>
+                    </Link>
                   </li>
                   <li>
-                    <NavLink to="/register" className="footer__link font-blue-gray">
+                    <Link to="/register" className="footer__link font-blue-gray">
                       <IoMdArrowDropright className="font-blue-gray font-size__3" />{" "} Register
-                    </NavLink>
+                    </Link>
                   </li>
                 </ul>
               </div>

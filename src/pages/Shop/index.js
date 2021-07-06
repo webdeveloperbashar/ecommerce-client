@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { useBreakpoints } from "react-device-breakpoints";
 import { IoMdArrowDropright } from "react-icons/io";
 import Footer from "../../components/Footer";
-import Nav from "../../components/Nav";
+import Nav from "../../components/Header/Nav";
 import FakeData from "../../config/FakeData";
 import NavLink from "../../config/NavLink";
 import Product from "../../config/Product";
@@ -20,6 +20,9 @@ const Index = () => {
     <>
       {device.isDesktop && <Nav isShow />}
       <div className="shop__wrapper">
+        <div className="shop__section__image">
+          <h2 className="text-center">Shop</h2>
+        </div>
         <div className="container">
           <div className="row">
             <div className="col-md-3">
@@ -109,6 +112,7 @@ const Index = () => {
                         productImg={`${item.img}`}
                         productName={`${item.name}`}
                         productPrice={`${item.price}`}
+                        productSize={`${item.size}`}
                       />
                     </div>
                   ))}

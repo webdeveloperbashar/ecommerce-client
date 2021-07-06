@@ -1,7 +1,7 @@
 import { FaBlog, FaHome, FaShopify } from "react-icons/fa";
 import { GrContact } from "react-icons/gr";
 import { VscArrowBoth } from "react-icons/vsc";
-import NavLink from "../config/NavLink";
+import NavLink from "../../config/NavLink";
 const CartDrawer = ({ openCartDrawer, handleCloseDrawer }) => {
   return (
     <div

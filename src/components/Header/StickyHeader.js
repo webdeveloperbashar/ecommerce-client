@@ -4,9 +4,9 @@ import { useBreakpoints } from "react-device-breakpoints";
 import { FaRegUser, FaSearch, FaShoppingCart } from "react-icons/fa";
 import { GrFavorite } from "react-icons/gr";
 import { IoMdMenu } from "react-icons/io";
-import logo from "../assets/images/brand-logo/valley.svg";
-import NavLink from "../config/NavLink";
-import Login from "./Login";
+import logo from "../../assets/images/brand-logo/valley.svg";
+import NavLink from "../../config/NavLink";
+import Login from "../Login";
 import StickySearchForm from "./StickySearchForm";
 const StickyHeader = ({ handleOpenDrawer }) => {
   // device breakpoints

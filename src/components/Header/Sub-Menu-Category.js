@@ -1,5 +1,5 @@
 import { FiArrowRight } from "react-icons/fi";
-import NavLink from "../config/NavLink";
+import NavLink from "../../config/NavLink";
 const SubMenuCategory = () => {
   return (
     <>

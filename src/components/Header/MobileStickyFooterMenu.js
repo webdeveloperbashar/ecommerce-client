@@ -1,6 +1,6 @@
 import { FaRegUser, FaShoppingCart } from "react-icons/fa";
 import { GrFavorite } from "react-icons/gr";
-import NavLink from "../config/NavLink";
+import NavLink from "../../config/NavLink";
 
 const MobileStickyFooterMenu = () => {
   return (

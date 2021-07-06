@@ -2,8 +2,8 @@ import { navigate } from "@reach/router";
 import { useState } from "react";
 import { FaSearch } from "react-icons/fa";
 import { IoMdMenu } from "react-icons/io";
-import logo from "../assets/images/brand-logo/valley.svg";
-import CartDrawer from "../components/CartDrawer";
+import logo from "../../assets/images/brand-logo/valley.svg";
+import CartDrawer from "./CartDrawer";
 import StickySearchForm from "./StickySearchForm";
 const MobileNavbar = ({
   openCartDrawer,

@@ -1,6 +1,6 @@
 import { useBreakpoints } from "react-device-breakpoints";
 import Footer from "../../components/Footer";
-import Nav from "../../components/Nav";
+import Nav from "../../components/Header/Nav";
 import BestSellingProduct from "./BestSellingProduct";
 import HeroSection from "./HeroSection";
 import HotProduct from "./HotProduct";

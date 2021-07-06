@@ -2,7 +2,7 @@ import { useBreakpoints } from "react-device-breakpoints";
 import { FaMapMarkerAlt, FaPhoneAlt } from "react-icons/fa";
 import { SiGmail } from "react-icons/si";
 import Footer from "../../components/Footer";
-import Nav from "../../components/Nav";
+import Nav from "../../components/Header/Nav";
 const Index = () => {
   const device = useBreakpoints();
   return (
