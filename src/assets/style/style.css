@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 :root {
   --font-dark: #101c2c;
   --font-light: #ffffff;
@@ -12,12 +13,52 @@
   --bg-light: #ffffff;
   --bg-blue-gray: #5a6577;
 }
+
+/*********** Toas notification css start ************/
+.toast__wrapper {
+  position: fixed;
+  right: 3px;
+  top: 10px;
+  z-index: 99999;
+  transform: translateX(255px);
+  border-radius: 1px;
+  font-weight: 800;
+  color: white;
+  vertical-align: middle;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+.toast__wrapper.show {
+  transform: translateX(0px);
+  transition: all 0.3s ease-in-out;
+}
+.toast__wrapper .toast__icon {
+  font-size: 19px;
+  margin-right: 5px;
+}
+.toast__wrapper .success {
+  padding: 15px;
+  background: #07c50e;
+  border-left: 0.6180469716em solid rgba(0, 0, 0, 0.15);
+}
+.toast__wrapper .error {
+  padding: 15px;
+  background: #e85642;
+  border-left: 0.6180469716em solid rgba(0, 0, 0, 0.15);
+}
+.toast__wrapper .error .toast__icon {
+  font-size: 13px;
+}
+/*********** Toas notification css end ************/
+
 /********* Global css start ***********/
 body,
 html {
-  font-family: var(--font-family);
+  font-family: "Roboto", sans-serif;
   position: relative;
   background-color: var(--bg-light-gray);
+  position: relative;
+  overflow-x: hidden;
 }
 a {
   text-decoration: none;
@@ -913,12 +954,12 @@ select:focus {
 
 /********** Mobile profile Drawer css start *************/
 .backdrop__effect {
-  background: #00000085;
+  background: #0000009c;
   width: 100%;
   position: absolute;
-  filter: blur(6px);
   z-index: 999;
   height: 100%;
+  transition: all 0.3s ease-in-out;
 }
 .cart__drawer__inner {
   position: fixed;
@@ -1240,7 +1281,7 @@ span.visible__icon {
   color: var(--font-blue-gray);
 }
 table {
-  font-family: arial, sans-serif;
+  font-family: "Roboto", sans-serif;
   border-collapse: collapse;
   width: 100%;
 }

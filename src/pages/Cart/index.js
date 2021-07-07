@@ -1,5 +1,10 @@
+import { Link } from "@reach/router";
+import { useState } from "react";
 import { useBreakpoints } from "react-device-breakpoints";
+import { FaEdit } from "react-icons/fa";
+import { FcCheckmark } from "react-icons/fc";
 import { MdDelete } from "react-icons/md";
+import shortid from "shortid";
 import cateImg from "../../assets/Cate-image/cateImg-3.jpg";
 import DataTable from "../../components/Data-table";
 import ActionCell from "../../components/Data-table/Action-cell";
@@ -7,9 +12,17 @@ import ImageCell from "../../components/Data-table/Image-cell";
 import TextCell from "../../components/Data-table/Text-Cell";
 import Footer from "../../components/Footer";
 import Nav from "../../components/Header/Nav";
+import ToastNotification from "../../components/Notification/ToastNotification";
 import HorizontalLine from "../../config/HorizontalLine";
 const Index = () => {
+  // device breakpoints
   const device = useBreakpoints();
+  const [showNotify, setShowNotify] = useState(false)
+  const notifyClose = () => setShowNotify(false)
+
+  const [editable, setEditable] = useState({});
+
+  // data table data send
   const theadItems = [
     <TextCell key="image" text="Image" as="th" />,
     <TextCell key="name" text="Product Name" as="th" />,
@@ -20,7 +33,7 @@ const Index = () => {
   const tbodyItems = [
     [
       <ImageCell
-        key="image"
+        key={shortid.generate()}
         className="table__product__img"
         as="td"
         actions={[
@@ -40,35 +53,20 @@ const Index = () => {
           {
             name: "Delete",
             icon: <MdDelete />,
-            handler: () => {},
+            handler: () => {
+              setShowNotify(true)
+            },
           },
-        ]}
-        as="td"
-      />,
-    ],
-    [
-      <ImageCell
-        key="image"
-        className="table__product__img"
-        as="td"
-        actions={[
           {
-            name: "image",
-            image: "https://i.ibb.co/ZVVYXyh/fruits.png",
-          },
-        ]}
-      />,
-      <TextCell key="name" text="Kashmiri Fruits" as="td" />,
-      <TextCell key="quantity" text="2 Kg" as="td" />,
-      <TextCell key="price" text="$148" as="td" />,
-      <ActionCell
-        key="action"
-        className="text-end"
-        actions={[
-          {
-            name: "Delete",
-            icon: <MdDelete />,
-            handler: () => {},
+            name: "Edit",
+            icon: editable ? (
+              <FaEdit className="text-success" />
+            ) : (
+              <FcCheckmark />
+            ),
+            handler: () => {
+              setEditable(!editable);
+            },
           },
         ]}
         as="td"
@@ -77,6 +75,12 @@ const Index = () => {
   ];
   return (
     <>
+      <ToastNotification
+        message="Product remove from cart"
+        success
+        showNotify={showNotify}
+        notifyClose={notifyClose}
+      />
       {device.isDesktop && <Nav isShow />}
       <div className="cart__wrapper">
         <div className="cart__section__image">
@@ -95,7 +99,7 @@ const Index = () => {
             </div>
             <div className="col-md-4">
               <div className="cart__totals box__shadow bg-light p__2 mt-5 mb-4">
-                <h2 className="text-dark font-size__3 py-1">Order Summary</h2>
+                <h2 className="text-dark font-size__2 py-1">Cart Totals</h2>
                 <HorizontalLine
                   width="100%"
                   height="1px"
@@ -103,17 +107,32 @@ const Index = () => {
                   background="#8080803b"
                 />
                 <div className="order__summery__table mt-3">
-                  <div className="d-flex align-items-center justify-content-between">
-                    <span className="font-size__1 py-3">Subtotal</span>
-                    <span className="font-size__2">$135874</span>
+                  <div className="d-flex align-items-center justify-content-between py-2">
+                    <span className="font-size__1">Subtotal</span>
+                    <span className="font-size__1">$135874</span>
                   </div>
-                  <div className="d-flex align-items-center justify-content-between py-3">
+                  <div className="d-flex align-items-center justify-content-between py-2">
                     <span className="font-size__1">Tax</span>
-                    <span className="font-size__2">5%</span>
+                    <span className="font-size__1">5%</span>
                   </div>
-                  <div className="d-flex align-items-center justify-content-between py-3">
+                  <div className="d-flex align-items-center justify-content-between py-2">
                     <span className="font-size__1">Delivery Charge</span>
-                    <span className="font-size__2">$79</span>
+                    <span className="font-size__1">$79</span>
+                  </div>
+                  <HorizontalLine
+                    width="100%"
+                    height="1px"
+                    margin="8px auto"
+                    background="#8080803b"
+                  />
+                  <div className="d-flex align-items-center justify-content-between py-2">
+                    <span className="font-size__2">Total</span>
+                    <span className="font-size__2">$14587</span>
+                  </div>
+                  <div className="mt-2">
+                    <Link to="/checkout" className="btn w-100 font-size__1">
+                      Process to checkout
+                    </Link>
                   </div>
                 </div>
               </div>

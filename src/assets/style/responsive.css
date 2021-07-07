@@ -421,6 +421,9 @@
   /************************************************
             CART PAGE CSS START
   *************************************************/
+  .cart__totals {
+    margin-top: 15px !important;
+  }
   .cart__section__image {
     padding: 60px 0 !important;
   }
@@ -633,6 +636,9 @@
   /************************************************
             CART PAGE CSS START
   *************************************************/
+  .cart__totals {
+    margin-top: 10px !important;
+  }
   .cart__list,
   .cart__totals {
     margin-top: 20px !important;
@@ -811,6 +817,9 @@
   /************************************************
             CART PAGE CSS START
   *************************************************/
+  .cart__totals {
+    margin-top: 5px !important;
+  }
   .cart__section__image h2 {
     font-size: 20px !important;
   }
