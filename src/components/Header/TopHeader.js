@@ -62,7 +62,7 @@ const TopHeader = () => {
               <li className="nav-item">
                 <Link
                   className="m-left__2 p__2 bg-light__gray topHeader__icon"
-                  to="/favorite"
+                  to="/favourite"
                 >
                   <GrFavorite /> <span className="cart__badge">4</span>
                 </Link>

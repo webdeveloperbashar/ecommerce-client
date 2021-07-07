@@ -90,7 +90,7 @@ const Index = () => {
             <div className="col-md-9">
               <div className="shop__content box__shadow p-4 bg-light mt-5">
                 <div className="d-flex align-items-center justify-content-between py__2">
-                  <h1 className="section__title font-size__2 font-dark__green">
+                  <h1 className="section__title font-size__3 font-dark">
                     Fruits & Beverages
                   </h1>
                   <div className="sorting__flex align-items-center justify-content-between">

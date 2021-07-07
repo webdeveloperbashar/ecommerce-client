@@ -22,7 +22,7 @@ const ProductSectionWrapper = ({
       <div className="container">
         <div className="featured__product p__4 box__shadow bg-light">
           <div className="d-flex align-items-center justify-content-between py__2">
-            <h1 className="section__title font-size__3 font-dark__green">{bannerTitle}</h1>
+            <h1 className="section__title font-size__3 font-dark">{bannerTitle}</h1>
             <div className="sorting__flex align-items-center justify-content-between">
               <p className="sort">Sort By</p>
               <select name="sorting" className="sorting m-left__3">
@@ -51,9 +51,9 @@ const ProductSectionWrapper = ({
                   <p>{whichProduct}</p>
                   <HorizontalLine
                     width="42px"
-                    height="1px"
+                    height="2px"
                     margin="25px auto"
-                    background="#A8B324"
+                    background="rgb(103 188 15)"
                   />
                   <Link to="/shop" className="banner__shop__link">
                     {btnText}

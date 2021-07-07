@@ -1,4 +1,4 @@
-import { Link } from "@reach/router";
+import { Link, navigate } from "@reach/router";
 import { useState } from "react";
 import { useBreakpoints } from "react-device-breakpoints";
 import { FaEdit } from "react-icons/fa";
@@ -17,8 +17,11 @@ import HorizontalLine from "../../config/HorizontalLine";
 const Index = () => {
   // device breakpoints
   const device = useBreakpoints();
-  const [showNotify, setShowNotify] = useState(false)
-  const notifyClose = () => setShowNotify(false)
+  const [showNotify, setShowNotify] = useState(false);
+  const notifyClose = () => setShowNotify(false);
+  window.setTimeout(() => {
+    setShowNotify(false);
+  }, 5000);
 
   const [editable, setEditable] = useState({});
 
@@ -48,14 +51,15 @@ const Index = () => {
       <TextCell key="price" text="$25" as="td" />,
       <ActionCell
         key="action"
-        className="text-end"
+        className="text-end action__button"
         actions={[
           {
             name: "Delete",
             icon: <MdDelete />,
             handler: () => {
-              setShowNotify(true)
+              setShowNotify(true);
             },
+            className: 'action__button'
           },
           {
             name: "Edit",
@@ -67,6 +71,7 @@ const Index = () => {
             handler: () => {
               setEditable(!editable);
             },
+            className: 'action__button'
           },
         ]}
         as="td"
@@ -96,6 +101,21 @@ const Index = () => {
                   noItemMsg="There is no product"
                 />
               </div>
+              <div className="d-flex align-items-center justify-content-between">
+                <div>
+                  <button className="btn py-3 text-capitalize" onClick={()=>navigate("/")}>Return to shop</button>
+                </div>
+                <div className="form-group d-flex">
+                  <input
+                    type="text"
+                    className="form-control"
+                    placeholder="Enter coupon code"
+                  />
+                  <button type="submit" className="btn">
+                    Apply
+                  </button>
+                </div>
+              </div>
             </div>
             <div className="col-md-4">
               <div className="cart__totals box__shadow bg-light p__2 mt-5 mb-4">
@@ -108,16 +128,16 @@ const Index = () => {
                 />
                 <div className="order__summery__table mt-3">
                   <div className="d-flex align-items-center justify-content-between py-2">
-                    <span className="font-size__1">Subtotal</span>
-                    <span className="font-size__1">$135874</span>
+                    <span>Subtotal</span>
+                    <span>$135874</span>
                   </div>
                   <div className="d-flex align-items-center justify-content-between py-2">
-                    <span className="font-size__1">Tax</span>
-                    <span className="font-size__1">5%</span>
+                    <span>Tax</span>
+                    <span>5%</span>
                   </div>
                   <div className="d-flex align-items-center justify-content-between py-2">
-                    <span className="font-size__1">Delivery Charge</span>
-                    <span className="font-size__1">$79</span>
+                    <span>Delivery Charge</span>
+                    <span>$79</span>
                   </div>
                   <HorizontalLine
                     width="100%"
@@ -126,11 +146,11 @@ const Index = () => {
                     background="#8080803b"
                   />
                   <div className="d-flex align-items-center justify-content-between py-2">
-                    <span className="font-size__2">Total</span>
-                    <span className="font-size__2">$14587</span>
+                    <span className="font-size__1">Total</span>
+                    <span className="font-size__1">$14587</span>
                   </div>
                   <div className="mt-2">
-                    <Link to="/checkout" className="btn w-100 font-size__1">
+                    <Link to="/checkout" className="btn py-3 w-100 font-size__1">
                       Process to checkout
                     </Link>
                   </div>

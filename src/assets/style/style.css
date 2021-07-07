@@ -3,12 +3,12 @@
   --font-dark: #101c2c;
   --font-light: #ffffff;
   --font-blue-gray: #5a6577;
-  --font-olive-green: #7f881b;
+  --font-olive-green: #67bc0f;
   --font-dark-green: #0a472e;
   --font-family: "Nunito", sans-serif;
   --bg-light-gray: #e9ebec;
   --bg-dark-green: #0a472e;
-  --bg-olive-green: #7f881b;
+  --bg-olive-green: #67bc0f;
   --bg-dark: #101c2c;
   --bg-light: #ffffff;
   --bg-blue-gray: #5a6577;
@@ -57,8 +57,10 @@ html {
   font-family: "Roboto", sans-serif;
   position: relative;
   background-color: var(--bg-light-gray);
-  position: relative;
+}
+html {
   overflow-x: hidden;
+  position: relative;
 }
 a {
   text-decoration: none;
@@ -326,9 +328,9 @@ a:hover {
   border: 1px solid #d2d2d2 !important;
 }
 .btn {
-  background: #a8b324;
+  background: var(--bg-olive-green);
   border: none;
-  color: white;
+  color: var(--font-light);
   font-size: 15px;
   padding: 10px 15px;
   line-height: 10px;
@@ -336,6 +338,9 @@ a:hover {
 }
 .btn:focus {
   box-shadow: inherit;
+}
+.btn:hover {
+  opacity: 0.9;
 }
 /********* Global css end ***********/
 
@@ -505,20 +510,20 @@ a:hover {
   top: -15px;
   right: -12px;
   color: white;
-  background: #dfb178;
+  background: var(--bg-olive-green);
   border-radius: 50px;
   font-size: 10px;
 }
 .form-control {
   width: 100%;
   padding: 11px 10px;
-  border: 1px solid #a8b979;
+  border: 1px solid var(--font-olive-green);
   font-size: 15px;
   color: gray;
   border-radius: inherit;
 }
 .form-control:focus {
-  border: 1px solid #a8b979;
+  border: 1px solid var(--font-olive-green);
   box-shadow: inherit;
 }
 .topHeader__icon:hover {
@@ -560,7 +565,7 @@ a:hover {
   height: 391px !important;
   left: 0;
   opacity: 1;
-  top: 57px;
+  top: 56px;
   visibility: visible;
   z-index: 99999;
 }
@@ -571,7 +576,7 @@ a:hover {
   height: 0;
   left: 0;
   opacity: 0;
-  top: 57px;
+  top: 56px;
   visibility: hidden;
   z-index: 99999;
   transition: all 0.3s ease-in-out;
@@ -598,6 +603,9 @@ a:hover {
 /********* site policy ***********/
 .policy__box {
   height: 100px;
+}
+.policy__box span p {
+  font-size: 13px;
 }
 .policy__box .support__icon {
   font-size: 25px;
@@ -677,7 +685,7 @@ select:focus {
 .banner__content h2 {
   font-size: 40px;
   font-weight: 700;
-  color: #a8b324;
+  color: var(--font-olive-green);
   margin-bottom: 15px;
 }
 .banner__content p {
@@ -687,7 +695,7 @@ select:focus {
   margin-top: -35px;
 }
 .banner__shop__link {
-  background: #a8b324;
+  background: var(--bg-olive-green);
   padding: 8px 28px;
   width: 150px;
   margin: auto;
@@ -737,7 +745,7 @@ select:focus {
   position: absolute;
   left: 0;
   top: 0;
-  background-color: #0a472e;
+  background-color: var(--bg-olive-green);
   color: #fff;
   padding: 4px 10px;
   line-height: 1rem;
@@ -791,7 +799,8 @@ select:focus {
   z-index: 1;
 }
 .react-multiple-carousel__arrow:hover {
-  background-color: #cbda2d;
+  opacity: 0.9;
+  background-color: var(--bg-olive-green);
 }
 .react-multiple-carousel__arrow::before {
   font-size: 12px;
@@ -1113,6 +1122,7 @@ select:focus {
   font-weight: 700;
   color: var(--font-blue-gray);
 }
+
 .shop__sidebar ul li {
   margin: 5px 0;
 }
@@ -1320,3 +1330,30 @@ button.action__button {
 /**********************************************
             CART PAGE CSS END
 **********************************************/
+
+/**********************************************
+            FAVOURITE PAGE CSS START
+**********************************************/
+.favourite__section__image {
+  background: url("../Cate-image/cateImg-2.jpg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 100px 0;
+}
+.favourite__section__image h2 {
+  font-size: 50px;
+  font-weight: 700;
+  color: var(--font-light);
+}
+/**********************************************
+            FAVOURITE PAGE CSS END
+**********************************************/
+.favourite__table table {
+  border: 1px solid #80808038;
+  background: var(--bg-light);
+}
+.favourite__table .table__body tr td {
+  border-right: 1px solid #e2e2e2;
+  text-align: center;
+}

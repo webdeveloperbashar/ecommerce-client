@@ -103,7 +103,7 @@ const StickyHeader = ({ handleOpenDrawer }) => {
                 <li className="nav-item">
                   <Link
                     className="m-left__2 p__2 bg-light__gray topHeader__icon"
-                    to="#"
+                    to="/favourite"
                   >
                     <GrFavorite /> <span className="cart__badge">4</span>
                   </Link>

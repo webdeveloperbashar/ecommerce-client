@@ -5,7 +5,7 @@ const ActionCell = ({ actions, className, as }) => {
       {actions.map((action) => (
         <button
           key={action.name}
-          className="action__button"
+          className={action.className}
           onClick={action.handler}
         >
           {action.icon}
