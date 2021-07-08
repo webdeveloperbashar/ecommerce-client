@@ -6,7 +6,7 @@ import { MdPayment } from "react-icons/md";
 import Footer from "../../components/Footer";
 import Nav from "../../components/Header/Nav";
 import InputField from "../../config/InputField";
-import { FormInputFieldData } from "./FormInputFieldData";
+import { FormInputFieldData, InputRadio } from "./FormInputFieldData";
 
 const Index = () => {
   // device breakpoints
@@ -42,7 +42,10 @@ const Index = () => {
         <div className="container">
           <div className="row">
             <div className="col-md-12">
-              <div className="checkout__process bg-light py-3 box__shadow">
+              <div
+                className="checkout__process bg-light py-3 box__shadow"
+                style={{ position: "relative" }}
+              >
                 <div
                   className={`shipping__info ${count >= 1 && "icon__green"}`}
                 >
@@ -96,6 +99,17 @@ const Index = () => {
                         Select Payment Method{" "}
                         <span className="text-danger">*</span>
                       </h2>
+                      {InputRadio.map((data, index) => (
+                        <div className="my-4" key={index + 1}>
+                          <input
+                            type={data.type}
+                            name={data.name}
+                            value={data.value}
+                            className="me-2"
+                          />
+                          <label htmlFor={data.label}>{data.label}</label>
+                        </div>
+                      ))}
                     </div>
                   )}
                   {count === 3 && (
