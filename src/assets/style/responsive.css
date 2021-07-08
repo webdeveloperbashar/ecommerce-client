@@ -84,6 +84,17 @@
     font-size: 15px !important;
   }
 }
+/**********************************************
+            CHECKOUT PAGE CSS START
+**********************************************/
+.input__field__inline {
+  width: 47% !important;
+  display: inline-block !important;
+  margin-right: 13px !important;
+}
+/**********************************************
+        CHECKOUT PAGE CSS END
+**********************************************/
 
 @media (max-width: 891px) {
   /************************************************
@@ -433,6 +444,18 @@
   /************************************************
             CART PAGE CSS END
   *************************************************/
+
+  /**********************************************
+            CHECKOUT PAGE CSS START
+**********************************************/
+  .input__field__inline {
+    width: 100% !important;
+    display: inherit !important;
+    margin-right: 0px !important;
+  }
+  /**********************************************
+          CHECKOUT PAGE CSS END
+**********************************************/
 }
 @media screen and (max-width: 575px) {
   /******** site policy ***********/
@@ -652,6 +675,21 @@
   /************************************************
             CART PAGE CSS END
   *************************************************/
+
+  /**********************************************
+            CHECKOUT PAGE CSS START
+**********************************************/
+  .checkout__icon {
+    font-size: 20px !important;
+    margin-bottom: 5px !important;
+  }
+  .checkout__content {
+    font-size: 12px !important;
+    font-weight: 600 !important;
+  }
+  /**********************************************
+          CHECKOUT PAGE CSS END
+**********************************************/
 }
 @media screen and (max-width: 425px) {
   /******** site policy ***********/

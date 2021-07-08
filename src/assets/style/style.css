@@ -1357,3 +1357,30 @@ button.action__button {
   border-right: 1px solid #e2e2e2;
   text-align: center;
 }
+/**********************************************
+            CHECKOUT PAGE CSS START
+**********************************************/
+.checkout__process {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  text-align: center;
+}
+.checkout__icon {
+  font-size: 30px;
+  margin-bottom: 5px;
+}
+.icon__green {
+  color: var(--font-olive-green);
+}
+.checkout__content {
+  font-size: 16px;
+  font-weight: 600;
+}
+.input__field__inline {
+  width: 47%;
+  display: inline-block;
+  margin-right: 13px;
+}
+/**********************************************
+            CHECKOUT PAGE CSS END
+**********************************************/
