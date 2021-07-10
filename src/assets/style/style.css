@@ -1346,9 +1346,6 @@ button.action__button {
   font-weight: 700;
   color: var(--font-light);
 }
-/**********************************************
-            FAVOURITE PAGE CSS END
-**********************************************/
 .favourite__table table {
   border: 1px solid #80808038;
   background: var(--bg-light);
@@ -1358,6 +1355,10 @@ button.action__button {
   text-align: center;
 }
 /**********************************************
+            FAVOURITE PAGE CSS END
+**********************************************/
+
+/**********************************************
             CHECKOUT PAGE CSS START
 **********************************************/
 .checkout__process {
@@ -1365,9 +1366,15 @@ button.action__button {
   grid-template-columns: auto auto auto;
   text-align: center;
 }
+.checkout__form {
+  min-height: 250px;
+}
 .checkout__icon {
   font-size: 30px;
   margin-bottom: 5px;
+}
+.is-error {
+  border: 1px solid red;
 }
 .icon__green {
   color: var(--font-olive-green);
@@ -1380,6 +1387,19 @@ button.action__button {
   width: 47%;
   display: inline-block;
   margin-right: 13px;
+}
+.confirm__msg {
+  padding: 65px 0;
+}
+.confirm__msg h2 {
+  font-size: 35px;
+  color: #67bc0f;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+.confirm__msg p {
+  font-size: 16px;
+  color: var(--bg-blue-gray);
 }
 /**********************************************
             CHECKOUT PAGE CSS END

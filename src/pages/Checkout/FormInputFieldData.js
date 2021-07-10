@@ -1,79 +1,94 @@
-export const FormInputFieldData = [
-  {
-    label: "Name",
-    type: "text",
-    name: "name",
-    className: "input__field mt-2",
-    placeholder: "Enter your name",
+export const FormInputFieldData = {
+  stepOne: {
+    name: {
+      value: "",
+      required: true,
+      type: "input",
+      label: "Name",
+      placeholder: "Enter your name",
+    },
+    mobile: {
+      value: "",
+      required: true,
+      type: "input",
+      label: "Mobile",
+      placeholder: "Enter your mobile no",
+    },
+    company: {
+      value: "",
+      required: true,
+      type: "input",
+      label: "Company",
+      placeholder: "Enter your company",
+    },
+    state: {
+      value: "",
+      required: true,
+      type: "input",
+      label: "State",
+      placeholder: "Enter your state",
+    },
+    city: {
+      value: "",
+      required: true,
+      type: "input",
+      label: "City",
+      placeholder: "Enter your city",
+    },
+    zip: {
+      value: "",
+      required: true,
+      type: "input",
+      label: "Zip",
+      placeholder: "Enter your zip",
+    },
+    country: {
+      value: "",
+      type: "select",
+      required: true,
+      label: "Country",
+      options: [
+        { value: "", label: "Choose Country" },
+        { value: "bangladesh", label: "Bangladesh" },
+        { value: "pakistan", label: "Pakistan" },
+      ],
+    },
+    address: {
+      value: "",
+      required: true,
+      type: "input",
+      label: "Address",
+      placeholder: "Enter your address",
+    },
   },
-  {
-    label: "Mobile",
-    type: "number",
-    name: "phone",
-    className: "input__field mt-2",
-    placeholder: "Enter your phone number",
+  stepTwo: {
+    address: {
+      value: "",
+      required: true,
+      type: "input",
+      label: "Address",
+      placeholder: "Enter your address",
+    },
   },
-  {
-    label: "Company",
-    type: "text",
-    name: "company",
-    className: "input__field mt-2",
-    placeholder: "Enter your company",
-  },
-  {
-    label: "State",
-    type: "text",
-    name: "state",
-    className: "input__field mt-2",
-    placeholder: "Enter your state",
-  },
-  {
-    label: "City",
-    type: "text",
-    name: "city",
-    className: "input__field mt-2",
-    placeholder: "Enter your city",
-  },
-  {
-    label: "Postcode/Zip",
-    type: "number",
-    name: "zip",
-    className: "input__field mt-2",
-    placeholder: "Enter your zip/postcode",
-  },
-  {
-    label: "Country",
-    type: "text",
-    name: "country",
-    className: "input__field mt-2",
-    placeholder: "Enter your country",
-  },
-  {
-    label: "Address",
-    type: "text",
-    name: "address",
-    className: "input__field mt-2",
-    placeholder: "Enter your address",
-  },
-];
+};
 
 export const InputRadio = [
   {
-    name: 'payment',
+    name: "payment",
     type: "radio",
-    value: 'cash on delivery',
-    label: 'Cash on delivery'
+    value: "cash on delivery",
+    label: "Cash on delivery",
   },
   {
-    name: 'payment',
+    name: "payment",
     type: "radio",
-    value: 'stripe',
-    label: 'Stripe'
+    value: "stripe",
+    label: "Stripe",
   },
   {
-    name: 'payment',
+    name: "payment",
     type: "radio",
-    value: 'paypal',
-    label: 'Paypal'
+    value: "paypal",
+    label: "Paypal",
   },
-]
+];

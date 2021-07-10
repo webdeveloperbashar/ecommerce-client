@@ -1,6 +1,6 @@
 import React from "react";
 import banner4 from '../../assets/product-banner/banner-4.jpg';
-import FakeData from "../../config/FakeData2";
+import FakeData from "../../config/FakeData";
 import ProductSectionWrapper from "../../config/ProductSectionWrapper";
 const TopRatedProduct = () => {
   return (

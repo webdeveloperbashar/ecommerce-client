@@ -453,6 +453,22 @@
     display: inherit !important;
     margin-right: 0px !important;
   }
+  .checkout__form {
+    min-height: 150px !important;
+  }
+  .confirm__msg {
+    padding: 30px 0 !important;
+  }
+  .confirm__msg h2 {
+    font-size: 20px !important;
+    color: #67bc0f;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+  .confirm__msg p {
+    font-size: 11px !important;
+    color: var(--bg-blue-gray);
+  }
   /**********************************************
           CHECKOUT PAGE CSS END
 **********************************************/

@@ -1,5 +1,5 @@
 import banner1 from "../../assets/product-banner/banner-1.jpg";
-import FakeData2 from "../../config/FakeData2";
+import FakeData from "../../config/FakeData";
 import ProductSectionWrapper from "../../config/ProductSectionWrapper";
 const HotProduct = () => {
   return (
@@ -10,7 +10,7 @@ const HotProduct = () => {
       bannerOfferRate='60% Of'
       whichProduct='All Dairy Products'
       btnText='Shop Now'
-      data={FakeData2}
+      data={FakeData}
       sliderArrows={true}
       sliderSpeed={1500}
       sliderTransition="all 2s"
