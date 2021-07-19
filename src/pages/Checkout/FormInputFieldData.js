@@ -19,7 +19,7 @@ export const FormInputFieldData = {
       required: true,
       type: "input",
       label: "Company",
-      placeholder: "Enter your company",
+      placeholder: "Enter your company (any name)",
     },
     state: {
       value: "",
@@ -62,12 +62,26 @@ export const FormInputFieldData = {
     },
   },
   stepTwo: {
-    address: {
+    cardNumber: {
       value: "",
       required: true,
       type: "input",
-      label: "Address",
-      placeholder: "Enter your address",
+      label: "Card Number",
+      placeholder: "1234 1234 1234 1234",
+    },
+    expiration: {
+      value: "",
+      required: true,
+      type: "input",
+      label: "Expiration Date",
+      placeholder: "MM / YY",
+    },
+    cvc: {
+      value: "",
+      required: true,
+      type: "input",
+      label: "CVC",
+      placeholder: "CVC",
     },
   },
 };

@@ -2,10 +2,10 @@ import { Slider } from "@material-ui/core";
 import React, { useState } from "react";
 import { useBreakpoints } from "react-device-breakpoints";
 import { IoMdArrowDropright } from "react-icons/io";
+import { NavLink } from "react-router-dom";
 import Footer from "../../components/Footer";
 import Nav from "../../components/Header/Nav";
 import FakeData from "../../config/FakeData";
-import NavLink from "../../config/NavLink";
 import Product from "../../config/Product";
 const Index = () => {
   // device breakpoint

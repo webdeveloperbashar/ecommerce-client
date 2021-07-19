@@ -22,22 +22,34 @@ const Nav = ({ isShow }) => {
           <div className="navbar__collapse">
             <ul className="navbar-nav m-right__auto m-right__2">
               <li className="nav-item">
-                <NavLink className="p__2 font-light link" to="/">
+                <NavLink
+                  className="p__2 font-light link"
+                  to="/"
+                >
                   Home
                 </NavLink>
               </li>
               <li className="nav-item">
-                <NavLink className="p__2 font-light link" to="/shop">
+                <NavLink
+                  className="p__2 font-light link"
+                  to="/shop"
+                >
                   Shop
                 </NavLink>
               </li>
               <li className="nav-item">
-                <NavLink className="p__2 font-light link" to="/contact">
+                <NavLink
+                  className="p__2 font-light link"
+                  to="/contact"
+                >
                   Contact
                 </NavLink>
               </li>
               <li className="nav-item">
-                <NavLink className="p__2 font-light link" to="/login">
+                <NavLink
+                  className="p__2 font-light link"
+                  to="/login"
+                >
                   Login
                 </NavLink>
               </li>

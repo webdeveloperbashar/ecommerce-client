@@ -15,7 +15,7 @@ const Product = ({ productImg, productName, productPrice, productSize }) => {
   return (
     <>
       <div className="slider__box">
-        <Link id="RouterNavLink" to="/shop">
+        <Link id="RouterNavLink" to="/product-details">
           <div className="discount__percent">-52%</div>
           <div className="slider__img">
             <img src={productImg} className="img-fluid" alt="slider one" />
@@ -27,6 +27,7 @@ const Product = ({ productImg, productName, productPrice, productSize }) => {
               <FaStar />
               <FaStar />
               <FaStar />
+              <span className="text-dark">&nbsp;(4 Review)</span>
             </p>
             <h4 className="my-2">{productName}</h4>
             <h3 className="mb-2">{productPrice}</h3>

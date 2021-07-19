@@ -1,3 +1,4 @@
+import { Link } from "@reach/router";
 import { FaBlog, FaHome, FaShopify } from "react-icons/fa";
 import { GrContact } from "react-icons/gr";
 import { VscArrowBoth } from "react-icons/vsc";
@@ -29,31 +30,31 @@ const CartDrawer = ({ openCartDrawer, handleCloseDrawer }) => {
               <div className="menu">
                 <ul>
                   <li>
-                    <NavLink to="/account" className="me-3">
+                    <Link to="/user/account" className="me-3">
                       Account
-                    </NavLink>
+                    </Link>
                   </li>
                   <li>
                     <VscArrowBoth style={{ fontSize: "18px" }} />
                   </li>
                   <li>
-                    <NavLink to="#" className="ms-3">
+                    <Link to="#" className="ms-3">
                       Logout
-                    </NavLink>
+                    </Link>
                   </li>
                 </ul>
               </div>
               <div className="authentication d-none">
                 <ul>
                   <li>
-                    <NavLink to="/login" className="me-3">
+                    <Link to="/login" className="me-3">
                       Login
-                    </NavLink>
+                    </Link>
                   </li>
                   <li>
-                    <NavLink to="/register" className="ms-3">
+                    <Link to="/register" className="ms-3">
                       Register
-                    </NavLink>
+                    </Link>
                   </li>
                 </ul>
               </div>
@@ -90,28 +91,28 @@ const CartDrawer = ({ openCartDrawer, handleCloseDrawer }) => {
               <p>Category</p>
               <ul>
                 <li>
-                  <NavLink to="/vegetable">Vegetable</NavLink>
+                  <Link to="/vegetable">Vegetable</Link>
                 </li>
                 <li>
-                  <NavLink to="/packagefood">Package Food</NavLink>
+                  <Link to="/packagefood">Package Food</Link>
                 </li>
                 <li>
-                  <NavLink to="/vegetable">Grocery & Staples</NavLink>
+                  <Link to="/vegetable">Grocery & Staples</Link>
                 </li>
                 <li>
-                  <NavLink to="/vegetable">Dairy Products</NavLink>
+                  <Link to="/vegetable">Dairy Products</Link>
                 </li>
                 <li>
-                  <NavLink to="/vegetable">Beverages</NavLink>
+                  <Link to="/vegetable">Beverages</Link>
                 </li>
                 <li>
-                  <NavLink to="/vegetable">Health & Wealthness</NavLink>
+                  <Link to="/vegetable">Health & Wealthness</Link>
                 </li>
                 <li>
-                  <NavLink to="/vegetable">Dairy Bread & Eggs</NavLink>
+                  <Link to="/vegetable">Dairy Bread & Eggs</Link>
                 </li>
                 <li>
-                  <NavLink to="/vegetable">Fruits & Vegetable</NavLink>
+                  <Link to="/vegetable">Fruits & Vegetable</Link>
                 </li>
               </ul>
             </div>

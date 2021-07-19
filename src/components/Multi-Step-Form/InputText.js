@@ -10,22 +10,18 @@ const InputText = ({
   label,
 }) => {
   return (
-    <div className={`form-group ${divStyle}`}>
-      {span && <label htmlFor={label}>{label}</label>}
+    <div className={`form-group ${divStyle} my-2`}>
+      {span && <label htmlFor={label} className="mb-2">{label}</label>}
       <input
         type={type}
         name={name}
         value={value}
-        className={
-          error
-            ? "form-control input__field mt-2 mb-2 is-error"
-            : "form-control input__field mt-2 mb-2"
-        }
+        className="form-control py-1"
         placeholder={placeholder}
         onChange={onChange}
         autoComplete="off"
       />
-      {error && <p className="text-danger mb-3">{error}</p> }
+      {error && <p className="text-danger">{error}</p> }
     </div>
   );
 };

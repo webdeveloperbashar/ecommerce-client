@@ -10,7 +10,7 @@ const MobileStickyFooterMenu = () => {
           <div className="col-md-4">
             <div className="mobile__sticky__footer">
               <div className="mobile__sticky__footer__content">
-                <NavLink to="/myaccount">
+                <NavLink to="/user/account">
                   <div className="footer__icon">
                     <FaRegUser />
                   </div>
@@ -22,11 +22,11 @@ const MobileStickyFooterMenu = () => {
           <div className="col-md-4 middle__col">
             <div className="mobile__sticky__footer">
               <div className="mobile__sticky__footer__content">
-                <NavLink to="/favorite">
+                <NavLink to="/favourite">
                   <div className="footer__icon">
                     <GrFavorite />
                   </div>
-                  <p>Favorite</p>
+                  <p>Favourite</p>
                   <span className="count">10</span>
                 </NavLink>
               </div>

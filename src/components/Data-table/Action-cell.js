@@ -3,13 +3,14 @@ const ActionCell = ({ actions, className, as }) => {
   return (
     <As className={className}>
       {actions.map((action) => (
-        <button
+        <span
           key={action.name}
           className={action.className}
           onClick={action.handler}
+          style={{cursor: 'pointer'}}
         >
           {action.icon}
-        </button>
+        </span>
       ))}
     </As>
   );

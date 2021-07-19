@@ -1,7 +1,7 @@
-import { navigate } from "@reach/router";
 import { useState } from "react";
 import { FaSearch } from "react-icons/fa";
 import { IoMdMenu } from "react-icons/io";
+import { Link } from "react-router-dom";
 import logo from "../../assets/images/brand-logo/valley.svg";
 import CartDrawer from "./CartDrawer";
 import StickySearchForm from "./StickySearchForm";
@@ -30,12 +30,9 @@ const MobileNavbar = ({
             </div>
             {/* mobile logo */}
             <div className="mobile__logo">
-              <img
-                src={logo}
-                className="logo"
-                onClick={() => navigate("/")}
-                alt="logo"
-              />
+              <Link to="/">
+                <img src={logo} className="logo" alt="logo" />
+              </Link>
             </div>
             {/* mobile search icon */}
             <div className="mobile__search__icon">
@@ -44,7 +41,10 @@ const MobileNavbar = ({
                   <span>$99.99</span>
                 </li>
                 <li>
-                  <FaSearch className="icon" onClick={()=>handleIconClick(!searchFromShow)} />
+                  <FaSearch
+                    className="icon"
+                    onClick={() => handleIconClick(!searchFromShow)}
+                  />
                 </li>
               </ul>
             </div>

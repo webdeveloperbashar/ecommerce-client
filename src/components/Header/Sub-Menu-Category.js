@@ -1,73 +1,73 @@
 import { FiArrowRight } from "react-icons/fi";
-import NavLink from "../../config/NavLink";
+import { Link } from "react-router-dom";
 const SubMenuCategory = () => {
   return (
     <>
       <div className="sub__category">
         <ul>
           <li className="py__2 horizontal__line">
-            <NavLink
+            <Link
               to="/vegetable"
               className="p__2 justify-content-between d-flex align-items-center d-block font-blue-gray "
             >
               Vegetable <FiArrowRight />
-            </NavLink>
+            </Link>
           </li>
           <li className="py__2 horizontal__line">
-            <NavLink
+            <Link
               to="/packagefood"
               className="p__2 d-block font-blue-gray justify-content-between d-flex align-items-center"
             >
               Package Food <FiArrowRight />
-            </NavLink>
+            </Link>
           </li>
           <li className="py__2 horizontal__line">
-            <NavLink
+            <Link
               to="/grocery"
               className="p__2 d-block font-blue-gray justify-content-between d-flex align-items-center"
             >
               Grocery & Staples <FiArrowRight />
-            </NavLink>
+            </Link>
           </li>
           <li className="py__2 horizontal__line">
-            <NavLink
+            <Link
               to="/dairyproduct"
               className="p__2 d-block font-blue-gray justify-content-between d-flex align-items-center"
             >
               Dairy Products <FiArrowRight />
-            </NavLink>
+            </Link>
           </li>
           <li className="py__2 horizontal__line">
-            <NavLink
+            <Link
               to="/beverage"
               className="p__2 d-block font-blue-gray justify-content-between d-flex align-items-center"
             >
               Beverages <FiArrowRight />
-            </NavLink>
+            </Link>
           </li>
           <li className="py__2 horizontal__line">
-            <NavLink
+            <Link
               to="/health"
               className="p__2 d-block font-blue-gray justify-content-between d-flex align-items-center"
             >
               Health & Wellness <FiArrowRight />
-            </NavLink>
+            </Link>
           </li>
           <li className="py__2 horizontal__line">
-            <NavLink
+            <Link
               to="/dairybread"
               className="p__2 d-block font-blue-gray justify-content-between d-flex align-items-center"
             >
               Dairy Bread & Egg <FiArrowRight />
-            </NavLink>
+            </Link>
           </li>
           <li className="py__2">
-            <NavLink
+            <Link
               to="/dairybread"
               className="p__2 d-block font-blue-gray justify-content-between d-flex align-items-center"
             >
               Fruits & Vegetable <FiArrowRight />
-            </NavLink>
+            </Link>
           </li>
         </ul>
       </div>

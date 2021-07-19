@@ -1,6 +1,6 @@
 import Row from "./Row";
 
-const DataTable = ({ theadItems, tbodyItems, noItemMsg }) => {
+const DataTable = ({ theadItems, tbodyItems, noItemMsg, colSpan }) => {
   return (
     <table>
       <thead className="table__head">
@@ -9,7 +9,7 @@ const DataTable = ({ theadItems, tbodyItems, noItemMsg }) => {
       <tbody className="table__body">
         {tbodyItems.length <= 0 ? (
           <tr>
-            <td colSpan="5" className="text-center font-size__1">
+            <td colSpan={colSpan} className="text-center font-size__1">
               {noItemMsg}
             </td>
           </tr>

@@ -76,7 +76,7 @@ const Register = () => {
               type="submit"
               className="btn w-100 py-3 text-white auth__button"
             >
-              Login
+              Register Now
             </button>
           </div>
           <div className="form-group">

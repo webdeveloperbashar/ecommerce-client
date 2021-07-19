@@ -1,4 +1,4 @@
-import { Link, navigate } from "@reach/router";
+import { Link } from "@reach/router";
 import { useState } from "react";
 import { useBreakpoints } from "react-device-breakpoints";
 import { FaEdit } from "react-icons/fa";
@@ -13,6 +13,7 @@ import TextCell from "../../components/Data-table/Text-Cell";
 import Footer from "../../components/Footer";
 import Nav from "../../components/Header/Nav";
 import ToastNotification from "../../components/Notification/ToastNotification";
+import OrderSummary from "../../components/OrderSummary";
 import HorizontalLine from "../../config/HorizontalLine";
 const Index = () => {
   // device breakpoints
@@ -102,16 +103,16 @@ const Index = () => {
                 />
               </div>
               <div className="d-flex align-items-center justify-content-between">
-                <div>
-                  <button className="btn py-3 text-capitalize" onClick={()=>navigate("/")}>Return to shop</button>
+                <div className="form-group">
+                  <Link to="/"><button className="btn return__shop text-capitalize">Return to shop</button></Link>
                 </div>
                 <div className="form-group d-flex">
                   <input
                     type="text"
-                    className="form-control"
+                    className="form-control input__field mb-0"
                     placeholder="Enter coupon code"
                   />
-                  <button type="submit" className="btn">
+                  <button type="submit" className="btn mb-0 input__field">
                     Apply
                   </button>
                 </div>
@@ -126,35 +127,7 @@ const Index = () => {
                   margin="8px auto"
                   background="#8080803b"
                 />
-                <div className="order__summery__table mt-3">
-                  <div className="d-flex align-items-center justify-content-between py-2">
-                    <span>Subtotal</span>
-                    <span>$135874</span>
-                  </div>
-                  <div className="d-flex align-items-center justify-content-between py-2">
-                    <span>Tax</span>
-                    <span>5%</span>
-                  </div>
-                  <div className="d-flex align-items-center justify-content-between py-2">
-                    <span>Delivery Charge</span>
-                    <span>$79</span>
-                  </div>
-                  <HorizontalLine
-                    width="100%"
-                    height="1px"
-                    margin="8px auto"
-                    background="#8080803b"
-                  />
-                  <div className="d-flex align-items-center justify-content-between py-2">
-                    <span className="font-size__1">Total</span>
-                    <span className="font-size__1">$14587</span>
-                  </div>
-                  <div className="mt-2">
-                    <Link to="/checkout" className="btn py-3 w-100 font-size__1">
-                      Process to checkout
-                    </Link>
-                  </div>
-                </div>
+                <OrderSummary button />
               </div>
             </div>
           </div>

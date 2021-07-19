@@ -1,4 +1,4 @@
-import { Link, navigate, useMatch } from "@reach/router";
+import { Link, useMatch } from "@reach/router";
 import "bootstrap/dist/css/bootstrap.min.css";
 import {
   FaHeadphones,
@@ -16,12 +16,9 @@ const TopHeader = () => {
       <div className="topHeader bg-light">
         <div className="container d-grid display-grid d-flex justify-content-between align-items-center">
           <div className="brand__logo">
-            <img
-              className="img-fluid logo"
-              onClick={() => navigate("/")}
-              src={logo}
-              alt="brand logo"
-            />
+            <Link to="/">
+              <img className="img-fluid logo" src={logo} alt="brand logo" />
+            </Link>
           </div>
           <form className="search__form">
             <div className="d-flex">
@@ -53,7 +50,7 @@ const TopHeader = () => {
               <li className="nav-item user__login">
                 <Link
                   className="m-left__2 p__2 bg-light__gray topHeader__icon"
-                  to="/login"
+                  to="/user/account"
                 >
                   <FaRegUser />
                 </Link>

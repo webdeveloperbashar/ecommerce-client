@@ -14,42 +14,14 @@
   --bg-blue-gray: #5a6577;
 }
 
-/*********** Toas notification css start ************/
-.toast__wrapper {
-  position: fixed;
-  right: 3px;
-  top: 10px;
-  z-index: 99999;
-  transform: translateX(255px);
-  border-radius: 1px;
-  font-weight: 800;
-  color: white;
-  vertical-align: middle;
-  transition: all 0.3s ease-in-out;
-  cursor: pointer;
+/*********** Modal css start ************/
+.ReactModal__Overlay {
+  background-color: rgb(0 0 0 / 64%) !important;
 }
-.toast__wrapper.show {
-  transform: translateX(0px);
-  transition: all 0.3s ease-in-out;
+.ReactModal__Content {
+  width: 40%;
 }
-.toast__wrapper .toast__icon {
-  font-size: 19px;
-  margin-right: 5px;
-}
-.toast__wrapper .success {
-  padding: 15px;
-  background: #07c50e;
-  border-left: 0.6180469716em solid rgba(0, 0, 0, 0.15);
-}
-.toast__wrapper .error {
-  padding: 15px;
-  background: #e85642;
-  border-left: 0.6180469716em solid rgba(0, 0, 0, 0.15);
-}
-.toast__wrapper .error .toast__icon {
-  font-size: 13px;
-}
-/*********** Toas notification css end ************/
+/*********** Modal css end ************/
 
 /********* Global css start ***********/
 body,
@@ -71,6 +43,11 @@ a {
 a:hover {
   color: var(--font-dark);
 }
+/* Active menu css start */
+.active {
+  color: var(--font-olive-green) !important;
+}
+/* Active menu css end */
 .container {
   max-width: 1140px;
   margin: auto;
@@ -1315,17 +1292,24 @@ tr:nth-child(even) {
   padding: 15px 5px;
 }
 .table__body tr td {
-  border-top: 1px solid #d2d2d277;
-  padding: 15px 5px;
+  padding: 5px 5px;
   vertical-align: middle;
 }
 .table__body tr:hover {
   background-color: #0000000a;
 }
-button.action__button {
+.action__button {
   font-size: 22px;
   border: none;
   color: red;
+  cursor: pointer;
+  margin-right: 5px;
+  margin-left: 5px;
+}
+.action__button svg {
+  font-size: 22px;
+  border: none;
+  cursor: pointer;
 }
 /**********************************************
             CART PAGE CSS END
@@ -1391,7 +1375,8 @@ button.action__button {
 .confirm__msg {
   padding: 65px 0;
 }
-.confirm__msg h2 {
+.confirm__msg h2,
+.payment__heading h2 {
   font-size: 35px;
   color: #67bc0f;
   font-weight: 700;
@@ -1404,3 +1389,365 @@ button.action__button {
 /**********************************************
             CHECKOUT PAGE CSS END
 **********************************************/
+
+/**********************************************
+            MY ACCOUNT PAGE CSS START
+**********************************************/
+.account__sidebar {
+  position: relative;
+  text-align: center;
+  background-color: var(--bg-olive-green);
+  color: var(--font-light);
+  padding: 10px 0;
+}
+.account__sidebar .image img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 4px solid white;
+  zoom: 1.1;
+}
+.loggedIn__username h2 {
+  font-size: 25px;
+  margin: 5px 0;
+  color: var(--font-light);
+  font-weight: 700;
+}
+.account__heading h2 {
+  font-size: 25px;
+  font-weight: 700;
+}
+.info__details table tbody tr:nth-child(even) {
+  background: none;
+}
+.info__details table tbody td {
+  padding: 0;
+}
+.tracking__field {
+  flex-basis: 70%;
+  margin: 0 !important;
+}
+.tracking__btn {
+  padding: 11px 15px;
+}
+.tracking__header__left h2 {
+  font-size: 25px;
+  font-weight: 700;
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+.tracking__header__left p {
+  font-size: 15px;
+  font-weight: normal;
+  text-align: left;
+}
+/**********************************************
+            MY ACCOUNT PAGE CSS END
+**********************************************/
+.signle__content .label {
+  flex-basis: 30%;
+  text-align: start;
+}
+.account__details .react-tabs {
+  display: flex;
+}
+
+.account__details .react-tabs__tab-list {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  height: 100%;
+  margin-right: 25px;
+  padding: 0;
+  color: var(--font-light);
+  background: #3c3e43;
+  box-sizing: border-box;
+  box-shadow: 0px 0px 3px #d6d6d6;
+  border-radius: 3px;
+}
+.account__details .react-tabs__tab-panel {
+  display: none;
+  width: 70%;
+  padding: 16px;
+  background: white;
+  box-sizing: border-box;
+  box-shadow: 0px 0px 3px #d6d6d6;
+  border-radius: 3px;
+}
+
+.account__details .react-tabs__tab {
+  list-style: none;
+  padding: 18px 10px;
+  cursor: pointer;
+  color: #bbb;
+}
+.account__details .react-tabs__tab:hover {
+  background: var(--bg-dark);
+  border-color: var(--font-dark);
+  border-left: 4px solid var(--bg-olive-green);
+  color: var(--font-light);
+}
+.account__details .react-tabs__tab--selected {
+  background: var(--bg-dark);
+  border-color: var(--font-dark);
+  border-left: 4px solid var(--bg-olive-green);
+  color: var(--font-light);
+}
+
+.account__details .react-tabs__tab-panel--selected {
+  display: block;
+}
+
+.account__details .panel-content {
+  text-align: center;
+}
+
+/**************************************
+          PRINT CSS START
+****************************************/
+.invoice__source {
+  display: none;
+}
+.company__address h2,
+.invoice__date h2,
+.user__address h2 {
+  font-size: 25px;
+  font-weight: 700;
+}
+.company__address p,
+.invoice__date p,
+.user__address p {
+  font-size: 18px;
+  margin: 5px 0;
+}
+.invoice__address {
+  background-color: #ddd;
+  margin-top: 30px;
+}
+.product__details table {
+  border-collapse: collapse;
+  width: 100%;
+}
+.product__details th {
+  font-size: 20px;
+  font-weight: 700;
+}
+.product__details th,
+.product__details td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+.cover__price {
+  font-weight: 700;
+}
+/**************************************
+          PRINT CSS END
+****************************************/
+
+/**************************************
+          ORDER TRACKING CSS START
+****************************************/
+.tracking__summary,
+.tracking__details {
+  overflow-x: auto;
+}
+.info__header h2 {
+  font-size: 20px;
+  letter-spacing: 1px;
+}
+
+.info__header {
+  border-radius: 5px 5px 0 0;
+}
+.tracking__summary table tbody tr td,
+.tracking__details table tbody tr td {
+  vertical-align: middle;
+}
+.tracking__details table thead tr th {
+  font-weight: 700;
+  border-bottom: 1px solid #ddd;
+}
+.tracking__details table tbody tr td img {
+  height: 60px;
+}
+/**************************************
+          ORDER TRACKING CSS END
+****************************************/
+
+/**************************************
+      PRODUCT DETAILS PAGE CSS END
+****************************************/
+.product__details h2 {
+  font-size: 25px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+.rating {
+  margin: 20px 0;
+}
+.remaining span {
+  color: var(--font-olive-green);
+  margin: 20px 0;
+  font-weight: 700;
+  background-color: #76e00740;
+  padding: 3px 10px;
+  border-radius: 30px;
+  font-size: 12px;
+}
+.short__description p {
+  color: var(--font-blue-gray);
+  line-height: 20px;
+}
+.product__price {
+  margin: 20px 0;
+}
+.product__price del {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--font-blue-gray);
+}
+.product__price strong {
+  font-size: 25px;
+  font-weight: 700;
+  color: var(--font-olive-green);
+}
+.sku {
+  margin: 20px 0;
+}
+.sku span {
+  font-weight: 700;
+}
+.product__category span {
+  font-weight: 700;
+}
+.quantity {
+  margin: 20px 0;
+}
+.quantity button {
+  font-size: 20px;
+  font-weight: 700;
+  width: 40px;
+  height: 41px;
+  border-radius: 50px;
+  background: #67bc0f38;
+  border: none;
+  transition: all 0.3s ease-in-out;
+}
+.quantity strong {
+  font-weight: 700;
+}
+.quantity button:hover {
+  background-color: var(--bg-olive-green);
+}
+.quantity span {
+  font-size: 18px;
+  margin: 0 10px;
+  font-weight: 700;
+}
+.actions__btn button {
+  background-color: #2abbe8;
+  border: none;
+  padding: 12px 20px;
+  font-size: 15px;
+  text-transform: capitalize;
+  color: var(--font-light);
+  transition: all 0.3s ease-in-out;
+}
+.actions__btn button:nth-child(2) {
+  background-color: var(--bg-blue-gray);
+}
+.actions__btn button:nth-child(3) {
+  background-color: var(--bg-olive-green);
+}
+.actions__btn button:hover {
+  opacity: 0.8;
+}
+.warning h5 {
+  font-size: 14px;
+}
+.share__on {
+  margin-top: 20px;
+}
+.share__on .share__icon {
+  margin-right: 10px;
+  border-radius: 50px;
+  transition: all 0.3s ease-in-out;
+}
+.share__on .share__icon:hover {
+  box-sizing: border-box;
+  box-shadow: 0px 1px 32px -7px #000000;
+  transform: translateY(-4px);
+}
+.tips__icon {
+  font-size: 20px;
+}
+.tips {
+  margin: 25px 0;
+}
+.tips p {
+  margin-left: 15px;
+  font-size: 14px;
+  color: var(--font-blue-gray);
+}
+/**************************************
+      PRODUCT DETAILS PAGE CSS END
+****************************************/
+
+/**************************************
+      REVIEW CSS START
+****************************************/
+.review__section .react-tabs__tab-list {
+  border-bottom: 1px solid #edeef5;
+  padding: 16px 0 0;
+  text-align: center;
+}
+.review__section .react-tabs__tab {
+  margin: 0 10px;
+  padding: 10px 25px;
+}
+.review__section .react-tabs__tab--selected {
+  background: #67bc0f3d;
+  color: var(--font-blue-gray);
+  border-radius: 5px 5px 0 0;
+  border-color: transparent;
+}
+.description__wrapper p {
+  font-size: 15px;
+  color: var(--font-blue-gray);
+  line-height: 20px;
+}
+.related__product h2 {
+  font-size: 30px;
+  font-weight: 700;
+  margin: 15px 0;
+}
+.signle__review img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50px;
+  margin-right: 10px;
+}
+.reviewer__details h2 {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.reviewer__details span {
+  font-size: 13px;
+}
+
+.reviewer__details p {
+  font-size: 16px;
+  font-weight: 500;
+  margin-top: 6px;
+}
+.description p {
+  color: var(--font-blue-gray);
+  font-size: 15px;
+  line-height: 20px;
+  margin-left: 70px;
+}
+/**************************************
+      REVIEW CSS END
+****************************************/

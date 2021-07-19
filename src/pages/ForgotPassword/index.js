@@ -1,4 +1,4 @@
-import { navigate } from "@reach/router";
+import { Link } from "@reach/router";
 import { useState } from "react";
 import { CgArrowLongLeft } from "react-icons/cg";
 const Index = () => {
@@ -11,9 +11,16 @@ const Index = () => {
   };
   return (
     <>
-    <div className="m-5">
-      <span className="bg-light box__shadow p-2 text-dark font-size__2" style={{cursor: 'pointer'}} onClick={()=>navigate("/")}><CgArrowLongLeft/> Back to home</span>
-    </div>
+      <div className="m-5">
+        <Link to="/">
+          <span
+            className="bg-light box__shadow p-2 text-dark font-size__2"
+            style={{ cursor: "pointer" }}
+          >
+            <CgArrowLongLeft /> Back to home
+          </span>
+        </Link>
+      </div>
       <div className="auth__form forgot__password mt-5 mb-5">
         <h2 className="text-dark text-center font-size__3 mb-4">
           Forgot Password
@@ -24,7 +31,7 @@ const Index = () => {
               type="email"
               name="email"
               className="form-control input__field"
-              onChange={(e)=>setValue(e.target.value)}
+              onChange={(e) => setValue(e.target.value)}
               placeholder="Enter your email"
               required
             />

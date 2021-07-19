@@ -1,4 +1,4 @@
-import { Link, navigate } from "@reach/router";
+import { Link } from "@reach/router";
 import { useState } from "react";
 import { useBreakpoints } from "react-device-breakpoints";
 import { FaRegUser, FaSearch, FaShoppingCart } from "react-icons/fa";
@@ -39,11 +39,16 @@ const StickyHeader = ({ handleOpenDrawer }) => {
           <div className="mobile__content">
             {/* mobile humberger icon */}
             <div className="mobile__icon">
-              <IoMdMenu className="icon" onClick={() => handleOpenDrawer(!searchFromShow)} />
+              <IoMdMenu
+                className="icon"
+                onClick={() => handleOpenDrawer(!searchFromShow)}
+              />
             </div>
             {/* mobile logo */}
             <div className="mobile__logo">
-              <img src={logo} className="logo" onClick={()=> navigate('/')} alt="logo" />
+              <NavLink to="/">
+                <img src={logo} className="logo" alt="logo" />
+              </NavLink>
             </div>
             {/* desktop menu */}
             <div className="navbar__collapse__sticky">
@@ -94,7 +99,7 @@ const StickyHeader = ({ handleOpenDrawer }) => {
                 <li className="nav-item user__login">
                   <Link
                     className="m-left__2 p__2 bg-light__gray topHeader__icon"
-                    to="/login"
+                    to="/user/account"
                   >
                     <FaRegUser />
                   </Link>
@@ -117,7 +122,7 @@ const StickyHeader = ({ handleOpenDrawer }) => {
                   </Link>
                 </li>
                 <li className="nav-item">
-                    <span className="text-dark ms-4">$99.99</span>
+                  <span className="text-dark ms-4">$99.99</span>
                 </li>
               </ul>
             </div>

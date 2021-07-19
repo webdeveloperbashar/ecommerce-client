@@ -1,8 +1,8 @@
-import { Link } from "@reach/router";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { FaLocationArrow, FaPhone } from "react-icons/fa";
 import { IoMdArrowDropright } from "react-icons/io";
 import { SiGmail } from "react-icons/si";
+import { Link } from "react-router-dom";
 import logo from "../assets/images/brand-logo/valley.svg";
 import HorizontalLine from "../config/HorizontalLine";
 const Footer = () => {

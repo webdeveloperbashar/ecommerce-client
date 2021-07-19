@@ -11,11 +11,11 @@ const Step = ({
 }) => {
   let inputValue = [];
   for (const [key, value] of Object.entries(data)) {
-    if (value.type.split(":")[0] === "input") {
+    if (value.type === "input") {
       inputValue.push(
         <InputText
           key={key}
-          type={value.type.split(":")[1]}
+          type={value.type}
           name={key}
           placeholder={value.placeholder}
           error={error[key]}
@@ -29,6 +29,7 @@ const Step = ({
     } else if (value.type === "select") {
       inputValue.push(
         <SelectOption
+          key={key}
           name={key}
           placeholder={value.placeholder}
           error={error[key]}
@@ -44,16 +45,7 @@ const Step = ({
   return (
     <>
       {inputValue}
-      {step > 1 && (
-        <button
-          type="button"
-          className="btn me-4"
-          onClick={() => onPrevStep(step - 1)}
-        >
-          Previous
-        </button>
-      )}
-      {step <= 2 && (
+      {step <= 3 && (
         <button
           type="button"
           className="btn"
@@ -67,3 +59,34 @@ const Step = ({
 };
 
 export default Step;
+
+// {FormInputFieldData.map((data, index) => {
+//   if (data.type === "text" || data.type === "number") {
+//     return (
+//       <InputText
+//         key={index + 1}
+//         type={data.type}
+//         name={data.name}
+//         placeholder={data.placeholder}
+//         onChange={handleChange}
+//         // value={key}
+//         divStyle="input__field__inline"
+//         label={data.label}
+//         span
+//       />
+//     );
+//   } else if (data.type === "select") {
+//     return (
+//       <SelectOption
+//         key={index + 1}
+//         name={data.name}
+//         placeholder={data.placeholder}
+//         onChange={handleChange}
+//         // value={key}
+//         label={data.label}
+//         divStyle="input__field__inline"
+//         options={data.options}
+//       />
+//     );
+//   }
+// })}

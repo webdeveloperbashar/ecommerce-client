@@ -1,13 +1,13 @@
 import React from "react";
 
-const SelectOption = ({ name, value, options, onChange, divStyle, label }) => {
+const SelectOption = ({ name, value, options, onChange, divStyle,error, label }) => {
   return (
-    <div className={`form-group ${divStyle}`}>
-      {label && <label htmlFor={label}>{label}</label> }
+    <div className={`form-group my-2 ${divStyle}`}>
+      {label && <label htmlFor={label} className="mb-2">{label}</label> }
       <select
         name={name}
         value={value}
-        className= "form-control input__field mt-2 mb-2"
+        className= "form-control py-1"
         onChange={onChange}
       >
         {options.map((option, index) => (
@@ -16,7 +16,7 @@ const SelectOption = ({ name, value, options, onChange, divStyle, label }) => {
           </option>
         ))}
       </select>
-      {/* {error && <p className="text-danger">{error}</p>} */}
+      {error && <p className="text-danger">{error}</p>}
     </div>
   );
 };
