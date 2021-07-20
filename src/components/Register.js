@@ -9,7 +9,7 @@ const Register = () => {
     <>
       <div className="auth__form box__shadow" style={{ width: "48%" }}>
         <h2 className="text-center text-dark font-size__3 mb-4">
-          Register Here
+          Create An Account
         </h2>
         <form>
           <div className="form-group">
@@ -84,7 +84,7 @@ const Register = () => {
               Already have an account?
             </span>{" "}
             <Link to="/login" className="text-primary account__suggest">
-              Login Here
+              Log In
             </Link>
           </div>
         </form>

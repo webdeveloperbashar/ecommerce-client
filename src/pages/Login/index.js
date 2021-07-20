@@ -12,7 +12,7 @@ const Index = () => {
         <div className="container">
           <div className="row">
             <div className="col-md-12">
-              <Login width="48%" heading="Login Form" isShow />
+              <Login width="48%" heading="Log In" isShow />
             </div>
           </div>
         </div>

@@ -1114,19 +1114,6 @@ select:focus {
 .shop__sidebar__cate:hover {
   color: var(--font-olive-green);
 }
-.tags {
-  display: grid;
-  grid-template-columns: 50% 50%;
-  grid-gap: 5px;
-}
-.tags a {
-  border: 1px solid #80808069;
-  padding: 8px 0px;
-  border-radius: 50px;
-  background: #cecdcd40;
-  font-size: 15px;
-  text-align: center;
-}
 /**********************************************
             SHOP PAGE CSS END
 **********************************************/
@@ -1722,6 +1709,9 @@ tr:nth-child(even) {
   font-weight: 700;
   margin: 15px 0;
 }
+.signle__review {
+  margin-bottom: 20px;
+}
 .signle__review img {
   width: 60px;
   height: 60px;
@@ -1734,19 +1724,56 @@ tr:nth-child(even) {
 }
 
 .reviewer__details span {
-  font-size: 13px;
+  font-size: 15px;
 }
 
 .reviewer__details p {
   font-size: 16px;
   font-weight: 500;
-  margin-top: 6px;
+  margin: 6px 0;
 }
 .description p {
   color: var(--font-blue-gray);
   font-size: 15px;
   line-height: 20px;
   margin-left: 70px;
+}
+.review__form h2 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+.review__form h5 {
+  font-size: 15px;
+  margin: 10px 0;
+  text-transform: capitalize;
+}
+textarea {
+  resize: none;
+}
+.ratings {
+  font-size: 16px;
+  font-weight: 700;
+  margin-right: 10px;
+}
+.review__form label {
+  font-size: 16px;
+  font-weight: 700;
+}
+.rating__field,
+.comment__field {
+  margin: 10px 0;
+}
+.tags__wrapper {
+  margin: 20px 0;
+}
+.tags__wrapper a {
+  background: #8080800f;
+  margin: 5px;
+  padding: 5px;
+  font-size: 18px;
+  border-radius: 8px;
+  display: inline-block;
 }
 /**************************************
       REVIEW CSS END

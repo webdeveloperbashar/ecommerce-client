@@ -2,18 +2,18 @@ import { Slider } from "@material-ui/core";
 import React, { useState } from "react";
 import { useBreakpoints } from "react-device-breakpoints";
 import { IoMdArrowDropright } from "react-icons/io";
-import { NavLink } from "react-router-dom";
 import Footer from "../../components/Footer";
 import Nav from "../../components/Header/Nav";
 import FakeData from "../../config/FakeData";
+import NavLink from "../../config/NavLink";
 import Product from "../../config/Product";
 const Index = () => {
   // device breakpoint
   const device = useBreakpoints();
-  const [rangeVal, setRangeVal] = useState([0, 100])
-  const handleChange = (e, data) =>{
-    setRangeVal(data)
-  }
+  const [rangeVal, setRangeVal] = useState([0, 100]);
+  const handleChange = (e, data) => {
+    setRangeVal(data);
+  };
   const minVal = rangeVal[0] * 10;
   const maxVal = rangeVal[1] * 10;
   return (
@@ -73,12 +73,15 @@ const Index = () => {
                     valueLabelDisplay="off"
                     aria-labelledby="range-slider"
                   />
-                  <p><span style={{fontWeight: '700'}}>Price:</span> {`$${minVal} - $${maxVal}`} </p>
+                  <p>
+                    <span style={{ fontWeight: "700" }}>Price:</span>{" "}
+                    {`$${minVal} - $${maxVal}`}{" "}
+                  </p>
                 </div>
                 <div className="products__tag">
                   <h2 className="font-size__2 py-2 mt-3">Product Tags</h2>
                   <hr />
-                  <div className="tags">
+                  <div className="tags__wrapper">
                     <NavLink to="/">fruits</NavLink>
                     <NavLink to="/">kashmiri</NavLink>
                     <NavLink to="/">grapes</NavLink>

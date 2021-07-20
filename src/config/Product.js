@@ -1,17 +1,16 @@
 import { Link } from "@reach/router";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { CgChevronDoubleRight } from "react-icons/cg";
-import { FaStar } from "react-icons/fa";
 import "react-multi-carousel/lib/styles.css";
-import FakeData from './FakeData';
+import ReactStars from 'react-rating-stars-component';
+import FakeData from "./FakeData";
 import HorizontalLine from "./HorizontalLine";
 
 const Product = ({ productImg, productName, productPrice, productSize }) => {
-  const handleProductAdd = (name) =>{
-    const data = FakeData.find(pd=>pd.name === name)
+  const handleProductAdd = (name) => {
+    const data = FakeData.find((pd) => pd.name === name);
     console.log(data);
-    
-  }
+  };
   return (
     <>
       <div className="slider__box">
@@ -21,12 +20,16 @@ const Product = ({ productImg, productName, productPrice, productSize }) => {
             <img src={productImg} className="img-fluid" alt="slider one" />
           </div>
           <div className="slider__content">
-            <p>
-              <FaStar />
-              <FaStar />
-              <FaStar />
-              <FaStar />
-              <FaStar />
+            <p className="d-flex align-items-center justify-content-center">
+              <ReactStars
+                count={5}
+                size={20}
+                value={5}
+                isHalf={true}
+                a11y={false}
+                edit={false}
+                activeColor="#ffd700"
+              />
               <span className="text-dark">&nbsp;(4 Review)</span>
             </p>
             <h4 className="my-2">{productName}</h4>
@@ -38,7 +41,11 @@ const Product = ({ productImg, productName, productPrice, productSize }) => {
               margin="8px auto"
               background="#A8B324"
             />
-            <Link to="#" onClick={()=>handleProductAdd(productName)} className="product__link">
+            <Link
+              to="#"
+              onClick={() => handleProductAdd(productName)}
+              className="product__link"
+            >
               Add to cart <CgChevronDoubleRight className="arrow__icon" />
             </Link>
           </div>

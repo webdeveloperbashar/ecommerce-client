@@ -1,8 +1,8 @@
 import { useLocation } from "@reach/router";
 import React, { useState } from "react";
 import { useBreakpoints } from "react-device-breakpoints";
-import { FaStar } from "react-icons/fa";
 import ReactImageMagnify from "react-image-magnify";
+import ReactStars from "react-rating-stars-component";
 import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import Footer from "../../components/Footer";
@@ -11,6 +11,7 @@ import DeliveryTips from "./Delivery-Tips";
 import RelatedProduct from "./Related-Product";
 import Description from "./Review-content/Description";
 import Review from "./Review-content/Review";
+import Tags from "./Review-content/Tags";
 import SocialMediaShareIcon from "./Social-media-share-icon";
 const Index = () => {
   // device breakpoints
@@ -65,14 +66,18 @@ const Index = () => {
                         <span>In Stock</span>
                       </div>
                       <div className="rating">
-                        <span className="text-warning">
-                          <FaStar />
-                          <FaStar />
-                          <FaStar />
-                          <FaStar />
-                          <FaStar />
+                        <span className="d-flex align-items-center">
+                          <ReactStars
+                            count={5}
+                            size={24}
+                            value={5}
+                            isHalf={true}
+                            a11y={false}
+                            edit={false}
+                            activeColor="#ffd700"
+                          />
+                          &nbsp; (5) Reviews
                         </span>
-                        &nbsp; (5) Reviews
                       </div>
                       <div className="product__price">
                         <del>$254</del> <strong>$215</strong>
@@ -122,7 +127,7 @@ const Index = () => {
                 <Tabs>
                   <TabList>
                     <Tab>Description</Tab>
-                    <Tab>Review</Tab>
+                    <Tab>Review (1)</Tab>
                     <Tab>Tags</Tab>
                   </TabList>
 
@@ -133,7 +138,7 @@ const Index = () => {
                     <Review />
                   </TabPanel>
                   <TabPanel>
-                    <h2>Any content 3</h2>
+                    <Tags />
                   </TabPanel>
                 </Tabs>
               </div>
