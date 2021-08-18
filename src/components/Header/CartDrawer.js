@@ -1,14 +1,17 @@
-import { Link } from "@reach/router";
 import { FaBlog, FaHome, FaShopify } from "react-icons/fa";
 import { GrContact } from "react-icons/gr";
 import { VscArrowBoth } from "react-icons/vsc";
-import NavLink from "../../config/NavLink";
+import { Link, NavLink } from "react-router-dom";
+// import NavLink from "../../config/NavLink";
 const CartDrawer = ({ openCartDrawer, handleCloseDrawer }) => {
   return (
     <div
-      className={`cart__drawer__wrapper ${openCartDrawer ? "w-100" : "w-0"}`} 
+      className={`cart__drawer__wrapper ${openCartDrawer ? "w-100" : "w-0"}`}
     >
-      <div className={`${openCartDrawer && "backdrop__effect"}`} onClick={()=>handleCloseDrawer()}></div>
+      <div
+        className={`${openCartDrawer && "backdrop__effect"}`}
+        onClick={() => handleCloseDrawer()}
+      ></div>
       <div
         className={
           openCartDrawer ? "cart__drawer__inner active" : "cart__drawer__inner"
@@ -30,7 +33,7 @@ const CartDrawer = ({ openCartDrawer, handleCloseDrawer }) => {
               <div className="menu">
                 <ul>
                   <li>
-                    <Link to="/user/account" className="me-3">
+                    <Link to="/user/my-account" className="me-3">
                       Account
                     </Link>
                   </li>
@@ -63,7 +66,7 @@ const CartDrawer = ({ openCartDrawer, handleCloseDrawer }) => {
               <p>Menu</p>
               <ul>
                 <li>
-                  <NavLink to="/">
+                  <NavLink exact to="/">
                     <FaHome className="drawer__menu__icon" /> Home
                   </NavLink>
                 </li>

@@ -1,6 +1,7 @@
 import { FaRegUser, FaShoppingCart } from "react-icons/fa";
 import { GrFavorite } from "react-icons/gr";
-import NavLink from "../../config/NavLink";
+import { NavLink } from "react-router-dom";
+// import NavLink from "../../config/NavLink";
 
 const MobileStickyFooterMenu = () => {
   return (
@@ -10,7 +11,7 @@ const MobileStickyFooterMenu = () => {
           <div className="col-md-4">
             <div className="mobile__sticky__footer">
               <div className="mobile__sticky__footer__content">
-                <NavLink to="/user/account">
+                <NavLink to="/user/my-account">
                   <div className="footer__icon">
                     <FaRegUser />
                   </div>

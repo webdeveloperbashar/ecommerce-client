@@ -1,23 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
+import SingleInputField from "../../components/Single-Input-Field";
+import SingleSelectField from "./../../components/Single-Select-Field/index";
 
-const Info = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    phone: '',
-    gender: '',
-    dateofbirth: '',
-    membersince: '',
-  })
-  const handleChange = (e) =>{
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    })
-  }
-  const handleSubmit = (e) =>{
-    e.preventDefault()
-    console.log(formData);
-  }
+const Info = ({ handleSubmit, handleChange, formData }) => {
   return (
     <div className="info__wrapper">
       <div className="account__heading d-flex align-items-center justify-content-between">
@@ -27,67 +12,62 @@ const Info = () => {
       <div className="info__details">
         <div className="info__container">
           <form onSubmit={handleSubmit}>
-            <div className="signle__content d-flex align-items-center">
-              <span className="label">Name</span>
-              <input
-                type="text"
-                name="name"
-                value="MD Abul Bashar"
-                className="form-control account__input__field input__field my-3 w-50"
-                onChange={handleChange}
-              />
-            </div>
-            <div className="signle__content d-flex align-items-center">
-              <span className="label">Mobile Number</span>
-              <input
-                type="text"
-                name="phone"
-                value="01723502330"
-                className="form-control account__input__field input__field my-3 w-50"
-                onChange={handleChange}
-              />
-            </div>
-            <div className="signle__content d-flex align-items-center">
-              <span className="label">Gender</span>
-              <select
-                name="gender"
-                className="form-control account__input__field input__field my-3 w-50"
-                onChange={handleChange}
-              >
-                <option value="male">Male</option>
-                <option value="female">Female</option>
-                <option value="other">Other</option>
-              </select>
-            </div>
-            <div className="signle__content d-flex align-items-center">
-              <span className="label">Date of birth</span>
-              <input
-                type="date"
-                name="dateofbirth"
-                className="form-control account__input__field input__field my-3 w-50"
-                onChange={handleChange}
-              />
-            </div>
-            <div className="signle__content d-flex align-items-center">
-              <span className="label">Member Since</span>
-              <input
-                type="text"
-                name="membersince"
-                className="form-control account__input__field input__field my-3 w-50"
-                value="12 July, 2021"
-                onChange={handleChange}
-              />
-            </div>
-            <div className="signle__content d-flex align-items-center">
-              <span className="label">Primary Email</span>
-              <input
-                type="email"
-                name="email"
-                value="webdeveloperbashar@gmail.com"
-                className="form-control account__input__field input__field my-3 w-50"
-                readOnly
-              />
-            </div>
+            <SingleInputField
+              label="Name"
+              type="text"
+              name="name"
+              value={formData.name}
+              className="account__input__field input__field my-3 w-50"
+              divClass="d-flex align-items-center"
+              handleChange={handleChange}
+            />
+            <SingleInputField
+              label="Mobile Number"
+              type="number"
+              name="phone"
+              value={formData.phone}
+              className="account__input__field input__field my-3 w-50"
+              divClass="d-flex align-items-center"
+              handleChange={handleChange}
+            />
+            <SingleSelectField
+              label="Gender"
+              name="gender"
+              className="account__input__field input__field my-3 w-50"
+              divClass="d-flex align-items-center"
+              value={formData.gender}
+              handleChange={handleChange}
+              options={["Select Gender", "Male", "Female", "Other"]}
+            />
+            <SingleInputField
+              label="Date of Birth"
+              type="date"
+              name="dateofbirth"
+              value={formData.dateofbirth}
+              className="account__input__field input__field my-3 w-50"
+              divClass="d-flex align-items-center"
+              handleChange={handleChange}
+            />
+            <SingleInputField
+              label="Member Since"
+              type="text"
+              name="membersince"
+              value={formData.membersince}
+              disabled
+              className="account__input__field input__field my-3 w-50"
+              divClass="d-flex align-items-center"
+              handleChange={handleChange}
+            />
+            <SingleInputField
+              label="Primary Email"
+              type="email"
+              name="email"
+              value={formData.email}
+              disabled
+              className="account__input__field input__field my-3 w-50"
+              divClass="d-flex align-items-center"
+              handleChange={handleChange}
+            />
             <div className="signle__content d-flex align-items-center">
               <span className="label"></span>
               <input

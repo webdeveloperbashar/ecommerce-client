@@ -1,6 +1,6 @@
-import { Link } from "@reach/router";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "react-multi-carousel/lib/styles.css";
+import { Link } from "react-router-dom";
 import HorizontalLine from "./HorizontalLine";
 import Product from "./Product";
 import SliderFunctionalities from "./SliderFunctionalities";

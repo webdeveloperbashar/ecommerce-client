@@ -43,6 +43,10 @@ a {
 a:hover {
   color: var(--font-dark);
 }
+.error__message {
+  margin-top: -12px;
+  margin-bottom: 10px;
+}
 /* Active menu css start */
 .active {
   color: var(--font-olive-green) !important;
@@ -1387,13 +1391,32 @@ tr:nth-child(even) {
   color: var(--font-light);
   padding: 10px 0;
 }
+.account__sidebar .image {
+  position: relative;
+}
 .account__sidebar .image img {
   width: 150px;
   height: 150px;
+  position: relative;
   border-radius: 50%;
   border: 4px solid white;
   zoom: 1.1;
 }
+/* user profile image button edit start */
+label.upload__photo {
+  cursor: pointer;
+  position: absolute;
+  bottom: 8px;
+  left: 150px;
+  font-size: 30px;
+}
+#upload-photo {
+  opacity: 0;
+  position: absolute;
+  z-index: -1;
+}
+/* user profile imagae button edit end */
+
 .loggedIn__username h2 {
   font-size: 25px;
   margin: 5px 0;

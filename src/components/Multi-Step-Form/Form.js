@@ -17,20 +17,18 @@ const Form = ({ step, setStep }) => {
   const [formData, setFormData] = useState(FormInputFieldData);
   // payment card status check state
   const [brand, setBrand] = useState({
-    brand: ''
-  })
-  // payment card check handle change
+    brand: "",
+  });
+  // get payment method name
   const paymentHandleChange = (e) => {
     setBrand({
-      brand: e.brand
-    })
+      brand: e.brand,
+    });
   };
   // shipping and payment submit handler
   const handleSubmit = async (event) => {
     event.preventDefault();
     if (!stripe || !elements) {
-      // Stripe.js has not loaded yet. Make sure to disable
-      // form submission until Stripe.js has loaded.
       return;
     }
     const { paymentMethod, error } = await stripe.createPaymentMethod({
@@ -71,7 +69,7 @@ const Form = ({ step, setStep }) => {
       },
     }));
   };
-  // step change and error handling shipping address
+  // step change and error handling for shipping address
   const [errors, setErrors] = useState({});
   const stepHandleChange = (values, e) => {
     e.preventDefault();
@@ -100,14 +98,17 @@ const Form = ({ step, setStep }) => {
       {/* payment method */}
       {step === 2 && (
         <>
-          <label className="w-100" style={{position: 'relative'}}>
+          <label className="w-100" style={{ position: "relative" }}>
             Card number
             <CardNumberElement
               onChange={paymentHandleChange}
               className="form-control my-2 py-2 w-100"
-              
             />
-            {brand && <span style={{position: 'absolute', right: "6px", top: "32px"}}>{brand.brand}</span> }
+            {brand && (
+              <span style={{ position: "absolute", right: "6px", top: "32px" }}>
+                {brand.brand}
+              </span>
+            )}
           </label>
           <label className="w-100">
             Expiration date
@@ -131,7 +132,11 @@ const Form = ({ step, setStep }) => {
       )}
       {/* Submit button */}
       {step === 2 && (
-        <button type="button" onClick={()=> setStep( step - 1)} className="btn me-4">
+        <button
+          type="button"
+          onClick={() => setStep(step - 1)}
+          className="btn me-4"
+        >
           Previous
         </button>
       )}

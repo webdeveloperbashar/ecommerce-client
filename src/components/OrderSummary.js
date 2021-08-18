@@ -1,5 +1,6 @@
-import { Link } from "@reach/router";
+// import { Link } from "@reach/router";
 import React from "react";
+import { Link } from 'react-router-dom';
 import HorizontalLine from "./../config/HorizontalLine";
 
 const OrderSummary = ({ button }) => {

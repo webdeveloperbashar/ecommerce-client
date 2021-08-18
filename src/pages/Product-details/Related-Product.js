@@ -13,8 +13,9 @@ const RelatedProduct = () => {
           sliderSpeed={2000}
           sliderTransition="all 0.8s"
         >
-          {[1, 2].map((__, _) => (
+          {[1, 2].map((__, index) => (
             <Product
+              key={index + 1}
               productImg="https://i.ibb.co/gzD9DdP/09.png"
               productName="Tomatos on the vine"
               productPrice="$254"

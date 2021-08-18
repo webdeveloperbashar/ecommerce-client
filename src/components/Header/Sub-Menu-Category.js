@@ -10,7 +10,7 @@ const SubMenuCategory = () => {
               to="/vegetable"
               className="p__2 justify-content-between d-flex align-items-center d-block font-blue-gray "
             >
-              Vegetable <FiArrowRight />
+              <span className="text">Vegetable</span> <FiArrowRight className="arrow__icon" />
             </Link>
           </li>
           <li className="py__2 horizontal__line">

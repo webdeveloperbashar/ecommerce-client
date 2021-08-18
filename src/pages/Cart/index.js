@@ -1,9 +1,8 @@
-import { Link } from "@reach/router";
-import { useState } from "react";
+// import { Link } from "@reach/router";
 import { useBreakpoints } from "react-device-breakpoints";
 import { FaEdit } from "react-icons/fa";
-import { FcCheckmark } from "react-icons/fc";
 import { MdDelete } from "react-icons/md";
+import { Link } from "react-router-dom";
 import shortid from "shortid";
 import cateImg from "../../assets/Cate-image/cateImg-3.jpg";
 import DataTable from "../../components/Data-table";
@@ -12,20 +11,11 @@ import ImageCell from "../../components/Data-table/Image-cell";
 import TextCell from "../../components/Data-table/Text-Cell";
 import Footer from "../../components/Footer";
 import Nav from "../../components/Header/Nav";
-import ToastNotification from "../../components/Notification/ToastNotification";
 import OrderSummary from "../../components/OrderSummary";
 import HorizontalLine from "../../config/HorizontalLine";
 const Index = () => {
   // device breakpoints
   const device = useBreakpoints();
-  const [showNotify, setShowNotify] = useState(false);
-  const notifyClose = () => setShowNotify(false);
-  window.setTimeout(() => {
-    setShowNotify(false);
-  }, 5000);
-
-  const [editable, setEditable] = useState({});
-
   // data table data send
   const theadItems = [
     <TextCell key="image" text="Image" as="th" />,
@@ -57,22 +47,12 @@ const Index = () => {
           {
             name: "Delete",
             icon: <MdDelete />,
-            handler: () => {
-              setShowNotify(true);
-            },
-            className: 'action__button'
+            className: "action__button",
           },
           {
             name: "Edit",
-            icon: editable ? (
-              <FaEdit className="text-success" />
-            ) : (
-              <FcCheckmark />
-            ),
-            handler: () => {
-              setEditable(!editable);
-            },
-            className: 'action__button'
+            icon: <FaEdit className="text-success" />,
+            className: "action__button",
           },
         ]}
         as="td"
@@ -81,12 +61,6 @@ const Index = () => {
   ];
   return (
     <>
-      <ToastNotification
-        message="Product remove from cart"
-        success
-        showNotify={showNotify}
-        notifyClose={notifyClose}
-      />
       {device.isDesktop && <Nav isShow />}
       <div className="cart__wrapper">
         <div className="cart__section__image">
@@ -104,7 +78,11 @@ const Index = () => {
               </div>
               <div className="d-flex align-items-center justify-content-between">
                 <div className="form-group">
-                  <Link to="/"><button className="btn return__shop text-capitalize">Return to shop</button></Link>
+                  <Link to="/">
+                    <button className="btn return__shop text-capitalize">
+                      Return to shop
+                    </button>
+                  </Link>
                 </div>
                 <div className="form-group d-flex">
                   <input

@@ -1,14 +1,21 @@
-import { Link } from "@reach/router";
 import { useState } from "react";
 import { useBreakpoints } from "react-device-breakpoints";
 import { FaRegUser, FaSearch, FaShoppingCart } from "react-icons/fa";
 import { GrFavorite } from "react-icons/gr";
 import { IoMdMenu } from "react-icons/io";
+import { useDispatch } from "react-redux";
+import { Link, NavLink, useHistory } from 'react-router-dom';
 import logo from "../../assets/images/brand-logo/valley.svg";
-import NavLink from "../../config/NavLink";
+import getDataFromLocalhost from "../../config/GetLocalhostData";
+import { userLogout } from "../../Store/Actions/UserAction";
 import Login from "../Login";
 import StickySearchForm from "./StickySearchForm";
 const StickyHeader = ({ handleOpenDrawer }) => {
+  const dispatch = useDispatch()
+  const history = useHistory()
+  const handleLogout = () =>{
+    dispatch(userLogout(history))
+  }
   // device breakpoints
   const device = useBreakpoints();
   // sticky search form show and hide
@@ -16,7 +23,6 @@ const StickyHeader = ({ handleOpenDrawer }) => {
   const handleIconClick = () => {
     setSearchFromShow(!searchFromShow);
   };
-
   const [stickyNav, setStickyNav] = useState(false);
   const stickyNavbar = () => {
     if (window.pageYOffset >= 300) {
@@ -46,7 +52,7 @@ const StickyHeader = ({ handleOpenDrawer }) => {
             </div>
             {/* mobile logo */}
             <div className="mobile__logo">
-              <NavLink to="/">
+              <NavLink exact to="/">
                 <img src={logo} className="logo" alt="logo" />
               </NavLink>
             </div>
@@ -54,7 +60,7 @@ const StickyHeader = ({ handleOpenDrawer }) => {
             <div className="navbar__collapse__sticky">
               <ul className="navbar-nav m-right__auto m-right__2">
                 <li className="nav-item">
-                  <NavLink className="p__2 font-light link" to="/">
+                  <NavLink exact className="p__2 font-light link" to="/">
                     Home
                   </NavLink>
                 </li>
@@ -69,9 +75,19 @@ const StickyHeader = ({ handleOpenDrawer }) => {
                   </NavLink>
                 </li>
                 <li className="nav-item">
-                  <NavLink className="p__2 font-light link" to="/login">
-                    Login
-                  </NavLink>
+                  {getDataFromLocalhost("user") ? (
+                    <Link
+                      onClick={handleLogout}
+                      className="p__2 font-light link"
+                      to="#"
+                    >
+                      Logout
+                    </Link>
+                  ) : (
+                    <NavLink exact className="p__2 font-light link" to="/login">
+                      Login
+                    </NavLink>
+                  )}
                 </li>
               </ul>
             </div>
@@ -97,13 +113,24 @@ const StickyHeader = ({ handleOpenDrawer }) => {
             <div className="common__property">
               <ul className="navbar-nav m-right__auto m-right__2">
                 <li className="nav-item user__login">
-                  <Link
-                    className="m-left__2 p__2 bg-light__gray topHeader__icon"
-                    to="/user/account"
-                  >
-                    <FaRegUser />
-                  </Link>
-                  <Login isShow width="349px" heading="Login Form" />
+                  {getDataFromLocalhost("user") ? (
+                    <Link
+                      className="m-left__2 p__2 bg-light__gray topHeader__icon"
+                      to="/user/my-account"
+                    >
+                      <FaRegUser />
+                    </Link>
+                  ) : (
+                    <>
+                      <Link
+                        className="m-left__2 p__2 bg-light__gray topHeader__icon"
+                        to="#"
+                      >
+                        <FaRegUser />
+                      </Link>
+                      <Login isShow width="349px" />
+                    </>
+                  )}
                 </li>
                 <li className="nav-item">
                   <Link

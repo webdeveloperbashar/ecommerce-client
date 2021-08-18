@@ -1,14 +1,15 @@
-import { Link } from "@reach/router";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { CgChevronDoubleRight } from "react-icons/cg";
 import "react-multi-carousel/lib/styles.css";
-import ReactStars from 'react-rating-stars-component';
+import ReactStars from "react-rating-stars-component";
+import { Link } from "react-router-dom";
 import FakeData from "./FakeData";
 import HorizontalLine from "./HorizontalLine";
 
 const Product = ({ productImg, productName, productPrice, productSize }) => {
   const handleProductAdd = (name) => {
     const data = FakeData.find((pd) => pd.name === name);
+    data.quantity = 0;
     console.log(data);
   };
   return (
@@ -42,7 +43,7 @@ const Product = ({ productImg, productName, productPrice, productSize }) => {
               background="#A8B324"
             />
             <Link
-              to="#"
+              to="/product-details"
               onClick={() => handleProductAdd(productName)}
               className="product__link"
             >

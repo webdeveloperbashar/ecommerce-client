@@ -59,34 +59,3 @@ const Step = ({
 };
 
 export default Step;
-
-// {FormInputFieldData.map((data, index) => {
-//   if (data.type === "text" || data.type === "number") {
-//     return (
-//       <InputText
-//         key={index + 1}
-//         type={data.type}
-//         name={data.name}
-//         placeholder={data.placeholder}
-//         onChange={handleChange}
-//         // value={key}
-//         divStyle="input__field__inline"
-//         label={data.label}
-//         span
-//       />
-//     );
-//   } else if (data.type === "select") {
-//     return (
-//       <SelectOption
-//         key={index + 1}
-//         name={data.name}
-//         placeholder={data.placeholder}
-//         onChange={handleChange}
-//         // value={key}
-//         label={data.label}
-//         divStyle="input__field__inline"
-//         options={data.options}
-//       />
-//     );
-//   }
-// })}

@@ -1,8 +1,8 @@
-import { useLocation } from "@reach/router";
 import React, { useState } from "react";
 import { useBreakpoints } from "react-device-breakpoints";
 import ReactImageMagnify from "react-image-magnify";
 import ReactStars from "react-rating-stars-component";
+import { useLocation } from "react-router-dom";
 import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import Footer from "../../components/Footer";

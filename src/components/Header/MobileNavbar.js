@@ -30,7 +30,7 @@ const MobileNavbar = ({
             </div>
             {/* mobile logo */}
             <div className="mobile__logo">
-              <Link to="/">
+              <Link exact to="/">
                 <img src={logo} className="logo" alt="logo" />
               </Link>
             </div>

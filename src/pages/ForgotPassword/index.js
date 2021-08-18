@@ -1,6 +1,6 @@
-import { Link } from "@reach/router";
 import { useState } from "react";
 import { CgArrowLongLeft } from "react-icons/cg";
+import { Link } from 'react-router-dom';
 const Index = () => {
   const [value, setValue] = useState({
     email: "",

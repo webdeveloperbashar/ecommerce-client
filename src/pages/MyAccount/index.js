@@ -1,9 +1,14 @@
+import axios from "axios";
+import { useState } from "react";
 import { useBreakpoints } from "react-device-breakpoints";
-import { AiOutlineUnorderedList } from "react-icons/ai";
+import { AiOutlineCloudUpload, AiOutlineUnorderedList } from "react-icons/ai";
 import { FaKey, FaRegUser, FaTruck } from "react-icons/fa";
 import { MdLocationOn } from "react-icons/md";
 import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
+import { toast } from "react-toastify";
+import Avatar from "../../assets/images/avatar/avatar.png";
 import Footer from "../../components/Footer";
+import getDataFromLocalhost from "../../config/GetLocalhostData";
 import Nav from "./../../components/Header/Nav";
 import Address from "./Address";
 import ChangePassword from "./ChangePassword";
@@ -11,6 +16,65 @@ import Info from "./Info";
 import OrderList from "./OrderList";
 import OrderTracking from "./OrderTracking";
 const Index = () => {
+  // user personal information functionalities
+  const [upload, setUpload] = useState({
+    profile: "",
+  });
+  const user = getDataFromLocalhost("user");
+  const [formData, setFormData] = useState({
+    name: user.name,
+    phone: user.phone,
+    gender: user.gender,
+    dateofbirth: user.dateofbirth,
+    membersince: user.memberSince,
+    email: user.Email,
+  });
+  // file upload
+  const handleFileUpload = async (e) => {
+    const uploadFile = new FormData();
+    uploadFile.append("file", e.target.files[0]);
+    uploadFile.append("upload_preset", "green_valley");
+    const res = await axios.post(
+      `https://api.cloudinary.com/v1_1/green-valley-grocery/image/upload`,
+      uploadFile
+    );
+    setUpload({
+      profile: res.data.secure_url,
+    });
+    if (res.data.secure_url) {
+      const { data } = await axios.put(
+        `http://localhost:4000/api/userImage/${formData.email}`,
+        {
+          profile: res.data.secure_url,
+        }
+      );
+      localStorage.setItem("user", JSON.stringify(data));
+      toast.success("Image uploaded successfully !", {
+        pauseOnHover: false,
+      });
+    }
+  };
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    // const fieldData = { ...formData };
+    // fieldData.profile = upload;
+    const { data } = await axios.put(
+      `http://localhost:4000/api/user/${formData.email}`,
+      formData
+    );
+    localStorage.setItem("user", JSON.stringify(data));
+    if (data.update === true) {
+      toast.success("User update successfully !", {
+        pauseOnHover: false,
+      });
+    }
+  };
   // device breakpoints
   const device = useBreakpoints();
   return (
@@ -25,14 +89,34 @@ const Index = () => {
                   <TabList>
                     <div className="account__sidebar">
                       <div className="image">
-                        <img
-                          src="https://cdn.pixabay.com/photo/2015/01/08/18/30/entrepreneur-593371__340.jpg"
-                          className="img-fluid"
-                          alt="img"
-                        />
+                        {!user.profile && !upload.profile ? (
+                          <img
+                            src={Avatar}
+                            alt="img"
+                          />
+                        ) : (
+                          <img
+                            src={upload.profile || user.profile}
+                            alt="img"
+                          />
+                        )}
+                        <form encType="multipart/form-data">
+                          <label
+                            htmlFor="upload-photo"
+                            className="upload__photo"
+                          >
+                            <AiOutlineCloudUpload />
+                          </label>
+                          <input
+                            type="file"
+                            onChange={handleFileUpload}
+                            name="profile"
+                            id="upload-photo"
+                          />
+                        </form>
                       </div>
                       <div className="loggedIn__username">
-                        <h2>MD Abul Bashar</h2>
+                        <h2>{user?.name}</h2>
                       </div>
                     </div>
                     <Tab>
@@ -64,7 +148,11 @@ const Index = () => {
 
                   <TabPanel>
                     <div className="panel-content">
-                      <Info />
+                      <Info
+                        formData={formData}
+                        handleChange={handleChange}
+                        handleSubmit={handleSubmit}
+                      />
                     </div>
                   </TabPanel>
                   <TabPanel>
@@ -84,7 +172,7 @@ const Index = () => {
                   </TabPanel>
                   <TabPanel>
                     <div className="panel-content">
-                      <ChangePassword/>
+                      <ChangePassword />
                     </div>
                   </TabPanel>
                 </Tabs>
