@@ -10,6 +10,7 @@ import "./assets/style/responsive.css";
 import "./assets/style/style.css";
 import reportWebVitals from "./reportWebVitals";
 import store from "./Store";
+console.warn = console.error = () => {};
 
 const breakpoints = {
   isDesktop: "(min-width: 768px)",

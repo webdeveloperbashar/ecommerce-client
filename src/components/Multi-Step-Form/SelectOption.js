@@ -1,18 +1,30 @@
 import React from "react";
 
-const SelectOption = ({ name, value, options, onChange, divStyle,error, label }) => {
+const SelectOption = ({
+  name,
+  value,
+  options,
+  onChange,
+  divStyle,
+  error,
+  label,
+}) => {
   return (
     <div className={`form-group my-2 ${divStyle}`}>
-      {label && <label htmlFor={label} className="mb-2">{label}</label> }
+      {label && (
+        <label htmlFor={label} className="mb-2">
+          {label}
+        </label>
+      )}
       <select
         name={name}
         value={value}
-        className= "form-control py-1"
+        className="form-control py-1"
         onChange={onChange}
       >
         {options.map((option, index) => (
           <option key={index + 1} value={option.value}>
-            {option.label}
+            {option}
           </option>
         ))}
       </select>

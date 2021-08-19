@@ -3,14 +3,12 @@ import { useState } from "react";
 import { useBreakpoints } from "react-device-breakpoints";
 import { AiOutlineCloudUpload, AiOutlineUnorderedList } from "react-icons/ai";
 import { FaKey, FaRegUser, FaTruck } from "react-icons/fa";
-import { MdLocationOn } from "react-icons/md";
 import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
 import { toast } from "react-toastify";
 import Avatar from "../../assets/images/avatar/avatar.png";
 import Footer from "../../components/Footer";
 import getDataFromLocalhost from "../../config/GetLocalhostData";
 import Nav from "./../../components/Header/Nav";
-import Address from "./Address";
 import ChangePassword from "./ChangePassword";
 import Info from "./Info";
 import OrderList from "./OrderList";
@@ -90,15 +88,9 @@ const Index = () => {
                     <div className="account__sidebar">
                       <div className="image">
                         {!user.profile && !upload.profile ? (
-                          <img
-                            src={Avatar}
-                            alt="img"
-                          />
+                          <img src={Avatar} alt="img" />
                         ) : (
-                          <img
-                            src={upload.profile || user.profile}
-                            alt="img"
-                          />
+                          <img src={upload.profile || user.profile} alt="img" />
                         )}
                         <form encType="multipart/form-data">
                           <label
@@ -131,11 +123,6 @@ const Index = () => {
                     </Tab>
                     <Tab>
                       <p>
-                        <MdLocationOn /> Address
-                      </p>
-                    </Tab>
-                    <Tab>
-                      <p>
                         <FaTruck /> Order Tracking
                       </p>
                     </Tab>
@@ -158,11 +145,6 @@ const Index = () => {
                   <TabPanel>
                     <div className="panel-content">
                       <OrderList />
-                    </div>
-                  </TabPanel>
-                  <TabPanel>
-                    <div className="panel-content">
-                      <Address />
                     </div>
                   </TabPanel>
                   <TabPanel>

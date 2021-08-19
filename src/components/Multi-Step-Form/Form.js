@@ -8,6 +8,7 @@ import {
 import React, { useState } from "react";
 import Validate from "../../config/Validate";
 import { FormInputFieldData } from "../../pages/Checkout/FormInputFieldData";
+import SelectOption from "./SelectOption";
 import Step from "./Step";
 
 const Form = ({ step, setStep }) => {
@@ -40,7 +41,7 @@ const Form = ({ step, setStep }) => {
     formDatas.name = formData.stepOne.name.value;
     formDatas.mobile = formData.stepOne.mobile.value;
     formDatas.company = formData.stepOne.company.value;
-    formDatas.stete = formData.stepOne.state.value;
+    formDatas.state = formData.stepOne.state.value;
     formDatas.city = formData.stepOne.city.value;
     formDatas.zip = formData.stepOne.zip.value;
     formDatas.country = formData.stepOne.country.value;
@@ -98,6 +99,7 @@ const Form = ({ step, setStep }) => {
       {/* payment method */}
       {step === 2 && (
         <>
+        <SelectOption label="Payment Method" name="payment" options={["Select payment method", "Bkash", "Nagad", "Rocked"]} />
           <label className="w-100" style={{ position: "relative" }}>
             Card number
             <CardNumberElement
