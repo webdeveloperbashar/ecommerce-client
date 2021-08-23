@@ -17,6 +17,8 @@ import ProductDetails from "../pages/Product-details";
 import Register from "../pages/Register";
 import ResetPassword from "../pages/ResetPassword";
 import Shop from "../pages/Shop";
+import EmailVerify from "../pages/Email-verify";
+import Error from "../pages/Not-found";
 import getDataFromLocalhost from "./../config/GetLocalhostData";
 const Routes = () => {
   return (
@@ -48,6 +50,8 @@ const Routes = () => {
         <PrivateRoute path="/user/my-account">
           <MyAccount />
         </PrivateRoute>
+        <Route path="/user/email_verify/:token" component={EmailVerify} />
+        <Route path="*" component={Error}/>
       </Switch>
     </Router>
   );

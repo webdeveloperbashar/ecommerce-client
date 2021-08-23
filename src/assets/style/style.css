@@ -1377,6 +1377,10 @@ tr:nth-child(even) {
   font-size: 16px;
   color: var(--bg-blue-gray);
 }
+.paymentStepHeading {
+  font-size: 25px;
+  font-weight: 700;
+}
 /**********************************************
             CHECKOUT PAGE CSS END
 **********************************************/
@@ -1800,4 +1804,24 @@ textarea {
 }
 /**************************************
       REVIEW CSS END
+****************************************/
+/**************************************
+      Error page css start
+****************************************/
+.error_signal img {
+  width: 50%;
+}
+
+.error_signal {
+  text-align: center;
+}
+.return_button a{
+  font-size: 18px;
+  border: none;
+  color: white;
+  background-color: var(--bg-olive-green);
+  padding: 8px 15px;
+}
+/**************************************
+      Error page css end
 ****************************************/

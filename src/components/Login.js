@@ -2,9 +2,13 @@ import { useState } from "react";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useHistory } from "react-router-dom";
+import getDataFromSession from "../config/GetSessionStorageData";
 import { UserLogin } from "../Store/Actions/UserAction";
 const Login = ({ width, heading, isShow }) => {
-  const history = useHistory()
+  // get data from sessionStorage
+  const token = getDataFromSession("token");
+  // history hooks
+  const history = useHistory();
   // get error message from react-redux
   const message = useSelector((state) => state.login.user);
   // form Data send to react-redux hooks
@@ -33,6 +37,7 @@ const Login = ({ width, heading, isShow }) => {
       {isShow && (
         <div className="auth__form box__shadow" style={{ width: width }}>
           <h2 className="text-center text-dark font-size__3 mb-4">{heading}</h2>
+          {token && <p className="alert alert-warning">{token?.success}</p>}
           <form onSubmit={handleSubmit}>
             <div className="form-group">
               <input

@@ -3,6 +3,7 @@ import { composeWithDevTools } from "redux-devtools-extension";
 import thunk from "redux-thunk";
 import { OrderReducer } from "./Reducers/OrderReducer";
 import {
+  EmailVerify,
   UserLoginReducers,
   UserSignupReducers
 } from "./Reducers/UserReducers";
@@ -14,6 +15,7 @@ const combinedReducer = combineReducers({
   login: UserLoginReducers,
   signup: UserSignupReducers,
   userUpdate: UserUpdateReducer,
+  userEmailVerify: EmailVerify,
   orders: OrderReducer
 });
 const store = createStore(

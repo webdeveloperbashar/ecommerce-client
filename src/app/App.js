@@ -43,7 +43,7 @@ const App = () => {
       )}
       <Routes />
       {device.isMobile && <MobileStickyFooterMenu />}
-      <ToastContainer autoClose={1500} />
+      <ToastContainer autoClose={3000} />
     </>
   );
 };

@@ -16,7 +16,8 @@ export const UserLogin = (userData, history) => async (dispatch) => {
       pauseOnHover: false,
     });
     history.push("/");
-  } else if (data.wrong) {
+  }
+  if (data.wrong) {
     toast.error(data.wrong, {
       pauseOnHover: false,
     });
@@ -32,12 +33,20 @@ export const userSignup = (userData, history) => async (dispatch) => {
     type: "USER_SIGNUP",
     payload: data,
   });
-  if (data.credential) {
-    toast.success(data.credential, {
-      pauseOnHover: false,
-    });
+  if (data.success) {
+    sessionStorage.setItem("token", JSON.stringify(data));
     history.push("/login");
   }
+};
+// email verify
+export const emailVerify = (token) => async (dispatch) => {
+  const { data } = await axios.put(
+    `http://localhost:4000/auth/email_verify/${token}`
+  );
+  dispatch({
+    type: "EMAIL_VERIFY",
+    payload: data,
+  });
 };
 // user logout
 export const userLogout = (history) => {

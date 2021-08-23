@@ -8,11 +8,12 @@ const SelectOption = ({
   divStyle,
   error,
   label,
+  labelClass
 }) => {
   return (
     <div className={`form-group my-2 ${divStyle}`}>
       {label && (
-        <label htmlFor={label} className="mb-2">
+        <label htmlFor={label} className={`mb-2 ${labelClass}`}>
           {label}
         </label>
       )}
@@ -24,7 +25,7 @@ const SelectOption = ({
       >
         {options.map((option, index) => (
           <option key={index + 1} value={option.value}>
-            {option}
+            {option.label}
           </option>
         ))}
       </select>

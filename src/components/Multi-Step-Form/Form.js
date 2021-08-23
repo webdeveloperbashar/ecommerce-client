@@ -3,12 +3,13 @@ import {
   CardExpiryElement,
   CardNumberElement,
   useElements,
-  useStripe
+  useStripe,
 } from "@stripe/react-stripe-js";
 import React, { useState } from "react";
+import { toast } from "react-toastify";
 import Validate from "../../config/Validate";
 import { FormInputFieldData } from "../../pages/Checkout/FormInputFieldData";
-import SelectOption from "./SelectOption";
+import PaymentField from "./PaymentField";
 import Step from "./Step";
 
 const Form = ({ step, setStep }) => {
@@ -20,6 +21,11 @@ const Form = ({ step, setStep }) => {
   const [brand, setBrand] = useState({
     brand: "",
   });
+  // handle payment method name gassing
+  const [payment, setPayment] = useState("");
+  const handlePayment = (e) => {
+    setPayment(e.target.value);
+  };
   // get payment method name
   const paymentHandleChange = (e) => {
     setBrand({
@@ -29,9 +35,9 @@ const Form = ({ step, setStep }) => {
   // shipping and payment submit handler
   const handleSubmit = async (event) => {
     event.preventDefault();
-    if (!stripe || !elements) {
-      return;
-    }
+    // if (!stripe || !elements) {
+    //   return;
+    // }
     const { paymentMethod, error } = await stripe.createPaymentMethod({
       type: "card",
       card: elements.getElement(CardNumberElement),
@@ -47,13 +53,23 @@ const Form = ({ step, setStep }) => {
     formDatas.country = formData.stepOne.country.value;
     formDatas.address = formData.stepOne.address.value;
     // shipping and payment address marge
-    const mergeData = { ...formDatas, ...paymentMethod?.card };
+    const shipping = {
+      shipping: { ...formDatas },
+    };
     // payment error and success handling
-    if (error && error.message) {
-      setStep(2);
+    if (error) {
+      // setStep(2);
+      toast.error(error.message, {
+        pauseOnHover: false,
+      });
     }
-    if (paymentMethod) {
-      console.log("Form data", mergeData);
+    if (
+      paymentMethod ||
+      payment === "bkash" ||
+      payment === "nagad" ||
+      payment === "rocket"
+    ) {
+      console.log("Form data", shipping);
       setStep(step + 1);
     }
   };
@@ -99,27 +115,48 @@ const Form = ({ step, setStep }) => {
       {/* payment method */}
       {step === 2 && (
         <>
-        <SelectOption label="Payment Method" name="payment" options={["Select payment method", "Bkash", "Nagad", "Rocked"]} />
-          <label className="w-100" style={{ position: "relative" }}>
-            Card number
-            <CardNumberElement
-              onChange={paymentHandleChange}
-              className="form-control my-2 py-2 w-100"
-            />
-            {brand && (
-              <span style={{ position: "absolute", right: "6px", top: "32px" }}>
-                {brand.brand}
-              </span>
-            )}
+          <label htmlFor="heading" className="mb-2 paymentStepHeading">
+            Payment Method
           </label>
-          <label className="w-100">
-            Expiration date
-            <CardExpiryElement className="form-control my-2 py-2 w-100" />
-          </label>
-          <label className="w-100">
-            <label htmlFor="">CVC</label>
-            <CardCvcElement className="form-control my-2 py-2 w-100" />
-          </label>
+          <select
+            name="payment"
+            className="form-control py-1 mb-3"
+            onChange={handlePayment}
+          >
+            <option value="choose">Select Payment Method</option>
+            <option value="bkash">Bkash</option>
+            <option value="nagad">Nagad</option>
+            <option value="rocket">Rocket</option>
+            <option value="cod">COD</option>
+            <option value="stripe">Stripe</option>
+          </select>
+          <PaymentField payment={payment} />
+          {payment === "stripe" && (
+            <>
+              <label className="w-100" style={{ position: "relative" }}>
+                Card number
+                <CardNumberElement
+                  onChange={paymentHandleChange}
+                  className="form-control my-2 py-2 w-100"
+                />
+                {brand && (
+                  <span
+                    style={{ position: "absolute", right: "6px", top: "32px" }}
+                  >
+                    {brand.brand}
+                  </span>
+                )}
+              </label>
+              <label className="w-100">
+                Expiration date
+                <CardExpiryElement className="form-control my-2 py-2 w-100" />
+              </label>
+              <label className="w-100">
+                <label htmlFor="">CVC</label>
+                <CardCvcElement className="form-control my-2 py-2 w-100" />
+              </label>
+            </>
+          )}
         </>
       )}
       {/* Confirmation message */}

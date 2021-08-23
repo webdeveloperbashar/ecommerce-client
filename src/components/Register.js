@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, useHistory } from "react-router-dom";
 import { userSignup } from "../Store/Actions/UserAction";
 const Register = () => {
-  // page redirect hooks
+  // history hooks
   const history = useHistory();
   // get error message from react-redux
   const message = useSelector((state) => state.signup.user);

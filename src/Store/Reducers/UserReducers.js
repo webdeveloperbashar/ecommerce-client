@@ -15,3 +15,11 @@ export const UserSignupReducers = (state = {}, action) => {
       return state;
   }
 };
+export const EmailVerify = (state = {}, action) => {
+  switch (action.type) {
+    case "EMAIL_VERIFY":
+      return { verify: action.payload };
+    default:
+      return state;
+  }
+};
