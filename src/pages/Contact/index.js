@@ -1,4 +1,5 @@
 import { useBreakpoints } from "react-device-breakpoints";
+import { Helmet } from "react-helmet";
 import { FaMapMarkerAlt, FaPhoneAlt } from "react-icons/fa";
 import { SiGmail } from "react-icons/si";
 import Footer from "../../components/Footer";
@@ -7,6 +8,9 @@ const Index = () => {
   const device = useBreakpoints();
   return (
     <>
+      <Helmet>
+        <title>Contact us - GreenValleyGrocery Shop</title>
+      </Helmet>
       {device.isDesktop && <Nav isShow />}
       <div className="contact__wrapper py-5">
         <div className="container">
@@ -59,13 +63,16 @@ const Index = () => {
             <div className="col-md-6">
               <div className="contact__right mt-5">
                 <div className="contact__form">
-                  <h2 className="font-size__3 text-center text-white">Send Message</h2>
+                  <h2 className="font-size__3 text-center text-white">
+                    Send Message
+                  </h2>
                   <form>
                     <div className="form-group">
                       <input
                         type="text"
                         className="form-control message__input"
-                        name="name" autoComplete="off"
+                        name="name"
+                        autoComplete="off"
                         placeholder="Enter your full name"
                       />
                     </div>
@@ -73,7 +80,8 @@ const Index = () => {
                       <input
                         type="email"
                         className="form-control message__input"
-                        name="email" autoComplete="off"
+                        name="email"
+                        autoComplete="off"
                         placeholder="Enter your email"
                       />
                     </div>
@@ -81,15 +89,28 @@ const Index = () => {
                       <input
                         type="number"
                         className="form-control message__input"
-                        name="number" autoComplete="off"
+                        name="number"
+                        autoComplete="off"
                         placeholder="Enter your phone"
                       />
                     </div>
                     <div className="form-group">
-                      <textarea name="message" autoComplete="off" className="form-control message__input" cols="30" rows="5"  placeholder="Write your message..."></textarea>
+                      <textarea
+                        name="message"
+                        autoComplete="off"
+                        className="form-control message__input"
+                        cols="30"
+                        rows="5"
+                        placeholder="Write your message..."
+                      ></textarea>
                     </div>
                     <div className="form-group">
-                      <button type='submit' className="form-control mt-3 btn text-white">Send Message</button>
+                      <button
+                        type="submit"
+                        className="form-control mt-3 btn text-white"
+                      >
+                        Send Message
+                      </button>
                     </div>
                   </form>
                 </div>

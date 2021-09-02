@@ -1,21 +1,24 @@
 import { useState } from "react";
 import { useBreakpoints } from "react-device-breakpoints";
 import { FaRegUser, FaSearch, FaShoppingCart } from "react-icons/fa";
-import { GrFavorite } from "react-icons/gr";
 import { IoMdMenu } from "react-icons/io";
-import { useDispatch } from "react-redux";
-import { Link, NavLink, useHistory } from 'react-router-dom';
+import { useDispatch, useSelector } from "react-redux";
+import { Link, NavLink, useHistory } from "react-router-dom";
 import logo from "../../assets/images/brand-logo/valley.svg";
+import { GetCartQuantity } from "../../config/GetCartVariant";
 import getDataFromLocalhost from "../../config/GetLocalhostData";
 import { userLogout } from "../../Store/Actions/UserAction";
 import Login from "../Login";
 import StickySearchForm from "./StickySearchForm";
 const StickyHeader = ({ handleOpenDrawer }) => {
-  const dispatch = useDispatch()
-  const history = useHistory()
-  const handleLogout = () =>{
-    dispatch(userLogout(history))
-  }
+  // get data react-redux
+  const product = useSelector((state) => state.cart.cartItems);
+  // react-redux hooks
+  const dispatch = useDispatch();
+  const history = useHistory();
+  const handleLogout = () => {
+    dispatch(userLogout(history));
+  };
   // device breakpoints
   const device = useBreakpoints();
   // sticky search form show and hide
@@ -135,17 +138,13 @@ const StickyHeader = ({ handleOpenDrawer }) => {
                 <li className="nav-item">
                   <Link
                     className="m-left__2 p__2 bg-light__gray topHeader__icon"
-                    to="/favourite"
-                  >
-                    <GrFavorite /> <span className="cart__badge">4</span>
-                  </Link>
-                </li>
-                <li className="nav-item">
-                  <Link
-                    className="m-left__2 p__2 bg-light__gray topHeader__icon"
                     to="/cart"
+                    // onClick={() => history.push("/cart")}
                   >
-                    <FaShoppingCart /> <span className="cart__badge">4</span>
+                    <FaShoppingCart />{" "}
+                    <span className="cart__badge">
+                      {GetCartQuantity(product)}
+                    </span>
                   </Link>
                 </li>
                 <li className="nav-item">

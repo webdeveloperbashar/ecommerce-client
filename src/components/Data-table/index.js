@@ -9,7 +9,7 @@ const DataTable = ({ theadItems, tbodyItems, noItemMsg, colSpan }) => {
       <tbody className="table__body">
         {tbodyItems.length <= 0 ? (
           <tr>
-            <td colSpan={colSpan} className="text-center font-size__1">
+            <td colSpan={colSpan} className="text-center py-5 font-size__1">
               {noItemMsg}
             </td>
           </tr>

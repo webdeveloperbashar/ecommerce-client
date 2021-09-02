@@ -2,15 +2,24 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { CgChevronDoubleRight } from "react-icons/cg";
 import "react-multi-carousel/lib/styles.css";
 import ReactStars from "react-rating-stars-component";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import { AddToCartAction } from "../Store/Actions/CartAction";
 import FakeData from "./FakeData";
 import HorizontalLine from "./HorizontalLine";
-
-const Product = ({ productImg, productName, productPrice, productSize }) => {
-  const handleProductAdd = (name) => {
-    const data = FakeData.find((pd) => pd.name === name);
-    data.quantity = 0;
-    console.log(data);
+const Product = ({
+  productId,
+  productImg,
+  productName,
+  productPrice,
+  productSize,
+}) => {
+  // react-redux hooks
+  const dispatch = useDispatch();
+  // handle product Add to cart
+  const handleProductAdd = (id) => {
+    const data = FakeData.find((pd) => pd.id === id);
+    dispatch(AddToCartAction(data));
   };
   return (
     <>
@@ -34,7 +43,7 @@ const Product = ({ productImg, productName, productPrice, productSize }) => {
               <span className="text-dark">&nbsp;(4 Review)</span>
             </p>
             <h4 className="my-2">{productName}</h4>
-            <h3 className="mb-2">{productPrice}</h3>
+            <h3 className="mb-2">${productPrice}</h3>
             <h4>{productSize}</h4>
             <HorizontalLine
               width="60px"
@@ -43,8 +52,8 @@ const Product = ({ productImg, productName, productPrice, productSize }) => {
               background="#A8B324"
             />
             <Link
-              to="/product-details"
-              onClick={() => handleProductAdd(productName)}
+              to="#"
+              onClick={() => handleProductAdd(productId)}
               className="product__link"
             >
               Add to cart <CgChevronDoubleRight className="arrow__icon" />

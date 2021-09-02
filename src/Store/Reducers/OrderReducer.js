@@ -2,7 +2,7 @@ const initialState = {
   orders: [],
 };
 
-export const OrderReducer = (state = initialState, action) => {
+export const OrderGetReducer = (state = initialState, action) => {
   switch (action.type) {
     case "FETCH_ORDER_SUCCESS":
       return {
@@ -12,3 +12,15 @@ export const OrderReducer = (state = initialState, action) => {
       return state;
   }
 };
+export const OrderCreateReducer = (state = initialState, action) => {
+  switch (action.type) {
+    case "ORDER_REQUEST_SUCCESS":
+      return {
+        orders: action.payload,
+      };
+    default:
+      return state;
+  }
+};
+
+

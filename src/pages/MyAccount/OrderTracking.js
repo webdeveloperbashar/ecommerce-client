@@ -2,7 +2,8 @@ import React, { useRef } from "react";
 import { FiPrinter } from "react-icons/fi";
 import { useReactToPrint } from "react-to-print";
 import Print from "./Print";
-
+import { Stepper } from "react-form-stepper";
+import { Step } from "react-form-stepper";
 const OrderTracking = () => {
   const componentRef = useRef();
   const handlePrint = useReactToPrint({
@@ -50,7 +51,20 @@ const OrderTracking = () => {
         </div>
         <div className="tracking__product__info">
           <div className="single__info__field box__shadow mt-3">
-            <div className="info__header bg-dark text-white p-2">
+            <div className="info__header text-white p-2">
+              <h2 className="text-start">Order Status</h2>
+            </div>
+            <div className="tracking__summary">
+              <Stepper activeStep={0}>
+                <Step label="Pending" />
+                <Step label="Processing" />
+                <Step label="Shipped" />
+                <Step label="Deliverd" />
+              </Stepper>
+            </div>
+          </div>
+          <div className="single__info__field box__shadow mt-3">
+            <div className="info__header text-white p-2">
               <h2 className="text-start">Order Summary</h2>
             </div>
             <div className="tracking__summary">
@@ -85,7 +99,7 @@ const OrderTracking = () => {
             </div>
           </div>
           <div className="single__info__field box__shadow mt-3">
-            <div className="info__header bg-dark text-white p-2">
+            <div className="info__header text-white p-2">
               <h2 className="text-start">Order Details</h2>
             </div>
             <div className="tracking__details">
@@ -101,7 +115,11 @@ const OrderTracking = () => {
                   <tr>
                     <td>
                       <div className="d-flex align-items-center">
-                        <img src="https://i.ibb.co/F4rkCxW/12.png" className="img-fluid logo me-2" alt="product" />
+                        <img
+                          src="https://i.ibb.co/F4rkCxW/12.png"
+                          className="img-fluid logo me-2"
+                          alt="product"
+                        />
                         <p>Kashmiri Fruits</p>
                       </div>
                     </td>
@@ -109,23 +127,8 @@ const OrderTracking = () => {
                     <td>$500</td>
                   </tr>
                   <tr>
+                    <td>Total Price:</td>
                     <td></td>
-                    <td>Subtotal</td>
-                    <td>$500</td>
-                  </tr>
-                  <tr>
-                    <td></td>
-                    <td>Tax</td>
-                    <td>5%</td>
-                  </tr>
-                  <tr>
-                    <td></td>
-                    <td>Delivery Charge</td>
-                    <td>5%</td>
-                  </tr>
-                  <tr>
-                    <td></td>
-                    <td>Grand Total</td>
                     <td>$550</td>
                   </tr>
                 </tbody>

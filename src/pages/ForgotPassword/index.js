@@ -1,26 +1,24 @@
 import { useState } from "react";
-import { CgArrowLongLeft } from "react-icons/cg";
-import { Link } from 'react-router-dom';
+import { useBreakpoints } from "react-device-breakpoints";
+import { useDispatch, useSelector } from "react-redux";
+import Footer from "../../components/Footer";
+import TopHeader from "../../components/Header/TopHeader";
+import { forgotPassword } from "../../Store/Actions/UserAction";
 const Index = () => {
-  const [value, setValue] = useState({
-    email: "",
-  });
+  // device breakpoints
+  const device = useBreakpoints();
+  // get data from react-reduxt store
+  const message = useSelector((state) => state.forgotPassword.forgot);
+  // react-redux hooks
+  const dispatch = useDispatch();
+  const [value, setValue] = useState();
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(value);
+    dispatch(forgotPassword(value));
   };
   return (
     <>
-      <div className="m-5">
-        <Link to="/">
-          <span
-            className="bg-light box__shadow p-2 text-dark font-size__2"
-            style={{ cursor: "pointer" }}
-          >
-            <CgArrowLongLeft /> Back to home
-          </span>
-        </Link>
-      </div>
+      {device.isDesktop && <TopHeader />}
       <div className="auth__form forgot__password mt-5 mb-5">
         <h2 className="text-dark text-center font-size__3 mb-4">
           Forgot Password
@@ -30,22 +28,31 @@ const Index = () => {
             <input
               type="email"
               name="email"
-              className="form-control input__field"
-              onChange={(e) => setValue(e.target.value)}
+              className={`form-control input__field ${
+                message?.email ? "is-invalid" : ""
+              }`}
+              onChange={(e) => setValue({ [e.target.name]: e.target.value })}
               placeholder="Enter your email"
-              required
             />
+            {message?.email ? (
+              <p className="invalid-feedback error__message">
+                {message?.email}
+              </p>
+            ) : (
+              ""
+            )}
           </div>
           <div className="form-group">
             <button
               type="submit"
               className="btn w-100 py-3 text-white auth__button"
             >
-              SUBMIT
+              SEND LINK
             </button>
           </div>
         </form>
       </div>
+      <Footer />
     </>
   );
 };

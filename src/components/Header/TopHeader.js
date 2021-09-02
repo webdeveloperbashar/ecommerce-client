@@ -3,14 +3,19 @@ import {
   FaHeadphones,
   FaRegUser,
   FaSearch,
-  FaShoppingCart
+  FaShoppingCart,
 } from "react-icons/fa";
-import { GrFavorite } from "react-icons/gr";
-import { Link } from 'react-router-dom';
+import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import logo from "../../assets/images/brand-logo/valley.svg";
+import { GetCartQuantity } from "../../config/GetCartVariant";
 import Login from "../Login";
 import getDataFromLocalhost from "./../../config/GetLocalhostData";
 const TopHeader = () => {
+  const product = useSelector((state) => state.cart.cartItems);
+  const user = getDataFromLocalhost("user");
+  const stateUser = useSelector((state) => state.login.user);
+
   return (
     <div className="topHeader bg-light">
       <div className="container d-grid display-grid d-flex justify-content-between align-items-center">
@@ -50,7 +55,7 @@ const TopHeader = () => {
               {getDataFromLocalhost("user") ? (
                 <Link
                   className="m-left__2 p__2 bg-light__gray topHeader__icon"
-                  to="/user/my-account"
+                  to={`/${user?.username || stateUser?.username}/my-account`}
                 >
                   <FaRegUser />
                 </Link>
@@ -69,17 +74,10 @@ const TopHeader = () => {
             <li className="nav-item">
               <Link
                 className="m-left__2 p__2 bg-light__gray topHeader__icon"
-                to="/favourite"
-              >
-                <GrFavorite /> <span className="cart__badge">4</span>
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link
-                className="m-left__2 p__2 bg-light__gray topHeader__icon"
                 to="/cart"
               >
-                <FaShoppingCart /> <span className="cart__badge">4</span>
+                <FaShoppingCart />{" "}
+                <span className="cart__badge">{GetCartQuantity(product)}</span>
               </Link>
             </li>
             <li className="nav-item">

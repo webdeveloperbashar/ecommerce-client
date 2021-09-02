@@ -1,6 +1,7 @@
 import { Slider } from "@material-ui/core";
 import React, { useState } from "react";
 import { useBreakpoints } from "react-device-breakpoints";
+import { Helmet } from "react-helmet";
 import { IoMdArrowDropright } from "react-icons/io";
 import Footer from "../../components/Footer";
 import Nav from "../../components/Header/Nav";
@@ -14,10 +15,13 @@ const Index = () => {
   const handleChange = (e, data) => {
     setRangeVal(data);
   };
-  const minVal = rangeVal[0] * 10;
-  const maxVal = rangeVal[1] * 10;
+  const minVal = rangeVal[0];
+  const maxVal = rangeVal[1];
   return (
     <>
+    <Helmet>
+      <title>Shop - GreenValleyGrocery Shop</title>
+    </Helmet>
       {device.isDesktop && <Nav isShow />}
       <div className="shop__wrapper">
         <div className="shop__section__image">
@@ -112,10 +116,12 @@ const Index = () => {
                   {FakeData.map((item, index) => (
                     <div className="col-md-4" key={index + 1}>
                       <Product
-                        productImg={`${item.img}`}
-                        productName={`${item.name}`}
-                        productPrice={`${item.price}`}
-                        productSize={`${item.size}`}
+                        key={index + 1}
+                        productId={item.id}
+                        productImg={item.img}
+                        productName={item.name}
+                        productPrice={item.price}
+                        productSize={item.size}
                       />
                     </div>
                   ))}

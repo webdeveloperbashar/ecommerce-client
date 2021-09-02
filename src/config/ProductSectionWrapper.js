@@ -71,6 +71,7 @@ const ProductSectionWrapper = ({
                 {data.map((item, index) => (
                   <Product
                     key={index + 1}
+                    productId={item.id}
                     productImg={`${item.img}`}
                     productName={`${item.name}`}
                     productPrice={`${item.price}`}

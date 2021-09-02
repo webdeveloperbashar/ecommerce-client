@@ -1,4 +1,5 @@
 import React from "react";
+import FakeData from "../../config/FakeData";
 import SliderFunctionalities from "../../config/SliderFunctionalities";
 import Product from "./../../config/Product";
 
@@ -13,13 +14,14 @@ const RelatedProduct = () => {
           sliderSpeed={2000}
           sliderTransition="all 0.8s"
         >
-          {[1, 2].map((__, index) => (
+          {FakeData.map((item, index) => (
             <Product
               key={index + 1}
-              productImg="https://i.ibb.co/gzD9DdP/09.png"
-              productName="Tomatos on the vine"
-              productPrice="$254"
-              productSize="1.5 KG"
+              productId={item.id}
+              productImg={item.img}
+              productName={item.name}
+              productPrice={item.price}
+              productSize={item.size}
             />
           ))}
         </SliderFunctionalities>

@@ -1,10 +1,9 @@
-// import { Link } from "@reach/router";
 import { useBreakpoints } from "react-device-breakpoints";
-import { FaEdit } from "react-icons/fa";
+import { Helmet } from "react-helmet";
 import { MdDelete } from "react-icons/md";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import shortid from "shortid";
-import cateImg from "../../assets/Cate-image/cateImg-3.jpg";
 import DataTable from "../../components/Data-table";
 import ActionCell from "../../components/Data-table/Action-cell";
 import ImageCell from "../../components/Data-table/Image-cell";
@@ -13,7 +12,16 @@ import Footer from "../../components/Footer";
 import Nav from "../../components/Header/Nav";
 import OrderSummary from "../../components/OrderSummary";
 import HorizontalLine from "../../config/HorizontalLine";
+import {
+  DecreamentQuantityAction,
+  IncreaseQuantityAction,
+  RemoveCartAction,
+} from "../../Store/Actions/CartAction";
 const Index = () => {
+  // get data from react-redux store
+  const cartItems = useSelector((state) => state.cart.cartItems);
+  // react-redux hooks
+  const dispatch = useDispatch();
   // device breakpoints
   const device = useBreakpoints();
   // data table data send
@@ -24,7 +32,7 @@ const Index = () => {
     <TextCell key="price" text="Price" as="th" />,
     <TextCell key="action" text="Action" as="th" className="text-end" />,
   ];
-  const tbodyItems = [
+  const tbodyItems = cartItems.map((item) => [
     [
       <ImageCell
         key={shortid.generate()}
@@ -33,13 +41,38 @@ const Index = () => {
         actions={[
           {
             name: "image",
-            image: cateImg,
+            image: item.img,
           },
         ]}
       />,
-      <TextCell key="name" text="Alu Vaji" as="td" />,
-      <TextCell key="quantity" text="2" as="td" />,
-      <TextCell key="price" text="$25" as="td" />,
+      <TextCell key={shortid.generate()} text={item.name} as="td" />,
+      <TextCell
+        key="quantity"
+        text={item.quantity}
+        input="input"
+        actions={[
+          {
+            name: "plus",
+            icon: "+",
+            handler: () => {
+              dispatch(IncreaseQuantityAction(item));
+            },
+          },
+          {
+            name: "value",
+            icon: item.quantity,
+            className: "bg-light",
+          },
+          {
+            name: "minus",
+            icon: "-",
+            handler: () => {
+              dispatch(DecreamentQuantityAction(item));
+            },
+          },
+        ]}
+      />,
+      <TextCell key="price" text={`$${item.price}`} as="td" />,
       <ActionCell
         key="action"
         className="text-end action__button"
@@ -48,19 +81,20 @@ const Index = () => {
             name: "Delete",
             icon: <MdDelete />,
             className: "action__button",
-          },
-          {
-            name: "Edit",
-            icon: <FaEdit className="text-success" />,
-            className: "action__button",
+            handler: () => {
+              dispatch(RemoveCartAction(item));
+            },
           },
         ]}
         as="td"
       />,
     ],
-  ];
+  ]);
   return (
     <>
+      <Helmet>
+        <title>My cart - Green Valley Grocery Shop</title>
+      </Helmet>
       {device.isDesktop && <Nav isShow />}
       <div className="cart__wrapper">
         <div className="cart__section__image">
@@ -74,6 +108,7 @@ const Index = () => {
                   theadItems={theadItems}
                   tbodyItems={tbodyItems}
                   noItemMsg="There is no product"
+                  colSpan="5"
                 />
               </div>
               <div className="d-flex align-items-center justify-content-between">

@@ -1539,6 +1539,11 @@ PRODUCT DETAILS PAGE CSS END
   }
   .quantity {
     margin: 8px 0 !important;
+    display: flex;
+    align-items: center;
+  }
+  .qnty{
+    margin: 17px 0 !important;
   }
   .quantity button {
     font-size: 13px !important;

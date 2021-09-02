@@ -1,25 +1,26 @@
-import { Elements } from "@stripe/react-stripe-js";
-import { loadStripe } from "@stripe/stripe-js";
 import { useState } from "react";
 import { useBreakpoints } from "react-device-breakpoints";
+import { Helmet } from "react-helmet";
 import { BsMap } from "react-icons/bs";
 import { IoMdCheckmarkCircleOutline } from "react-icons/io";
 import { MdPayment } from "react-icons/md";
+import { useSelector } from "react-redux";
 import Footer from "../../components/Footer";
 import Nav from "../../components/Header/Nav";
 import Form from "../../components/Multi-Step-Form/Form";
 import OrderSummary from "../../components/OrderSummary";
 import HorizontalLine from "./../../config/HorizontalLine";
-const stripeKey = loadStripe(
-  "pk_test_51IhCBpK6mTL6jbOTDEhGYqKmVcOd7RlmlbO4wHTPAT6x8Uavm3mFHYzzd7kTjSZw52S5nZjdo1K1OG6ZFFhdyOVQ00aNkSLuN9"
-);
 const Index = () => {
+  const cartItems = useSelector((state) => state.cart.cartItems);
   // device breakpoints
   const device = useBreakpoints();
   // // multi form step count
   const [step, setStep] = useState(1);
   return (
     <>
+      <Helmet>
+        <title>Checkout - GreenValleyGrocery Shop</title>
+      </Helmet>
       {device.isDesktop && <Nav isShow />}
       <div className="checkout__wrapper mt-4">
         <div className="container">
@@ -56,9 +57,7 @@ const Index = () => {
           <div className="row">
             <div className="col-md-8">
               <div className="checkout__form box__shadow bg-light p-3  mt-4">
-                <Elements stripe={stripeKey}>
-                  <Form step={step} setStep={setStep} />
-                </Elements>
+                <Form step={step} setStep={setStep} cartItems={cartItems} />
               </div>
             </div>
             <div className="col-md-4">
@@ -70,16 +69,22 @@ const Index = () => {
                   margin="8px auto"
                   background="#8080803b"
                 />
-                <div className="d-flex align-items-center justify-content-between">
-                  <span>Kashmiri Fruits X 2</span>
-                  <span>$157</span>
-                </div>
-                <HorizontalLine
-                  width="100%"
-                  height="1px"
-                  margin="8px auto"
-                  background="#8080803b"
-                />
+                {cartItems.map((item) => (
+                  <div
+                    style={{
+                      borderBottom: "1px solid #8080803b",
+                      paddingBottom: "8px",
+                      marginBottom: "8px",
+                    }}
+                    className="d-flex align-items-center justify-content-between"
+                  >
+                    <span>
+                      {item.name} X {item.quantity}
+                    </span>
+                    <span>${item.price * item.quantity}</span>
+                  </div>
+                ))}
+
                 <OrderSummary />
               </div>
             </div>

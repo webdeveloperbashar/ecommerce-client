@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 import { useBreakpoints } from "react-device-breakpoints";
+import { Helmet } from "react-helmet";
 import { AiOutlineCloudUpload, AiOutlineUnorderedList } from "react-icons/ai";
 import { FaKey, FaRegUser, FaTruck } from "react-icons/fa";
 import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
@@ -18,7 +19,8 @@ const Index = () => {
   const [upload, setUpload] = useState({
     profile: "",
   });
-  const user = getDataFromLocalhost("user");
+  // get data from react-redux store
+  const user = getDataFromLocalhost('user')
   const [formData, setFormData] = useState({
     name: user.name,
     phone: user.phone,
@@ -27,7 +29,7 @@ const Index = () => {
     membersince: user.memberSince,
     email: user.Email,
   });
-  // file upload
+  // profile image upload
   const handleFileUpload = async (e) => {
     const uploadFile = new FormData();
     uploadFile.append("file", e.target.files[0]);
@@ -60,8 +62,6 @@ const Index = () => {
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // const fieldData = { ...formData };
-    // fieldData.profile = upload;
     const { data } = await axios.put(
       `http://localhost:4000/api/user/${formData.email}`,
       formData
@@ -77,6 +77,9 @@ const Index = () => {
   const device = useBreakpoints();
   return (
     <>
+    <Helmet>
+      <title>My Account - GreenValleyGrocery Shop</title>
+    </Helmet>
       {device.isDesktop && <Nav isShow />}
       <div className="myAccount__wrapper">
         <div className="container">
@@ -108,7 +111,7 @@ const Index = () => {
                         </form>
                       </div>
                       <div className="loggedIn__username">
-                        <h2>{user?.name}</h2>
+                        <h2>{formData.name}</h2>
                       </div>
                     </div>
                     <Tab>

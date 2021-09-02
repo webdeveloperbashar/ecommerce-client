@@ -5,11 +5,12 @@ import Footer from "../../components/Footer";
 import TopHeader from "../../components/Header/TopHeader";
 import Login from "../../components/Login";
 import { useDispatch, useSelector } from "react-redux";
-import { emailVerify } from "../../Store/Actions/UserAction";
+import { emailVerify, resendLink } from "../../Store/Actions/UserAction";
 import { useEffect } from "react";
+import getDataFromLocalhost from "../../config/GetLocalhostData";
 const Index = () => {
   // get data from react-reduxt store
-  const message = useSelector(state=>state.userEmailVerify.verify)
+  const message = useSelector((state) => state.userEmailVerify.verify);
   // use params
   const { token } = useParams();
   // const verifyToken = {token: token}
@@ -20,6 +21,12 @@ const Index = () => {
   useEffect(() => {
     dispatch(emailVerify(token));
   }, [token, dispatch]);
+  // resend code to user email
+  const email = getDataFromLocalhost('verify_email')
+  const handleResendLink = () => {
+    dispatch(resendLink(email));
+    console.log("clicked");
+  };
   return (
     <>
       {device.isDesktop && <TopHeader />}
@@ -30,7 +37,20 @@ const Index = () => {
               <div className="login_form my-4">
                 <div style={{ width: "48%", margin: "auto" }}>
                   {message?.wrong && (
-                    <p className="alert alert-danger">{message?.wrong}</p>
+                    <div className="text-center my-5">
+                      <p className="alert alert-danger">{message?.wrong}</p>
+                      <button
+                        onClick={() => handleResendLink()}
+                        style={{
+                          border: "none",
+                          padding: "8px 15px",
+                          color: "white",
+                          background: "#76C227",
+                        }}
+                      >
+                        Resend Code
+                      </button>
+                    </div>
                   )}
                   {message?.success && (
                     <p className="alert alert-success">{message?.success}</p>

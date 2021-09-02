@@ -1,47 +1,33 @@
-import {
-  CardCvcElement,
-  CardExpiryElement,
-  CardNumberElement,
-  useElements,
-  useStripe,
-} from "@stripe/react-stripe-js";
 import React, { useState } from "react";
-import { toast } from "react-toastify";
+import { useDispatch } from "react-redux";
+import getDataFromLocalhost from "../../config/GetLocalhostData";
 import Validate from "../../config/Validate";
 import { FormInputFieldData } from "../../pages/Checkout/FormInputFieldData";
+import { OrderCreateActions } from "../../Store/Actions/OrderActions";
 import PaymentField from "./PaymentField";
 import Step from "./Step";
 
-const Form = ({ step, setStep }) => {
-  const stripe = useStripe();
-  const elements = useElements();
+const Form = ({ step, setStep, cartItems }) => {
+  // react-redux hooks
+  const dispatch = useDispatch();
   // form data grapping state
   const [formData, setFormData] = useState(FormInputFieldData);
-  // payment card status check state
-  const [brand, setBrand] = useState({
-    brand: "",
-  });
   // handle payment method name gassing
-  const [payment, setPayment] = useState("");
+  const [paymentField, setPaymentField] = useState();
+  const [methodName, setMethodName] = useState("");
   const handlePayment = (e) => {
-    setPayment(e.target.value);
+    setMethodName(e.target.value);
   };
-  // get payment method name
-  const paymentHandleChange = (e) => {
-    setBrand({
-      brand: e.brand,
+  // payment field data get
+  const handlePaymentField = (e) => {
+    setPaymentField({
+      ...paymentField,
+      [e.target.name]: e.target.value,
     });
   };
   // shipping and payment submit handler
-  const handleSubmit = async (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault();
-    // if (!stripe || !elements) {
-    //   return;
-    // }
-    const { paymentMethod, error } = await stripe.createPaymentMethod({
-      type: "card",
-      card: elements.getElement(CardNumberElement),
-    });
     // shipping address data
     const formDatas = {};
     formDatas.name = formData.stepOne.name.value;
@@ -52,24 +38,29 @@ const Form = ({ step, setStep }) => {
     formDatas.zip = formData.stepOne.zip.value;
     formDatas.country = formData.stepOne.country.value;
     formDatas.address = formData.stepOne.address.value;
-    // shipping and payment address marge
-    const shipping = {
+    // shipping and payment address
+    const order = {
+      orderId: new Date().getTime().toString().slice(5),
+      orderDate: `${new Date()
+        .toString()
+        .split(" ")
+        .splice(1, 3)
+        .join(" ")}, ${new Date().toLocaleTimeString()}`,
+      orderStatus: "Pending",
+      paymentStatus: "Paid",
+      email: getDataFromLocalhost("user").Email,
+      tax: 5,
+      shippingFees: 3,
       shipping: { ...formDatas },
+      product: cartItems,
+      payment: { ...paymentField, methodName },
     };
-    // payment error and success handling
-    if (error) {
-      // setStep(2);
-      toast.error(error.message, {
-        pauseOnHover: false,
-      });
-    }
     if (
-      paymentMethod ||
-      payment === "bkash" ||
-      payment === "nagad" ||
-      payment === "rocket"
+      methodName === "bkash" ||
+      methodName === "nagad" ||
+      methodName === "rocket"
     ) {
-      console.log("Form data", shipping);
+      dispatch(OrderCreateActions(order));
       setStep(step + 1);
     }
   };
@@ -119,7 +110,7 @@ const Form = ({ step, setStep }) => {
             Payment Method
           </label>
           <select
-            name="payment"
+            name="methodName"
             className="form-control py-1 mb-3"
             onChange={handlePayment}
           >
@@ -130,33 +121,10 @@ const Form = ({ step, setStep }) => {
             <option value="cod">COD</option>
             <option value="stripe">Stripe</option>
           </select>
-          <PaymentField payment={payment} />
-          {payment === "stripe" && (
-            <>
-              <label className="w-100" style={{ position: "relative" }}>
-                Card number
-                <CardNumberElement
-                  onChange={paymentHandleChange}
-                  className="form-control my-2 py-2 w-100"
-                />
-                {brand && (
-                  <span
-                    style={{ position: "absolute", right: "6px", top: "32px" }}
-                  >
-                    {brand.brand}
-                  </span>
-                )}
-              </label>
-              <label className="w-100">
-                Expiration date
-                <CardExpiryElement className="form-control my-2 py-2 w-100" />
-              </label>
-              <label className="w-100">
-                <label htmlFor="">CVC</label>
-                <CardCvcElement className="form-control my-2 py-2 w-100" />
-              </label>
-            </>
-          )}
+          <PaymentField
+            methodName={methodName}
+            handleChange={handlePaymentField}
+          />
         </>
       )}
       {/* Confirmation message */}

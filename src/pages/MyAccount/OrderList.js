@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
-import { OrderActions } from "../../Store/Actions/OrderActions";
+import { OrderGetActions } from "../../Store/Actions/OrderActions";
 import DataTable from "./../../components/Data-table/index";
 import TextCell from "./../../components/Data-table/Text-Cell";
 const OrderList = ({ orderData, orderFetch }) => {
@@ -24,9 +24,16 @@ const OrderList = ({ orderData, orderFetch }) => {
       as="th"
       className="text-center"
     />,
-    <TextCell key="status" text="Status" as="th" className="text-end" />,
+    <TextCell key="status" text="Order Status" as="th" className="text-end" />,
+    <TextCell
+      key="status"
+      text="Payment Status"
+      as="th"
+      className="text-end"
+    />,
   ];
   // table body items
+  let subtotal = 0;
   const tbodyItems = orderData.map((order) => [
     [
       <TextCell
@@ -42,8 +49,18 @@ const OrderList = ({ orderData, orderFetch }) => {
         className="text-center"
       />,
       <TextCell
-        key={order.product.amount}
-        text={order.product.amount}
+        key={order.product}
+        // text={(
+        //   (order.tax / 100) * subtotal +
+        //   order.shippingFees +
+        //   subtotal
+        // ).toFixed(2)}
+        text={
+          
+          order.product.forEach(
+          (item) => parseFloat(item.price) * parseFloat(item.quantity)
+        )
+      }
         as="td"
         className="text-center"
       />,
@@ -56,6 +73,12 @@ const OrderList = ({ orderData, orderFetch }) => {
       <TextCell
         key={order.orderStatus}
         text={order.orderStatus}
+        as="td"
+        className="text-center"
+      />,
+      <TextCell
+        key={order.orderStatus}
+        text={order.paymentStatus}
         as="td"
         className="text-end"
       />,
@@ -71,6 +94,7 @@ const OrderList = ({ orderData, orderFetch }) => {
         theadItems={theadItems}
         tbodyItems={tbodyItems}
         noItemMsg="There is no order"
+        colSpan="5"
       />
     </div>
   );
@@ -83,7 +107,7 @@ const mapStateToProps = (state) => {
 };
 const mapDispatchToProps = (dispatch) => {
   return {
-    orderFetch: () => dispatch(OrderActions()),
+    orderFetch: () => dispatch(OrderGetActions()),
   };
 };
 

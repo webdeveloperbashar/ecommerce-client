@@ -1,15 +1,17 @@
 import React from "react";
 
-const PaymentField = ({ payment, handleChange }) => {
+const PaymentField = ({ methodName, handleChange }) => {
   return (
     <>
-      {payment === "bkash" || payment === "nagad" || payment === 'rocket' ? (
+      {methodName === "bkash" ||
+      methodName === "nagad" ||
+      methodName === "rocket" ? (
         <>
           <div className="form-group my-2">
             <label htmlFor="accountNumber">Account Number</label>
             <input
               type="number"
-              name="name"
+              name="accountNumber"
               className="form-control py-1 my-1"
               placeholder="Enter your account number"
               onChange={handleChange}
@@ -19,7 +21,7 @@ const PaymentField = ({ payment, handleChange }) => {
             <label htmlFor="trxId">Transaction ID</label>
             <input
               type="text"
-              name="trxid"
+              name="trxId"
               className="form-control py-1 my-1 mb-3"
               placeholder="Enter your TRX Id"
               onChange={handleChange}

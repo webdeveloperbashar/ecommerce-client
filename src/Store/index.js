@@ -1,14 +1,16 @@
 import { applyMiddleware, combineReducers, createStore } from "redux";
 import { composeWithDevTools } from "redux-devtools-extension";
 import thunk from "redux-thunk";
-import { OrderReducer } from "./Reducers/OrderReducer";
+import { AddToCartReducer } from "./Reducers/CartReducer";
+import { OrderCreateReducer, OrderGetReducer } from "./Reducers/OrderReducer";
 import {
   EmailVerify,
+  ForgotPassword,
+  ResetPassword,
   UserLoginReducers,
-  UserSignupReducers
+  UserSignupReducers,
 } from "./Reducers/UserReducers";
-import { UserUpdateReducer } from './Reducers/UserUpdateReducers';
-
+import { UserUpdateReducer } from "./Reducers/UserUpdateReducers";
 
 const middleware = [thunk];
 const combinedReducer = combineReducers({
@@ -16,7 +18,11 @@ const combinedReducer = combineReducers({
   signup: UserSignupReducers,
   userUpdate: UserUpdateReducer,
   userEmailVerify: EmailVerify,
-  orders: OrderReducer
+  forgotPassword: ForgotPassword,
+  resetPassword: ResetPassword,
+  orders: OrderGetReducer,
+  createOrders: OrderCreateReducer,
+  cart: AddToCartReducer,
 });
 const store = createStore(
   combinedReducer,

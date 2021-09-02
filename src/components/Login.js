@@ -6,7 +6,7 @@ import getDataFromSession from "../config/GetSessionStorageData";
 import { UserLogin } from "../Store/Actions/UserAction";
 const Login = ({ width, heading, isShow }) => {
   // get data from sessionStorage
-  const token = getDataFromSession("token");
+  const verifyMessage = getDataFromSession("verify_message");
   // history hooks
   const history = useHistory();
   // get error message from react-redux
@@ -37,7 +37,9 @@ const Login = ({ width, heading, isShow }) => {
       {isShow && (
         <div className="auth__form box__shadow" style={{ width: width }}>
           <h2 className="text-center text-dark font-size__3 mb-4">{heading}</h2>
-          {token && <p className="alert alert-warning">{token?.success}</p>}
+          {verifyMessage && (
+            <p className="alert alert-warning">{verifyMessage}</p>
+          )}
           <form onSubmit={handleSubmit}>
             <div className="form-group">
               <input

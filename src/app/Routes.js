@@ -2,7 +2,7 @@ import {
   BrowserRouter as Router,
   Redirect,
   Route,
-  Switch
+  Switch,
 } from "react-router-dom";
 import PrivateRoute from "../components/PrivateRoute";
 import Cart from "../pages/Cart";
@@ -19,8 +19,12 @@ import ResetPassword from "../pages/ResetPassword";
 import Shop from "../pages/Shop";
 import EmailVerify from "../pages/Email-verify";
 import Error from "../pages/Not-found";
-import getDataFromLocalhost from "./../config/GetLocalhostData";
+import NewPasswordSetup from "../pages/ForgotPassword/New-Password-Setup";
+import getDataFromLocalhost from "../config/GetLocalhostData";
+import { useSelector } from "react-redux";
 const Routes = () => {
+  const user = getDataFromLocalhost("user");
+  const stateUser = useSelector((state) => state.login.user);
   return (
     <Router>
       <Switch>
@@ -43,15 +47,25 @@ const Routes = () => {
         <PrivateRoute path="/resetpassword">
           <ResetPassword />
         </PrivateRoute>
-        <Route path="/cart" component={Cart} />
+        <Route path="/cart">
+          <Cart />
+        </Route>
         <Route path="/favourite" component={Favorite} />
-        <Route path="/checkout" component={Checkout} />
+        <PrivateRoute path="/checkout">
+          <Checkout />
+        </PrivateRoute>
         <Route path="/product-details" component={ProductDetails} />
-        <PrivateRoute path="/user/my-account">
+        <PrivateRoute
+          path={`/${user?.username || stateUser?.username}/my-account`}
+        >
           <MyAccount />
         </PrivateRoute>
         <Route path="/user/email_verify/:token" component={EmailVerify} />
-        <Route path="*" component={Error}/>
+        <Route
+          path="/user/forgot_password/:token"
+          component={NewPasswordSetup}
+        />
+        <Route path="*" component={Error} />
       </Switch>
     </Router>
   );
