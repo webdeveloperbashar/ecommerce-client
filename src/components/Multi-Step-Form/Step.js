@@ -1,14 +1,6 @@
 import InputText from "./InputText";
 import SelectOption from "./SelectOption";
-const Step = ({
-  data,
-  onChange,
-  onStepChange,
-  error,
-  stepKey,
-  step,
-  onPrevStep,
-}) => {
+const Step = ({ data, onChange, error, stepKey, step }) => {
   let inputValue = [];
   for (const [key, value] of Object.entries(data)) {
     if (value.type === "input") {
@@ -42,20 +34,7 @@ const Step = ({
       );
     }
   }
-  return (
-    <>
-      {inputValue}
-      {step <= 3 && (
-        <button
-          type="button"
-          className="btn"
-          onClick={(e) => onStepChange(data, e)}
-        >
-          Next
-        </button>
-      )}
-    </>
-  );
+  return <>{inputValue}</>;
 };
 
 export default Step;

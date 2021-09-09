@@ -5,7 +5,7 @@ import { IoMdMenu } from "react-icons/io";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, NavLink, useHistory } from "react-router-dom";
 import logo from "../../assets/images/brand-logo/valley.svg";
-import { GetCartQuantity } from "../../config/GetCartVariant";
+import { GetCartPrice, GetCartQuantity } from "../../config/GetCartVariant";
 import getDataFromLocalhost from "../../config/GetLocalhostData";
 import { userLogout } from "../../Store/Actions/UserAction";
 import Login from "../Login";
@@ -16,15 +16,16 @@ const StickyHeader = ({ handleOpenDrawer }) => {
   // react-redux hooks
   const dispatch = useDispatch();
   const history = useHistory();
+  // logout handler
   const handleLogout = () => {
     dispatch(userLogout(history));
   };
   // device breakpoints
   const device = useBreakpoints();
   // sticky search form show and hide
-  const [searchFromShow, setSearchFromShow] = useState(false);
+  const [searchFormShow, setSearchFormmShow] = useState(false);
   const handleIconClick = () => {
-    setSearchFromShow(!searchFromShow);
+    setSearchFormmShow(!searchFormShow);
   };
   const [stickyNav, setStickyNav] = useState(false);
   const stickyNavbar = () => {
@@ -50,7 +51,7 @@ const StickyHeader = ({ handleOpenDrawer }) => {
             <div className="mobile__icon">
               <IoMdMenu
                 className="icon"
-                onClick={() => handleOpenDrawer(!searchFromShow)}
+                onClick={() => handleOpenDrawer(!searchFormShow)}
               />
             </div>
             {/* mobile logo */}
@@ -98,7 +99,12 @@ const StickyHeader = ({ handleOpenDrawer }) => {
             <div className="mobile__search__icon">
               <ul>
                 <li>
-                  <span>$99.99</span>
+                  <span>
+                    $
+                    {GetCartPrice(product) < 3
+                      ? GetCartPrice(product)
+                      : "00.00"}
+                  </span>
                 </li>
                 <li>
                   <FaSearch
@@ -110,7 +116,7 @@ const StickyHeader = ({ handleOpenDrawer }) => {
             </div>
             {/* sticky search form */}
             {device.isMobile && (
-              <StickySearchForm searchFromShow={searchFromShow} />
+              <StickySearchForm searchFormShow={searchFormShow} />
             )}
             {/* desktop property */}
             <div className="common__property">
@@ -139,7 +145,6 @@ const StickyHeader = ({ handleOpenDrawer }) => {
                   <Link
                     className="m-left__2 p__2 bg-light__gray topHeader__icon"
                     to="/cart"
-                    // onClick={() => history.push("/cart")}
                   >
                     <FaShoppingCart />{" "}
                     <span className="cart__badge">
@@ -148,7 +153,12 @@ const StickyHeader = ({ handleOpenDrawer }) => {
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <span className="text-dark ms-4">$99.99</span>
+                  <span className="text-dark ms-4">
+                    $
+                    {GetCartPrice(product) > 3
+                      ? GetCartPrice(product)
+                      : "00.00"}
+                  </span>
                 </li>
               </ul>
             </div>

@@ -1,11 +1,11 @@
 import { FaSearch } from "react-icons/fa";
-const StickySearchForm = ({ searchFromShow }) => {
+const StickySearchForm = ({ searchFormShow }) => {
   return (
     <div className="sticky__search__form__wrapper">
       <form>
         <div
           className={`d-flex ${
-            searchFromShow
+            searchFormShow
               ? "sticky__search__form active"
               : "sticky__search__form"
           }`}

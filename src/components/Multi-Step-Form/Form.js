@@ -6,16 +6,20 @@ import { FormInputFieldData } from "../../pages/Checkout/FormInputFieldData";
 import { OrderCreateActions } from "../../Store/Actions/OrderActions";
 import PaymentField from "./PaymentField";
 import Step from "./Step";
-
+import { IoMdCheckmarkCircleOutline } from "react-icons/io";
+// import Cookies from "js-cookie";
 const Form = ({ step, setStep, cartItems }) => {
   // react-redux hooks
   const dispatch = useDispatch();
   // form data grapping state
   const [formData, setFormData] = useState(FormInputFieldData);
   // handle payment method name gassing
-  const [paymentField, setPaymentField] = useState();
+  const [paymentField, setPaymentField] = useState({
+    accountNumber: "",
+    trxId: "",
+  });
   const [methodName, setMethodName] = useState("");
-  const handlePayment = (e) => {
+  const handleMethodName = (e) => {
     setMethodName(e.target.value);
   };
   // payment field data get
@@ -30,9 +34,7 @@ const Form = ({ step, setStep, cartItems }) => {
     event.preventDefault();
     // shipping address data
     const formDatas = {};
-    formDatas.name = formData.stepOne.name.value;
     formDatas.mobile = formData.stepOne.mobile.value;
-    formDatas.company = formData.stepOne.company.value;
     formDatas.state = formData.stepOne.state.value;
     formDatas.city = formData.stepOne.city.value;
     formDatas.zip = formData.stepOne.zip.value;
@@ -40,14 +42,14 @@ const Form = ({ step, setStep, cartItems }) => {
     formDatas.address = formData.stepOne.address.value;
     // shipping and payment address
     const order = {
-      orderId: new Date().getTime().toString().slice(5),
+      orderId: `GVG-${new Date().getTime().toString().slice(5)}`,
       orderDate: `${new Date()
         .toString()
         .split(" ")
         .splice(1, 3)
         .join(" ")}, ${new Date().toLocaleTimeString()}`,
       orderStatus: "Pending",
-      paymentStatus: "Paid",
+      paymentStatus: "Pending",
       email: getDataFromLocalhost("user").Email,
       tax: 5,
       shippingFees: 3,
@@ -55,14 +57,7 @@ const Form = ({ step, setStep, cartItems }) => {
       product: cartItems,
       payment: { ...paymentField, methodName },
     };
-    if (
-      methodName === "bkash" ||
-      methodName === "nagad" ||
-      methodName === "rocket"
-    ) {
-      dispatch(OrderCreateActions(order));
-      setStep(step + 1);
-    }
+    dispatch(OrderCreateActions(order, setStep, step));
   };
   // shipping address input handle change
   const handleChange = (step, e) => {
@@ -91,7 +86,7 @@ const Form = ({ step, setStep, cartItems }) => {
   return (
     <form onSubmit={handleSubmit}>
       {/* Shipping address */}
-      {step === 1 && (
+      {step === 0 && (
         <Step
           key="stepOne"
           data={formData.stepOne}
@@ -104,7 +99,7 @@ const Form = ({ step, setStep, cartItems }) => {
         />
       )}
       {/* payment method */}
-      {step === 2 && (
+      {step === 1 && (
         <>
           <label htmlFor="heading" className="mb-2 paymentStepHeading">
             Payment Method
@@ -112,24 +107,120 @@ const Form = ({ step, setStep, cartItems }) => {
           <select
             name="methodName"
             className="form-control py-1 mb-3"
-            onChange={handlePayment}
+            onChange={handleMethodName}
           >
             <option value="choose">Select Payment Method</option>
             <option value="bkash">Bkash</option>
             <option value="nagad">Nagad</option>
             <option value="rocket">Rocket</option>
-            <option value="cod">COD</option>
-            <option value="stripe">Stripe</option>
           </select>
+
           <PaymentField
             methodName={methodName}
             handleChange={handlePaymentField}
           />
         </>
       )}
+      {/* place order preview */}
+      {step === 2 && (
+        <div className="place_order_preview">
+          <div className="shipping_view">
+            <h2 className="section__title font-size__3">Shipping Address</h2>
+            <div className="my-2 shipping_info">
+              <div className="signle__content my-1 d-flex align-items-center">
+                <span className="label">Address:</span>
+                <input
+                  type="text"
+                  className="form-control input__field mb-0 w-50"
+                  value={formData.stepOne.address.value}
+                  disabled
+                />
+              </div>
+              <div className="signle__content my-1 d-flex align-items-center">
+                <span className="label">Mobile:</span>
+                <input
+                  type="text"
+                  className="form-control input__field mb-0 w-50"
+                  value={formData.stepOne.mobile.value}
+                  disabled
+                />
+              </div>
+              <div className="signle__content my-1 d-flex align-items-center">
+                <span className="label">State:</span>
+                <input
+                  type="text"
+                  className="form-control input__field mb-0 w-50"
+                  value={formData.stepOne.state.value}
+                  disabled
+                />
+              </div>
+              <div className="signle__content my-1 d-flex align-items-center">
+                <span className="label">City:</span>
+                <input
+                  type="text"
+                  className="form-control input__field mb-0 w-50"
+                  value={formData.stepOne.city.value}
+                  disabled
+                />
+              </div>
+              <div className="signle__content my-1 d-flex align-items-center">
+                <span className="label">Zip:</span>
+                <input
+                  type="text"
+                  className="form-control input__field mb-0 w-50"
+                  value={formData.stepOne.zip.value}
+                  disabled
+                />
+              </div>
+              <div className="signle__content my-1 d-flex align-items-center">
+                <span className="label">Country:</span>
+                <input
+                  type="text"
+                  className="form-control input__field mb-0 w-50"
+                  value={formData.stepOne.country.value}
+                  disabled
+                />
+              </div>
+            </div>
+          </div>
+          <div className="payment_view">
+            <h2 className="section__title font-size__3">Payment</h2>
+            <div className="signle__content my-1 d-flex align-items-center">
+              <span className="label">Methon Name:</span>
+              <input
+                type="text"
+                className="form-control input__field mb-0 w-50"
+                value={methodName}
+                disabled
+              />
+            </div>
+            <div className="signle__content my-1 d-flex align-items-center">
+              <span className="label">Account Number:</span>
+              <input
+                type="text"
+                className="form-control input__field mb-0 w-50"
+                value={paymentField?.accountNumber}
+                disabled
+              />
+            </div>
+            <div className="signle__content my-1 d-flex align-items-center">
+              <span className="label">TRX Id:</span>
+              <input
+                type="text"
+                className="form-control input__field mb-0 w-50"
+                value={paymentField?.trxId}
+                disabled
+              />
+            </div>
+          </div>
+        </div>
+      )}
       {/* Confirmation message */}
       {step === 3 && (
         <div className="confirm__msg">
+          <span className="confirmation_icon">
+            <IoMdCheckmarkCircleOutline />
+          </span>
           <h2 className="text-center">Your order is confirmed !</h2>
           <p className="text-center">
             Thanks for your order! You will receive a recipeint of your order on
@@ -137,8 +228,9 @@ const Form = ({ step, setStep, cartItems }) => {
           </p>
         </div>
       )}
-      {/* Submit button */}
-      {step === 2 && (
+
+      {/* previous button */}
+      {step >= 1 && step < 3 && (
         <button
           type="button"
           onClick={() => setStep(step - 1)}
@@ -147,6 +239,17 @@ const Form = ({ step, setStep, cartItems }) => {
           Previous
         </button>
       )}
+      {/* next button */}
+      {step < 2 && (
+        <button
+          type="button"
+          className="btn"
+          onClick={(e) => stepHandleChange(formData.stepOne, e)}
+        >
+          Next
+        </button>
+      )}
+      {/* place order button */}
       {step === 2 && (
         <button type="submit" className="btn">
           Place Order

@@ -8,14 +8,17 @@ import {
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import logo from "../../assets/images/brand-logo/valley.svg";
-import { GetCartQuantity } from "../../config/GetCartVariant";
+import { GetCartPrice, GetCartQuantity } from "../../config/GetCartVariant";
 import Login from "../Login";
 import getDataFromLocalhost from "./../../config/GetLocalhostData";
 const TopHeader = () => {
+  // get quantity from redux store
   const product = useSelector((state) => state.cart.cartItems);
+  // get user form localStorage
   const user = getDataFromLocalhost("user");
+  // get user form redux store
   const stateUser = useSelector((state) => state.login.user);
-
+  // When ordering then clear all quantity in the header
   return (
     <div className="topHeader bg-light">
       <div className="container d-grid display-grid d-flex justify-content-between align-items-center">
@@ -55,7 +58,9 @@ const TopHeader = () => {
               {getDataFromLocalhost("user") ? (
                 <Link
                   className="m-left__2 p__2 bg-light__gray topHeader__icon"
-                  to={`/${user?.username || stateUser?.username}/my-account`}
+                  to={`/user/${
+                    user?.username || stateUser?.username
+                  }/my-account`}
                 >
                   <FaRegUser />
                 </Link>
@@ -81,7 +86,9 @@ const TopHeader = () => {
               </Link>
             </li>
             <li className="nav-item">
-              <span className="ms-4 text-dark">$99.99</span>
+              <span className="ms-4 text-dark">
+                ${GetCartPrice(product) > 3 ? GetCartPrice(product) : "00.00"}
+              </span>
             </li>
           </ul>
         </div>

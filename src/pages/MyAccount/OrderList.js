@@ -1,5 +1,7 @@
 import React, { useEffect } from "react";
+// import ReactPaginate from "react-paginate";
 import { connect } from "react-redux";
+import AmountCell from "../../components/Data-table/AmountCell";
 import { OrderGetActions } from "../../Store/Actions/OrderActions";
 import DataTable from "./../../components/Data-table/index";
 import TextCell from "./../../components/Data-table/Text-Cell";
@@ -33,12 +35,12 @@ const OrderList = ({ orderData, orderFetch }) => {
     />,
   ];
   // table body items
-  let subtotal = 0;
+  // let subtotal = 0;
   const tbodyItems = orderData.map((order) => [
     [
       <TextCell
         key={order.orderId}
-        text={`GVS-${order.orderId}`}
+        text={order.orderId}
         as="td"
         className="text-start"
       />,
@@ -48,19 +50,11 @@ const OrderList = ({ orderData, orderFetch }) => {
         as="td"
         className="text-center"
       />,
-      <TextCell
+      <AmountCell
         key={order.product}
-        // text={(
-        //   (order.tax / 100) * subtotal +
-        //   order.shippingFees +
-        //   subtotal
-        // ).toFixed(2)}
-        text={
-          
-          order.product.forEach(
-          (item) => parseFloat(item.price) * parseFloat(item.quantity)
-        )
-      }
+        items={order.product}
+        tax={order.tax}
+        shippingFees={order.shippingFees}
         as="td"
         className="text-center"
       />,
@@ -94,8 +88,9 @@ const OrderList = ({ orderData, orderFetch }) => {
         theadItems={theadItems}
         tbodyItems={tbodyItems}
         noItemMsg="There is no order"
-        colSpan="5"
+        colSpan="6"
       />
+      {/* <ReactPaginate/> */}
     </div>
   );
 };

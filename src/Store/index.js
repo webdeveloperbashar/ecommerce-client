@@ -3,6 +3,7 @@ import { composeWithDevTools } from "redux-devtools-extension";
 import thunk from "redux-thunk";
 import { AddToCartReducer } from "./Reducers/CartReducer";
 import { OrderCreateReducer, OrderGetReducer } from "./Reducers/OrderReducer";
+import { OrderTrackingReducers } from "./Reducers/OrderTrackingReducers";
 import {
   EmailVerify,
   ForgotPassword,
@@ -22,6 +23,7 @@ const combinedReducer = combineReducers({
   resetPassword: ResetPassword,
   orders: OrderGetReducer,
   createOrders: OrderCreateReducer,
+  trackingOrder: OrderTrackingReducers,
   cart: AddToCartReducer,
 });
 const store = createStore(

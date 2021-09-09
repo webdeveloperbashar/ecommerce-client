@@ -1339,10 +1339,20 @@ tr:last-child {
 /**********************************************
             CHECKOUT PAGE CSS START
 **********************************************/
-.checkout__process {
-  display: grid;
-  grid-template-columns: auto auto auto;
-  text-align: center;
+.shipping_info .label {
+  font-weight: 600;
+}
+.shipping_info input,
+.payment_view input {
+  border: none;
+}
+.shipping_info p {
+  font-weight: 600;
+  word-spacing: -1px;
+  font-size: 16px;
+}
+.MuiPaper-root {
+  background-color: transparent !important;
 }
 .checkout__form {
   min-height: 250px;
@@ -1366,8 +1376,16 @@ tr:last-child {
   display: inline-block;
   margin-right: 13px;
 }
+span.confirmation_icon {
+  font-size: 80px;
+  color: #67bc0f;
+  font-weight: 700;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .confirm__msg {
-  padding: 65px 0;
+  padding: 40px 0;
 }
 .confirm__msg h2,
 .payment__heading h2 {
@@ -1537,7 +1555,9 @@ label.upload__photo {
 .account__details .panel-content {
   text-align: center;
 }
-
+.orderList__wrapper {
+  overflow-x: auto;
+}
 /**************************************
           PRINT CSS START
 ****************************************/

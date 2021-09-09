@@ -1,11 +1,11 @@
 export const FormInputFieldData = {
   stepOne: {
-    name: {
+    address: {
       value: "",
       required: true,
       type: "input",
-      label: "Name",
-      placeholder: "Enter your name",
+      label: "Address",
+      placeholder: "Enter your address",
     },
     mobile: {
       value: "",
@@ -13,13 +13,6 @@ export const FormInputFieldData = {
       type: "input",
       label: "Mobile",
       placeholder: "Enter your mobile no",
-    },
-    company: {
-      value: "",
-      required: true,
-      type: "input",
-      label: "Company",
-      placeholder: "Enter your company (any name)",
     },
     state: {
       value: "",
@@ -52,13 +45,6 @@ export const FormInputFieldData = {
         { value: "bangladesh", label: "Bangladesh" },
         { value: "pakistan", label: "Pakistan" },
       ],
-    },
-    address: {
-      value: "",
-      required: true,
-      type: "input",
-      label: "Address",
-      placeholder: "Enter your address",
     },
   },
   stepTwo: {

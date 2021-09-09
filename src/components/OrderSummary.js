@@ -20,15 +20,15 @@ const OrderSummary = ({ button }) => {
     <div className="order__summery__table mt-3">
       <div className="d-flex align-items-center justify-content-between py-2">
         <span>Subtotal</span>
-        <span>${subtotal.toFixed(2)}</span>
+        <span>{subtotal ? "$"+ subtotal.toFixed(2) : "N/A"}</span>
       </div>
       <div className="d-flex align-items-center justify-content-between py-2">
         <span>Tax</span>
-        <span>{tax}%</span>
+        <span>{subtotal ? tax+"%" : "N/A"}</span>
       </div>
       <div className="d-flex align-items-center justify-content-between py-2">
-        <span>Delivery Charge</span>
-        <span>${deliveryCharge}</span>
+        <span>Shipping Fees</span>
+        <span>{subtotal ? "$"+deliveryCharge : "N/A"}</span>
       </div>
       <HorizontalLine
         width="100%"
@@ -38,7 +38,7 @@ const OrderSummary = ({ button }) => {
       />
       <div className="d-flex align-items-center justify-content-between py-2">
         <span className="font-size__1">Grand Total</span>
-        <span className="font-size__1">{grandTotal}</span>
+        <span className="font-size__1">${subtotal ? grandTotal : "N/A"}</span>
       </div>
       {button && (
         <div className="mt-2">

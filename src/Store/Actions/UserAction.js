@@ -33,12 +33,10 @@ export const userSignup = (userData, history) => async (dispatch) => {
     type: "USER_SIGNUP",
     payload: data,
   });
-  if (data) {
+  if (data.success) {
     sessionStorage.setItem("verify_message", JSON.stringify(data.success));
     localStorage.setItem("verify_email", JSON.stringify(data.verifyEmail));
     history.push("/login");
-  }
-  if (data.verifyEmail) {
   }
 };
 // email verify
@@ -104,7 +102,7 @@ export const resetPassword = (passwordData, token) => async (dispatch) => {
     type: "RESET_PASSWORD",
     payload: data,
   });
-  if(data.success){
-    window.location.href = "http://localhost:3000"
+  if (data.success) {
+    window.location.href = "http://localhost:3000";
   }
 };

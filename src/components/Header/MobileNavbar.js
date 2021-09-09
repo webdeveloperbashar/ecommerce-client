@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { FaSearch } from "react-icons/fa";
 import { IoMdMenu } from "react-icons/io";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import logo from "../../assets/images/brand-logo/valley.svg";
+import { GetCartPrice } from "../../config/GetCartVariant";
 import CartDrawer from "./CartDrawer";
 import StickySearchForm from "./StickySearchForm";
 const MobileNavbar = ({
@@ -10,6 +12,8 @@ const MobileNavbar = ({
   handleCloseDrawer,
   handleOpenDrawer,
 }) => {
+  // get data react-redux
+  const product = useSelector((state) => state.cart.cartItems);
   // sticky search form show and hide
   const [searchFromShow, setSearchFromShow] = useState(false);
   const handleIconClick = () => {
@@ -38,7 +42,12 @@ const MobileNavbar = ({
             <div className="mobile__search__icon">
               <ul>
                 <li>
-                  <span>$99.99</span>
+                  <span>
+                    $
+                    {GetCartPrice(product) > 3
+                      ? GetCartPrice(product)
+                      : "00.00"}
+                  </span>
                 </li>
                 <li>
                   <FaSearch

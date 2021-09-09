@@ -1,21 +1,19 @@
 import { useState } from "react";
 import { useBreakpoints } from "react-device-breakpoints";
 import { Helmet } from "react-helmet";
-import { BsMap } from "react-icons/bs";
-import { IoMdCheckmarkCircleOutline } from "react-icons/io";
-import { MdPayment } from "react-icons/md";
 import { useSelector } from "react-redux";
 import Footer from "../../components/Footer";
 import Nav from "../../components/Header/Nav";
 import Form from "../../components/Multi-Step-Form/Form";
 import OrderSummary from "../../components/OrderSummary";
 import HorizontalLine from "./../../config/HorizontalLine";
+import { Stepper, Step, StepLabel } from "@material-ui/core";
 const Index = () => {
   const cartItems = useSelector((state) => state.cart.cartItems);
   // device breakpoints
   const device = useBreakpoints();
   // // multi form step count
-  const [step, setStep] = useState(1);
+  const [step, setStep] = useState(0);
   return (
     <>
       <Helmet>
@@ -28,28 +26,15 @@ const Index = () => {
             <div className="col-md-12">
               <div className="checkout__process bg-light py-3 box__shadow">
                 <div className={`shipping__info ${step >= 1 && "icon__green"}`}>
-                  <div className="checkout__icon">
-                    <BsMap />
-                  </div>
-                  <div className="checkout__content">
-                    <p>Shipping Info</p>
-                  </div>
-                </div>
-                <div className={`payment ${step >= 2 && "icon__green"}`}>
-                  <div className="checkout__icon">
-                    <MdPayment />
-                  </div>
-                  <div className="checkout__content">
-                    <p>Payment</p>
-                  </div>
-                </div>
-                <div className={`confirmation ${step >= 3 && "icon__green"}`}>
-                  <div className="checkout__icon">
-                    <IoMdCheckmarkCircleOutline />
-                  </div>
-                  <div className="checkout__content">
-                    <p>Finished</p>
-                  </div>
+                  <Stepper alternativeLabel activeStep={step}>
+                    {["Shipping Address", "Payment", "Place order"].map(
+                      (step) => (
+                        <Step key={step}>
+                          <StepLabel>{step}</StepLabel>
+                        </Step>
+                      )
+                    )}
+                  </Stepper>
                 </div>
               </div>
             </div>

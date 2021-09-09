@@ -12,7 +12,7 @@ const PaymentField = ({ methodName, handleChange }) => {
             <input
               type="number"
               name="accountNumber"
-              className="form-control py-1 my-1"
+              className={`form-control py-1 my-1`}
               placeholder="Enter your account number"
               onChange={handleChange}
             />
@@ -22,7 +22,7 @@ const PaymentField = ({ methodName, handleChange }) => {
             <input
               type="text"
               name="trxId"
-              className="form-control py-1 my-1 mb-3"
+              className={`form-control py-1 my-1`}
               placeholder="Enter your TRX Id"
               onChange={handleChange}
             />

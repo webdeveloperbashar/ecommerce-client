@@ -56,7 +56,7 @@ const Routes = () => {
         </PrivateRoute>
         <Route path="/product-details" component={ProductDetails} />
         <PrivateRoute
-          path={`/${user?.username || stateUser?.username}/my-account`}
+          path={`/user/${user?.username || stateUser?.username}/my-account`}
         >
           <MyAccount />
         </PrivateRoute>

@@ -1,9 +1,21 @@
 import { FaRegUser, FaShoppingCart } from "react-icons/fa";
-import { GrFavorite } from "react-icons/gr";
-import { NavLink } from "react-router-dom";
-// import NavLink from "../../config/NavLink";
-
+import { FaStore } from "react-icons/fa";
+import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+import { GetCartQuantity } from "../../config/GetCartVariant";
+import getDataFromLocalhost from "../../config/GetLocalhostData";
 const MobileStickyFooterMenu = () => {
+  // get cart cartItems from react-redux store
+  const product = useSelector(state=>state.cart.cartItems)
+  // get order from redux store
+  const order = useSelector((state) => state.createOrders.orders);
+  if (order.success) {
+    product.splice(0, product.length);
+  }
+  // get user form localStorage
+  const user = getDataFromLocalhost("user");
+  // get user form redux store
+  const stateUser = useSelector((state) => state.login.user);
   return (
     <footer className="mobile__sticky__footer__menu">
       <div className="container">
@@ -11,38 +23,41 @@ const MobileStickyFooterMenu = () => {
           <div className="col-md-4">
             <div className="mobile__sticky__footer">
               <div className="mobile__sticky__footer__content">
-                <NavLink to="/user/my-account">
+                <Link
+                  to={`/user/${
+                    user?.username || stateUser?.username
+                  }/my-account`}
+                >
                   <div className="footer__icon">
                     <FaRegUser />
                   </div>
                   <p>My Account</p>
-                </NavLink>
+                </Link>
               </div>
             </div>
           </div>
           <div className="col-md-4 middle__col">
             <div className="mobile__sticky__footer">
               <div className="mobile__sticky__footer__content">
-                <NavLink to="/favourite">
+                <Link to="/shop">
                   <div className="footer__icon">
-                    <GrFavorite />
+                    <FaStore />
                   </div>
-                  <p>Favourite</p>
-                  <span className="count">10</span>
-                </NavLink>
+                  <p>Shop</p>
+                </Link>
               </div>
             </div>
           </div>
           <div className="col-md-4">
             <div className="mobile__sticky__footer">
               <div className="mobile__sticky__footer__content">
-                <NavLink to="/cart">
+                <Link to="/cart">
                   <div className="footer__icon">
                     <FaShoppingCart />
                   </div>
                   <p>My Cart</p>
-                  <span className="count">20</span>
-                </NavLink>
+                  <span className="count">{GetCartQuantity(product)}</span>
+                </Link>
               </div>
             </div>
           </div>
