@@ -106,3 +106,24 @@ export const resetPassword = (passwordData, token) => async (dispatch) => {
     window.location.href = "http://localhost:3000";
   }
 };
+// chnage password
+export const changePassword = (passwordData, email) => async (dispatch) => {
+  const { data } = await axios.put(
+    `http://localhost:4000/auth/change-password/${email}`,
+    passwordData
+  );
+  dispatch({
+    type: "CHANGE_PASSWORD",
+    payload: data,
+  });
+  if (data.message) {
+    toast.success(data.message, {
+      pauseOnHover: false,
+    });
+  }
+  if (data.wrong) {
+    toast.error(data.wrong, {
+      pauseOnHover: false,
+    });
+  }
+};

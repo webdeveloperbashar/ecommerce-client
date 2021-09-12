@@ -1,6 +1,11 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { changePassword } from "../../Store/Actions/UserAction";
+import getDataFromLocalhost from "../../config/GetLocalhostData";
 
 const ChangePassword = () => {
+  // react-redux hooks
+  const dispatch = useDispatch();
   const [formData, setFormData] = useState({
     oldpassword: "",
     newpassword: "",
@@ -14,7 +19,7 @@ const ChangePassword = () => {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(formData);
+    dispatch(changePassword(formData, getDataFromLocalhost("user").Email));
   };
   return (
     <div className="changePassword__wrapper">
@@ -30,7 +35,6 @@ const ChangePassword = () => {
               type="password"
               name="oldpassword"
               onChange={handleChange}
-              value=""
               placeholder="Enter old password"
               className="form-control account__input__field input__field my-3 w-50"
             />
@@ -41,22 +45,20 @@ const ChangePassword = () => {
               type="password"
               name="newpassword"
               onChange={handleChange}
-              value=""
               placeholder="Enter new password"
               className="form-control account__input__field input__field my-3 w-50"
             />
           </div>
-          <div className="signle__content d-flex align-items-center">
+          {/* <div className="signle__content d-flex align-items-center">
             <span className="label">Confirm New Password</span>
             <input
               type="password"
               name="confirmpassword"
               onChange={handleChange}
-              value=""
               placeholder="Enter confirm new password"
               className="form-control account__input__field input__field my-3 w-50"
             />
-          </div>
+          </div> */}
           <div className="signle__content d-flex align-items-center">
             <span className="label"></span>
             <input

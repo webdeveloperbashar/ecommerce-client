@@ -2,9 +2,14 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { CgChevronDoubleRight } from "react-icons/cg";
 import "react-multi-carousel/lib/styles.css";
 import ReactStars from "react-rating-stars-component";
+import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import { AddToCartAction } from "../Store/Actions/CartAction";
+import {
+  AddToCartAction,
+  DecreamentQuantityAction,
+  IncreaseQuantityAction,
+} from "../Store/Actions/CartAction";
 import FakeData from "./FakeData";
 import HorizontalLine from "./HorizontalLine";
 const Product = ({
@@ -14,17 +19,30 @@ const Product = ({
   productPrice,
   productSize,
 }) => {
+  // react-redux store product
+  const cartItems = useSelector((state) => state.cart.cartItems).find(
+    (pd) => pd.id === productId
+  );
   // react-redux hooks
   const dispatch = useDispatch();
   // handle product Add to cart
   const handleProductAdd = (id) => {
     const data = FakeData.find((pd) => pd.id === id);
-    dispatch(AddToCartAction(data));
+    dispatch(AddToCartAction(data, 1));
+  };
+  // quantity count
+  const handleQuantity = (type) => {
+    if (type === "increament") {
+      dispatch(IncreaseQuantityAction(cartItems));
+    }
+    if (type === "decreament") {
+      dispatch(DecreamentQuantityAction(cartItems));
+    }
   };
   return (
     <>
       <div className="slider__box">
-        <Link id="RouterNavLink" to="/product-details">
+        <Link id="RouterNavLink" to={`/product-details/${productId}`}>
           <div className="discount__percent">-52%</div>
           <div className="slider__img">
             <img src={productImg} className="img-fluid" alt="slider one" />
@@ -51,13 +69,27 @@ const Product = ({
               margin="8px auto"
               background="#A8B324"
             />
-            <Link
-              to="#"
-              onClick={() => handleProductAdd(productId)}
-              className="product__link"
-            >
-              Add to cart <CgChevronDoubleRight className="arrow__icon" />
-            </Link>
+            {cartItems ? (
+              <Link to="#">
+                <div className="quantity pd_quantity">
+                  <button onClick={() => handleQuantity("decreament")}>
+                    -
+                  </button>
+                  <span>{cartItems.quantity}</span>
+                  <button onClick={() => handleQuantity("increament")}>
+                    +
+                  </button>
+                </div>
+              </Link>
+            ) : (
+              <Link
+                to="#"
+                onClick={() => handleProductAdd(productId)}
+                className="product__link"
+              >
+                Add to cart <CgChevronDoubleRight className="arrow__icon" />
+              </Link>
+            )}
           </div>
         </Link>
       </div>

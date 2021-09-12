@@ -66,7 +66,7 @@ const Index = () => {
                     <span>
                       {item.name} X {item.quantity}
                     </span>
-                    <span>${item.price * item.quantity}</span>
+                    <span>${(item.price * item.quantity).toFixed(2)}</span>
                   </div>
                 ))}
 
