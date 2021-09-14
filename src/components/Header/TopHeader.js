@@ -58,9 +58,7 @@ const TopHeader = () => {
               {getDataFromLocalhost("user") ? (
                 <Link
                   className="m-left__2 p__2 bg-light__gray topHeader__icon"
-                  to={`/user/${
-                    user?.username || stateUser?.username
-                  }/my-account`}
+                  to={`/my-account/${user?.username || stateUser?.username}`}
                 >
                   <FaRegUser />
                 </Link>

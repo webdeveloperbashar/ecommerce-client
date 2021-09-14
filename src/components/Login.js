@@ -1,14 +1,17 @@
 import { useState } from "react";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, useHistory } from "react-router-dom";
+import { Link, useHistory, useLocation } from "react-router-dom";
 import getDataFromSession from "../config/GetSessionStorageData";
 import { UserLogin } from "../Store/Actions/UserAction";
 const Login = ({ width, heading, isShow }) => {
   // get data from sessionStorage
   const verifyMessage = getDataFromSession("verify_message");
-  // history hooks
+  // hooks
   const history = useHistory();
+  const location = useLocation();
+  const query = new URLSearchParams(location.search);
+  const redirect = query.get("redirect");
   // get error message from react-redux
   const message = useSelector((state) => state.login.user);
   // form Data send to react-redux hooks
@@ -25,7 +28,7 @@ const Login = ({ width, heading, isShow }) => {
   // handle submit
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(UserLogin(formData, history));
+    dispatch(UserLogin(formData, history, redirect));
   };
   // password show and hide function
   const [passwordShow, setPasswordShow] = useState(false);

@@ -1,7 +1,7 @@
 import axios from "axios";
 import { toast } from "react-toastify";
 // user login
-export const UserLogin = (userData, history) => async (dispatch) => {
+export const UserLogin = (userData, history, redirect) => async (dispatch) => {
   const { data } = await axios.post(
     `http://localhost:4000/auth/login`,
     userData
@@ -15,7 +15,7 @@ export const UserLogin = (userData, history) => async (dispatch) => {
     toast.success(data.credential, {
       pauseOnHover: false,
     });
-    history.push("/");
+    history.push(redirect || "/");
   }
   if (data.wrong) {
     toast.error(data.wrong, {

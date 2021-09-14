@@ -1635,6 +1635,11 @@ label.upload__photo {
 /**************************************
       PRODUCT DETAILS PAGE CSS END
 ****************************************/
+:disabled {
+  cursor: no-drop;
+  background-color: rgb(235, 235, 228) !important;
+  color: rgb(84, 84, 84) !important;
+}
 .product__details h2 {
   font-size: 25px;
   font-weight: 700;

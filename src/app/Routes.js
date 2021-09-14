@@ -4,7 +4,7 @@ import {
   Route,
   Switch,
 } from "react-router-dom";
-import PrivateRoute from "../components/PrivateRoute";
+// import PrivateRoute from "../components/PrivateRoute";
 import Cart from "../pages/Cart";
 import Checkout from "../pages/Checkout";
 import Contact from "../pages/Contact";
@@ -15,7 +15,7 @@ import Login from "../pages/Login";
 import MyAccount from "../pages/MyAccount";
 import ProductDetails from "../pages/Product-details";
 import Register from "../pages/Register";
-import ResetPassword from "../pages/ResetPassword";
+// import ResetPassword from "../pages/ResetPassword";
 import Shop from "../pages/Shop";
 import EmailVerify from "../pages/Email-verify";
 import Error from "../pages/Not-found";
@@ -44,22 +44,22 @@ const Routes = () => {
           }
         />
         <Route path="/forgotpassword" component={ForgotPassword} />
-        <PrivateRoute path="/resetpassword">
+        {/* <PrivateRoute path="/resetpassword">
           <ResetPassword />
-        </PrivateRoute>
+        </PrivateRoute> */}
         <Route path="/cart">
           <Cart />
         </Route>
         <Route path="/favourite" component={Favorite} />
-        <PrivateRoute path="/checkout">
+        <Route path="/checkout">
           <Checkout />
-        </PrivateRoute>
+        </Route>
         <Route path="/product-details/:id" component={ProductDetails} />
-        <PrivateRoute
-          path={`/user/${user?.username || stateUser?.username}/my-account`}
+        <Route
+          path={`/my-account/${user?.username || stateUser?.username}`}
         >
           <MyAccount />
-        </PrivateRoute>
+        </Route>
         <Route path="/user/email_verify/:token" component={EmailVerify} />
         <Route
           path="/user/forgot_password/:token"

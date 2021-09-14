@@ -2,14 +2,14 @@ const FakeData = [
   {
     id: "123dr568",
     img: "https://i.ibb.co/gzD9DdP/09.png",
-    name: "Begun",
+    name: "Straberry",
     price: "25.36",
     size: "1 kg",
   },
   {
     id: "78w12er52",
     img: "https://i.ibb.co/F4rkCxW/12.png",
-    name: "Alu vaji",
+    name: "Kashmiri Straberry",
     price: "58.69",
     size: "2 kg",
   },

@@ -1,9 +1,10 @@
 import axios from "axios";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useBreakpoints } from "react-device-breakpoints";
 import { Helmet } from "react-helmet";
 import { AiOutlineCloudUpload, AiOutlineUnorderedList } from "react-icons/ai";
 import { FaKey, FaRegUser, FaTruck } from "react-icons/fa";
+import { useHistory } from "react-router-dom";
 import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
 import { toast } from "react-toastify";
 import Avatar from "../../assets/images/avatar/avatar.png";
@@ -15,12 +16,21 @@ import Info from "./Info";
 import OrderList from "./OrderList";
 import OrderTracking from "./OrderTracking";
 const Index = () => {
+  // react hooks
+  const history = useHistory();
+  useEffect(() => {
+    if (!getDataFromLocalhost("user")) {
+      history.push(
+        `/login?redirect=/my-account/${getDataFromLocalhost("user").username}`
+      );
+    }
+  }, [history]);
   // user personal information functionalities
   const [upload, setUpload] = useState({
     profile: "",
   });
   // get data from react-redux store
-  const user = getDataFromLocalhost('user')
+  const user = getDataFromLocalhost("user");
   const [formData, setFormData] = useState({
     name: user.name,
     phone: user.phone,
@@ -77,9 +87,9 @@ const Index = () => {
   const device = useBreakpoints();
   return (
     <>
-    <Helmet>
-      <title>My Account - GreenValleyGrocery Shop</title>
-    </Helmet>
+      <Helmet>
+        <title>My Account - GreenValleyGrocery Shop</title>
+      </Helmet>
       {device.isDesktop && <Nav isShow />}
       <div className="myAccount__wrapper">
         <div className="container">

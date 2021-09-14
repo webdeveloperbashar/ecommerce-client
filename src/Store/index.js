@@ -5,6 +5,10 @@ import { AddToCartReducer } from "./Reducers/CartReducer";
 import { OrderCreateReducer, OrderGetReducer } from "./Reducers/OrderReducer";
 import { OrderTrackingReducers } from "./Reducers/OrderTrackingReducers";
 import {
+  ProductReviewGetReducer,
+  ProductReviewReducer,
+} from "./Reducers/ProductReviewReducer";
+import {
   EmailVerify,
   ForgotPassword,
   ResetPassword,
@@ -25,6 +29,8 @@ const combinedReducer = combineReducers({
   createOrders: OrderCreateReducer,
   trackingOrder: OrderTrackingReducers,
   cart: AddToCartReducer,
+  review: ProductReviewReducer,
+  getReview: ProductReviewGetReducer,
 });
 const store = createStore(
   combinedReducer,

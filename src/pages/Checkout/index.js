@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useBreakpoints } from "react-device-breakpoints";
 import { Helmet } from "react-helmet";
 import { useSelector } from "react-redux";
@@ -8,12 +8,22 @@ import Form from "../../components/Multi-Step-Form/Form";
 import OrderSummary from "../../components/OrderSummary";
 import HorizontalLine from "./../../config/HorizontalLine";
 import { Stepper, Step, StepLabel } from "@material-ui/core";
+import getDataFromLocalhost from "../../config/GetLocalhostData";
+import { useHistory } from "react-router";
 const Index = () => {
   const cartItems = useSelector((state) => state.cart.cartItems);
   // device breakpoints
   const device = useBreakpoints();
   // // multi form step count
   const [step, setStep] = useState(0);
+  // react hooks
+  const history = useHistory();
+  // redirect
+  useEffect(() => {
+    if (!getDataFromLocalhost("user")) {
+      history.push("/login?redirect=/checkout");
+    }
+  }, [history]);
   return (
     <>
       <Helmet>

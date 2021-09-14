@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { FiPrinter } from "react-icons/fi";
 import { useReactToPrint } from "react-to-print";
 import Print from "./Print";
@@ -8,7 +8,14 @@ import { connect } from "react-redux";
 import { useDispatch } from "react-redux";
 import { toast } from "react-toastify";
 const OrderTracking = ({ trackingOrder }) => {
-  const tracking = trackingOrder.trackingOrder;
+  // const tracking = trackingOrder.trackingOrder;
+  const [tracking, setTracking] = useState({});
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setTracking(trackingOrder.trackingOrder);
+    }, 100);
+    return () => clearInterval(interval);
+  }, [trackingOrder]);
   const componentRef = useRef();
   const handlePrint = useReactToPrint({
     content: () => componentRef.current,

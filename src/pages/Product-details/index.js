@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useBreakpoints } from "react-device-breakpoints";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from "react-responsive-carousel";
@@ -16,18 +16,33 @@ import Tags from "./Review-content/Tags";
 import SocialMediaShareIcon from "./Social-media-share-icon";
 import { useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
-import { AddToCartAction } from "../../Store/Actions/CartAction";
+import {
+  AddToCartAction,
+  DecreamentQuantityAction,
+  IncreaseQuantityAction,
+} from "../../Store/Actions/CartAction";
 import FakeData from "../../config/FakeData";
 import { useSelector } from "react-redux";
 import { Helmet } from "react-helmet";
-const Index = () => {
-  // react hooks
-  const { id } = useParams();
+import { ProductReveiwGetAction } from "../../Store/Actions/ProductReviewAction";
+import { connect } from "react-redux";
+const Index = ({ getReview, fetchReview }) => {
   // device breakpoints
   const device = useBreakpoints();
   // base url generate
   const location = useLocation();
   const shareUrl = location.href;
+  // hooks
+  const dispatch = useDispatch();
+  const { id } = useParams();
+  // get product review
+  useEffect(() => {
+    const interval = setInterval(() => {
+      fetchReview(id);
+    }, 100);
+    return () => clearInterval(interval);
+  }, [fetchReview, id, dispatch]);
+
   // individual product find from fake data
   const product = FakeData.find((pd) => pd.id === id);
   // product find cartItems
@@ -36,19 +51,24 @@ const Index = () => {
   );
   // qunatity count
   const [quantity, setQuantity] = useState(1);
-  const handlePlus = () => {
-    setQuantity(quantity + 1);
-  };
-  const handleMinus = () => {
-    if (quantity > 1) {
+  // quantity update
+  const handleQuantity = (type) => {
+    if (type === "increament") {
+      dispatch(IncreaseQuantityAction(cartItems || product));
+      setQuantity(quantity + 1);
+    }
+    if (type === "decreament") {
+      dispatch(DecreamentQuantityAction(cartItems || product));
       setQuantity(quantity - 1);
     }
   };
-
-  // react-redux hooks
-  const dispatch = useDispatch();
+  // add to cart handler
   const handleAddToCart = () => {
     dispatch(AddToCartAction(product, quantity));
+  };
+  // order product handler
+  const handleOrderProduct = () => {
+    dispatch(AddToCartAction(product, cartItems ? 0 : quantity));
   };
   return (
     <>
@@ -117,17 +137,27 @@ const Index = () => {
                       </div>
                       <div className="quantity">
                         <strong className="ms-1">Quantity:</strong>&nbsp;
-                        <button onClick={handleMinus}>-</button>
-                        <span>{cartItems?.quantity}</span>
-                        <button onClick={handlePlus}>+</button>
+                        <button onClick={() => handleQuantity("decreament")}>
+                          -
+                        </button>
+                        <span>
+                          {cartItems?.quantity ? cartItems?.quantity : quantity}
+                        </span>
+                        <button onClick={() => handleQuantity("increament")}>
+                          +
+                        </button>
                       </div>
                       <div className="actions__btn">
-                        <button>
-                          <Link to="/checkout" className="text-white">
+                        <Link to="/checkout" className="text-white">
+                          <button onClick={handleOrderProduct}>
                             order now
-                          </Link>
-                        </button>
-                        <button className="mx-2" onClick={handleAddToCart}>
+                          </button>
+                        </Link>
+                        <button
+                          className="mx-2"
+                          onClick={handleAddToCart}
+                          disabled={cartItems?.quantity ? true : false}
+                        >
                           add to cart
                         </button>
                       </div>
@@ -164,7 +194,7 @@ const Index = () => {
                 <Tabs>
                   <TabList>
                     <Tab>Description</Tab>
-                    <Tab>Review (1)</Tab>
+                    <Tab>Review ({getReview.length})</Tab>
                     <Tab>Tags</Tab>
                   </TabList>
 
@@ -172,7 +202,7 @@ const Index = () => {
                     <Description />
                   </TabPanel>
                   <TabPanel>
-                    <Review />
+                    <Review getReview={getReview} id={id} />
                   </TabPanel>
                   <TabPanel>
                     <Tags />
@@ -193,4 +223,15 @@ const Index = () => {
   );
 };
 
-export default Index;
+const mapStateToProps = (state) => {
+  return {
+    getReview: state.getReview.getReview,
+  };
+};
+const mapDispatchToProps = (dispatch, id) => {
+  return {
+    fetchReview: () => dispatch(ProductReveiwGetAction(id)),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Index);

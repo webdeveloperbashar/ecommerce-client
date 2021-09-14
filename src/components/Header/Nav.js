@@ -54,7 +54,7 @@ const Nav = ({ isShow }) => {
                     Logout
                   </Link>
                 ) : (
-                  <NavLink className="p__2 font-light link" to="/login?redirect=/cart">
+                  <NavLink className="p__2 font-light link" to="/login">
                     Login
                   </NavLink>
                 )}
