@@ -1,4 +1,5 @@
 import { FaSearch } from "react-icons/fa";
+// import SearchPanel from "../SearchPanel";
 const StickySearchForm = ({ searchFormShow }) => {
   return (
     <div className="sticky__search__form__wrapper">
@@ -22,6 +23,7 @@ const StickySearchForm = ({ searchFormShow }) => {
           </button>
         </div>
       </form>
+      {/* <SearchPanel/> */}
     </div>
   );
 };

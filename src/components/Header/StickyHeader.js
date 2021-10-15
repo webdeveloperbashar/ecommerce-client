@@ -3,7 +3,8 @@ import { useBreakpoints } from "react-device-breakpoints";
 import { FaRegUser, FaSearch, FaShoppingCart } from "react-icons/fa";
 import { IoMdMenu } from "react-icons/io";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, NavLink, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
+import {Link} from "@reach/router"
 import logo from "../../assets/images/brand-logo/valley.svg";
 import { GetCartPrice, GetCartQuantity } from "../../config/GetCartVariant";
 import getDataFromLocalhost from "../../config/GetLocalhostData";
@@ -11,6 +12,9 @@ import { userLogout } from "../../Store/Actions/UserAction";
 import Login from "../Login";
 import StickySearchForm from "./StickySearchForm";
 const StickyHeader = ({ handleOpenDrawer }) => {
+  const user = getDataFromLocalhost("user");
+  // get user form redux store
+  const stateUser = useSelector((state) => state.login.user);
   // get data react-redux
   const product = useSelector((state) => state.cart.cartItems);
   // react-redux hooks
@@ -23,9 +27,9 @@ const StickyHeader = ({ handleOpenDrawer }) => {
   // device breakpoints
   const device = useBreakpoints();
   // sticky search form show and hide
-  const [searchFormShow, setSearchFormmShow] = useState(false);
+  const [searchFormShow, setSearchFormShow] = useState(false);
   const handleIconClick = () => {
-    setSearchFormmShow(!searchFormShow);
+    setSearchFormShow(!searchFormShow);
   };
   const [stickyNav, setStickyNav] = useState(false);
   const stickyNavbar = () => {
@@ -56,27 +60,27 @@ const StickyHeader = ({ handleOpenDrawer }) => {
             </div>
             {/* mobile logo */}
             <div className="mobile__logo">
-              <NavLink exact to="/">
+              <Link exact to="/">
                 <img src={logo} className="logo" alt="logo" />
-              </NavLink>
+              </Link>
             </div>
             {/* desktop menu */}
             <div className="navbar__collapse__sticky">
               <ul className="navbar-nav m-right__auto m-right__2">
                 <li className="nav-item">
-                  <NavLink exact className="p__2 font-light link" to="/">
+                  <Link exact className="p__2 font-light link" to="/">
                     Home
-                  </NavLink>
+                  </Link>
                 </li>
                 <li className="nav-item">
-                  <NavLink className="p__2 font-light link" to="/shop">
+                  <Link className="p__2 font-light link" to="/shop">
                     Shop
-                  </NavLink>
+                  </Link>
                 </li>
                 <li className="nav-item">
-                  <NavLink className="p__2 font-light link" to="/contact">
+                  <Link className="p__2 font-light link" to="/contact">
                     Contact
-                  </NavLink>
+                  </Link>
                 </li>
                 <li className="nav-item">
                   {getDataFromLocalhost("user") ? (
@@ -88,9 +92,9 @@ const StickyHeader = ({ handleOpenDrawer }) => {
                       Logout
                     </Link>
                   ) : (
-                    <NavLink exact className="p__2 font-light link" to="/login">
+                    <Link exact className="p__2 font-light link" to="/login">
                       Login
-                    </NavLink>
+                    </Link>
                   )}
                 </li>
               </ul>
@@ -101,7 +105,7 @@ const StickyHeader = ({ handleOpenDrawer }) => {
                 <li>
                   <span>
                     $
-                    {GetCartPrice(product) < 3
+                    {GetCartPrice(product) > 3
                       ? GetCartPrice(product)
                       : "00.00"}
                   </span>
@@ -125,7 +129,7 @@ const StickyHeader = ({ handleOpenDrawer }) => {
                   {getDataFromLocalhost("user") ? (
                     <Link
                       className="m-left__2 p__2 bg-light__gray topHeader__icon"
-                      to="/user/my-account"
+                      to={`/my-account/${user?.username || stateUser?.username}`}
                     >
                       <FaRegUser />
                     </Link>

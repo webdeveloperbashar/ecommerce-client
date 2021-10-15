@@ -2,7 +2,7 @@ import { useState } from "react";
 import { FaSearch } from "react-icons/fa";
 import { IoMdMenu } from "react-icons/io";
 import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link } from "@reach/router";
 import logo from "../../assets/images/brand-logo/valley.svg";
 import { GetCartPrice } from "../../config/GetCartVariant";
 import CartDrawer from "./CartDrawer";

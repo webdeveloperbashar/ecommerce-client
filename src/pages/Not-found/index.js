@@ -1,13 +1,14 @@
 import React from "react";
 import { useBreakpoints } from "react-device-breakpoints";
-import { Link, useLocation } from "react-router-dom";
+// import { useLocation } from "react-router-dom";
+import {Link, useLocation} from '@reach/router'
 import Footer from "../../components/Footer";
 import TopHeader from "../../components/Header/TopHeader";
 
 const Index = () => {
   // device breakpoints
   const device = useBreakpoints();
-  //
+  // specific path get
   const path = useLocation().pathname.slice(1);
   return (
     <>

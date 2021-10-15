@@ -1,12 +1,12 @@
 import { FaRegUser, FaShoppingCart } from "react-icons/fa";
 import { FaStore } from "react-icons/fa";
 import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link } from "@reach/router";
 import { GetCartQuantity } from "../../config/GetCartVariant";
 import getDataFromLocalhost from "../../config/GetLocalhostData";
 const MobileStickyFooterMenu = () => {
   // get cart cartItems from react-redux store
-  const product = useSelector(state=>state.cart.cartItems)
+  const product = useSelector((state) => state.cart.cartItems);
   // get order from redux store
   const order = useSelector((state) => state.createOrders.orders);
   if (order.success) {
@@ -24,9 +24,7 @@ const MobileStickyFooterMenu = () => {
             <div className="mobile__sticky__footer">
               <div className="mobile__sticky__footer__content">
                 <Link
-                  to={`/user/${
-                    user?.username || stateUser?.username
-                  }/my-account`}
+                  to={`/my-account/${user?.username || stateUser?.username}`}
                 >
                   <div className="footer__icon">
                     <FaRegUser />

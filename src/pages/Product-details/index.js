@@ -3,7 +3,7 @@ import { useBreakpoints } from "react-device-breakpoints";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from "react-responsive-carousel";
 import ReactStars from "react-rating-stars-component";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useParams } from "@reach/router";
 import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import Footer from "../../components/Footer";
@@ -15,40 +15,39 @@ import Review from "./Review-content/Review";
 import Tags from "./Review-content/Tags";
 import SocialMediaShareIcon from "./Social-media-share-icon";
 import { useDispatch } from "react-redux";
-import { useParams } from "react-router-dom";
 import {
   AddToCartAction,
   DecreamentQuantityAction,
   IncreaseQuantityAction,
 } from "../../Store/Actions/CartAction";
-import FakeData from "../../config/FakeData";
 import { useSelector } from "react-redux";
 import { Helmet } from "react-helmet";
 import { ProductReveiwGetAction } from "../../Store/Actions/ProductReviewAction";
-import { connect } from "react-redux";
-const Index = ({ getReview, fetchReview }) => {
+const Index = () => {
+  const { id } = useParams();
   // device breakpoints
   const device = useBreakpoints();
   // base url generate
   const location = useLocation();
   const shareUrl = location.href;
+  // individual product find from redux store
+  const product = useSelector((state) =>
+    state.products.find((pd) => pd._id === id)
+  );
+  // get specific product review
+  const { getReview } = useSelector((state) => state.getReview);
+  const { review } = useSelector((state) => state.review);
+  console.log(review?.review)
+  // product find for add to cart from cartItems
+  const cartItems = useSelector((state) => state.cart.cartItems.slice()).find(
+    (pd) => pd._id === id
+  );
   // hooks
   const dispatch = useDispatch();
-  const { id } = useParams();
   // get product review
   useEffect(() => {
-    const interval = setInterval(() => {
-      fetchReview(id);
-    }, 100);
-    return () => clearInterval(interval);
-  }, [fetchReview, id, dispatch]);
-
-  // individual product find from fake data
-  const product = FakeData.find((pd) => pd.id === id);
-  // product find cartItems
-  const cartItems = useSelector((state) => state.cart.cartItems.slice()).find(
-    (pd) => pd.id === id
-  );
+    dispatch(ProductReveiwGetAction(id));
+  }, [dispatch, id]);
   // qunatity count
   const [quantity, setQuantity] = useState(1);
   // quantity update
@@ -59,21 +58,23 @@ const Index = ({ getReview, fetchReview }) => {
     }
     if (type === "decreament") {
       dispatch(DecreamentQuantityAction(cartItems || product));
-      setQuantity(quantity - 1);
+      if (quantity > 1) {
+        setQuantity(quantity - 1);
+      }
     }
   };
   // add to cart handler
   const handleAddToCart = () => {
     dispatch(AddToCartAction(product, quantity));
   };
-  // order product handler
+  // direct product order handler
   const handleOrderProduct = () => {
     dispatch(AddToCartAction(product, cartItems ? 0 : quantity));
   };
   return (
     <>
       <Helmet>
-        <title>{product.name} - GreenValleyGrocery Shop</title>
+        <title>{`${product?.name} - GreenValleyGrocery Shop`}</title>
       </Helmet>
       {device.isDesktop && <Nav isShow />}
       <div className="product__details__wrapper mt-5">
@@ -93,22 +94,18 @@ const Index = ({ getReview, fetchReview }) => {
                         showStatus={false}
                         autoPlay={true}
                       >
-                        <div>
-                          <img src={product.img} alt="slider" />
-                        </div>
-                        <div>
-                          <img src={product.img} alt="slider" />
-                        </div>
-                        <div>
-                          <img src={product.img} alt="slider" />
-                        </div>
+                        {product?.productImage?.map((item) => (
+                          <div>
+                            <img src={item.url} alt="slider" />
+                          </div>
+                        ))}
                       </Carousel>
                     </div>
                   </div>
                   {/* product details */}
                   <div className="col-md-6">
                     <div className="product__details py-3 px-1 ">
-                      <h2>{product.name}</h2>
+                      <h2>{product?.name}</h2>
                       <div className="remaining">
                         <span>In Stock</span>
                       </div>
@@ -127,7 +124,7 @@ const Index = ({ getReview, fetchReview }) => {
                         </span>
                       </div>
                       <div className="product__price">
-                        <del>$254</del> <strong>${product.price}</strong>
+                        <del>$254</del> <strong>${product?.price}</strong>
                       </div>
                       <div className="sku">
                         <span>SKU:</span>&nbsp;Z587TXS
@@ -135,7 +132,7 @@ const Index = ({ getReview, fetchReview }) => {
                       <div className="product__category">
                         <span>Category:</span>&nbsp;Vegetable & Fruits
                       </div>
-                      <div className="quantity">
+                      <div className="quantity qnty">
                         <strong className="ms-1">Quantity:</strong>&nbsp;
                         <button onClick={() => handleQuantity("decreament")}>
                           -
@@ -158,7 +155,7 @@ const Index = ({ getReview, fetchReview }) => {
                           onClick={handleAddToCart}
                           disabled={cartItems?.quantity ? true : false}
                         >
-                          add to cart
+                          {cartItems ? "Added Product" : "Add To Cart"}
                         </button>
                       </div>
                       <div className="share__on">
@@ -194,15 +191,14 @@ const Index = ({ getReview, fetchReview }) => {
                 <Tabs>
                   <TabList>
                     <Tab>Description</Tab>
-                    <Tab>Review ({getReview.length})</Tab>
+                    <Tab>Review ({getReview?.length})</Tab>
                     <Tab>Tags</Tab>
                   </TabList>
-
                   <TabPanel>
-                    <Description />
+                    <Description text={product?.description} />
                   </TabPanel>
                   <TabPanel>
-                    <Review getReview={getReview} id={id} />
+                    <Review getReview={getReview || review?.review} id={id} />
                   </TabPanel>
                   <TabPanel>
                     <Tags />
@@ -213,7 +209,7 @@ const Index = ({ getReview, fetchReview }) => {
           </div>
           <div className="row">
             <div className="col-md-12">
-              <RelatedProduct />
+              <RelatedProduct category={product?.category} />
             </div>
           </div>
         </div>
@@ -223,15 +219,4 @@ const Index = ({ getReview, fetchReview }) => {
   );
 };
 
-const mapStateToProps = (state) => {
-  return {
-    getReview: state.getReview.getReview,
-  };
-};
-const mapDispatchToProps = (dispatch, id) => {
-  return {
-    fetchReview: () => dispatch(ProductReveiwGetAction(id)),
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Index);
+export default Index;

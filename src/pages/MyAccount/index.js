@@ -1,10 +1,10 @@
+import { navigate } from "@reach/router";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useBreakpoints } from "react-device-breakpoints";
 import { Helmet } from "react-helmet";
 import { AiOutlineCloudUpload, AiOutlineUnorderedList } from "react-icons/ai";
 import { FaKey, FaRegUser, FaTruck } from "react-icons/fa";
-import { useHistory } from "react-router-dom";
 import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
 import { toast } from "react-toastify";
 import Avatar from "../../assets/images/avatar/avatar.png";
@@ -17,14 +17,12 @@ import OrderList from "./OrderList";
 import OrderTracking from "./OrderTracking";
 const Index = () => {
   // react hooks
-  const history = useHistory();
   useEffect(() => {
     if (!getDataFromLocalhost("user")) {
-      history.push(
-        `/login?redirect=/my-account/${getDataFromLocalhost("user").username}`
-      );
+      console.log('not allow')
+      navigate("/login");
     }
-  }, [history]);
+  }, []);
   // user personal information functionalities
   const [upload, setUpload] = useState({
     profile: "",

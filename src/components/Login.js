@@ -1,19 +1,25 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, useHistory, useLocation } from "react-router-dom";
+import { navigate, Link, globalHistory } from "@reach/router";
 import getDataFromSession from "../config/GetSessionStorageData";
 import { UserLogin } from "../Store/Actions/UserAction";
+import getDataFromLocalhost from "../config/GetLocalhostData";
 const Login = ({ width, heading, isShow }) => {
   // get data from sessionStorage
   const verifyMessage = getDataFromSession("verify_message");
   // hooks
-  const history = useHistory();
-  const location = useLocation();
+  const location = globalHistory.location;
   const query = new URLSearchParams(location.search);
   const redirect = query.get("redirect");
   // get error message from react-redux
   const message = useSelector((state) => state.login.user);
+  // redirect Athenticated user
+  useEffect(() => {
+    if (getDataFromLocalhost("user")) {
+      navigate("/");
+    }
+  }, []);
   // form Data send to react-redux hooks
   const dispatch = useDispatch();
   // formData store
@@ -28,7 +34,7 @@ const Login = ({ width, heading, isShow }) => {
   // handle submit
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(UserLogin(formData, history, redirect));
+    dispatch(UserLogin(formData, redirect, navigate));
   };
   // password show and hide function
   const [passwordShow, setPasswordShow] = useState(false);

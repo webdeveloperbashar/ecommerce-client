@@ -1,9 +1,9 @@
 import axios from "axios";
 import { toast } from "react-toastify";
 
-export const OrderTrackingActions = (trackingId) => async (dispatch) => {
+export const OrderTrackingActions = (trackingId, email) => async (dispatch) => {
   const { data } = await axios.get(
-    `http://localhost:4000/order-tracking/${trackingId}`
+    `http://localhost:4000/order-tracking/${trackingId}/${email}`
   );
   dispatch({
     type: "ORDER_TRACKING",

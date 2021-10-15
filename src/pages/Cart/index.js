@@ -2,7 +2,7 @@ import { useBreakpoints } from "react-device-breakpoints";
 import { Helmet } from "react-helmet";
 import { MdDelete } from "react-icons/md";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link } from "@reach/router";
 import shortid from "shortid";
 import DataTable from "../../components/Data-table";
 import ActionCell from "../../components/Data-table/Action-cell";
@@ -41,7 +41,7 @@ const Index = () => {
         actions={[
           {
             name: "image",
-            image: item.img,
+            image: item.productImage[0].url,
           },
         ]}
       />,
@@ -52,10 +52,10 @@ const Index = () => {
         input="input"
         actions={[
           {
-            name: "plus",
-            icon: "+",
+            name: "minus",
+            icon: "-",
             handler: () => {
-              dispatch(IncreaseQuantityAction(item));
+              dispatch(DecreamentQuantityAction(item));
             },
           },
           {
@@ -64,10 +64,10 @@ const Index = () => {
             className: "bg-light",
           },
           {
-            name: "minus",
-            icon: "-",
+            name: "plus",
+            icon: "+",
             handler: () => {
-              dispatch(DecreamentQuantityAction(item));
+              dispatch(IncreaseQuantityAction(item));
             },
           },
         ]}

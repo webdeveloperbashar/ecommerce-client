@@ -4,15 +4,14 @@ import "react-multi-carousel/lib/styles.css";
 import ReactStars from "react-rating-stars-component";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link } from "@reach/router";
 import {
   AddToCartAction,
   DecreamentQuantityAction,
   IncreaseQuantityAction,
 } from "../Store/Actions/CartAction";
-import FakeData from "./FakeData";
-import HorizontalLine from "./HorizontalLine";
 const Product = ({
+  product,
   productId,
   productImg,
   productName,
@@ -21,15 +20,10 @@ const Product = ({
 }) => {
   // react-redux store product
   const cartItems = useSelector((state) => state.cart.cartItems).find(
-    (pd) => pd.id === productId
+    (pd) => pd._id === productId
   );
   // react-redux hooks
   const dispatch = useDispatch();
-  // handle product Add to cart
-  const handleProductAdd = (id) => {
-    const data = FakeData.find((pd) => pd.id === id);
-    dispatch(AddToCartAction(data, 1));
-  };
   // quantity count
   const handleQuantity = (type) => {
     if (type === "increament") {
@@ -58,17 +52,11 @@ const Product = ({
                 edit={false}
                 activeColor="#ffd700"
               />
-              <span className="text-dark">&nbsp;(4 Review)</span>
             </p>
             <h4 className="my-2">{productName}</h4>
             <h3 className="mb-2">${productPrice}</h3>
             <h4>{productSize}</h4>
-            <HorizontalLine
-              width="60px"
-              height="1px"
-              margin="8px auto"
-              background="#A8B324"
-            />
+            <br />
             {cartItems ? (
               <Link to="#">
                 <div className="quantity pd_quantity">
@@ -82,13 +70,15 @@ const Product = ({
                 </div>
               </Link>
             ) : (
-              <Link
-                to="#"
-                onClick={() => handleProductAdd(productId)}
-                className="product__link"
-              >
-                Add to cart <CgChevronDoubleRight className="arrow__icon" />
-              </Link>
+              // <div className="link_wrapper">
+                <Link
+                  to="#"
+                  onClick={() => dispatch(AddToCartAction(product, 1))}
+                  className="product__link"
+                >
+                  Add to cart <CgChevronDoubleRight className="arrow__icon" />
+                </Link>
+              // </div>
             )}
           </div>
         </Link>

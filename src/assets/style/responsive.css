@@ -131,6 +131,15 @@
   /**************************************
 PRODUCT DETAILS PAGE CSS END
 ****************************************/
+  /* category section css start */
+  .categroy__element {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .category__border {
+    width: 100%;
+  }
+  /* category section css end */
 }
 
 @media (max-width: 767px) {
@@ -192,22 +201,13 @@ PRODUCT DETAILS PAGE CSS END
     display: grid;
     grid-template-columns: auto 220px auto;
   }
-  /******** site policy ***********/
-  .policy__box {
-    padding: 12px !important;
-  }
-  .policy__row {
+  /* category section start */
+  .advertise__element {
     display: grid;
-    grid-template-columns: 50% 50%;
+    grid-template-columns: repeat(1, 1fr);
+    grid-row-gap: 15px;
   }
-  .policy-col-2 {
-    padding-left: 0px !important;
-    padding-right: 12px !important;
-  }
-  .policy-col-3 {
-    padding-left: 12px !important;
-  }
-  /********* site policy end ************/
+  /* category section end */
 
   /*********** homepage product section start *************/
   .section__title {
@@ -288,15 +288,20 @@ PRODUCT DETAILS PAGE CSS END
     width: 100% !important;
   }
   /*********** homepage subscribe section end *************/
-  /********* Partner section start *************/
-  .parnter__image__row {
+  /********* category section start *************/
+  .categroy__element {
     display: grid;
-    grid-template-columns: auto auto auto auto auto auto;
+    grid-template-columns: repeat(2, 1fr);
   }
-  .partner__logo img {
-    height: 80px !important;
+  .category__border {
+    width: 100%;
   }
-  /********* Partner section end *************/
+  .category__box__wrapper {
+    border-style: solid;
+    border-width: 2px !important;
+    margin-bottom: 10px !important;
+  }
+  /********* category section end *************/
 
   /********* Footer section start *************/
   .footer__wrapper {
@@ -346,10 +351,10 @@ PRODUCT DETAILS PAGE CSS END
     border-left: 1px solid #b3b3b3;
   }
   .count {
-    background: red;
+    background: #67bc0f;
     position: absolute;
     top: -6px;
-    font-size: 16px;
+    font-size: 11px;
     width: 20px;
     height: 20px;
     line-height: 21px;
@@ -472,8 +477,18 @@ PRODUCT DETAILS PAGE CSS END
   .cart__section__image h2 {
     font-size: 30px !important;
   }
+
   /************************************************
             CART PAGE CSS END
+  *************************************************/
+  /************************************************
+            order summery CSS start
+  *************************************************/
+  .order__summary span {
+    font-size: 16px;
+  }
+  /************************************************
+            order summery CSS end
   *************************************************/
 
   /**********************************************
@@ -578,28 +593,20 @@ PRODUCT DETAILS PAGE CSS END
 **********************************************/
 }
 @media screen and (max-width: 575px) {
-  /******** site policy ***********/
-  .policy__box {
-    padding: 12px !important;
-  }
-  .policy__box h1 {
-    font-size: 13px !important;
-  }
-  .policy__box p {
-    font-size: 12px !important;
-  }
-  .policy__row {
+  /********* category section start *************/
+  .categroy__element {
     display: grid;
-    grid-template-columns: 50% 50%;
+    grid-template-columns: repeat(1, 1fr);
   }
-  .policy-col-2 {
-    padding-left: 0px !important;
-    padding-right: 12px !important;
+  .category__border {
+    width: 100%;
   }
-  .policy-col-3 {
-    padding-left: 12px !important;
+  .category__box__wrapper {
+    border-style: solid;
+    border-width: 2px !important;
+    margin-bottom: 10px !important;
   }
-  /********* site policy end ************/
+  /********* category section end *************/
 
   /*********** homepage product section start *************/
   .section__title {
@@ -686,6 +693,9 @@ PRODUCT DETAILS PAGE CSS END
   }
   .shop__product .slider__img img {
     height: 140px;
+  }
+  label.form-check-label {
+    font-size: 14px;
   }
   /************************************************
             SHOP PAGE CSS END
@@ -795,6 +805,16 @@ PRODUCT DETAILS PAGE CSS END
   }
   /************************************************
             CART PAGE CSS END
+  *************************************************/
+
+  /************************************************
+            order summery CSS start
+  *************************************************/
+  .order__summary span {
+    font-size: 14px;
+  }
+  /************************************************
+            order summery CSS end
   *************************************************/
 
   /**********************************************
@@ -921,13 +941,21 @@ PRODUCT DETAILS PAGE CSS END
     margin: 15px 0 !important;
     font-size: 16px;
   }
+
   .quantity {
-    margin: 15px 0 !important;
+    margin: -6px 0 !important;
+  }
+  .qnty {
+    margin: 0px !important;
+    display: flex;
+  }
+  .qnty {
+    margin: 20px 0 !important;
   }
   .quantity button {
     font-size: 16px !important;
     width: 25px !important;
-    height: 25px !important;
+    height: 20px !important;
   }
   .quantity span,
   .quantity strong {
@@ -1017,22 +1045,6 @@ PRODUCT DETAILS PAGE CSS END
     height: 350px;
   }
   /*********** Modal css end ************/
-  /******** site policy ***********/
-  .policy__box {
-    padding: 12px !important;
-  }
-  .policy__row {
-    display: grid;
-    grid-template-columns: 50% 50%;
-  }
-  .policy-col-2 {
-    padding-left: 0px !important;
-    padding-right: 12px !important;
-  }
-  .policy-col-3 {
-    padding-left: 12px !important;
-  }
-  /********* site policy end ************/
 
   /*********** homepage product section start *************/
   .section__title {
@@ -1199,6 +1211,16 @@ PRODUCT DETAILS PAGE CSS END
             CART PAGE CSS END
   *************************************************/
 
+  /************************************************
+            order summery CSS start
+  *************************************************/
+  .order__summary span {
+    font-size: 12px;
+  }
+  /************************************************
+            order summery CSS end
+  *************************************************/
+
   /**********************************************
         ORDER TRACKING PAGE CSS START
 **********************************************/
@@ -1270,12 +1292,19 @@ PRODUCT DETAILS PAGE CSS END
     font-size: 13px;
   }
   .quantity {
-    margin: 8px 0 !important;
+    margin: -10px 0 !important;
+  }
+  .qnty {
+    margin: 0px !important;
+    display: flex;
+  }
+  .qnty {
+    margin: 20px 0 !important;
   }
   .quantity button {
     font-size: 13px !important;
     width: 25px !important;
-    height: 25px !important;
+    height: 20px !important;
   }
   .quantity span,
   .quantity strong {
@@ -1328,16 +1357,6 @@ PRODUCT DETAILS PAGE CSS END
     height: 400px;
   }
   /*********** Modal css end ************/
-
-  /******* site policy ***********/
-  .policy__box h1 {
-    font-size: 12px;
-  }
-
-  .policy__box p {
-    font-size: 10px;
-  }
-  /********* site policy end ************/
 
   /*********** homepage product section start *************/
   .section__title {
@@ -1538,17 +1557,17 @@ PRODUCT DETAILS PAGE CSS END
     font-size: 13px;
   }
   .quantity {
-    margin: 8px 0 !important;
+    margin: -10px 0 !important;
     display: flex;
     align-items: center;
   }
-  .qnty{
+  .qnty {
     margin: 17px 0 !important;
   }
   .quantity button {
     font-size: 13px !important;
     width: 25px !important;
-    height: 25px !important;
+    height: 20px !important;
   }
   .quantity span,
   .quantity strong {

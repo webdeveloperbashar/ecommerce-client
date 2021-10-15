@@ -1,7 +1,8 @@
+// import { navigate } from "@reach/router";
 import axios from "axios";
 import { toast } from "react-toastify";
 // user login
-export const UserLogin = (userData, history, redirect) => async (dispatch) => {
+export const UserLogin = (userData, redirect, navigate) => async (dispatch) => {
   const { data } = await axios.post(
     `http://localhost:4000/auth/login`,
     userData
@@ -15,7 +16,7 @@ export const UserLogin = (userData, history, redirect) => async (dispatch) => {
     toast.success(data.credential, {
       pauseOnHover: false,
     });
-    history.push(redirect || "/");
+    navigate(redirect || "/");
   }
   if (data.wrong) {
     toast.error(data.wrong, {
@@ -24,7 +25,7 @@ export const UserLogin = (userData, history, redirect) => async (dispatch) => {
   }
 };
 // user signup
-export const userSignup = (userData, history) => async (dispatch) => {
+export const userSignup = (userData, navigate) => async (dispatch) => {
   const { data } = await axios.post(
     `http://localhost:4000/auth/signup`,
     userData
@@ -36,7 +37,7 @@ export const userSignup = (userData, history) => async (dispatch) => {
   if (data.success) {
     sessionStorage.setItem("verify_message", JSON.stringify(data.success));
     localStorage.setItem("verify_email", JSON.stringify(data.verifyEmail));
-    history.push("/login");
+    navigate("/login");
   }
 };
 // email verify
@@ -69,9 +70,9 @@ export const resendLink = (token) => async (dispatch) => {
   }
 };
 // user logout
-export const userLogout = (history) => {
+export const userLogout = (navigate) => {
   localStorage.removeItem("user");
-  history.push("/login");
+  navigate("/login");
   return {
     type: "USER_LOGOUT",
   };

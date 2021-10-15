@@ -10,6 +10,7 @@ export const ProductReviewAction = (review) => async (dispatch) => {
     type: "PRODUCT_REVIEW",
     payload: data,
   });
+
   if (data.success) {
     toast.success(data.success, {
       pauseOnHover: false,
@@ -19,7 +20,7 @@ export const ProductReviewAction = (review) => async (dispatch) => {
 // product review get
 export const ProductReveiwGetAction = (productId) => async (dispatch) => {
   const { data } = await axios.get(
-    `http://localhost:4000/get-productReview/${productId.match.params.id}`
+    `http://localhost:4000/get-productReview/${productId}`
   );
   dispatch({
     type: "GET_PRODUCT_REVIEW",

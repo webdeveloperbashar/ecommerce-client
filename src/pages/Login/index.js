@@ -8,9 +8,9 @@ const Index = () => {
   const device = useBreakpoints();
   return (
     <>
-    <Helmet>
-      <title>Login - GreenValleyGrocery Shop</title>
-    </Helmet>
+      <Helmet>
+        <title>Login - GreenValleyGrocery Shop</title>
+      </Helmet>
       {device.isDesktop && <Nav isShow />}
       <div className="login__wrapper py-5">
         <div className="container">

@@ -1,15 +1,17 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, useHistory, useLocation } from "react-router-dom";
+import { Link, navigate } from "@reach/router";
 import { userSignup } from "../Store/Actions/UserAction";
+import getDataFromLocalhost from "../config/GetLocalhostData";
 const Register = () => {
-  // history hooks
-  const history = useHistory();
-  const location = useLocation();
-  const query = new URLSearchParams(location.search);
-  const redirect = query.get("redirect");
   // get error message from react-redux
   const message = useSelector((state) => state.signup.user);
+  // redirect
+  useEffect(() => {
+    if (getDataFromLocalhost("user")) {
+      navigate("/");
+    }
+  }, []);
   // redux data send hooks
   const dispatch = useDispatch();
   // signup form data store
@@ -27,7 +29,7 @@ const Register = () => {
     signupData.gender = "";
     signupData.dateofbirth = "";
     signupData.profile = "";
-    dispatch(userSignup(signupData, history));
+    dispatch(userSignup(signupData, navigate));
   };
   // pasword check type
   const [checkType, setCheckType] = useState(false);
@@ -158,10 +160,7 @@ const Register = () => {
             <span className="text-dark font-size__1 account__text">
               Already have an account?
             </span>{" "}
-            <Link
-              to={`/login?redirect=${redirect || "/"}`}
-              className="text-primary account__suggest"
-            >
+            <Link to="/login" className="text-primary account__suggest">
               Log In
             </Link>
           </div>

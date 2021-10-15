@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import { FiPrinter } from "react-icons/fi";
 import { useReactToPrint } from "react-to-print";
 import Print from "./Print";
@@ -7,15 +7,9 @@ import { OrderTrackingActions } from "../../Store/Actions/OrderTrackingActions";
 import { connect } from "react-redux";
 import { useDispatch } from "react-redux";
 import { toast } from "react-toastify";
+import getDataFromLocalhost from "../../config/GetLocalhostData";
 const OrderTracking = ({ trackingOrder }) => {
-  // const tracking = trackingOrder.trackingOrder;
-  const [tracking, setTracking] = useState({});
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setTracking(trackingOrder.trackingOrder);
-    }, 100);
-    return () => clearInterval(interval);
-  }, [trackingOrder]);
+  const tracking = trackingOrder.trackingOrder;
   const componentRef = useRef();
   const handlePrint = useReactToPrint({
     content: () => componentRef.current,
@@ -38,6 +32,7 @@ const OrderTracking = ({ trackingOrder }) => {
     });
   };
   // react redux hooks
+  const { Email } = getDataFromLocalhost("user")
   const dispatch = useDispatch();
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -46,7 +41,7 @@ const OrderTracking = ({ trackingOrder }) => {
         pauseOnHover: false,
       });
     } else {
-      dispatch(OrderTrackingActions(formData.orderTracking));
+      dispatch(OrderTrackingActions(formData.orderTracking, Email));
     }
   };
   return (

@@ -2,7 +2,7 @@ export const AddToCartAction = (product, qty) => (dispatch, getState) => {
   const cartItems = getState().cart.cartItems.slice();
   let hasProduct = false;
   cartItems.forEach((pd) => {
-    if (pd.id === product.id) {
+    if (pd?._id === product?._id) {
       hasProduct = true;
       if (qty > 0) {
         pd["quantity"] = qty ? pd.quantity + qty : pd.quantity + 1;
@@ -10,7 +10,7 @@ export const AddToCartAction = (product, qty) => (dispatch, getState) => {
       pd["quantity"] = pd.quantity + qty;
     }
   });
-  if (!hasProduct) {
+  if (!hasProduct && product) {
     product.quantity = qty;
     cartItems.push({ ...product });
   }
@@ -23,7 +23,7 @@ export const AddToCartAction = (product, qty) => (dispatch, getState) => {
 // remove cart action
 export const RemoveCartAction = (product) => (dispatch, getState) => {
   const cartItems = getState().cart.cartItems.filter(
-    (pd) => pd.id !== product.id
+    (pd) => pd._id !== product._id
   );
   dispatch({
     type: "REMOVE_FROM_CART",
@@ -35,7 +35,7 @@ export const RemoveCartAction = (product) => (dispatch, getState) => {
 export const IncreaseQuantityAction = (product) => (dispatch, getState) => {
   const cartItems = getState().cart.cartItems.slice();
   cartItems.forEach((pd) => {
-    if (pd.id === product.id) {
+    if (pd._id === product._id) {
       const index = cartItems.indexOf(pd);
       const increase = cartItems[index];
       increase.quantity = increase.quantity + 1;
@@ -51,7 +51,7 @@ export const IncreaseQuantityAction = (product) => (dispatch, getState) => {
 export const DecreamentQuantityAction = (product) => (dispatch, getState) => {
   const cartItems = getState().cart.cartItems.slice();
   cartItems.forEach((pd) => {
-    if (pd.id === product.id) {
+    if (pd._id === product._id) {
       const index = cartItems.indexOf(pd);
       const decrease = cartItems[index];
       if (decrease.quantity > 1) {

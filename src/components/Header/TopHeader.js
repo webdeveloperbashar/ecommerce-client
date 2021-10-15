@@ -1,16 +1,12 @@
 import "bootstrap/dist/css/bootstrap.min.css";
-import {
-  FaHeadphones,
-  FaRegUser,
-  FaSearch,
-  FaShoppingCart,
-} from "react-icons/fa";
+import { FaHeadphones, FaRegUser, FaShoppingCart } from "react-icons/fa";
 import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link } from "@reach/router";
 import logo from "../../assets/images/brand-logo/valley.svg";
 import { GetCartPrice, GetCartQuantity } from "../../config/GetCartVariant";
 import Login from "../Login";
 import getDataFromLocalhost from "./../../config/GetLocalhostData";
+import SearchPanel from "../SearchPanel";
 const TopHeader = () => {
   // get quantity from redux store
   const product = useSelector((state) => state.cart.cartItems);
@@ -18,7 +14,7 @@ const TopHeader = () => {
   const user = getDataFromLocalhost("user");
   // get user form redux store
   const stateUser = useSelector((state) => state.login.user);
-  // When ordering then clear all quantity in the header
+
   return (
     <div className="topHeader bg-light">
       <div className="container d-grid display-grid d-flex justify-content-between align-items-center">
@@ -27,18 +23,7 @@ const TopHeader = () => {
             <img className="img-fluid logo" src={logo} alt="brand logo" />
           </Link>
         </div>
-        <form className="search__form">
-          <div className="d-flex">
-            <input
-              type="text"
-              placeholder="Search product..."
-              className="form-control"
-            />
-            <button type="submit" className="btn">
-              <FaSearch />
-            </button>
-          </div>
-        </form>
+        <SearchPanel searchFormShow />
         <div className="navbar__collapse">
           <ul className="navbar-nav m-right__auto m-right__2">
             <li className="nav-item">
@@ -84,9 +69,7 @@ const TopHeader = () => {
               </Link>
             </li>
             <li className="nav-item">
-              <span className="ms-4 text-dark">
-                ${GetCartPrice(product) > 3 ? GetCartPrice(product) : "00.00"}
-              </span>
+              <span className="ms-4 text-dark">${GetCartPrice(product)}</span>
             </li>
           </ul>
         </div>

@@ -1,6 +1,6 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "react-multi-carousel/lib/styles.css";
-import { Link } from "react-router-dom";
+import { Link } from "@reach/router";
 import HorizontalLine from "./HorizontalLine";
 import Product from "./Product";
 import SliderFunctionalities from "./SliderFunctionalities";
@@ -20,7 +20,7 @@ const ProductSectionWrapper = ({
   return (
     <main className="m-top__4">
       <div className="container">
-        <div className="featured__product p__4 box__shadow bg-light">
+        <div className="featured__product p__4 bg-light">
           <div className="d-flex align-items-center justify-content-between py__2">
             <h1 className="section__title font-size__3 font-dark">
               {bannerTitle}

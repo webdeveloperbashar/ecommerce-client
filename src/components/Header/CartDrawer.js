@@ -1,9 +1,15 @@
 import { FaBlog, FaHome, FaShopify } from "react-icons/fa";
 import { GrContact } from "react-icons/gr";
 import { VscArrowBoth } from "react-icons/vsc";
-import { Link, NavLink } from "react-router-dom";
-// import NavLink from "../../config/NavLink";
+import { Link } from "@reach/router";
+import getDataFromLocalhost from "../../config/GetLocalhostData";
+import Avatar from "../../assets/images/avatar/avatar.png";
+import { useSelector } from "react-redux";
 const CartDrawer = ({ openCartDrawer, handleCloseDrawer }) => {
+  // get data from localStorage
+  const user = getDataFromLocalhost("user");
+  // get data from readux store
+  const stateUser = useSelector((state) => state.login.user);
   return (
     <div
       className={`cart__drawer__wrapper ${openCartDrawer ? "w-100" : "w-0"}`}
@@ -21,19 +27,24 @@ const CartDrawer = ({ openCartDrawer, handleCloseDrawer }) => {
           <div className="card-body">
             <div className="profile">
               <div className="image">
-                <img
-                  src="https://cdn.pixabay.com/photo/2015/01/08/18/30/entrepreneur-593371__340.jpg"
-                  className="img-fluid"
-                  alt="img"
-                />
+                {!user?.profile ? (
+                  <img src={Avatar} className="img-fluid" alt="img" />
+                ) : (
+                  <img src={user?.profile} className="img-fluid" alt="img" />
+                )}
               </div>
               <div className="loggedIn__username">
-                <h2>MD Abul Bashar</h2>
+                <h2>{user?.name}</h2>
               </div>
               <div className="menu">
                 <ul>
                   <li>
-                    <Link to="/user/my-account" className="me-3">
+                    <Link
+                      to={`/my-account/${
+                        user?.username || stateUser?.username
+                      }`}
+                      className="me-3"
+                    >
                       Account
                     </Link>
                   </li>
@@ -66,27 +77,27 @@ const CartDrawer = ({ openCartDrawer, handleCloseDrawer }) => {
               <p>Menu</p>
               <ul>
                 <li>
-                  <NavLink exact to="/">
+                  <Link exact to="/">
                     <FaHome className="drawer__menu__icon" /> Home
-                  </NavLink>
+                  </Link>
                 </li>
                 <li>
-                  <NavLink to="/shop">
+                  <Link to="/shop">
                     <FaShopify className="drawer__menu__icon" />
                     Shop
-                  </NavLink>
+                  </Link>
                 </li>
                 <li>
-                  <NavLink to="/blog">
+                  <Link to="/blog">
                     <FaBlog className="drawer__menu__icon" />
                     Blog
-                  </NavLink>
+                  </Link>
                 </li>
                 <li>
-                  <NavLink to="/contact">
+                  <Link to="/contact">
                     <GrContact className="drawer__menu__icon" />
                     Contact
-                  </NavLink>
+                  </Link>
                 </li>
               </ul>
             </div>

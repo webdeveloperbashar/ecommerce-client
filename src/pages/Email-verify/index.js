@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useParams } from "@reach/router";
 import React from "react";
 import { useBreakpoints } from "react-device-breakpoints";
 import Footer from "../../components/Footer";
@@ -13,7 +13,6 @@ const Index = () => {
   const message = useSelector((state) => state.userEmailVerify.verify);
   // use params
   const { token } = useParams();
-  // const verifyToken = {token: token}
   // device breakpoints
   const device = useBreakpoints();
   // send data to react-redux

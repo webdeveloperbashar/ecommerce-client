@@ -1,10 +1,13 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useBreakpoints } from "react-device-breakpoints";
 import { Helmet } from "react-helmet";
+import { useDispatch } from "react-redux";
 import { ToastContainer } from "react-toastify";
 import MobileNavbar from "../components/Header/MobileNavbar";
 import MobileStickyFooterMenu from "../components/Header/MobileStickyFooterMenu";
 import StickyHeader from "../components/Header/StickyHeader";
+import { CategoryAction } from "../Store/Actions/CategoryAction";
+import { getAllProduct } from "../Store/Actions/ProductAction";
 import Routes from "./Routes";
 const App = () => {
   // drawer open and close functionalites
@@ -17,6 +20,12 @@ const App = () => {
   };
   // device breakpoints
   const device = useBreakpoints();
+  // get request api call
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(CategoryAction());
+    dispatch(getAllProduct());
+  }, [dispatch]);
   return (
     <>
       <Helmet>

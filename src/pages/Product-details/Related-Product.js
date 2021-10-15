@@ -1,9 +1,12 @@
 import React from "react";
-import FakeData from "../../config/FakeData";
+import { useSelector } from "react-redux";
 import SliderFunctionalities from "../../config/SliderFunctionalities";
 import Product from "./../../config/Product";
 
-const RelatedProduct = () => {
+const RelatedProduct = ({ category }) => {
+  const product = useSelector((state) =>
+    state.products.filter((pd) => pd.category === category)
+  );
   return (
     <div className="related__product box__shadow bg-light p-3 mt-4">
       <h2 className="text-dark text-start">Related Products...</h2>
@@ -14,14 +17,15 @@ const RelatedProduct = () => {
           sliderSpeed={2000}
           sliderTransition="all 0.8s"
         >
-          {FakeData.map((item, index) => (
+          {product?.map((item, index) => (
             <Product
               key={index + 1}
-              productId={item.id}
-              productImg={item.img}
+              productId={item._id}
+              productImg={item.productImage[0].url}
               productName={item.name}
               productPrice={item.price}
-              productSize={item.size}
+              productSize={item.weight + item.unit}
+              productDiscount={item.discount}
             />
           ))}
         </SliderFunctionalities>

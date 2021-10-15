@@ -3,7 +3,7 @@ import { Breakpoints } from "react-device-breakpoints";
 import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
-import 'react-toastify/dist/ReactToastify.css';
+import "react-toastify/dist/ReactToastify.css";
 import App from "./app/App";
 import "./assets/style/reset.css";
 import "./assets/style/responsive.css";
@@ -23,7 +23,8 @@ ReactDOM.render(
         <App />
       </Provider>
     </Breakpoints>
-  </BrowserRouter>,
+  </BrowserRouter>
+  ,
   document.getElementById("root")
 );
 reportWebVitals();

@@ -4,12 +4,12 @@ import Nav from "../../components/Header/Nav";
 import BestSellingProduct from "./BestSellingProduct";
 import HeroSection from "./HeroSection";
 import HotProduct from "./HotProduct";
-import PartnerSection from "./PartnerSection";
 import PopularProduct from "./PopularProduct";
 import SiteFeatures from "./SiteFeatures";
-import Policy from "./SitePolicy";
+import Advertise from "./SiteAdvertise";
 import SubscribeSection from "./SubscribeSection";
 import TopRatedProduct from "./TopRatedProduct";
+import CategoriesSection from "./CategoriesSection";
 const Index = () => {
   // device breakpoints
   const device = useBreakpoints();
@@ -17,14 +17,14 @@ const Index = () => {
     <>
       {device.isDesktop && <Nav />}
       <HeroSection />
-      <Policy />
+      <Advertise />
       <HotProduct />
       <BestSellingProduct />
       <SiteFeatures />
       <PopularProduct />
       <TopRatedProduct />
+      <CategoriesSection />
       <SubscribeSection />
-      <PartnerSection />
       <Footer />
     </>
   );
