@@ -1,10 +1,4 @@
 export const GetCartQuantity = (product) => {
-  // let quantity = 0;
-  // for (let i = 0; i < product?.length; i++) {
-  //   const element = product[i];
-  //   quantity = quantity + element?.quantity;
-  // }
-  // return quantity;
   const quantity = product.reduce((a, c) => a + c.quantity, 0);
   return quantity;
 };

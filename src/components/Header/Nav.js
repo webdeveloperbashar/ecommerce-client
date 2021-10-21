@@ -1,16 +1,14 @@
 import { FaOutdent } from "react-icons/fa";
-import { useDispatch } from "react-redux";
-import { navigate, Link } from "@reach/router";
+import { Link, Redirect } from "@reach/router";
 import getDataFromLocalhost from "../../config/GetLocalhostData";
-import { userLogout } from "../../Store/Actions/UserAction";
 import MobileNavbar from "./MobileNavbar";
 import SubMenuCategory from "./Sub-Menu-Category";
 import TopHeader from "./TopHeader";
 const Nav = ({ isShow }) => {
-  // dispatch function react-redux
-  const dispatch = useDispatch();
+  // user logout
   const handleLogout = () => {
-    dispatch(userLogout(navigate));
+    localStorage.removeItem("user");
+    <Redirect to="/login" />;
   };
   return (
     <header className="desktop__navbar">

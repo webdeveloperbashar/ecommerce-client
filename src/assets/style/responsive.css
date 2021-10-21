@@ -2,9 +2,24 @@
   .display-grid {
     display: grid !important;
   }
+  .footer__top__wrapper {
+    display: grid;
+    grid-template-columns: repeat(4, 25%) !important;
+
+  }
+  .follow{
+    justify-content: center !important;
+  }
 }
 
 @media (max-width: 992px) and (min-width: 767px) {
+  .footer__top__wrapper {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr) !important;
+  }
+  .follow{
+    justify-content: center !important;
+  }
   /*********** Modal css start ************/
   .ReactModal__Content {
     width: 40% !important;
@@ -140,6 +155,9 @@ PRODUCT DETAILS PAGE CSS END
     width: 100%;
   }
   /* category section css end */
+}
+.footer__top__wrapper {
+  display: grid;
 }
 
 @media (max-width: 767px) {
@@ -304,6 +322,21 @@ PRODUCT DETAILS PAGE CSS END
   /********* category section end *************/
 
   /********* Footer section start *************/
+  .footer__top {
+    padding: 25px 0 !important;
+  }
+  .footer__top__wrapper {
+    display: grid;
+    grid-template-columns: repeat(1, 100%) !important;
+  }
+  .footer__widget {
+    display: inherit !important;
+    text-align: center !important;
+    margin-bottom: 20px;
+  }
+  .footer__widget .footer__icon {
+    margin-bottom: 8px;
+  }
   .footer__wrapper {
     margin-bottom: 55px;
   }

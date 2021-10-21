@@ -40,7 +40,6 @@
     "react-to-print": "^2.12.6",
     "react-toastify": "^7.0.4",
     "redux": "^4.1.1",
-    "redux-devtools-extension": "^2.13.9",
     "redux-thunk": "^2.3.0",
     "shortid": "^2.2.16",
     "web-vitals": "^1.0.1"

@@ -1,3 +1,4 @@
+import { navigate } from "@reach/router";
 import React, { useState } from "react";
 import ReactStars from "react-rating-stars-component";
 import { useDispatch } from "react-redux";
@@ -27,7 +28,11 @@ const ReviewForm = ({ id }) => {
       rating,
       ...reviewer,
     };
-    dispatch(ProductReviewAction(review));
+    if (user) {
+      dispatch(ProductReviewAction(review));
+    }else{
+      navigate('/login')
+    }
   };
   return (
     <div className="review__form">

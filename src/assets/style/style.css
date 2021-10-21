@@ -1052,13 +1052,38 @@ li.category__icon__list__item a svg {
 /************* category section css end **************/
 
 /*********** Footer section css start **************/
+.footer__top {
+  border-bottom: 1px solid #eee;
+  padding: 50px 0;
+}
+.footer__top__wrapper {
+  display: grid;
+  grid-template-columns: repeat(4, 25%);
+}
+.footer__widget .footer__icon {
+  font-size: 40px;
+  margin-right: 15px;
+  color: var(--font-olive-green);
+}
+
+.footer__widget .footer__content h3 {
+  font-size: 17px;
+}
+.footer__widget .footer__content p {
+  font-size: 15px;
+  margin-bottom: 5px;
+}
+.follow__icon span a {
+  color: var(--font-olive-green);
+  font-size: 16px;
+}
 .footer__logo img {
   width: 130px;
 }
 .footer__location h2,
 .footer__category h2,
 .footer__menu h2 {
-  font-size: 25px;
+  font-size: 18px;
   margin-bottom: 20px;
 }
 .footer__location ul li,
@@ -1066,12 +1091,12 @@ li.category__icon__list__item a svg {
   margin: 10px 0;
 }
 .footer__category ul li .footer__cate:hover {
-  color: var(--font-light);
-  margin-left: 10px;
+  color: var(--font-olive-green);
+  margin-left: 5px;
 }
 .footer__menu ul li .footer__link:hover {
-  color: var(--font-light);
-  margin-left: 10px;
+  color: var(--font-olive-green);
+  margin-left: 5px;
 }
 /**************** Footer section css end *****************/
 
@@ -1182,10 +1207,6 @@ li.category__icon__list__item a svg {
 
 /********** Mobile profile css end *************/
 
-/********** Favorite Drawer css start *************/
-
-/********** Favorite Drawer css end *************/
-
 /********** Mobile device css start ***************/
 .mobile__content {
   display: grid;
@@ -1226,6 +1247,20 @@ li.category__icon__list__item a svg {
 /********** sidebar catetory css start *************/
 .shop__section__image {
   background: url("https://i.ibb.co/82Nmmz1/shop-page.jpg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 100px 0;
+}
+.searchByCategory__image {
+  background: url("https://res.cloudinary.com/green-valley-grocery/image/upload/v1634485942/banner-images/h7_banner-2_hr63c8.jpg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 100px 0;
+}
+.searchByTag__image {
+  background: url("https://res.cloudinary.com/green-valley-grocery/image/upload/v1634502216/banner-images/h3_banner-2_lvui5n.jpg");
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -1301,18 +1336,14 @@ h4.no__msg {
             CONTACT PAGE CSS START
 **********************************************/
 .contact__wrapper {
-  background: linear-gradient(#00000000, #0000008f),
-    url(https://i.ibb.co/M82WvWb/contact-page-overlay.jpg);
-  background-position: center center;
-  background-size: cover;
-  background-repeat: no-repeat;
+  background: white;
   margin-bottom: -24px;
 }
 
 .heading h2 {
   font-size: 35px;
   font-weight: 700;
-  color: var(--font-light);
+  color: var(--font-dark);
   margin-bottom: 15px;
 }
 .heading p {
@@ -1329,20 +1360,20 @@ ul.addressList li {
 }
 .addressList li h3 {
   font-size: 20px;
-  color: #dfb178;
+  color: var(--font-dark);
   font-weight: 700;
   margin-bottom: 8px;
 }
 .addressList li p {
-  color: var(--font-light);
-  font-weight: 700;
+  color: var(--font-dark);
+  font-weight: 500;
   font-size: 15px;
 }
 
 span.address__icon {
   margin-right: 20px;
   font-size: 17px;
-  background: white;
+  background: #eee;
   width: 50px;
   height: 50px;
   cursor: pointer;
@@ -1360,6 +1391,7 @@ span.address__icon:hover {
 .contact__form {
   padding: 30px;
   background: black;
+  box-shadow: 0px 1px 10px #eee;
 }
 .message__input {
   background: black;
@@ -1421,6 +1453,7 @@ span.visible__icon {
 /**********************************************
             CART PAGE CSS START
 **********************************************/
+
 .cart__section__image {
   background: url("https://i.ibb.co/LzDWNGr/subscibe-banner.jpg");
   background-position: center center;
@@ -1454,6 +1487,9 @@ tr:nth-child(even) {
 tr:last-child {
   border-bottom: none;
 }
+tbody.table__body .quantity button {
+  background: #eee;
+}
 .table__product__img {
   width: 50px;
   height: 50px;
@@ -1482,33 +1518,6 @@ tr:last-child {
 }
 /**********************************************
             CART PAGE CSS END
-**********************************************/
-
-/**********************************************
-            FAVOURITE PAGE CSS START
-**********************************************/
-.favourite__section__image {
-  background: url("../Cate-image/cateImg-2.jpg");
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  padding: 100px 0;
-}
-.favourite__section__image h2 {
-  font-size: 50px;
-  font-weight: 700;
-  color: var(--font-light);
-}
-.favourite__table table {
-  border: 1px solid #80808038;
-  background: var(--bg-light);
-}
-.favourite__table .table__body tr td {
-  border-right: 1px solid #e2e2e2;
-  text-align: center;
-}
-/**********************************************
-            FAVOURITE PAGE CSS END
 **********************************************/
 
 /**********************************************
@@ -1633,11 +1642,6 @@ label.upload__photo {
 .info__details table tbody td {
   padding: 0;
 }
-/* tracking page design */
-/* .RFS-StepButton-d4.active,
-.RFS-StepButton-d2.active {
-  background-color: rgb(224, 224, 224) !important;
-} */
 .RFS-StepButtonContent-d5.active,
 .RFS-StepButtonContent-d3.active {
   color: rgb(255, 255, 255) !important;
@@ -1648,9 +1652,6 @@ label.upload__photo {
 .RFS-StepButton-d6.completed {
   background-color: #67bc0f !important;
 }
-/* .RFS-StepButton-d0.active {
-  background-color: #3f51b5 !important;
-} */
 .tracking__field {
   flex-basis: 70%;
   margin: 0 !important;
@@ -1884,7 +1885,7 @@ label.upload__photo {
   border: none;
   transition: all 0.3s ease-in-out;
 }
-.qnty button{
+.qnty button {
   color: black !important;
 }
 .quantity button:last-child {
@@ -1900,6 +1901,9 @@ label.upload__photo {
   font-size: 15px;
   margin: 0 10px;
   font-weight: 700;
+}
+.product__details .quantity button {
+  background: #eee;
 }
 .actions__btn button {
   background-color: #2abbe8;
@@ -2037,12 +2041,17 @@ textarea {
   margin: 20px 0;
 }
 .tags__wrapper a {
-  background: #8080800f;
-  margin: 5px;
-  padding: 5px;
-  font-size: 18px;
+  margin: 2px 2px;
+  padding: 5px 13px;
+  font-size: 15px;
   border-radius: 8px;
+  border: 1px solid #eee;
   display: inline-block;
+  color: #4b5955;
+}
+.tags__wrapper a:hover{
+  background-color: #eee;
+  color: var(--font-dark);
 }
 /**************************************
       REVIEW CSS END

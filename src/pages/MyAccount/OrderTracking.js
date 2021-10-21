@@ -83,7 +83,7 @@ const OrderTracking = ({ trackingOrder }) => {
                   <FiPrinter fontSize="15px" className="me-2 text-white" />
                   Print Invoice
                 </button>
-                <div className="invoice__source">
+                <div className="invoice__source bg-light">
                   <Print ref={componentRef} trackingOrder={trackingOrder} />
                 </div>
               </div>
@@ -170,7 +170,7 @@ const OrderTracking = ({ trackingOrder }) => {
                           <td>
                             <div className="d-flex align-items-center">
                               <img
-                                src={item.img}
+                                src={item.productImage[0].url}
                                 className="img-fluid logo me-2"
                                 alt={item.name}
                               />

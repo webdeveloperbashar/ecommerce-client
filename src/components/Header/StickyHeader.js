@@ -2,13 +2,11 @@ import { useState } from "react";
 import { useBreakpoints } from "react-device-breakpoints";
 import { FaRegUser, FaSearch, FaShoppingCart } from "react-icons/fa";
 import { IoMdMenu } from "react-icons/io";
-import { useDispatch, useSelector } from "react-redux";
-import { useHistory } from "react-router-dom";
-import {Link} from "@reach/router"
+import { useSelector } from "react-redux";
+import { Link, Redirect } from "@reach/router";
 import logo from "../../assets/images/brand-logo/valley.svg";
 import { GetCartPrice, GetCartQuantity } from "../../config/GetCartVariant";
 import getDataFromLocalhost from "../../config/GetLocalhostData";
-import { userLogout } from "../../Store/Actions/UserAction";
 import Login from "../Login";
 import StickySearchForm from "./StickySearchForm";
 const StickyHeader = ({ handleOpenDrawer }) => {
@@ -18,11 +16,10 @@ const StickyHeader = ({ handleOpenDrawer }) => {
   // get data react-redux
   const product = useSelector((state) => state.cart.cartItems);
   // react-redux hooks
-  const dispatch = useDispatch();
-  const history = useHistory();
   // logout handler
   const handleLogout = () => {
-    dispatch(userLogout(history));
+    localStorage.removeItem("user");
+    <Redirect to="/login" />
   };
   // device breakpoints
   const device = useBreakpoints();
@@ -103,12 +100,7 @@ const StickyHeader = ({ handleOpenDrawer }) => {
             <div className="mobile__search__icon">
               <ul>
                 <li>
-                  <span>
-                    $
-                    {GetCartPrice(product) > 3
-                      ? GetCartPrice(product)
-                      : "00.00"}
-                  </span>
+                  <span>${GetCartPrice(product)}</span>
                 </li>
                 <li>
                   <FaSearch
@@ -129,7 +121,9 @@ const StickyHeader = ({ handleOpenDrawer }) => {
                   {getDataFromLocalhost("user") ? (
                     <Link
                       className="m-left__2 p__2 bg-light__gray topHeader__icon"
-                      to={`/my-account/${user?.username || stateUser?.username}`}
+                      to={`/my-account/${
+                        user?.username || stateUser?.username
+                      }`}
                     >
                       <FaRegUser />
                     </Link>
@@ -158,10 +152,7 @@ const StickyHeader = ({ handleOpenDrawer }) => {
                 </li>
                 <li className="nav-item">
                   <span className="text-dark ms-4">
-                    $
-                    {GetCartPrice(product) > 3
-                      ? GetCartPrice(product)
-                      : "00.00"}
+                    ${GetCartPrice(product)}
                   </span>
                 </li>
               </ul>

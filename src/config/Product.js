@@ -17,6 +17,7 @@ const Product = ({
   productName,
   productPrice,
   productSize,
+  productDiscount,
 }) => {
   // react-redux store product
   const cartItems = useSelector((state) => state.cart.cartItems).find(
@@ -37,7 +38,7 @@ const Product = ({
     <>
       <div className="slider__box">
         <Link id="RouterNavLink" to={`/product-details/${productId}`}>
-          <div className="discount__percent">-52%</div>
+          <div className="discount__percent">-{productDiscount}%</div>
           <div className="slider__img">
             <img src={productImg} className="img-fluid" alt="slider one" />
           </div>
@@ -53,7 +54,11 @@ const Product = ({
                 activeColor="#ffd700"
               />
             </p>
-            <h4 className="my-2">{productName}</h4>
+            <h4 className="my-2">
+              {productName.length > 23
+                ? `${productName.slice(0, 23)}...`
+                : productName}
+            </h4>
             <h3 className="mb-2">${productPrice}</h3>
             <h4>{productSize}</h4>
             <br />
@@ -70,15 +75,13 @@ const Product = ({
                 </div>
               </Link>
             ) : (
-              // <div className="link_wrapper">
-                <Link
-                  to="#"
-                  onClick={() => dispatch(AddToCartAction(product, 1))}
-                  className="product__link"
-                >
-                  Add to cart <CgChevronDoubleRight className="arrow__icon" />
-                </Link>
-              // </div>
+              <Link
+                to="#"
+                onClick={() => dispatch(AddToCartAction(product, 1))}
+                className="product__link"
+              >
+                Add to cart <CgChevronDoubleRight className="arrow__icon" />
+              </Link>
             )}
           </div>
         </Link>

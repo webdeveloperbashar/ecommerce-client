@@ -38,3 +38,39 @@ export const getProductByFilter = (state = [], action) => {
       return state;
   }
 };
+// get product created sorting
+export const getCreatedSorting = (state = [], action) => {
+  switch (action.type) {
+    case "GET_CREATED__SORTING":
+      return action.payload;
+    default:
+      return state;
+  }
+};
+// get product sold sorting
+export const getSoldSorting = (state = [], action) => {
+  switch (action.type) {
+    case "GET_SOLD_SORTING":
+      return action.payload;
+    default:
+      return state;
+  }
+};
+// get product rating descending sorting
+export const getRatingDescSorting = (state = [], action) => {
+  switch (action.type) {
+    case "GET_RATING_DESC_SORTING":
+      return action.payload;
+    default:
+      return state;
+  }
+};
+// get product rating Ascending sorting
+export const getRatingAscSorting = (state = [], action) => {
+  switch (action.type) {
+    case "GET_RATING_ASC_SORTING":
+      return action.payload;
+    default:
+      return state;
+  }
+};

@@ -1,4 +1,3 @@
-// import { navigate } from "@reach/router";
 import axios from "axios";
 import { toast } from "react-toastify";
 // user login
@@ -68,14 +67,6 @@ export const resendLink = (token) => async (dispatch) => {
       pauseOnHover: false,
     });
   }
-};
-// user logout
-export const userLogout = (navigate) => {
-  localStorage.removeItem("user");
-  navigate("/login");
-  return {
-    type: "USER_LOGOUT",
-  };
 };
 // user forgot password
 export const forgotPassword = (email) => async (dispatch) => {

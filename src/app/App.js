@@ -26,6 +26,7 @@ const App = () => {
     dispatch(CategoryAction());
     dispatch(getAllProduct());
   }, [dispatch]);
+
   return (
     <>
       <Helmet>

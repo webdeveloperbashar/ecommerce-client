@@ -3,7 +3,6 @@ import Avatar from "../../../assets/images/avatar/avatar.png";
 import ReviewForm from "./Review-Form";
 
 const Review = ({ getReview, id }) => {
-  console.log(getReview)
   return (
     <div className="review__wrapper">
       <div className="row">

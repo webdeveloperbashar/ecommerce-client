@@ -1,34 +1,38 @@
-import React, { useEffect, useState, useReducer } from "react";
+import React, { useEffect, useReducer } from "react";
 import { useBreakpoints } from "react-device-breakpoints";
 import { Helmet } from "react-helmet";
 import Footer from "../../components/Footer";
 import Nav from "../../components/Header/Nav";
 import PriceFilter from "../../components/PriceFilter";
-import {Link} from "@reach/router"
+// import NavLink from "../../config/NavLink";
+import { Link } from "@reach/router";
+import banner3 from "../../assets/product-banner/banner-3.jpg";
 import Product from "../../config/Product";
+import { useParams } from "@reach/router";
 import { useDispatch, useSelector } from "react-redux";
 import { getProductByFilter } from "../../Store/Actions/ProductAction";
 import PaginateNav from "../../config/PaginageNav";
-const defaultValues = {
+import HorizontalLine from "../../config/HorizontalLine";
+const initialState = {
   category: [],
+  keyword: "",
   min: 0,
   max: 100,
   page: 1,
-  limit: 6,
+  limit: 3,
 };
 const Index = () => {
   // device breakpoint
   const device = useBreakpoints();
   // use State
-  const [category, setCategory] = useState([]);
+  const { tag } = useParams();
   const [searchValues, setSearchValues] = useReducer(
     (state, action) => ({ ...state, ...action }),
-    defaultValues
+    initialState
   );
-  // get all category
-  const categories = useSelector((state) => state.category);
   // get filtered products
   const { pd } = useSelector((state) => state.filterProduct);
+  // get product tags
   let productTags = [];
   const tags = pd?.docs.map((item) => item.tags);
   const splitTag = tags?.map((item) => item.split(","));
@@ -37,6 +41,7 @@ const Index = () => {
       productTags.push(splitTag[i][j]);
     }
   }
+  // console.log(splitTag)
   const goToPage = (page) => {
     setSearchValues({ page: page });
   };
@@ -45,35 +50,18 @@ const Index = () => {
   useEffect(() => {
     dispatch(getProductByFilter(searchValues));
   }, [dispatch, searchValues]);
-  // category checked handler
-  const handleCategory = (value) => {
-    const currentCheckedCategory = value;
-    const allCheckedCategories = [...category];
-    const foundCategory = allCheckedCategories.indexOf(currentCheckedCategory);
-    let newCheckedCategory;
-    if (foundCategory === -1) {
-      // Add Categroy
-      newCheckedCategory = [...category, currentCheckedCategory];
-      setCategory(newCheckedCategory);
-      setSearchValues({ category: newCheckedCategory, page: 1 });
-      // navigate("/shop", { replace: true });
-    } else {
-      // Remove Categroy
-      newCheckedCategory = [...category];
-      newCheckedCategory.splice(foundCategory, 1);
-      setCategory(newCheckedCategory);
-      setSearchValues({ category: newCheckedCategory, page: 1 });
-    }
-  };
+  useEffect(() => {
+    setSearchValues({ keyword: tag });
+  }, [tag]);
   return (
     <>
       <Helmet>
-        <title>Shop - GreenValleyGrocery Shop</title>
+        <title>{`${tag}`} - GreenValleyGrocery Shop</title>
       </Helmet>
       {device.isDesktop && <Nav isShow />}
       <div className="shop__wrapper">
-        <div className="shop__section__image">
-          <h2 className="text-center">Shop</h2>
+        <div className="shop__section__image searchByTag__image">
+          <h2 className="text-center text-white">{tag}</h2>
         </div>
         <div className="container">
           <div className="row">
@@ -86,32 +74,30 @@ const Index = () => {
                   <hr />
                   <PriceFilter setSearchValues={setSearchValues} />
                 </div>
-                <div className="category__sidebar box__shadow p-4 bg-light mt-3">
-                  <h2 className="font-size__2">Category</h2>
-                  <hr />
-                  <ul>
-                    {categories &&
-                      categories.map((item) => (
-                        <div key={item._id} className="form-check">
-                          <input
-                            type="checkbox"
-                            className="form-check-input mt-0"
-                            id={item._id}
-                            value={item.category}
-                            name="category"
-                            onChange={() => handleCategory(item.category)}
-                          />
-                          <label
-                            className="form-check-label"
-                            htmlFor={item._id}
-                          >
-                            {item.category}
-                          </label>
-                        </div>
-                      ))}
-                  </ul>
+                <div className="category__banner">
+                  <Link to="/">
+                    <div className="product__banner">
+                      <div
+                        className="banner"
+                        style={{ background: `url(${banner3})` }}
+                      ></div>
+                      <div className="banner__content">
+                        <h3>EveryDay Hot Offer</h3>
+                        <h2>59% Of</h2>
+                        <p>Fruits & Vegetable</p>
+                        <HorizontalLine
+                          width="42px"
+                          height="2px"
+                          margin="25px auto"
+                          background="rgb(103 188 15)"
+                        />
+                        <Link to="/shop" className="banner__shop__link">
+                          shop
+                        </Link>
+                      </div>
+                    </div>
+                  </Link>
                 </div>
-
                 <div className="products__tag box__shadow p-4 bg-light mt-3">
                   <h2 className="font-size__2 py-2">Product Tags</h2>
                   <hr />

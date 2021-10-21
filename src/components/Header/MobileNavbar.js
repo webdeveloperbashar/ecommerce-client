@@ -44,9 +44,7 @@ const MobileNavbar = ({
                 <li>
                   <span>
                     $
-                    {GetCartPrice(product) > 3
-                      ? GetCartPrice(product)
-                      : "00.00"}
+                    {GetCartPrice(product)}
                   </span>
                 </li>
                 <li>

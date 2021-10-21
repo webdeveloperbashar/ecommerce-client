@@ -1,5 +1,4 @@
 import { applyMiddleware, combineReducers, createStore } from "redux";
-import { composeWithDevTools } from "redux-devtools-extension";
 import thunk from "redux-thunk";
 import { AddToCartReducer } from "./Reducers/CartReducer";
 import { CategoryReducer } from "./Reducers/CategoryReducers";
@@ -7,9 +6,12 @@ import { OrderCreateReducer, OrderGetReducer } from "./Reducers/OrderReducer";
 import { OrderTrackingReducers } from "./Reducers/OrderTrackingReducers";
 import {
   getAllProduct,
+  getCreatedSorting,
   getProductByFilter,
   getProductBySearch,
-  paginateProducts,
+  getSoldSorting,
+  getRatingDescSorting,
+  getRatingAscSorting,
 } from "./Reducers/ProductReducers";
 import {
   ProductReviewGetReducer,
@@ -40,13 +42,13 @@ const combinedReducer = combineReducers({
   getReview: ProductReviewGetReducer,
   category: CategoryReducer,
   products: getAllProduct,
-  paginateProducts: paginateProducts,
   filterProduct: getProductByFilter,
-  searchProduct: getProductBySearch
+  searchProduct: getProductBySearch,
+  getCreatedSorting: getCreatedSorting,
+  getSoldSorting: getSoldSorting,
+  getRatingDescSorting: getRatingDescSorting,
+  getRatingAscSorting: getRatingAscSorting,
 });
-const store = createStore(
-  combinedReducer,
-  composeWithDevTools(applyMiddleware(...middleware))
-);
+const store = createStore(combinedReducer, applyMiddleware(...middleware));
 
 export default store;

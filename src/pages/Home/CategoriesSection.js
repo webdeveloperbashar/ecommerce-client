@@ -33,25 +33,25 @@ const CategoriesSection = () => {
                       <div className="category__widget__content">
                         <ul className="category__icon__list__items">
                           <li className="category__icon__list__item">
-                            <Link to={`/searchByCategory/${item.category}`}>
+                            <Link to={`/shop?category=${item.category}`}>
                               {" "}
                               <VscTriangleRight /> Nut & Seed
                             </Link>
                           </li>
                           <li className="category__icon__list__item">
-                            <Link to={`/searchByCategory/${item.category}`}>
+                            <Link to={`/shop?category=${item.category}`}>
                               {" "}
                               <VscTriangleRight /> Oils
                             </Link>
                           </li>
                           <li className="category__icon__list__item">
-                            <Link to={`/searchByCategory/${item.category}`}>
+                            <Link to={`/shop?category=${item.category}`}>
                               {" "}
                               <VscTriangleRight /> Tomatos
                             </Link>
                           </li>
                           <li className="category__icon__list__item">
-                            <Link to={`/searchByCategory/${item.category}`}>
+                            <Link to={`/shop?category=${item.category}`}>
                               {" "}
                               <VscTriangleRight /> Soup
                             </Link>

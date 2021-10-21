@@ -34,10 +34,14 @@ const Index = () => {
   const product = useSelector((state) =>
     state.products.find((pd) => pd._id === id)
   );
+  let productTags = [];
+  const splitTag = product?.tags.split(",");
+  for (let i = 0; i < splitTag?.length; i++) {
+    productTags.push(splitTag[i]);
+  }
   // get specific product review
   const { getReview } = useSelector((state) => state.getReview);
-  const { review } = useSelector((state) => state.review);
-  console.log(review?.review)
+  const review = useSelector((state) => state.review.review);
   // product find for add to cart from cartItems
   const cartItems = useSelector((state) => state.cart.cartItems.slice()).find(
     (pd) => pd._id === id
@@ -47,7 +51,7 @@ const Index = () => {
   // get product review
   useEffect(() => {
     dispatch(ProductReveiwGetAction(id));
-  }, [dispatch, id]);
+  }, [dispatch, id, review]);
   // qunatity count
   const [quantity, setQuantity] = useState(1);
   // quantity update
@@ -85,7 +89,9 @@ const Index = () => {
               <div className="product__wrapper__details box__shadow bg-light">
                 <div className="row">
                   <div className="col-md-6">
-                    <div className="product__details__image">
+                    <div className="product__details__image position-relative">
+                      <br />
+                      <br />
                       <Carousel
                         axis="horizontal"
                         showThumbs={true}
@@ -100,6 +106,9 @@ const Index = () => {
                           </div>
                         ))}
                       </Carousel>
+                      <div className="discount__percent">
+                        -{product?.discount}%
+                      </div>
                     </div>
                   </div>
                   {/* product details */}
@@ -107,7 +116,9 @@ const Index = () => {
                     <div className="product__details py-3 px-1 ">
                       <h2>{product?.name}</h2>
                       <div className="remaining">
-                        <span>In Stock</span>
+                        <span>
+                          {product?.stock ? "In Stock" : "Out Of Stock"}
+                        </span>
                       </div>
                       <div className="rating">
                         <span className="d-flex align-items-center">
@@ -124,13 +135,19 @@ const Index = () => {
                         </span>
                       </div>
                       <div className="product__price">
-                        <del>$254</del> <strong>${product?.price}</strong>
+                        <strong>${product?.price}</strong>
+                      </div>
+                      <div className="product__category">
+                        <span>Weight:</span>
+                        <strong>
+                          &nbsp;{product?.weight}&nbsp;{product?.unit}
+                        </strong>
                       </div>
                       <div className="sku">
                         <span>SKU:</span>&nbsp;Z587TXS
                       </div>
                       <div className="product__category">
-                        <span>Category:</span>&nbsp;Vegetable & Fruits
+                        <span>Category:</span>&nbsp;{product?.category}
                       </div>
                       <div className="quantity qnty">
                         <strong className="ms-1">Quantity:</strong>&nbsp;
@@ -198,10 +215,10 @@ const Index = () => {
                     <Description text={product?.description} />
                   </TabPanel>
                   <TabPanel>
-                    <Review getReview={getReview || review?.review} id={id} />
+                    <Review getReview={getReview} id={id} />
                   </TabPanel>
                   <TabPanel>
-                    <Tags />
+                    <Tags productTags={productTags} />
                   </TabPanel>
                 </Tabs>
               </div>

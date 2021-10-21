@@ -1,4 +1,4 @@
-import { navigate } from "@reach/router";
+import { Redirect } from "@reach/router";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useBreakpoints } from "react-device-breakpoints";
@@ -16,26 +16,26 @@ import Info from "./Info";
 import OrderList from "./OrderList";
 import OrderTracking from "./OrderTracking";
 const Index = () => {
+  const user = getDataFromLocalhost("user");
   // react hooks
   useEffect(() => {
-    if (!getDataFromLocalhost("user")) {
-      console.log('not allow')
-      navigate("/login");
+    if (user === null) {
+      <Redirect to="/login" />
+      console.log(user)
     }
-  }, []);
+  }, [user]);
   // user personal information functionalities
   const [upload, setUpload] = useState({
     profile: "",
   });
   // get data from react-redux store
-  const user = getDataFromLocalhost("user");
   const [formData, setFormData] = useState({
-    name: user.name,
-    phone: user.phone,
-    gender: user.gender,
-    dateofbirth: user.dateofbirth,
-    membersince: user.memberSince,
-    email: user.Email,
+    name: user?.name,
+    phone: user?.phone,
+    gender: user?.gender,
+    dateofbirth: user?.dateofbirth,
+    membersince: user?.memberSince,
+    email: user?.Email,
   });
   // profile image upload
   const handleFileUpload = async (e) => {
@@ -98,10 +98,10 @@ const Index = () => {
                   <TabList>
                     <div className="account__sidebar">
                       <div className="image">
-                        {!user.profile && !upload.profile ? (
+                        {!user?.profile && !upload?.profile ? (
                           <img src={Avatar} alt="img" />
                         ) : (
-                          <img src={upload.profile || user.profile} alt="img" />
+                          <img src={upload?.profile || user?.profile} alt="img" />
                         )}
                         <form encType="multipart/form-data">
                           <label

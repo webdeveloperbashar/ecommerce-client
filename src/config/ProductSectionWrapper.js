@@ -68,14 +68,16 @@ const ProductSectionWrapper = ({
                 sliderSpeed={sliderSpeed}
                 sliderTransition={sliderTransition}
               >
-                {data.map((item, index) => (
+                {data?.map((item, index) => (
                   <Product
                     key={index + 1}
-                    productId={item.id}
-                    productImg={`${item.img}`}
+                    product={item}
+                    productId={item._id}
+                    productImg={item.productImage ? item.productImage[0].url: null}
                     productName={`${item.name}`}
                     productPrice={`${item.price}`}
-                    productSize={`${item.size}`}
+                    productSize={`${item.weight} ${item.unit}`}
+                    productDiscount={`${item.discount}`}
                   />
                 ))}
               </SliderFunctionalities>

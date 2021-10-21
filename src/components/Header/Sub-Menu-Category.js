@@ -10,7 +10,7 @@ const SubMenuCategory = () => {
           {categories.map((item) => (
             <li className="py__2 horizontal__line">
               <Link
-                to={`/searchByCategory/${item.category}`}
+                to={`/searchByCategory/${item.category.split(" ").join("-")}`}
                 className="p__2 justify-content-between d-flex align-items-center d-block font-blue-gray "
               >
                 <span className="text">{item.category}</span>{" "}

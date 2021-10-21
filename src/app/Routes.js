@@ -10,6 +10,8 @@ import MyAccount from "../pages/MyAccount";
 import ProductDetails from "../pages/Product-details";
 import Register from "../pages/Register";
 import Shop from "../pages/Shop";
+import SearchByCategory from "../pages/Search-By-Category/index";
+import SearchByTag from "../pages/Search-By-Tag/index";
 import EmailVerify from "../pages/Email-verify";
 import Error from "../pages/Not-found";
 import NewPasswordSetup from "../pages/ForgotPassword/New-Password-Setup";
@@ -62,6 +64,8 @@ const Routes = () => {
     <Router>
       <Home exact path="/" />
       <Shop path="/shop" />
+      <SearchByCategory path="/searchByCategory/:category" />
+      <SearchByTag path="/searchByTag/:tag" />
       <Contact path="/contact" />
       <Login path="/login" />
       <Register path="/register" />
