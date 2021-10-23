@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { Link } from "@reach/router";
+import { navigate } from "@reach/router";
 import HorizontalLine from "./../config/HorizontalLine";
 
 const OrderSummary = ({ button }) => {
@@ -20,15 +20,15 @@ const OrderSummary = ({ button }) => {
     <div className="order__summery__table mt-3">
       <div className="d-flex align-items-center justify-content-between py-2">
         <span>Subtotal</span>
-        <span>{subtotal ? "$"+ subtotal.toFixed(2) : "N/A"}</span>
+        <span>{subtotal ? "$" + subtotal.toFixed(2) : "N/A"}</span>
       </div>
       <div className="d-flex align-items-center justify-content-between py-2">
         <span>Tax</span>
-        <span>{subtotal ? tax+"%" : "N/A"}</span>
+        <span>{subtotal ? tax + "%" : "N/A"}</span>
       </div>
       <div className="d-flex align-items-center justify-content-between py-2">
         <span>Shipping Fees</span>
-        <span>{subtotal ? "$"+deliveryCharge : "N/A"}</span>
+        <span>{subtotal ? "$" + deliveryCharge : "N/A"}</span>
       </div>
       <HorizontalLine
         width="100%"
@@ -38,13 +38,19 @@ const OrderSummary = ({ button }) => {
       />
       <div className="d-flex align-items-center justify-content-between py-2">
         <span className="font-size__1">Grand Total</span>
-        <span className="font-size__1">${subtotal ? grandTotal : "N/A"}</span>
+        <span className="font-size__1">{subtotal ? `$${grandTotal}` : "N/A"}</span>
       </div>
       {button && (
         <div className="mt-2">
-          <Link to="/checkout" className="btn py-3 w-100 font-size__1">
+          <button
+            className="btn w-100 py-3 font-size__1"
+            onClick={()=>navigate("/checkout")}
+            disabled={cartItems.length > 0 ? false : true}
+          >
+            {/* <Link to="/checkout" className=""> */}
             Process to checkout
-          </Link>
+            {/* </Link> */}
+          </button>
         </div>
       )}
     </div>

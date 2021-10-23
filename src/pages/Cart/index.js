@@ -45,7 +45,12 @@ const Index = () => {
           },
         ]}
       />,
-      <TextCell key={shortid.generate()} text={item.name} as="td" />,
+      <TextCell
+        key={shortid.generate()}
+        text={`${item.name.slice(0, 10)}...`}
+        as="td"
+        className="text-start"
+      />,
       <TextCell
         key="quantity"
         text={item.quantity}

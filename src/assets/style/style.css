@@ -29,6 +29,9 @@
 /*********** Modal css end ************/
 
 /********* Global css start ***********/
+:disabled{
+  cursor: no-drop !important;
+}
 body,
 html {
   font-family: "Roboto", sans-serif;
@@ -1857,16 +1860,16 @@ label.upload__photo {
 .product__category span {
   font-weight: 700;
 }
-.slider__content .pd_quantity {
-  margin: 0px 0;
-  width: 100%;
+.slider__box .pd_quantity {
+  margin: -10px auto;
+  width: 80%;
   display: flex;
   align-items: center;
   justify-content: space-between;
   border: 1px solid #eee;
   border-radius: 15px;
 }
-.slider__content .pd_quantity button {
+.slider__box .pd_quantity button {
   width: 53px;
   height: 26px;
 }

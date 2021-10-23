@@ -9,6 +9,7 @@ import Step from "./Step";
 import { IoMdCheckmarkCircleOutline } from "react-icons/io";
 // import Cookies from "js-cookie";
 const Form = ({ step, setStep, cartItems }) => {
+  const [completed, setCompleted] = useState(false);
   // react-redux hooks
   const dispatch = useDispatch();
   // form data grapping state
@@ -57,7 +58,8 @@ const Form = ({ step, setStep, cartItems }) => {
       product: cartItems,
       payment: { ...paymentField, methodName },
     };
-    dispatch(OrderCreateActions(order, setStep, step));
+    setCompleted(true);
+    dispatch(OrderCreateActions(order, setStep, step, setCompleted));
   };
   // shipping address input handle change
   const handleChange = (step, e) => {
@@ -235,6 +237,7 @@ const Form = ({ step, setStep, cartItems }) => {
           type="button"
           onClick={() => setStep(step - 1)}
           className="btn me-4"
+          disabled={completed ? true : false}
         >
           Previous
         </button>
@@ -245,13 +248,18 @@ const Form = ({ step, setStep, cartItems }) => {
           type="button"
           className="btn"
           onClick={(e) => stepHandleChange(formData.stepOne, e)}
+          disabled={cartItems.length > 0 ? false : true}
         >
           Next
         </button>
       )}
       {/* place order button */}
       {step === 2 && (
-        <button type="submit" className="btn">
+        <button
+          type="submit"
+          className="btn"
+          disabled={completed ? true : false}
+        >
           Place Order
         </button>
       )}

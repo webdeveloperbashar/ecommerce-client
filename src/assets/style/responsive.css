@@ -1590,7 +1590,7 @@ PRODUCT DETAILS PAGE CSS END
     font-size: 13px;
   }
   .quantity {
-    margin: -10px 0 !important;
+    margin: -10px auto !important;
     display: flex;
     align-items: center;
   }

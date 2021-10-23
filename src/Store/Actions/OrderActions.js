@@ -14,7 +14,7 @@ export const OrderGetActions = () => async (dispatch) => {
 };
 
 export const OrderCreateActions =
-  (orderData, setStep, step) => async (dispatch, getState) => {
+  (orderData, setStep, step, setCompleted) => async (dispatch, getState) => {
     const cartItems = getState().cart.cartItems;
     const { data } = await axios.post(
       `https://vast-coast-81152.herokuapp.com/order-create`,
@@ -31,10 +31,11 @@ export const OrderCreateActions =
       localStorage.removeItem("cart");
       cartItems.splice(0, cartItems.length);
       setStep(step + 1);
+      setCompleted(false);
     }
     if (data.error) {
       setStep(1);
-      if(data.error.product){
+      if (data.error.product) {
         toast.error(data.error.product, {
           pauseOnHover: false,
         });
@@ -42,5 +43,6 @@ export const OrderCreateActions =
       toast.error("Payment is required", {
         pauseOnHover: false,
       });
+      setCompleted(false);
     }
   };

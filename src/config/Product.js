@@ -62,29 +62,27 @@ const Product = ({
             <h3 className="mb-2">${productPrice}</h3>
             <h4>{productSize}</h4>
             <br />
-            {cartItems ? (
-              <Link to="#">
-                <div className="quantity pd_quantity">
-                  <button onClick={() => handleQuantity("decreament")}>
-                    -
-                  </button>
-                  <span>{cartItems.quantity}</span>
-                  <button onClick={() => handleQuantity("increament")}>
-                    +
-                  </button>
-                </div>
-              </Link>
-            ) : (
-              <Link
-                to="#"
-                onClick={() => dispatch(AddToCartAction(product, 1))}
-                className="product__link"
-              >
-                Add to cart <CgChevronDoubleRight className="arrow__icon" />
-              </Link>
-            )}
           </div>
         </Link>
+        <div style={{textAlign: 'center', margin: 'auto'}}>
+          {cartItems ? (
+            <Link to="#">
+              <div className="quantity pd_quantity">
+                <button onClick={() => handleQuantity("decreament")}>-</button>
+                <span>{cartItems.quantity}</span>
+                <button onClick={() => handleQuantity("increament")}>+</button>
+              </div>
+            </Link>
+          ) : (
+            <span
+              style={{ cursor: "pointer" }}
+              onClick={() => dispatch(AddToCartAction(product, 1))}
+              className="product__link"
+            >
+              Add to cart <CgChevronDoubleRight className="arrow__icon" />
+            </span>
+          )}
+        </div>
       </div>
     </>
   );
