@@ -2,7 +2,7 @@ import axios from "axios";
 
 // get all product
 export const getAllProduct = () => async (dispatch) => {
-  const { data } = await axios.get(`http://localhost:4000/get-product`);
+  const { data } = await axios.get(`https://vast-coast-81152.herokuapp.com/get-product`);
   dispatch({
     type: "FETCH_ALL_PRODUCT",
     payload: data,
@@ -12,7 +12,7 @@ export const getAllProduct = () => async (dispatch) => {
 // get product by filter query
 export const getProductByFilter = (filter) => async (dispatch) => {
   const { data } = await axios.post(
-    `http://localhost:4000/searchFilter`,
+    `https://vast-coast-81152.herokuapp.com/searchFilter`,
     filter
   );
   dispatch({
@@ -22,7 +22,7 @@ export const getProductByFilter = (filter) => async (dispatch) => {
 };
 // get product by search query
 export const getProductBySearch = (arg) => async (dispatch) => {
-  const { data } = await axios.post(`http://localhost:4000/search`, arg);
+  const { data } = await axios.post(`https://vast-coast-81152.herokuapp.com/search`, arg);
   dispatch({
     type: "GET_PRODUCT_BY_SEARCH",
     payload: data,
@@ -30,7 +30,7 @@ export const getProductBySearch = (arg) => async (dispatch) => {
 };
 // get product createdAt sorting
 export const getCreatedSorting = (sort, order, limit) => async (dispatch) => {
-  const { data } = await axios.post(`http://localhost:4000/products`, {
+  const { data } = await axios.post(`https://vast-coast-81152.herokuapp.com/products`, {
     sort,
     order,
     limit,
@@ -42,7 +42,7 @@ export const getCreatedSorting = (sort, order, limit) => async (dispatch) => {
 };
 // get product sold sorting
 export const getSoldSorting = (sort, order, limit) => async (dispatch) => {
-  const { data } = await axios.post(`http://localhost:4000/products`, {
+  const { data } = await axios.post(`https://vast-coast-81152.herokuapp.com/products`, {
     sort,
     order,
     limit,
@@ -55,7 +55,7 @@ export const getSoldSorting = (sort, order, limit) => async (dispatch) => {
 // get product rating descending sorting
 export const getRatingDescSorting =
   (sort, order, limit) => async (dispatch) => {
-    const { data } = await axios.post(`http://localhost:4000/products`, {
+    const { data } = await axios.post(`https://vast-coast-81152.herokuapp.com/products`, {
       sort,
       order,
       limit,
@@ -67,7 +67,7 @@ export const getRatingDescSorting =
   };
 // get product rating ascending sorting
 export const getRatingAscSorting = (sort, order, limit) => async (dispatch) => {
-  const { data } = await axios.post(`http://localhost:4000/products`, {
+  const { data } = await axios.post(`https://vast-coast-81152.herokuapp.com/products`, {
     sort,
     order,
     limit,

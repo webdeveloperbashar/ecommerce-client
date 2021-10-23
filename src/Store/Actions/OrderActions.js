@@ -5,7 +5,7 @@ import getDataFromLocalhost from "./../../config/GetLocalhostData";
 export const OrderGetActions = () => async (dispatch) => {
   const user = getDataFromLocalhost("user");
   const { data } = await axios.get(
-    `http://localhost:4000/orderGet/${user.Email}`
+    `https://vast-coast-81152.herokuapp.com/orderGet/${user.Email}`
   );
   dispatch({
     type: "FETCH_ORDER_SUCCESS",
@@ -17,7 +17,7 @@ export const OrderCreateActions =
   (orderData, setStep, step) => async (dispatch, getState) => {
     const cartItems = getState().cart.cartItems;
     const { data } = await axios.post(
-      `http://localhost:4000/order-create`,
+      `https://vast-coast-81152.herokuapp.com/order-create`,
       orderData
     );
     dispatch({

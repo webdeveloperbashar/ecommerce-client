@@ -2,7 +2,7 @@ import axios from "axios";
 
 export const UserUpdateAction = (userData) => async (dispatch) => {
   const { data } = await axios.put(
-    `http://localhost:4000/api/user/${userData.email}`,
+    `https://vast-coast-81152.herokuapp.com/api/user/${userData.email}`,
     userData
   );
   dispatch({

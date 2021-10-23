@@ -1,4 +1,4 @@
-import { Redirect } from "@reach/router";
+import { navigate } from "@reach/router";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useBreakpoints } from "react-device-breakpoints";
@@ -19,9 +19,8 @@ const Index = () => {
   const user = getDataFromLocalhost("user");
   // react hooks
   useEffect(() => {
-    if (user === null) {
-      <Redirect to="/login" />
-      console.log(user)
+    if (!user) {
+      navigate('/login')
     }
   }, [user]);
   // user personal information functionalities
@@ -51,7 +50,7 @@ const Index = () => {
     });
     if (res.data.secure_url) {
       const { data } = await axios.put(
-        `http://localhost:4000/api/userImage/${formData.email}`,
+        `https://vast-coast-81152.herokuapp.com/api/userImage/${formData.email}`,
         {
           profile: res.data.secure_url,
         }
@@ -71,7 +70,7 @@ const Index = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const { data } = await axios.put(
-      `http://localhost:4000/api/user/${formData.email}`,
+      `https://vast-coast-81152.herokuapp.com/api/user/${formData.email}`,
       formData
     );
     localStorage.setItem("user", JSON.stringify(data));

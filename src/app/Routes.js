@@ -20,46 +20,6 @@ import { useSelector } from "react-redux";
 const Routes = () => {
   const user = getDataFromLocalhost("user");
   const stateUser = useSelector((state) => state.login.user);
-  // const history = createBrowserHistory();
-  // return (
-  //   <Router history={history}>
-  //     <Switch>
-  //       <Route exact path="/" component={Home} />
-  //       <Route path="/shop" component={Shop} />
-  //       <Route path="/contact" component={Contact} />
-  //       <Route
-  //         path="/login"
-  //         render={() =>
-  //           getDataFromLocalhost("user") ? <Redirect to="/" /> : <Login />
-  //         }
-  //       />
-  //       <Route
-  //         path="/register"
-  //         render={() =>
-  //           getDataFromLocalhost("user") ? <Redirect to="/" /> : <Register />
-  //         }
-  //       />
-  //       <Route path="/forgotpassword" component={ForgotPassword} />
-  //       <Route path="/cart">
-  //         <Cart />
-  //       </Route>
-  //       <Route path="/favourite" component={Favorite} />
-  //       <Route path="/checkout">
-  //         <Checkout />
-  //       </Route>
-  //       <Route path="/product-details/:id" component={ProductDetails} />
-  //       <Route path={`/my-account/${user?.username || stateUser?.username}`}>
-  //         <MyAccount />
-  //       </Route>
-  //       <Route path="/user/email_verify/:token" component={EmailVerify} />
-  //       <Route
-  //         path="/user/forgot_password/:token"
-  //         component={NewPasswordSetup}
-  //       />
-  //       <Route path="*" component={Error} />
-  //     </Switch>
-  //   </Router>
-  // );
   return (
     <Router>
       <Home exact path="/" />

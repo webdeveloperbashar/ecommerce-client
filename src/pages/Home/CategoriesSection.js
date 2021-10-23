@@ -25,7 +25,7 @@ const CategoriesSection = () => {
                     <div className="category__widget__wrap">
                       <div className="category__widget__heading">
                         <h4 className="category__widget__title">
-                          {item.category}
+                          {item.category.split(" ").join("-")}
                         </h4>
                       </div>
                     </div>
@@ -33,25 +33,41 @@ const CategoriesSection = () => {
                       <div className="category__widget__content">
                         <ul className="category__icon__list__items">
                           <li className="category__icon__list__item">
-                            <Link to={`/shop?category=${item.category}`}>
+                            <Link
+                              to={`/searchByCategory/${item.category
+                                .split(" ")
+                                .join("-")}`}
+                            >
                               {" "}
                               <VscTriangleRight /> Nut & Seed
                             </Link>
                           </li>
                           <li className="category__icon__list__item">
-                            <Link to={`/shop?category=${item.category}`}>
+                            <Link
+                              to={`/searchByCategory/${item.category
+                                .split(" ")
+                                .join("-")}`}
+                            >
                               {" "}
                               <VscTriangleRight /> Oils
                             </Link>
                           </li>
                           <li className="category__icon__list__item">
-                            <Link to={`/shop?category=${item.category}`}>
+                            <Link
+                              to={`/searchByCategory/${item.category
+                                .split(" ")
+                                .join("-")}`}
+                            >
                               {" "}
                               <VscTriangleRight /> Tomatos
                             </Link>
                           </li>
                           <li className="category__icon__list__item">
-                            <Link to={`/shop?category=${item.category}`}>
+                            <Link
+                              to={`/searchByCategory/${item.category
+                                .split(" ")
+                                .join("-")}`}
+                            >
                               {" "}
                               <VscTriangleRight /> Soup
                             </Link>

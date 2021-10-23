@@ -3,7 +3,7 @@ import { toast } from "react-toastify";
 
 export const ProductReviewAction = (review) => async (dispatch) => {
   const { data } = await axios.post(
-    `http://localhost:4000/product-review`,
+    `https://vast-coast-81152.herokuapp.com/product-review`,
     review
   );
   dispatch({
@@ -20,7 +20,7 @@ export const ProductReviewAction = (review) => async (dispatch) => {
 // product review get
 export const ProductReveiwGetAction = (productId) => async (dispatch) => {
   const { data } = await axios.get(
-    `http://localhost:4000/get-productReview/${productId}`
+    `https://vast-coast-81152.herokuapp.com/get-productReview/${productId}`
   );
   dispatch({
     type: "GET_PRODUCT_REVIEW",

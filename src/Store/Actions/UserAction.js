@@ -3,7 +3,7 @@ import { toast } from "react-toastify";
 // user login
 export const UserLogin = (userData, redirect, navigate) => async (dispatch) => {
   const { data } = await axios.post(
-    `http://localhost:4000/auth/login`,
+    `https://vast-coast-81152.herokuapp.com/auth/login`,
     userData
   );
   dispatch({
@@ -26,7 +26,7 @@ export const UserLogin = (userData, redirect, navigate) => async (dispatch) => {
 // user signup
 export const userSignup = (userData, navigate) => async (dispatch) => {
   const { data } = await axios.post(
-    `http://localhost:4000/auth/signup`,
+    `https://vast-coast-81152.herokuapp.com/auth/signup`,
     userData
   );
   dispatch({
@@ -39,10 +39,15 @@ export const userSignup = (userData, navigate) => async (dispatch) => {
     navigate("/login");
   }
 };
+// user logout
+export const handleLogout = (navigate) => {
+  localStorage.removeItem("user");
+  navigate("/login");
+};
 // email verify
 export const emailVerify = (email) => async (dispatch) => {
   const { data } = await axios.put(
-    `http://localhost:4000/auth/email_verify/${email}`
+    `https://vast-coast-81152.herokuapp.com/auth/email_verify/${email}`
   );
   dispatch({
     type: "EMAIL_VERIFY",
@@ -56,7 +61,7 @@ export const emailVerify = (email) => async (dispatch) => {
 // resend activation link
 export const resendLink = (token) => async (dispatch) => {
   const { data } = await axios.post(
-    `http://localhost:4000/auth/resend_code/${token}`
+    `https://vast-coast-81152.herokuapp.com/auth/resend_code/${token}`
   );
   dispatch({
     type: "RESEND_LINK",
@@ -71,7 +76,7 @@ export const resendLink = (token) => async (dispatch) => {
 // user forgot password
 export const forgotPassword = (email) => async (dispatch) => {
   const { data } = await axios.post(
-    `http://localhost:4000/auth/forgot_password`,
+    `https://vast-coast-81152.herokuapp.com/auth/forgot_password`,
     email
   );
   dispatch({
@@ -87,7 +92,7 @@ export const forgotPassword = (email) => async (dispatch) => {
 // user password update
 export const resetPassword = (passwordData, token) => async (dispatch) => {
   const { data } = await axios.post(
-    `http://localhost:4000/auth/reset_password/${token}`,
+    `https://vast-coast-81152.herokuapp.com/auth/reset_password/${token}`,
     passwordData
   );
   dispatch({
@@ -101,7 +106,7 @@ export const resetPassword = (passwordData, token) => async (dispatch) => {
 // chnage password
 export const changePassword = (passwordData, email) => async (dispatch) => {
   const { data } = await axios.put(
-    `http://localhost:4000/auth/change-password/${email}`,
+    `https://vast-coast-81152.herokuapp.com/auth/change-password/${email}`,
     passwordData
   );
   dispatch({

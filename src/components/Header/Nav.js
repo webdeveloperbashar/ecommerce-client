@@ -1,15 +1,12 @@
 import { FaOutdent } from "react-icons/fa";
-import { Link, Redirect } from "@reach/router";
+import { Link, navigate } from "@reach/router";
 import getDataFromLocalhost from "../../config/GetLocalhostData";
 import MobileNavbar from "./MobileNavbar";
 import SubMenuCategory from "./Sub-Menu-Category";
 import TopHeader from "./TopHeader";
+import { handleLogout } from "../../Store/Actions/UserAction";
 const Nav = ({ isShow }) => {
   // user logout
-  const handleLogout = () => {
-    localStorage.removeItem("user");
-    <Redirect to="/login" />;
-  };
   return (
     <header className="desktop__navbar">
       <TopHeader />
@@ -46,13 +43,13 @@ const Nav = ({ isShow }) => {
               </li>
               <li className="nav-item">
                 {getDataFromLocalhost("user") ? (
-                  <Link
-                    onClick={handleLogout}
+                  <span
+                    onClick={()=>handleLogout(navigate)}
                     className="p__2 font-light link"
-                    to="#"
+                    style={{cursor: 'pointer'}}
                   >
                     Logout
-                  </Link>
+                  </span>
                 ) : (
                   <Link className="p__2 font-light link" to="/login">
                     Login
