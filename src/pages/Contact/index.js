@@ -66,7 +66,7 @@ const Index = () => {
                   <h2 className="font-size__3 text-center text-white">
                     Send Message
                   </h2>
-                  <form>
+                  <form onSubmit={(e) => e.preventDefault()}>
                     <div className="form-group">
                       <input
                         type="text"

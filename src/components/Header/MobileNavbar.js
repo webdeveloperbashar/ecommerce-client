@@ -15,9 +15,9 @@ const MobileNavbar = ({
   // get data react-redux
   const product = useSelector((state) => state.cart.cartItems);
   // sticky search form show and hide
-  const [searchFromShow, setSearchFromShow] = useState(false);
+  const [searchFormShow, setSearchFormShow] = useState(false);
   const handleIconClick = () => {
-    setSearchFromShow(!searchFromShow);
+    setSearchFormShow(!searchFormShow);
   };
   return (
     <>
@@ -50,12 +50,12 @@ const MobileNavbar = ({
                 <li>
                   <FaSearch
                     className="icon"
-                    onClick={() => handleIconClick(!searchFromShow)}
+                    onClick={() => handleIconClick(false)}
                   />
                 </li>
               </ul>
             </div>
-            <StickySearchForm searchFromShow={searchFromShow} />
+            <StickySearchForm searchFormShow={searchFormShow} />
           </div>
         </div>
       </header>

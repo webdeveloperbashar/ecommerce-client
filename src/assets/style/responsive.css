@@ -207,7 +207,7 @@ PRODUCT DETAILS PAGE CSS END
     height: 200px !important;
   }
   .search__form {
-    margin-left: 10px;
+    margin-left: 0px;
   }
   .support {
     margin-right: -16px !important;
