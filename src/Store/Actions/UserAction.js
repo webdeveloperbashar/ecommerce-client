@@ -1,44 +1,52 @@
 import axios from "axios";
 import { toast } from "react-toastify";
 // user login
-export const UserLogin = (userData, redirect, navigate) => async (dispatch) => {
-  const { data } = await axios.post(
-    `https://vast-coast-81152.herokuapp.com/auth/login`,
-    userData
-  );
-  dispatch({
-    type: "USER_LOGIN",
-    payload: data,
-  });
-  if (data.credential) {
-    localStorage.setItem("user", JSON.stringify(data));
-    toast.success(data.credential, {
-      pauseOnHover: false,
+export const UserLogin =
+  (userData, redirect, navigate, setLoading) => async (dispatch) => {
+    const { data } = await axios.post(
+      `https://vast-coast-81152.herokuapp.com/auth/login`,
+      userData
+    );
+    dispatch({
+      type: "USER_LOGIN",
+      payload: data,
     });
-    navigate(redirect || "/");
-  }
-  if (data.wrong) {
-    toast.error(data.wrong, {
-      pauseOnHover: false,
-    });
-  }
-};
+    if (data.credential) {
+      localStorage.setItem("user", JSON.stringify(data));
+      toast.success(data.credential, {
+        pauseOnHover: false,
+      });
+      navigate(redirect || "/");
+      setLoading(false);
+    }
+    if (data.wrong || data) {
+      toast.error(data.wrong, {
+        pauseOnHover: false,
+      });
+      setLoading(false);
+    }
+  };
 // user signup
-export const userSignup = (userData, navigate) => async (dispatch) => {
-  const { data } = await axios.post(
-    `https://vast-coast-81152.herokuapp.com/auth/signup`,
-    userData
-  );
-  dispatch({
-    type: "USER_SIGNUP",
-    payload: data,
-  });
-  if (data.success) {
-    sessionStorage.setItem("verify_message", JSON.stringify(data.success));
-    localStorage.setItem("verify_email", JSON.stringify(data.verifyEmail));
-    navigate("/login");
-  }
-};
+export const userSignup =
+  (userData, navigate, setLoading) => async (dispatch) => {
+    const { data } = await axios.post(
+      `https://vast-coast-81152.herokuapp.com/auth/signup`,
+      userData
+    );
+    dispatch({
+      type: "USER_SIGNUP",
+      payload: data,
+    });
+    if (data.success) {
+      sessionStorage.setItem("verify_message", JSON.stringify(data.success));
+      localStorage.setItem("verify_email", JSON.stringify(data.verifyEmail));
+      navigate("/login");
+      setLoading(false);
+    }
+    if (data) {
+      setLoading(false);
+    }
+  };
 // user logout
 export const handleLogout = (navigate) => {
   localStorage.removeItem("user");

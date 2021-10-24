@@ -6,6 +6,7 @@ import getDataFromSession from "../config/GetSessionStorageData";
 import { UserLogin } from "../Store/Actions/UserAction";
 import getDataFromLocalhost from "../config/GetLocalhostData";
 const Login = ({ width, heading, isShow }) => {
+  const [loading, setLoading] = useState(false);
   // get data from sessionStorage
   const verifyMessage = getDataFromSession("verify_message");
   // hooks
@@ -34,7 +35,8 @@ const Login = ({ width, heading, isShow }) => {
   // handle submit
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(UserLogin(formData, redirect, navigate));
+    setLoading(true);
+    dispatch(UserLogin(formData, redirect, navigate, setLoading));
   };
   // password show and hide function
   const [passwordShow, setPasswordShow] = useState(false);
@@ -102,8 +104,9 @@ const Login = ({ width, heading, isShow }) => {
               <button
                 type="submit"
                 className="btn w-100 py-3 text-white auth__button"
+                disabled={loading ? true : false}
               >
-                Login
+                {loading ? "Loading..." : "Login"}
               </button>
             </div>
             <div className="form-group">

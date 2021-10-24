@@ -6,6 +6,7 @@ import getDataFromLocalhost from "../config/GetLocalhostData";
 const Register = () => {
   // get error message from react-redux
   const message = useSelector((state) => state.signup.user);
+  const [loading, setLoading] = useState(false)
   // redirect
   useEffect(() => {
     if (getDataFromLocalhost("user")) {
@@ -29,7 +30,8 @@ const Register = () => {
     signupData.gender = "";
     signupData.dateofbirth = "";
     signupData.profile = "";
-    dispatch(userSignup(signupData, navigate));
+    setLoading(true)
+    dispatch(userSignup(signupData, navigate, setLoading));
   };
   // pasword check type
   const [checkType, setCheckType] = useState(false);
@@ -152,8 +154,9 @@ const Register = () => {
             <button
               type="submit"
               className="btn w-100 py-3 text-white auth__button"
+              disabled={loading ? true : false}
             >
-              Register Now
+              {loading ? "Loading..." : "Register Now"}
             </button>
           </div>
           <div className="form-group">

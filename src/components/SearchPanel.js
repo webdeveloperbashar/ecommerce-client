@@ -64,7 +64,7 @@ const SearchPanel = () => {
                         />
                       </div>
                       <div className="product__content">
-                        <h5>{item.name}</h5>
+                        <h5>{item.name.length >= 30 ? `${item.name.slice(0,30)}...` : item.name}</h5>
                         <h3>${item.price}</h3>
                       </div>
                     </div>

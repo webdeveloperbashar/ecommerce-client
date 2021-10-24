@@ -1434,7 +1434,7 @@ span.address__icon:hover {
 span.visible__icon {
   font-size: 22px;
   position: absolute;
-  z-index: 9;
+  z-index: 1;
   right: 7px;
   top: 8px;
   color: #777474;
