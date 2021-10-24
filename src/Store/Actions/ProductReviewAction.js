@@ -6,6 +6,7 @@ export const ProductReviewAction = (review) => async (dispatch) => {
     `https://vast-coast-81152.herokuapp.com/product-review`,
     review
   );
+  console.log(data)
   dispatch({
     type: "PRODUCT_REVIEW",
     payload: data,

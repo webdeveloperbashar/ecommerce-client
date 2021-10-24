@@ -27,6 +27,8 @@ const App = () => {
     dispatch(getAllProduct());
   }, [dispatch]);
 
+
+
   return (
     <>
       <Helmet>

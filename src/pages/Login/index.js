@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useBreakpoints } from "react-device-breakpoints";
 import { Helmet } from "react-helmet";
 import Footer from "../../components/Footer";
@@ -6,6 +7,9 @@ import Login from "../../components/Login";
 const Index = () => {
   // device breakpoints
   const device = useBreakpoints();
+  useEffect(()=>{
+    window.scrollTo(0,0)
+  },[])
   return (
     <>
       <Helmet>

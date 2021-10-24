@@ -1,3 +1,5 @@
+
+import { useEffect } from "react";
 import { useBreakpoints } from "react-device-breakpoints";
 import { Helmet } from "react-helmet";
 import { FaMapMarkerAlt, FaPhoneAlt } from "react-icons/fa";
@@ -6,6 +8,9 @@ import Footer from "../../components/Footer";
 import Nav from "../../components/Header/Nav";
 const Index = () => {
   const device = useBreakpoints();
+  useEffect(()=>{
+    window.scrollTo(0,0)
+  },[])
   return (
     <>
       <Helmet>
@@ -63,7 +68,7 @@ const Index = () => {
             <div className="col-md-6">
               <div className="contact__right mt-5">
                 <div className="contact__form">
-                  <h2 className="font-size__3 text-center text-white">
+                  <h2 className="font-size__3 text-center text-dark">
                     Send Message
                   </h2>
                   <form onSubmit={(e) => e.preventDefault()}>

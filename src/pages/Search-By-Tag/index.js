@@ -53,6 +53,9 @@ const Index = () => {
   useEffect(() => {
     setSearchValues({ keyword: tag });
   }, [tag]);
+  useEffect(()=>{
+    window.scrollTo(0,0)
+  },[])
   return (
     <>
       <Helmet>

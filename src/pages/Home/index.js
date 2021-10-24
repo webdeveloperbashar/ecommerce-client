@@ -10,9 +10,13 @@ import SubscribeSection from "./SubscribeSection";
 import TopRatedProduct from "./TopRatedProduct";
 import CategoriesSection from "./CategoriesSection";
 import BestSellingProduct from "./BestSellingProduct";
+import { useEffect } from "react";
 const Index = () => {
   // device breakpoints
   const device = useBreakpoints();
+  useEffect(()=>{
+    window.scrollTo(0,0)
+  },[])
   return (
     <>
       {device.isDesktop && <Nav />}

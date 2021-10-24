@@ -23,6 +23,9 @@ const Index = () => {
       navigate('/login')
     }
   }, [user]);
+  useEffect(()=>{
+    window.scrollTo(0,0)
+  },[])
   // user personal information functionalities
   const [upload, setUpload] = useState({
     profile: "",

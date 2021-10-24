@@ -65,6 +65,9 @@ const Index = () => {
       setSearchValues({ category: newCheckedCategory, page: 1 });
     }
   };
+  useEffect(()=>{
+    window.scrollTo(0,0)
+  },[])
   return (
     <>
       <Helmet>

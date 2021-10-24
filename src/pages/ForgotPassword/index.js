@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useState } from "react";
 import { useBreakpoints } from "react-device-breakpoints";
 import { useDispatch, useSelector } from "react-redux";
@@ -16,6 +17,9 @@ const Index = () => {
     e.preventDefault();
     dispatch(forgotPassword(value));
   };
+  useEffect(()=>{
+    window.scrollTo(0,0)
+  },[])
   return (
     <>
       {device.isDesktop && <TopHeader />}

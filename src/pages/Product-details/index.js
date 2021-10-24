@@ -52,6 +52,9 @@ const Index = () => {
   useEffect(() => {
     dispatch(ProductReveiwGetAction(id));
   }, [dispatch, id, review]);
+  useEffect(()=>{
+    window.scrollTo(0,0)
+  },[])
   // qunatity count
   const [quantity, setQuantity] = useState(1);
   // quantity update

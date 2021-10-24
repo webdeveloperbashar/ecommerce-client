@@ -17,7 +17,11 @@ import {
   IncreaseQuantityAction,
   RemoveCartAction,
 } from "../../Store/Actions/CartAction";
+import { useEffect } from "react";
 const Index = () => {
+  useEffect(()=>{
+    window.scrollTo(0,0)
+  },[])
   // get data from react-redux store
   const cartItems = useSelector((state) => state.cart.cartItems);
   // react-redux hooks

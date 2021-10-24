@@ -43,6 +43,9 @@ const Index = () => {
   useEffect(() => {
     setSearchValues({ category: [catePlainText] });
   }, [catePlainText]);
+  useEffect(()=>{
+    window.scrollTo(0,0)
+  },[])
   return (
     <>
       <Helmet>

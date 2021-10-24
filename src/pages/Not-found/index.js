@@ -4,12 +4,16 @@ import { useBreakpoints } from "react-device-breakpoints";
 import {Link, useLocation} from '@reach/router'
 import Footer from "../../components/Footer";
 import TopHeader from "../../components/Header/TopHeader";
+import { useEffect } from "react";
 
 const Index = () => {
   // device breakpoints
   const device = useBreakpoints();
   // specific path get
   const path = useLocation().pathname.slice(1);
+  useEffect(()=>{
+    window.scrollTo(0,0)
+  },[])
   return (
     <>
       {device.isDesktop && <TopHeader />}

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 const Index = () => {
   const [checkType, setCheckType] = useState(false);
   const handleTypeCheck = () => {
@@ -16,8 +16,10 @@ const Index = () => {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(value);
   };
+  useEffect(()=>{
+    window.scrollTo(0,0)
+  },[])
   return (
     <>
       <div className="auth__form forgot__password mt-5 mb-5">

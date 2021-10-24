@@ -1393,11 +1393,11 @@ span.address__icon:hover {
 }
 .contact__form {
   padding: 30px;
-  background: black;
+  background: #eee;
   box-shadow: 0px 1px 10px #eee;
 }
 .message__input {
-  background: black;
+  background: #eee;
   color: rgb(177, 177, 177);
   font-size: 18px;
   margin-top: 18px;
@@ -1408,7 +1408,7 @@ span.address__icon:hover {
   color: rgb(139, 139, 139);
 }
 .message__input:focus {
-  background: black;
+  background: #eee;
   color: rgb(139, 139, 139);
 }
 /**********************************************

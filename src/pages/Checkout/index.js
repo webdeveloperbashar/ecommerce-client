@@ -22,6 +22,9 @@ const Index = () => {
       navigate("/login?redirect=/checkout");
     }
   }, []);
+  useEffect(()=>{
+    window.scrollTo(0,0)
+  },[])
   return (
     <>
       <Helmet>

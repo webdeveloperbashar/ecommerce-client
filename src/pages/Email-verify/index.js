@@ -26,6 +26,9 @@ const Index = () => {
     dispatch(resendLink(email));
     console.log("clicked");
   };
+  useEffect(()=>{
+    window.scrollTo(0,0)
+  },[])
   return (
     <>
       {device.isDesktop && <TopHeader />}
