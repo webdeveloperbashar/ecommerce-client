@@ -8,6 +8,7 @@ import { ProductReviewAction } from "../../../Store/Actions/ProductReviewAction"
 const ReviewForm = ({ id }) => {
   const user = getDataFromLocalhost("user");
   const [rating, setRating] = useState(0);
+  const [loading, setLoading] = useState(false);
   const [reviewer, setReviewer] = useState();
   const handleChange = (e) => {
     setReviewer({
@@ -29,9 +30,10 @@ const ReviewForm = ({ id }) => {
       ...reviewer,
     };
     if (user) {
-      dispatch(ProductReviewAction(review));
-    }else{
-      navigate('/login')
+      setLoading(true);
+      dispatch(ProductReviewAction(review, setLoading));
+    } else {
+      navigate("/login");
     }
   };
   return (
@@ -65,8 +67,12 @@ const ReviewForm = ({ id }) => {
           ></textarea>
         </div>
         <div className="form-group">
-          <button type="submit" className="btn w-100">
-            Submit Review
+          <button
+            type="submit"
+            disabled={loading ? true : false}
+            className="btn w-100"
+          >
+            {loading ? "Loading" : "Submit Review"}
           </button>
         </div>
       </form>

@@ -1,12 +1,12 @@
 import axios from "axios";
 import { toast } from "react-toastify";
 
-export const ProductReviewAction = (review) => async (dispatch) => {
+export const ProductReviewAction = (review, setLoading) => async (dispatch) => {
   const { data } = await axios.post(
     `https://vast-coast-81152.herokuapp.com/product-review`,
     review
   );
-  console.log(data)
+  console.log(data);
   dispatch({
     type: "PRODUCT_REVIEW",
     payload: data,
@@ -14,6 +14,13 @@ export const ProductReviewAction = (review) => async (dispatch) => {
 
   if (data.success) {
     toast.success(data.success, {
+      pauseOnHover: false,
+    });
+    setLoading(false);
+  }
+  if (data.wrong || data.error) {
+    setLoading(false);
+    toast.error("Field is required", {
       pauseOnHover: false,
     });
   }

@@ -60,7 +60,7 @@ const SearchPanel = () => {
                         <img
                           src={item.productImage[0].url}
                           className="img-fluid"
-                          alt="img"
+                          alt="img"o
                         />
                       </div>
                       <div className="product__content">
